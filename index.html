@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Knee Rehab v4.4</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* ── Variables ───────────────────────────────────── */
+:root {
+  --bg:       #1C1C1E;
+  --bg2:      #242426;
+  --bg3:      #2C2C2E;
+  --bg4:      #323234;
+  --border:   #3A3A3C;
+  --border2:  #48484A;
+  --muted:    #636366;
+  --muted2:   #8E8E93;
+  --text:     #E5E5EA;
+  --text2:    #AEAEB2;
+  --amber:    #FF9F0A;
+  --amber2:   #D4810A;
+  --amber-bg: #2A1F00;
+  --green:    #30D158;
+  --green-bg: #0D2018;
+  --red:      #FF453A;
+  --red-bg:   #250D0D;
+  --white:    #F2F2F7;
+
+/* iPhone safe areas */
+–safe-top:    env(safe-area-inset-top, 0px);
+–safe-bottom: env(safe-area-inset-bottom, 0px);
+–safe-left:   env(safe-area-inset-left, 0px);
+–safe-right:  env(safe-area-inset-right, 0px);
+
+/* Tab bar height */
+–tab-h: calc(54px + var(–safe-bottom));
+}
+
+/* ── Reset ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+font-family: ‘IBM Plex Sans’, sans-serif;
+background: var(–bg);
+color: var(–text);
+font-size: 16px;
+line-height: 1.65;
+overflow-x: hidden;
+/* Prevent content hiding behind notch */
+padding-top: var(–safe-top);
+}
+
+/* ── Pages ───────────────────────────────────────── */
+.page { display: none; min-height: 100vh; }
+.page.on { display: block; }
+
+/* ── Doc wrapper ─────────────────────────────────── */
+.doc {
+padding: 16px 16px calc(var(–tab-h) + 16px);
+max-width: 600px;
+margin: 0 auto;
+}
+
+/* ─────────────────────────────────────────────────── */
+/*  BOTTOM TAB BAR                                     */
+/* ─────────────────────────────────────────────────── */
+.tab-bar {
+position: fixed;
+bottom: 0; left: 0; right: 0;
+z-index: 200;
+background: rgba(28,28,30,0.95);
+backdrop-filter: saturate(180%) blur(20px);
+-webkit-backdrop-filter: saturate(180%) blur(20px);
+border-top: 1px solid var(–border2);
+display: flex;
+padding-bottom: var(–safe-bottom);
+}
+
+.tab-btn {
+flex: 1;
+display: flex; flex-direction: column;
+align-items: center; justify-content: center;
+gap: 3px;
+padding: 8px 4px;
+min-height: 54px;
+background: none; border: none; cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+position: relative;
+transition: background 0.1s;
+}
+.tab-btn:active { background: var(–bg3); }
+
+.tab-icon {
+font-size: 18px; color: var(–muted2);
+transition: color 0.15s;
+line-height: 1;
+}
+.tab-label {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; letter-spacing: 0.05em;
+text-transform: uppercase; color: var(–muted);
+transition: color 0.15s;
+}
+.tab-btn.on .tab-icon { color: var(–amber); }
+.tab-btn.on .tab-label { color: var(–amber); }
+.tab-btn.on::after {
+content: ‘’;
+position: absolute; top: 0; left: 20%; right: 20%;
+height: 2px; background: var(–amber);
+}
+
+/* ─────────────────────────────────────────────────── */
+/*  SLIDE-IN MORE MENU (replaces sidebar)              */
+/* ─────────────────────────────────────────────────── */
+.overlay {
+position: fixed; inset: 0;
+background: rgba(0,0,0,0.75);
+z-index: 300;
+opacity: 0; pointer-events: none;
+transition: opacity 0.22s;
+}
+.overlay.on { opacity: 1; pointer-events: all; }
+
+.menu-sheet {
+position: fixed;
+bottom: 0; left: 0; right: 0;
+z-index: 310;
+background: var(–bg2);
+border-top: 1px solid var(–border2);
+border-radius: 16px 16px 0 0;
+transform: translateY(100%);
+transition: transform 0.28s cubic-bezier(0.32,0.72,0,1);
+padding-bottom: var(–safe-bottom);
+max-height: 80vh;
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
+.menu-sheet.open { transform: translateY(0); }
+
+.ms-handle {
+width: 36px; height: 4px;
+background: var(–border2);
+border-radius: 2px;
+margin: 12px auto 16px;
+}
+
+.ms-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 22px; letter-spacing: 0.06em;
+color: var(–white);
+padding: 0 20px 4px;
+}
+.ms-sub {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; color: var(–amber);
+letter-spacing: 0.15em;
+padding: 0 20px 16px;
+border-bottom: 1px solid var(–border);
+}
+
+.ms-group {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 8px; font-weight: 600;
+letter-spacing: 0.2em; text-transform: uppercase;
+color: var(–muted);
+padding: 14px 20px 6px;
+}
+
+.ms-btn {
+display: flex; align-items: center; gap: 14px;
+width: 100%; background: none; border: none;
+cursor: pointer; padding: 14px 20px;
+text-align: left;
+min-height: 52px;
+border-bottom: 1px solid var(–border);
+transition: background 0.1s;
+}
+.ms-btn:last-child { border-bottom: none; }
+.ms-btn:active { background: var(–bg3); }
+.ms-btn.on { background: var(–amber-bg); }
+.ms-icon { font-size: 16px; color: var(–muted); width: 20px; text-align: center; flex-shrink: 0; }
+.ms-btn.on .ms-icon { color: var(–amber); }
+.ms-lbl { font-size: 16px; color: var(–text2); font-weight: 400; }
+.ms-btn.on .ms-lbl { color: var(–text); font-weight: 500; }
+.ms-arr { margin-left: auto; font-size: 12px; color: var(–muted); }
+
+/* ─────────────────────────────────────────────────── */
+/*  SECTION HEADERS                                    */
+/* ─────────────────────────────────────────────────── */
+.sh {
+display: flex; align-items: center; gap: 10px;
+margin: 28px 0 14px;
+padding-bottom: 10px;
+border-bottom: 1px solid var(–border);
+}
+.sh:first-child { margin-top: 8px; }
+.sh-num {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px; color: var(–muted);
+letter-spacing: 0.1em; flex-shrink: 0;
+}
+.sh-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 20px; letter-spacing: 0.06em;
+color: var(–white);
+}
+.sh-tag {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; color: var(–amber);
+background: var(–amber-bg);
+padding: 2px 7px; margin-left: auto;
+white-space: nowrap;
+}
+
+.sub-head {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px; font-weight: 600;
+letter-spacing: 0.15em; text-transform: uppercase;
+color: var(–amber);
+margin: 22px 0 10px;
+}
+
+/* ─────────────────────────────────────────────────── */
+/*  COVER                                              */
+/* ─────────────────────────────────────────────────── */
+.cover-page {
+min-height: 100svh;
+background: var(–bg);
+display: flex; flex-direction: column;
+justify-content: flex-end;
+padding: 24px 20px calc(var(–tab-h) + 20px);
+position: relative; overflow: hidden;
+}
+.cover-grid {
+position: absolute; inset: 0;
+background-image:
+linear-gradient(var(–border) 1px, transparent 1px),
+linear-gradient(90deg, var(–border) 1px, transparent 1px);
+background-size: 36px 36px;
+opacity: 0.3;
+}
+.cover-stripe {
+position: absolute; top: 0; right: 0;
+width: 3px; height: 100%;
+background: linear-gradient(180deg, transparent 10%, var(–amber) 45%, transparent 90%);
+}
+.cover-big-num {
+position: absolute;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: min(45vw, 180px);
+color: var(–bg2);
+line-height: 0.85;
+bottom: calc(var(–tab-h) + 16px);
+right: 10px;
+letter-spacing: -0.02em;
+user-select: none;
+}
+.cover-eyebrow {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px; letter-spacing: 0.2em;
+color: var(–amber); text-transform: uppercase;
+margin-bottom: 16px;
+position: relative; z-index: 1;
+}
+.cover-h1 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: min(22vw, 88px);
+color: var(–white); line-height: 0.9;
+letter-spacing: 0.04em;
+margin-bottom: 24px;
+position: relative; z-index: 1;
+}
+.cover-h1 em { color: var(–amber); font-style: normal; }
+
+.cover-chips {
+display: flex; flex-wrap: wrap; gap: 8px;
+margin-bottom: 24px;
+position: relative; z-index: 1;
+}
+.cover-chip {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; letter-spacing: 0.1em;
+color: var(–muted2);
+background: var(–bg2);
+border: 1px solid var(–border2);
+padding: 4px 10px;
+}
+
+.cover-divider {
+height: 1px; background: var(–border2);
+margin-bottom: 20px;
+position: relative; z-index: 1;
+}
+.cover-sources {
+display: flex; flex-direction: column; gap: 10px;
+position: relative; z-index: 1;
+}
+.cs { }
+.cs-name {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px; font-weight: 500;
+color: var(–amber); margin-bottom: 1px;
+}
+.cs-desc { font-size: 12px; color: var(–muted2); }
+
+/* ─────────────────────────────────────────────────── */
+/*  CARDS — mobile-native list style                   */
+/* ─────────────────────────────────────────────────── */
+.card {
+background: var(–bg2);
+border: 1px solid var(–border);
+margin-bottom: 8px;
+overflow: hidden;
+}
+.card-row {
+display: flex; align-items: flex-start;
+padding: 13px 14px;
+border-bottom: 1px solid var(–border);
+min-height: 52px;
+gap: 12px;
+}
+.card-row:last-child { border-bottom: none; }
+.card-row:nth-child(odd) { background: var(–bg3); }
+.card-row:nth-child(even) { background: var(–bg2); }
+.card-row:active { background: var(–bg4); }
+
+.cr-left { flex: 0 0 auto; min-width: 56px; }
+.cr-time {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 12px; color: var(–amber);
+white-space: nowrap;
+}
+.cr-key {
+font-size: 14px; font-weight: 500; color: var(–text);
+white-space: nowrap;
+}
+.cr-right { flex: 1; }
+.cr-val { font-size: 14px; color: var(–text); }
+.cr-desc { font-size: 13px; color: var(–muted2); line-height: 1.5; }
+.cr-note { font-size: 12px; color: var(–muted); font-style: italic; margin-top: 2px; }
+
+.card-head {
+padding: 10px 14px;
+background: var(–bg3);
+border-bottom: 1px solid var(–border2);
+display: flex; align-items: center; justify-content: space-between;
+}
+.ch-title {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; font-weight: 600;
+letter-spacing: 0.15em; text-transform: uppercase;
+color: var(–muted2);
+}
+.card-highlight { background: var(–amber-bg) !important; }
+.card-highlight .cr-key, .card-highlight .cr-val { color: var(–white); }
+.card-highlight .cr-time { color: var(–amber); }
+.card-warn { background: var(–red-bg) !important; }
+.card-warn .cr-key, .card-warn .cr-val { color: #C09090; }
+.card-green { background: var(–green-bg) !important; }
+.card-green .cr-val { color: #80C0A0; }
+
+/* ─────────────────────────────────────────────────── */
+/*  LAYER CARDS (3-col → stacked on phone)             */
+/* ─────────────────────────────────────────────────── */
+.layer-stack { display: flex; flex-direction: column; gap: 1px; background: var(–border); border: 1px solid var(–border); margin-bottom: 16px; }
+.layer-card {
+background: var(–bg2);
+padding: 16px;
+display: flex; gap: 14px; align-items: flex-start;
+}
+.lc-num-col {
+flex-shrink: 0;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; color: var(–muted);
+letter-spacing: 0.1em;
+padding-top: 4px;
+width: 56px;
+}
+.lc-main { flex: 1; }
+.lc-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 24px; letter-spacing: 0.06em;
+color: var(–white); line-height: 1;
+margin-bottom: 6px;
+}
+.lc-title.amber { color: var(–amber); }
+.lc-body {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px; color: var(–muted2);
+line-height: 1.7;
+}
+.lc-rule {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px; color: var(–muted);
+margin-top: 8px; padding-top: 8px;
+border-top: 1px solid var(–border);
+line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────── */
+/*  EXERCISE GROUPS — collapsible                      */
+/* ─────────────────────────────────────────────────── */
+.ex-group {
+border: 1px solid var(–border);
+margin-bottom: 8px;
+overflow: hidden;
+}
+.ex-group-head {
+display: flex; align-items: center;
+padding: 14px 14px;
+background: var(–bg3);
+cursor: pointer; user-select: none;
+min-height: 52px;
+gap: 10px;
+border-bottom: 1px solid var(–border);
+-webkit-tap-highlight-color: transparent;
+}
+.ex-group-head:active { background: var(–bg4); }
+.ex-group.open .ex-group-head { border-bottom-color: var(–border2); }
+.eg-title { font-size: 16px; font-weight: 500; color: var(–text); flex: 1; }
+.eg-freq {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; color: var(–muted);
+background: var(–bg2);
+padding: 2px 7px; border: 1px solid var(–border2);
+flex-shrink: 0;
+}
+.eg-chev { font-size: 10px; color: var(–muted); flex-shrink: 0; transition: transform 0.18s; }
+.ex-group.open .eg-chev { transform: rotate(180deg); color: var(–amber); }
+.ex-body { display: none; }
+.ex-group.open .ex-body { display: block; }
+
+/* Exercise rows — stacked for mobile */
+.ex-card {
+border-bottom: 1px solid var(–border);
+background: var(–bg2);
+}
+.ex-card:last-child { border-bottom: none; }
+.ex-card:nth-child(odd) { background: var(–bg); }
+.ex-card:active { background: var(–bg4); }
+.ex-top {
+padding: 12px 14px 6px;
+display: flex; align-items: flex-start; gap: 10px;
+}
+.ex-name { font-size: 16px; font-weight: 500; color: var(–text); flex: 1; }
+.ex-rx {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 12px; color: var(–amber);
+flex-shrink: 0;
+text-align: right;
+white-space: pre-line;
+line-height: 1.5;
+}
+.ex-desc {
+padding: 4px 14px 12px;
+font-size: 13px; color: var(–muted2);
+line-height: 1.55;
+}
+.ex-card.warn { background: var(–red-bg) !important; }
+.ex-card.warn .ex-name { color: #C09090; }
+.ex-card.warn .ex-rx { color: var(–red); }
+.ex-card.warn .ex-desc { color: #806060; }
+
+/* ─────────────────────────────────────────────────── */
+/*  SCHEDULE TABS — horizontal scroll                  */
+/* ─────────────────────────────────────────────────── */
+.sched-tabs {
+display: flex;
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+gap: 0;
+border-bottom: 1px solid var(–border);
+margin-bottom: 16px;
+}
+.sched-tabs::-webkit-scrollbar { display: none; }
+.sched-tab {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px; font-weight: 500;
+letter-spacing: 0.08em; text-transform: uppercase;
+padding: 12px 14px;
+background: none; border: none; cursor: pointer;
+color: var(–muted2);
+border-bottom: 2px solid transparent;
+margin-bottom: -1px;
+white-space: nowrap; flex-shrink: 0;
+min-height: 48px;
+-webkit-tap-highlight-color: transparent;
+}
+.sched-tab.on { color: var(–amber); border-bottom-color: var(–amber); }
+.sched-pane { display: none; }
+.sched-pane.on { display: block; }
+
+/* ─────────────────────────────────────────────────── */
+/*  RULES                                              */
+/* ─────────────────────────────────────────────────── */
+.rules { border: 1px solid var(–border); }
+.rule-row {
+display: flex; align-items: flex-start; gap: 0;
+border-bottom: 1px solid var(–border);
+}
+.rule-row:last-child { border-bottom: none; }
+.rule-row:nth-child(even) { background: var(–bg2); }
+.rule-row:nth-child(odd) { background: var(–bg); }
+.rule-n {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 24px; color: var(–amber);
+display: flex; align-items: center; justify-content: center;
+border-right: 1px solid var(–border);
+padding: 14px 0;
+width: 50px; flex-shrink: 0;
+opacity: 0.7;
+}
+.rule-c { padding: 13px 14px; flex: 1; }
+.rule-t { font-size: 15px; font-weight: 500; color: var(–text); margin-bottom: 3px; }
+.rule-d { font-size: 13px; color: var(–muted2); line-height: 1.5; }
+
+/* ─────────────────────────────────────────────────── */
+/*  PHASE BLOCKS                                       */
+/* ─────────────────────────────────────────────────── */
+.phase { border: 1px solid var(–border); margin-bottom: 10px; overflow: hidden; }
+.phase-head {
+padding: 14px;
+display: flex; align-items: center; justify-content: space-between;
+min-height: 52px;
+}
+.ph-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 18px; letter-spacing: 0.06em; color: var(–white);
+}
+.ph-weeks {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; color: var(–muted); letter-spacing: 0.1em;
+}
+.phase-item {
+display: flex; gap: 10px;
+padding: 12px 14px;
+border-top: 1px solid var(–border);
+font-size: 15px; color: var(–text2); line-height: 1.6;
+}
+.phase-item::before {
+content: ‘→’;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px; color: var(–muted);
+flex-shrink: 0; margin-top: 2px;
+}
+.phase-item:nth-child(even) { background: var(–bg2); }
+
+/* ─────────────────────────────────────────────────── */
+/*  TIMER                                              */
+/* ─────────────────────────────────────────────────── */
+.timer-box {
+background: var(–bg2);
+border: 1px solid var(–border2);
+padding: 20px 16px;
+margin-bottom: 16px;
+}
+.timer-lbl {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; letter-spacing: 0.2em;
+text-transform: uppercase; color: var(–muted);
+margin-bottom: 10px;
+}
+.timer-face {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 96px; letter-spacing: 0.02em;
+color: var(–white); line-height: 1;
+margin-bottom: 16px;
+transition: color 0.3s;
+}
+.timer-face.run { color: var(–amber); }
+.timer-face.warn { color: #C87820; }
+.timer-face.danger { color: var(–red); }
+.timer-face.done { color: var(–green); }
+
+.timer-btns { display: flex; gap: 10px; }
+.tbtn {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 13px; font-weight: 500;
+letter-spacing: 0.08em; text-transform: uppercase;
+padding: 0 20px;
+height: 48px;
+border: 1px solid; cursor: pointer;
+background: none; flex: 1;
+-webkit-tap-highlight-color: transparent;
+}
+.tbtn:active { opacity: 0.7; }
+.tbtn-go { color: var(–amber); border-color: var(–amber2); }
+.tbtn-pause { color: #C08030; border-color: #604010; }
+.tbtn-rst { color: var(–muted2); border-color: var(–border2); }
+
+.preset-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 8px;
+margin-top: 14px; padding-top: 14px;
+border-top: 1px solid var(–border);
+}
+.tpre {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px; font-weight: 500;
+letter-spacing: 0.05em;
+padding: 0 12px;
+height: 44px;
+background: var(–bg3); border: 1px solid var(–border2);
+color: var(–muted2); cursor: pointer;
+text-align: center;
+-webkit-tap-highlight-color: transparent;
+transition: all 0.1s;
+}
+.tpre:active { background: var(–amber-bg); border-color: var(–amber); color: var(–amber); }
+.tpre.selected { background: var(–amber-bg); border-color: var(–amber); color: var(–amber); }
+
+.timer-note {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px; color: var(–muted);
+margin-top: 12px; font-style: italic;
+}
+
+/* Wall sit dots */
+.ws-sets { display: flex; gap: 8px; margin-bottom: 16px; }
+.ws-dot {
+flex: 1;
+height: 44px;
+border: 1px solid var(–border2);
+display: flex; align-items: center; justify-content: center;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 13px; color: var(–muted);
+transition: all 0.2s;
+}
+.ws-dot.done { border-color: var(–green); color: var(–green); background: var(–green-bg); }
+.ws-dot.active { border-color: var(–amber); color: var(–amber); background: var(–amber-bg); }
+
+#wsFace { font-size: 72px !important; }
+
+/* ─────────────────────────────────────────────────── */
+/*  MISC ELEMENTS                                      */
+/* ─────────────────────────────────────────────────── */
+.note {
+font-size: 13px; color: var(–muted2);
+border-left: 2px solid var(–border2);
+padding-left: 12px; margin: 10px 0;
+font-style: italic; line-height: 1.55;
+}
+.body { font-size: 16px; color: var(–text2); line-height: 1.7; margin-bottom: 10px; }
+
+.changes {
+border: 1px solid var(–amber2);
+background: var(–amber-bg);
+padding: 14px 16px; margin-bottom: 20px;
+}
+.changes-title {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px; letter-spacing: 0.2em;
+text-transform: uppercase; color: var(–amber);
+margin-bottom: 10px;
+}
+.changes-list { list-style: none; }
+.changes-list li {
+font-size: 13px; color: #C09040;
+padding: 4px 0 4px 16px;
+position: relative; line-height: 1.55;
+}
+.changes-list li::before {
+content: ‘+’;
+position: absolute; left: 0;
+color: var(–amber); font-weight: 600;
+font-family: ‘IBM Plex Mono’, monospace;
+}
+
+.colophon {
+margin-top: 40px; padding: 14px;
+border: 1px solid var(–border);
+display: flex; gap: 12px;
+}
+.col-bar { width: 2px; background: var(–amber); flex-shrink: 0; }
+.col-text {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px; color: var(–muted2);
+line-height: 1.7;
+}
+.col-text strong { color: var(–text2); }
+
+/* Info pill */
+.pill {
+display: inline-flex; align-items: center; gap: 6px;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px; color: var(–amber);
+background: var(–amber-bg);
+border: 1px solid var(–amber2);
+padding: 4px 10px;
+margin: 4px 4px 4px 0;
+}
+
+/* Danger pill */
+.pill-r {
+color: var(–red); background: var(–red-bg);
+border-color: var(–red);
+}
+
+/* ─────────────────────────────────────────────────── */
+/*  DESKTOP — wider than 600px                         */
+/* ─────────────────────────────────────────────────── */
+@media (min-width: 601px) {
+.doc { padding: 24px 32px calc(var(–tab-h) + 24px); }
+.layer-stack { flex-direction: row; }
+.layer-card { flex-direction: column; gap: 0; }
+.lc-num-col { width: auto; padding-top: 0; margin-bottom: 4px; }
+.ex-top { flex-direction: row; align-items: flex-start; }
+.tab-btn { flex-direction: row; gap: 6px; min-height: 52px; }
+.tab-label { font-size: 11px; }
+.tab-icon { font-size: 15px; }
+.cover-sources { flex-direction: row; flex-wrap: wrap; gap: 20px; }
+body { font-size: 14px; }
+}
+
+/* ─────────────────────────────────────────────────── */
+/*  TODAY TAB                                          */
+/* ─────────────────────────────────────────────────── */
+.day-selector {
+display: flex;
+gap: 6px;
+margin-bottom: 20px;
+overflow-x: auto;
+padding-bottom: 4px;
+scrollbar-width: none;
+}
+.day-selector::-webkit-scrollbar { display: none; }
+
+.day-btn {
+flex: 0 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 3px;
+padding: 10px 12px;
+min-width: 56px;
+background: var(–bg3);
+border: 1px solid var(–border2);
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+transition: all 0.12s;
+}
+.day-btn:active { opacity: 0.7; }
+.day-btn.active { background: var(–amber-bg); border-color: var(–amber); }
+.day-btn-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 28px;
+color: var(–muted2);
+line-height: 1;
+transition: color 0.12s;
+}
+.day-btn.active .day-btn-num { color: var(–amber); }
+.day-btn.type-a .day-btn-num { color: var(–amber); }
+.day-btn-type {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: var(–muted);
+}
+.day-btn.active .day-btn-type { color: var(–amber2); }
+
+.today-card { border: 1px solid var(–border2); margin-bottom: 16px; }
+.today-card-head { padding: 16px 16px 14px; border-bottom: 1px solid var(–border2); }
+.today-day-label {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 6px;
+}
+.today-day-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 32px;
+letter-spacing: 0.04em;
+color: var(–white);
+line-height: 1;
+margin-bottom: 8px;
+}
+.today-day-title.amber { color: var(–amber); }
+.today-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.today-pill {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+padding: 4px 9px;
+border: 1px solid var(–border2);
+color: var(–muted2);
+}
+.today-pill.amber { border-color: var(–amber2); color: var(–amber); background: var(–amber-bg); }
+.today-pill.green { border-color: var(–green); color: var(–green); background: var(–green-bg); }
+
+/* Step rows — expand/collapse only, no checkboxes */
+.step-list { list-style: none; }
+.step {
+border-bottom: 1px solid var(–border);
+-webkit-tap-highlight-color: transparent;
+}
+.step:last-child { border-bottom: none; }
+
+.step-row {
+display: flex;
+align-items: center;
+padding: 14px 16px;
+gap: 10px;
+min-height: 64px;
+cursor: pointer;
+transition: background 0.1s;
+}
+.step-row:active { background: var(–bg3); }
+
+.step-main { flex: 1; }
+.step-time {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px;
+color: var(–muted);
+margin-bottom: 3px;
+letter-spacing: 0.04em;
+}
+.step-title {
+font-size: 17px;
+font-weight: 500;
+color: var(–white);
+line-height: 1.25;
+margin-bottom: 3px;
+}
+.step-sub {
+font-size: 13px;
+color: var(–muted2);
+line-height: 1.4;
+}
+
+.step-arrow {
+font-size: 18px;
+color: var(–muted);
+flex-shrink: 0;
+transition: transform 0.2s, color 0.2s;
+width: 24px;
+text-align: center;
+}
+.step.open .step-arrow { color: var(–amber); transform: rotate(90deg); }
+.step-arrow.navlink { color: var(–amber2) !important; }
+
+.step-detail {
+display: none;
+background: var(–bg2);
+border-top: 1px solid var(–border);
+padding: 14px 16px;
+}
+.step-detail.open { display: block; }
+.step-detail-ex {
+margin-bottom: 14px;
+padding-bottom: 14px;
+border-bottom: 1px solid var(–border);
+}
+.step-detail-ex:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.sde-name { font-size: 15px; font-weight: 500; color: var(–amber); margin-bottom: 3px; }
+.sde-rx { font-family: ‘IBM Plex Mono’, monospace; font-size: 12px; color: var(–muted2); margin-bottom: 6px; }
+.sde-desc { font-size: 14px; color: var(–text2); line-height: 1.6; }
+.sde-timer-btn {
+margin-top: 10px;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+padding: 10px 16px;
+background: none;
+border: 1px solid var(–amber2);
+color: var(–amber);
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+width: 100%;
+}
+.sde-timer-btn:active { background: var(–amber-bg); }
+.sde-navlink {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 0 0;
+margin-top: 10px;
+border-top: 1px solid var(–border);
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: var(–amber2);
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+}
+.sde-navlink:active { opacity: 0.7; }
+
+.today-sh {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–muted);
+padding: 14px 0 8px;
+}
+
+/* Micro items — no checkboxes */
+.micro-item {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 14px 16px;
+border-bottom: 1px solid var(–border);
+}
+.micro-item:last-child { border-bottom: none; }
+.micro-dot { width: 7px; height: 7px; border-radius: 50%; background: var(–muted); flex-shrink: 0; }
+.micro-dot.req { background: var(–green); }
+.micro-main { flex: 1; }
+.micro-name { font-size: 15px; font-weight: 500; color: var(–text); margin-bottom: 2px; }
+.micro-rx { font-family: ‘IBM Plex Mono’, monospace; font-size: 12px; color: var(–muted2); }
+.micro-tag {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9px;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+padding: 3px 7px;
+border: 1px solid var(–border2);
+color: var(–muted);
+flex-shrink: 0;
+}
+.micro-tag.req { border-color: var(–green); color: var(–green); }
+
+@media print {
+.tab-bar, .overlay, .menu-sheet { display: none !important; }
+.page { display: block !important; }
+body { background: #fff; color: #000; }
+}
+
+/* – Day Briefing –––––––––––––––––––– */
+.briefing { border: 1px solid var(–border2); border-top: none; margin-bottom: 16px; overflow: hidden; }
+.briefing-head { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; background: var(–bg3); cursor: pointer; -webkit-tap-highlight-color: transparent; border-bottom: 1px solid var(–border); }
+.briefing-head:active { background: var(–bg4); }
+.briefing-label { font-family: ‘IBM Plex Mono’, monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(–muted2); }
+.briefing-chev { font-size: 10px; color: var(–muted); transition: transform 0.18s; }
+.briefing.open .briefing-chev { transform: rotate(180deg); color: var(–amber); }
+.briefing-body { display: none; }
+.briefing.open .briefing-body { display: block; }
+.briefing-section { padding: 12px 16px; border-bottom: 1px solid var(–border); }
+.briefing-section:last-child { border-bottom: none; }
+.briefing-section-title { font-family: ‘IBM Plex Mono’, monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 7px; }
+.briefing-section-title.warn { color: var(–red); }
+.briefing-section-title.ok { color: var(–green); }
+.briefing-section-title.caution { color: var(–amber); }
+.briefing-item { font-size: 13px; color: var(–text2); line-height: 1.6; padding: 3px 0 3px 12px; position: relative; }
+.briefing-item::before { content: ‘\2014’; position: absolute; left: 0; font-family: ‘IBM Plex Mono’, monospace; font-size: 10px; color: var(–muted); }
+/* —————————————————–– */
+</style>
+
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  OVERLAY + MORE MENU                               -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div class="overlay" id="ov" onclick="closeMenu()"></div>
+
+<div class="menu-sheet" id="menuSheet">
+  <div class="ms-handle" onclick="closeMenu()"></div>
+  <div class="ms-title">KNEE REHAB v4.4</div>
+  <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
+
+  <div class="ms-group">Program</div>
+  <button class="ms-btn" onclick="nav('cover',this)"><span class="ms-icon">◼</span><span class="ms-lbl">Cover</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('overview',this)"><span class="ms-icon">◈</span><span class="ms-lbl">Architecture</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('phase1',this)"><span class="ms-icon">▲</span><span class="ms-lbl">Phase 1</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('rules',this)"><span class="ms-icon">◉</span><span class="ms-lbl">Key Rules</span><span class="ms-arr">›</span></button>
+
+  <div class="ms-group">Daily Practice</div>
+  <button class="ms-btn" onclick="nav('today',this)"><span class="ms-icon">▣</span><span class="ms-lbl">Today</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('schedule',this)"><span class="ms-icon">≡</span><span class="ms-lbl">Schedule Reference</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('base',this)"><span class="ms-icon">○</span><span class="ms-lbl">Base Exercises</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('load',this)"><span class="ms-icon">●</span><span class="ms-lbl">Day A &amp; B Exercises</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('micro',this)"><span class="ms-icon">·</span><span class="ms-lbl">Micro-Sessions</span><span class="ms-arr">›</span></button>
+
+  <div class="ms-group">Tools</div>
+  <button class="ms-btn" onclick="nav('supps',this)"><span class="ms-icon">◐</span><span class="ms-lbl">Supplements</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('timer',this)"><span class="ms-icon">⧖</span><span class="ms-lbl">Timer &amp; Tracker</span><span class="ms-arr">›</span></button>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  BOTTOM TAB BAR                                    -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div class="tab-bar">
+  <button class="tab-btn" id="tb-cover" onclick="navTab('cover','tb-cover')">
+    <span class="tab-icon">◼</span><span class="tab-label">Home</span>
+  </button>
+  <button class="tab-btn on" id="tb-today" onclick="navTab('today','tb-today')">
+    <span class="tab-icon">▣</span><span class="tab-label">Today</span>
+  </button>
+  <button class="tab-btn" id="tb-load" onclick="navTab('load','tb-load')">
+    <span class="tab-icon">●</span><span class="tab-label">Exercises</span>
+  </button>
+  <button class="tab-btn" id="tb-timer" onclick="navTab('timer','tb-timer')">
+    <span class="tab-icon">⧖</span><span class="tab-label">Timer</span>
+  </button>
+  <button class="tab-btn" id="tb-more" onclick="openMenu()">
+    <span class="tab-icon">☰</span><span class="tab-label">More</span>
+  </button>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  COVER                                             -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="cover" class="page">
+  <div class="cover-page">
+    <div class="cover-grid"></div>
+    <div class="cover-stripe"></div>
+    <div class="cover-big-num">5.0</div>
+
+<div class="cover-eyebrow">Full Body Training · Phase 1</div>
+<div class="cover-h1">KNEE<br>REHAB<br><em>v5.0</em></div>
+
+<div class="cover-chips">
+  <span class="cover-chip">PFPS</span>
+  <span class="cover-chip">TODAY TAB</span>
+  <span class="cover-chip">COLLAGEN TIMING</span>
+  <span class="cover-chip">SKIING PREP</span>
+  <span class="cover-chip">BIKE COMMUTE</span>
+  <span class="cover-chip">SOLEUS LOAD</span>
+  <span class="cover-chip">PROPRIOCEPTION</span>
+</div>
+
+<div class="cover-divider"></div>
+
+<div class="cover-sources">
+  <div class="cs">
+    <div class="cs-name">Prof. Keith Baar</div>
+    <div class="cs-desc">UC Davis — Connective tissue &amp; nutrition</div>
+  </div>
+  <div class="cs">
+    <div class="cs-name">Prof. Johan Bellemans</div>
+    <div class="cs-desc">KU Leuven — Cartilage cyclic loading</div>
+  </div>
+  <div class="cs">
+    <div class="cs-name">Ben Patrick (ATG)</div>
+    <div class="cs-desc">Anterior chain &amp; deep range</div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  OVERVIEW                                          -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="overview" class="page">
+<div class="doc">
+
+  <div class="changes">
+    <div class="changes-title">Changes from v4.7</div>
+    <ul class="changes-list">
+      <li>Bent-knee calf raise (soleus) added to Day A &amp; B knee block — soleus is the primary load-bearing plantarflexor under knee-flexed conditions (wall sit, step down, split squat, ski descent, cycling). Previously absent from any mandatory block. 3 × 12–15 single-leg, 3s eccentric.</li>
+      <li>Wall ankle dorsiflexion drill replaces ankle circles in mobility block — active loaded dorsiflexion range is a primary upstream PFPS driver; restricted dorsiflexion forces medial knee translation under load. ATG standard protocol. 10 reps each side, 2s hold at end range.</li>
+      <li>Single-leg balance added to mandatory daily micro-sessions — zero recovery demand, no equipment. PFPS degrades patellofemoral proprioception; balance training is also the most specific missing ski prep element. Eyes open → eyes closed progression. 2 × 20–30s each leg.</li>
+      <li>Hip flexor hold (standing march) added to general optional micro pool — hip flexor strength absent. Weak hip flexors cause compensatory anterior pelvic tilt under fatigue (skiing, hiking), increasing PFPS load. 10 each side, 3s pause at 90°.</li>
+      <li>Thread-the-needle added to mobility block — thoracic rotation absent despite scapular work. Limits shoulder movement quality and creates compensatory lumbar rotation under load. 5–8 reps each side, 2–3s hold.</li>
+      <li>Sleep / GH protocol added to supplements page — Baar: collagen synthesis peaks during sleep via GH pulse. Program addressed pre-session timing but not nocturnal synthesis window. Rules: 7–8h, no food within 90 min of sleep, no alcohol.</li>
+      <li>Wall sit progression ladder made explicit on progression page — 6×30s at 45° → 6×30s at 60° → 6×45s at 60° → 6×60s at 60° → single-leg 5×20s.</li>
+    </ul>
+  </div>
+
+  <div class="sh"><span class="sh-num">01</span><span class="sh-title">Three Day Cards</span></div>
+  <p class="body" style="margin-bottom:14px;">The week runs on three cards in a fixed cycle. No decisions — check which day you're on, follow the card.</p>
+
+  <div class="layer-stack">
+    <div class="layer-card">
+      <div class="lc-num-col">DAY A</div>
+      <div class="lc-main">
+        <div class="lc-title amber">BELLEMANS BIKE</div>
+        <div class="lc-body">Full morning routine<br>+ Bellemans bike (T+57)<br>+ Hamstring slides<br>+ Knee micro-sessions</div>
+        <div class="lc-rule">Days 1 &amp; 5 in cycle<br>Collagen at T=0<br>Whey after bike</div>
+      </div>
+    </div>
+    <div class="layer-card">
+      <div class="lc-num-col">DAY B</div>
+      <div class="lc-main">
+        <div class="lc-title">FULL · NO BIKE</div>
+        <div class="lc-body">Full morning routine<br>No bike<br>+ Knee micro-sessions</div>
+        <div class="lc-rule">Day 3 in cycle<br>Collagen at T=0<br>No whey</div>
+      </div>
+    </div>
+    <div class="layer-card">
+      <div class="lc-num-col">DAY C</div>
+      <div class="lc-main">
+        <div class="lc-title">LIGHT</div>
+        <div class="lc-body">Mobility · Gap block · Core<br>Dead bug · Clamshell<br>Mandatory micro-sessions only</div>
+        <div class="lc-rule">Days 2, 4, 6<br>No collagen<br>Zone 1 unrestricted</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh"><span class="sh-num">02</span><span class="sh-title">7-Day Cycle</span></div>
+
+  <div class="card">
+    <div class="card-row card-highlight">
+      <div class="cr-left"><div class="cr-time">Day 1</div></div>
+      <div class="cr-right"><div class="cr-val">Day A — Bellemans Bike</div><div class="cr-desc">Full routine + Bellemans bike + Hamstring slides. Collagen T=0.</div></div>
+    </div>
+    <div class="card-row">
+      <div class="cr-left"><div class="cr-time">Day 2</div></div>
+      <div class="cr-right"><div class="cr-val">Day C — Light</div><div class="cr-desc">Mobility + gap block + core + clamshell. Zone 1 unrestricted.</div></div>
+    </div>
+    <div class="card-row card-highlight">
+      <div class="cr-left"><div class="cr-time">Day 3</div></div>
+      <div class="cr-right"><div class="cr-val">Day B — Full, no bike</div><div class="cr-desc">Full routine, no bike. Collagen T=0.</div></div>
+    </div>
+    <div class="card-row">
+      <div class="cr-left"><div class="cr-time">Day 4</div></div>
+      <div class="cr-right"><div class="cr-val">Day C — Light</div><div class="cr-desc">Mobility + gap block + core + clamshell. Zone 1 unrestricted.</div></div>
+    </div>
+    <div class="card-row card-highlight">
+      <div class="cr-left"><div class="cr-time">Day 5</div></div>
+      <div class="cr-right"><div class="cr-val">Day A — Bellemans Bike</div><div class="cr-desc">Full routine + Bellemans bike + Hamstring slides. Collagen T=0.</div></div>
+    </div>
+    <div class="card-row">
+      <div class="cr-left"><div class="cr-time">Day 6</div></div>
+      <div class="cr-right"><div class="cr-val">Day C — Light (or rest if Day 7 is active)</div><div class="cr-desc">If tomorrow is ski/hike/activity: rest day only. Otherwise: standard Day C.</div></div>
+    </div>
+    <div class="card-row">
+      <div class="cr-left"><div class="cr-time">Day 7</div></div>
+      <div class="cr-right"><div class="cr-val">Active / Endurance / Rest</div><div class="cr-desc">Ski/hike: collagen 45 min before, whey after. Endurance: swim or elliptical. Rest: dead hang + backward walk only.</div></div>
+    </div>
+  </div>
+
+  <div class="sh"><span class="sh-num">03</span><span class="sh-title">Bike Commute</span></div>
+  <p class="body" style="margin-bottom:14px;">1--2× per week. How it slots in depends on intensity.</p>
+
+  <div class="card">
+    <div class="card-row card-green">
+      <div class="cr-left"><div class="cr-key">Zone 1<br><span style="font-size:11px;color:var(--muted);">easy pace</span></div></div>
+      <div class="cr-right">
+        <div class="cr-val">Free — any day</div>
+        <div class="cr-desc">No collagen needed. Counts as Zone 1 movement. Day schedule unchanged. Bellemans session still runs if it's a Day A.</div>
+      </div>
+    </div>
+    <div class="card-row card-highlight">
+      <div class="cr-left"><div class="cr-key">Zone 2<br><span style="font-size:11px;color:var(--muted);">harder effort</span></div></div>
+      <div class="cr-right">
+        <div class="cr-val">Replaces Bellemans session</div>
+        <div class="cr-desc">Take collagen 45 min before commuting. Commute is the bike stimulus. Skip Bellemans that day — do not stack both.</div>
+      </div>
+    </div>
+    <div class="card-row card-warn">
+      <div class="cr-left"><div class="cr-key">Zone 2<br><span style="font-size:11px;color:var(--muted);">on Day A</span></div></div>
+      <div class="cr-right">
+        <div class="cr-val">Commute replaces the Bellemans bike</div>
+        <div class="cr-desc">Run full Day A morning routine but skip the T+57 Bellemans session. Collagen timing still applies — commute should leave ~45--60 min after collagen if possible.</div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Phase 1: monitor next-morning knee soreness after every commute — both Zone 1 and Zone 2. 1 hour is long relative to normal program sessions. If soreness appears consistently, cap commutes at 30--40 min and build up. Hilly terrain and any intensity drift will load the knee more than flat Zone 1 pace.</p>
+
+  <div class="sh"><span class="sh-num">04</span><span class="sh-title">Commute Day Summary</span></div>
+  <div class="card">
+    <div class="card-head"><span class="ch-title">Commute type · Collagen · Bellemans · Day type</span></div>
+    <div class="card-row"><div class="cr-left" style="width:45%"><div class="cr-key" style="font-size:13px;">Zone 1, any day</div></div><div class="cr-right"><div class="cr-desc">No collagen · Bellemans unchanged · Day type unchanged</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:45%"><div class="cr-key" style="font-size:13px;">Zone 2, Day C</div></div><div class="cr-right"><div class="cr-desc">Collagen before · No Bellemans · Counts as Day A or B</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:45%"><div class="cr-key" style="font-size:13px;">Zone 2, Day A or B</div></div><div class="cr-right"><div class="cr-desc">Collagen before · Commute replaces Bellemans · Run morning routine</div></div></div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  TODAY                                             -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="today" class="page on">
+<div class="doc">
+
+  <div class="sh"><span class="sh-num">◈</span><span class="sh-title">Today</span></div>
+  <p class="body" style="margin-bottom:14px;">Pick the block that fits today.</p>
+
+  <div class="day-selector" id="daySelector">
+    <button class="day-btn type-a" data-block="A" onclick="selectBlock('A',this)">
+      <span class="day-btn-num">A</span><span class="day-btn-type">Bike</span>
+    </button>
+    <button class="day-btn" data-block="B" onclick="selectBlock('B',this)">
+      <span class="day-btn-num">B</span><span class="day-btn-type">Full</span>
+    </button>
+    <button class="day-btn type-c" data-block="C" onclick="selectBlock('C',this)">
+      <span class="day-btn-num">C</span><span class="day-btn-type">Light</span>
+    </button>
+    <button class="day-btn" data-block="X" onclick="selectBlock('X',this)">
+      <span class="day-btn-num">X</span><span class="day-btn-type">Activity</span>
+    </button>
+  </div>
+
+  <div id="dayCard"></div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  SCHEDULE (reference)                              -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="schedule" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">05</span><span class="sh-title">Schedule Reference</span></div>
+  <p class="body" style="margin-bottom:12px;">Full breakdown by day type. Use <strong>Today</strong> tab for daily execution.</p>
+
+  <div class="sched-tabs">
+    <button class="sched-tab on"  onclick="schedTab('s-bike',this)">Day A — Bike</button>
+    <button class="sched-tab"     onclick="schedTab('s-load',this)">Day B — Full</button>
+    <button class="sched-tab"     onclick="schedTab('s-base',this)">Day C — Light</button>
+    <button class="sched-tab"     onclick="schedTab('s-act',this)">Activity</button>
+    <button class="sched-tab"     onclick="schedTab('s-end',this)">Endurance</button>
+  </div>
+
+  <!-- Day A — Bellemans Bike Day -->
+
+  <div id="s-bike" class="sched-pane on">
+    <p class="note" style="margin-bottom:12px;">Days 1 &amp; 5 of cycle. Collagen T=0. Bellemans bike at T+57.</p>
+    <div class="card">
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T=0</div></div><div class="cr-right"><div class="cr-val">Collagen + vitamin C</div><div class="cr-note">2+ hours after any protein meal</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+5</div></div><div class="cr-right"><div class="cr-val">Mobility <span style="color:var(--muted);font-size:12px;">5 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+10</div></div><div class="cr-right"><div class="cr-val">Gap block <span style="color:var(--muted);font-size:12px;">8--10 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+20</div></div><div class="cr-right"><div class="cr-val">Push &amp; Pull <span style="color:var(--muted);font-size:12px;">4 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+24</div></div><div class="cr-right"><div class="cr-val">Core <span style="color:var(--muted);font-size:12px;">2 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+26</div></div><div class="cr-right"><div class="cr-val">Glute activation + Dead bug <span style="color:var(--muted);font-size:12px;">5 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+31</div></div><div class="cr-right"><div class="cr-val">Natural break <span style="color:var(--muted);font-size:12px;">~14 min</span></div><div class="cr-note">Morning tasks — collagen approaching peak</div></div></div>
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T+45</div></div><div class="cr-right"><div class="cr-val">Knee &amp; Lower Body <span style="color:var(--muted2);font-size:12px;">12 min</span></div><div class="cr-note">Collagen rising into peak · Hamstring slides</div></div></div>
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T+57</div></div><div class="cr-right"><div class="cr-val">Bellemans Bike</div><div class="cr-note">60--90 min collagen peak window ✓ · Hard stop 15 min</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+67</div></div><div class="cr-right"><div class="cr-val">Whey protein immediately</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">All day</div></div><div class="cr-right"><div class="cr-val">Tibialis raise + backward walk + dead hang</div><div class="cr-note">+ 2 knee micro-sessions (wall sit + short arc quad)</div></div></div>
+    </div>
+    <p class="note">Sequence order is fixed. Reordering breaks the collagen timing architecture.</p>
+  </div>
+
+  <!-- Day B — Full, no bike -->
+
+  <div id="s-load" class="sched-pane">
+    <p class="note" style="margin-bottom:12px;">Day 3 of cycle. Full morning routine, no bike.</p>
+    <div class="card">
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T=0</div></div><div class="cr-right"><div class="cr-val">Collagen + vitamin C</div><div class="cr-note">2+ hours after any protein meal</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+5</div></div><div class="cr-right"><div class="cr-val">Mobility <span style="color:var(--muted);font-size:12px;">5 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+10</div></div><div class="cr-right"><div class="cr-val">Gap block <span style="color:var(--muted);font-size:12px;">8--10 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+20</div></div><div class="cr-right"><div class="cr-val">Push &amp; Pull <span style="color:var(--muted);font-size:12px;">4 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+24</div></div><div class="cr-right"><div class="cr-val">Core <span style="color:var(--muted);font-size:12px;">2 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+26</div></div><div class="cr-right"><div class="cr-val">Glute activation + Dead bug <span style="color:var(--muted);font-size:12px;">5 min</span></div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">T+31</div></div><div class="cr-right"><div class="cr-val">Natural break <span style="color:var(--muted);font-size:12px;">~14 min</span></div><div class="cr-note">Collagen approaching peak</div></div></div>
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T+45</div></div><div class="cr-right"><div class="cr-val">Knee &amp; Lower Body <span style="color:var(--muted2);font-size:12px;">12 min</span></div><div class="cr-note">Collagen rising into peak</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-time">All day</div></div><div class="cr-right"><div class="cr-val">Tibialis raise + backward walk + dead hang</div><div class="cr-note">+ 2 knee micro-sessions</div></div></div>
+    </div>
+    <p class="note">No bike, no whey. Knee block still lands inside the collagen peak window at T+45.</p>
+  </div>
+
+  <!-- Day C — Light -->
+
+  <div id="s-base" class="sched-pane">
+    <p class="note" style="margin-bottom:12px;">Days 2, 4, 6 of cycle. No collagen. ~18 min total.</p>
+    <div class="card">
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Morning</div></div><div class="cr-right"><div class="cr-val">Mobility 5 min</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Morning</div></div><div class="cr-right"><div class="cr-val">Gap block 8--10 min</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Morning</div></div><div class="cr-right"><div class="cr-val">Core 2 min</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Morning</div></div><div class="cr-right"><div class="cr-val">Dead bug + clamshell 3--4 min</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">All day</div></div><div class="cr-right"><div class="cr-val">Tibialis raise + backward walk + dead hang</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Anytime</div></div><div class="cr-right"><div class="cr-val">Zone 1 — unrestricted</div></div></div>
+    </div>
+    <p class="note">No collagen. No knee loading. Easy commute cycling, kayaking, backward walking all fine — no ceiling.</p>
+  </div>
+
+  <!-- Activity Day -->
+
+  <div id="s-act" class="sched-pane">
+    <div class="card">
+      <div class="card-row card-green"><div class="cr-left"><div class="cr-key">Before</div></div><div class="cr-right"><div class="cr-val">15g collagen + 200mg vit C</div><div class="cr-desc">45 min before. At least 2 hours after any protein meal.</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">During</div></div><div class="cr-right"><div class="cr-val">No protocol — ski/hike/ride as planned</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">After</div></div><div class="cr-right"><div class="cr-val">25--30g whey within 30--60 min</div><div class="cr-desc">No knee-specific micro-sessions same day.</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Next day</div></div><div class="cr-right"><div class="cr-val">If sore: Day C only</div><div class="cr-desc">If not sore: resume Day A or B as scheduled.</div></div></div>
+    </div>
+    <p class="note">Activity days replace a Day A or B — do not stack structured knee work on top.</p>
+  </div>
+
+  <!-- Endurance Day -->
+
+  <div id="s-end" class="sched-pane">
+    <div class="card">
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Phase 1</div></div><div class="cr-right"><div class="cr-val">Swimming or elliptical only</div><div class="cr-desc">No outdoor cycling as Zone 2 in Phase 1.</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Duration</div></div><div class="cr-right"><div class="cr-val">30--45 min</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Intensity</div></div><div class="cr-right"><div class="cr-val">Conversational pace — Zone 2</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Collagen</div></div><div class="cr-right"><div class="cr-val">No</div></div></div>
+      <div class="card-row card-warn"><div class="cr-left"><div class="cr-key">Avoid</div></div><div class="cr-right"><div class="cr-val">No structured knee work same day</div></div></div>
+    </div>
+    <p class="note">Week 1: swimming only. Elliptical from Week 2 if no post-Day-A/B knee soreness.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  BASE LAYER                                        -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="base" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">06</span><span class="sh-title">Base Exercises</span><span class="sh-tag">Every Day</span></div>
+  <p class="body">Every day — Day A, B, and C. No collagen. ~18--21 min total.</p>
+
+  <div class="sub-head">Mobility — 5 min</div>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Mobility Block</span>
+      <span class="eg-freq">5 min · daily</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">90/90 Hip Rotations</span><span class="ex-rx">10 × each side</span></div><div class="ex-desc">Floor. Rotate hips to bring front shin parallel to floor, hold 3 sec. Poor hip rotation is a primary upstream driver of patellofemoral load.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Cat-Cow</span><span class="ex-rx">10 reps · slow</span></div><div class="ex-desc">Hands and knees. Arch spine up (cat), drop belly and lift head (cow).</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">World's Greatest Stretch</span><span class="ex-rx">5 × each side</span></div><div class="ex-desc">Lunge, same-side hand to floor, rotate opposite arm to ceiling. 2 sec hold.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Wall Ankle Dorsiflexion</span><span class="ex-rx">10 each side · 2s hold</span></div><div class="ex-desc">Stand facing wall, foot ~10cm from base. Drive knee forward over toes until it touches wall, 2s hold at end range, return. Restricted dorsiflexion forces medial knee translation under load — a primary upstream PFPS driver. ATG standard. Increase foot-to-wall distance progressively as range improves.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Thread the Needle</span><span class="ex-rx">5–8 each side · 2–3s hold</span></div><div class="ex-desc">On hands and knees. Slide one arm under body, rotating thoracic spine until shoulder touches floor, 2–3s hold. Return and reach to ceiling. Thoracic rotation — absent in prior versions. Restricted T-spine limits shoulder movement quality and creates compensatory lumbar rotation under ski and lift loads.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Couch Stretch</span><span class="ex-rx">2 × 30 sec each</span></div><div class="ex-desc">Shin against wall behind, other foot forward. Upright torso, squeeze rear glute. Targets rectus femoris — the hip flexor that crosses the knee joint directly.</div></div>
+    </div>
+  </div>
+
+  <div class="sub-head">Gap Block — 8--10 min</div>
+  <p class="note" style="margin-bottom:8px;">Zero knee compression. On Days A &amp; B this fills the collagen window. On Day C it stands alone as desk-posture and lumbar-stability work.</p>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Gap Block</span>
+      <span class="eg-freq">8--10 min · daily</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Bird Dog</span><span class="ex-rx">2 × 5 each · 8s hold</span></div><div class="ex-desc">Extend opposite arm and leg, hold 8 sec isometric. Keep hips level — do not rotate. Anti-rotation demand for desk worker with anterior pelvic tilt.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Superman Hold</span><span class="ex-rx">2 × 5 · 5s hold</span></div><div class="ex-desc">Face down, both arms overhead, both legs straight. Lift simultaneously, hold 5 sec. Bilateral posterior chain.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Down Dog → Upward Dog</span><span class="ex-rx">3 × 5 transitions</span></div><div class="ex-desc">From downward dog, shift forward into upward dog. Same hand position throughout. 2 sec hold at each end. Full anterior/posterior chain.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">L-Sit → Reverse Plank</span><span class="ex-rx">3 × 5 transitions</span></div><div class="ex-desc">L-sit: hip flexors + triceps isometric. Reverse plank: glutes + shoulder extensors. Partial lift with knees bent if L-sit unavailable. 2 sec hold each end.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">WLYT</span><span class="ex-rx">2 × each letter · 2s hold</span></div><div class="ex-desc">Prone. W (elbows bent), L (elbows 90°), Y (overhead 45°), T (straight out). 2 sec hold at each. Lower trap, mid trap, scapular stabilizers.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Floor Slide</span><span class="ex-rx">2 × 10</span></div><div class="ex-desc">Prone, goalpost arms. Slide overhead keeping forearms on floor. Scapular retraction and depression.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Scap Push-Up</span><span class="ex-rx">2 × 12 · knees Ph1</span></div><div class="ex-desc">Push-up position. Protract and retract shoulder blades only — no elbow bend. Serratus anterior activation.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Shoulder Tap</span><span class="ex-rx">2 × 10 each side</span></div><div class="ex-desc">Push-up position. Lift one hand, tap opposite shoulder, replace without rotating hips. Anti-rotation demand — absent in Phase 1 previously. Knees down Phase 1.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">External Shoulder Rotation</span><span class="ex-rx">2 × 12 each side</span></div><div class="ex-desc">Side-lying: elbow bent 90°, rotate forearm up. Or band: elbow at side, rotate out against resistance. Corrects internal rotation dominance from sustained keyboard and mouse use. Rotator cuff — not covered by scapular work alone.</div></div>
+    </div>
+  </div>
+
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Core</span>
+      <span class="eg-freq">2 min · daily</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Hollow Body Hold</span><span class="ex-rx">3 × 20 sec</span></div><div class="ex-desc">On back, arms overhead, legs straight. Press lower back to floor, slight leg and shoulder lift.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Side Plank</span><span class="ex-rx">2 × 20 sec each</span></div><div class="ex-desc">Forearm and side of foot. Keep hips high.</div></div>
+    </div>
+  </div>
+
+  <div class="sub-head">Daily Glute Activation</div>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Glute Activation</span>
+      <span class="eg-freq">3--4 min · daily</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Clamshell or Hip Abduction</span><span class="ex-rx">2 × 12 each · 2s hold top</span></div><div class="ex-desc">Clamshell: lying on side, knees bent, lift top knee. Hip abduction: top leg straight, lift to 45°. Targets gluteus medius. Add band when easy. Copenhagen Plank replaces in Phase 2.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Dead Bug</span><span class="ex-rx">2 × 10 each side</span></div><div class="ex-desc">On back, arms to ceiling, knees bent 90°. Lower opposite arm and leg without arching lower back. Submaximal — no recovery demand at this prescription.</div></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  LOAD LAYER                                        -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="load" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">07</span><span class="sh-title">Day A &amp; B Exercises</span><span class="sh-tag">Days A &amp; B Only</span></div>
+  <p class="body">Added on Days A and B only. Collagen at T=0. Sequence is fixed.</p>
+
+  <div class="sub-head">Push &amp; Pull — T+20 (4 min)</div>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Push &amp; Pull</span>
+      <span class="eg-freq">4 min · Days A &amp; B</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Push-Up</span><span class="ex-rx">2 × 8–15</span></div><div class="ex-desc">Standard or hands elevated. 3 sec down, 1 sec pause, 2 sec up. Technical failure — not absolute failure.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Pull-Up Progression</span><span class="ex-rx">2 × 5–8</span></div><div class="ex-desc">Ph1: dead hang scapular pull — depress shoulders fully without bending elbows, hold 2s at top. Ph2: partial pull to chin at bar height. Ph3: full pull-up. Vertical pull pattern was absent — fills lat, lower trap, rhomboid gap not covered by rows. Bar already required for dead hang.</div></div>
+    </div>
+  </div>
+
+  <div class="sub-head">Glute Load — T+26 (Days A &amp; B only)</div>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Single-Leg Glute Bridge</span>
+      <span class="eg-freq">Days A &amp; B only</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Glute Bridge</span><span class="ex-rx">2 × 10 each · 2s hold top</span></div><div class="ex-desc">On back, one foot flat, other leg extended. Drive hips up through heel, squeeze glute at top, lower controlled. Do not let pelvis drop on unsupported side. Excluded from Day C — real posterior chain load.</div></div>
+    </div>
+  </div>
+
+  <div class="sub-head">Knee &amp; Lower Body — T+45 (12 min)</div>
+  <p class="note" style="margin-bottom:8px;">Collagen rising into peak window. All connective tissue loading starts here.</p>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Knee &amp; Lower Body</span>
+      <span class="eg-freq">12 min</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Slant Board Step Down</span><span class="ex-rx">3×10 pri / 3×8 sec</span></div><div class="ex-desc">10cm step (Phase 1). Lower opposite foot over 5 sec, 2s pause at bottom (foot hovering, not touching), return. Hand on wall — progress to unassisted. The 2s pause converts eccentric to eccentric-plus-isometric — directly mimics sustained ski loaded position. Primary skiing exercise.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Wall Sit Isometric</span><span class="ex-rx">6 × 30 sec / 45 rest</span></div><div class="ex-desc">60° knee flexion. Dull ache acceptable. Sharp or >4/10 = reduce angle immediately. Start 45° in Weeks 1--2 if needed. Tissue stimulus — not strength training.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Deep Split Squat</span><span class="ex-rx">2 × 10 each side</span></div><div class="ex-desc">Significant counterbalance in Phase 1 — do not force depth. Rear knee toward floor, 2--3s hold at bottom, drive up. The hold at full depth is where VMO demand is highest — do not skip it.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Lateral Side Step</span><span class="ex-rx">2 rounds × 15 steps</span></div><div class="ex-desc">Slight squat, hip tension throughout. Pause and reassert hip position after each step before the next — deliberate load check, not continuous momentum. Add resistance band if available.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Hamstring Isometric</span><span class="ex-rx">3 × 5 holds · Wks 1--2</span></div><div class="ex-desc">Press heel into floor or fixed surface, hold 5--10 sec. Isometric before eccentric — Baar protocol for irritated tissue. Progress to hamstring slides when pain-free.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Hamstring Slide</span><span class="ex-rx">3 × 8–10 · Day A only</span></div><div class="ex-desc">On back, heels on sliders or towel on smooth floor. Drive hips up into bridge, slide heels out slowly (3–5 sec), return. Eccentric-concentric hamstring load — lower peak force than alternatives, appropriate for current phase. Day A only — 48h eccentric recovery required. Significant assistance from arms in early weeks.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Calf Raise — Straight Knee</span><span class="ex-rx">3 × 15 each · 3s down</span></div><div class="ex-desc">Stand on one foot, full plantarflexion at top, full dorsiflexion at bottom. 3s eccentric. Targets gastrocnemius. Use wall for balance. Build to unassisted. Supports Achilles and ankle load tolerance for skiing and hiking.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Calf Raise — Bent Knee (Soleus)</span><span class="ex-rx">3 × 12–15 each · 3s down</span></div><div class="ex-desc">Knee bent ~30°, same single-leg raise. Bent knee removes gastrocnemius from the load — isolates soleus. Soleus is the primary plantarflexor under knee-flexed load: wall sit, step down, split squat, ski descent, cycling. Previously absent from the program entirely. This is the higher-priority of the two calf raises.</div></div>
+    </div>
+  </div>
+
+  <div class="sub-head">Bike Session — T+57 (Day A only)</div>
+  <div class="card">
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Seat</div></div><div class="cr-right"><div class="cr-val">Knee 15--20° flexion at bottom of stroke</div></div></div>
+    <div class="card-row card-warn"><div class="cr-left"><div class="cr-key">Stop</div></div><div class="cr-right"><div class="cr-val">HARD STOP AT 15 MIN</div><div class="cr-desc">Cartilage adaptation window closes. 10--12 min target.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Timing</div></div><div class="cr-right"><div class="cr-val">T+57 — inside 60--90 min collagen peak</div></div></div>
+    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-key">After</div></div><div class="cr-right"><div class="cr-val">Whey within 30 min of finishing</div></div></div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  MICRO-SESSIONS                                    -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="micro" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">08</span><span class="sh-title">Micro-Sessions</span></div>
+  <p class="body">2--5 min each. Minimum 45--60 min between.</p>
+
+  <div class="sub-head">Mandatory — Every Single Day</div>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)" style="background:var(--green-bg);border-bottom-color:#1A3020;">
+      <span class="eg-title" style="color:#80C0A0;">Mandatory Daily</span>
+      <span class="eg-freq" style="color:#4A7A5A;border-color:#1A3020;background:var(--bg);">no recovery demand</span>
+      <span class="eg-chev" style="color:#4A7A5A;">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Tibialis Raise</span><span class="ex-rx">1 × 20 · 1s hold top</span></div><div class="ex-desc">Heels against wall. Lift toes as high as possible, 1s hold at top, lower slowly. Hold at dorsiflexion end-range is where the anterior tibialis stimulus is highest. At desk, kitchen counter, anywhere. Corrective habit — no recovery demand.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Backward Walk</span><span class="ex-rx">2--3 rounds 30--60s</span></div><div class="ex-desc">Walk backward slowly. Resistance band optional. Trains knee in decompressed position. Daily is the point.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Dead Hang</span><span class="ex-rx">3 × 20--30 sec</span></div><div class="ex-desc">Hang from bar, relaxed shoulders. Spinal decompression, grip, scapular stability. No recovery demand.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Balance</span><span class="ex-rx">2 × 20–30s each leg</span></div><div class="ex-desc">Stand on one foot. Phase 1: eyes open. Phase 2: eyes closed. Phase 3: slight knee bend (10–15°). PFPS degrades patellofemoral proprioception — balance training addresses this directly. Also the primary missing ski prep element. No recovery demand. Do anywhere.</div></div>
+    </div>
+  </div>
+
+  <div class="sub-head">Knee-Specific — Pick 2 (Days A &amp; B Only)</div>
+  <div class="ex-group open">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">Knee-Specific</span>
+      <span class="eg-freq">pick 2 · Days A &amp; B</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Wall Sit</span><span class="ex-rx">5 × 20s / 45s rest</span></div><div class="ex-desc">Primary knee only. Start 45° flexion, build toward 60° over weeks.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Short Arc Quad</span><span class="ex-rx">3 × 15 each leg</span></div><div class="ex-desc">Seated, leg at ~45° flexion. Extend to full extension, 2 sec hold, 3 sec lower. VMO strength at terminal extension — targets patellar tracking directly.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Terminal Knee Extension</span><span class="ex-rx">10 reps each · 5s hold</span></div><div class="ex-desc">Band at knee height or foot against wall. Extend fully against resistance. Proprioception and stability — different from SAQ which is VMO strength.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Deep Squat Hold</span><span class="ex-rx">3 × 20--30 sec</span></div><div class="ex-desc">Heels elevated if needed. Full depth. Reduce heel elevation over weeks — elevation is not cheating.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Hanging Knee Raise</span><span class="ex-rx">1 × max controlled</span></div><div class="ex-desc">Dead hang. Raise knees to 90° or higher, lower controlled. Hip flexor strength.</div></div>
+    </div>
+  </div>
+
+  <div class="sub-head">General Optional — Pick 1 Daily</div>
+  <div class="ex-group">
+    <div class="ex-group-head" onclick="togEx(this)">
+      <span class="eg-title">General Optional</span>
+      <span class="eg-freq">pick 1</span>
+      <span class="eg-chev">▼</span>
+    </div>
+    <div class="ex-body">
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Wall Calf Raise</span><span class="ex-rx">1 × 20 each</span></div><div class="ex-desc">Single-leg. Deep stretch at bottom, full rise at top.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Standing Hip Flexion Hold</span><span class="ex-rx">10 each side · 3s hold</span></div><div class="ex-desc">Standing, lift one knee to 90°, hold 3 sec, lower controlled. Hip flexor strength is absent from the program in any loaded form. Weak hip flexors create anterior pelvic tilt under fatigue (skiing descents, long hikes), which directly increases PFPS load. No equipment — do at desk or kitchen counter.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Chin Tuck</span><span class="ex-rx">5 × 5s hold</span></div><div class="ex-desc">Seated or standing. Retract head straight back (double chin), hold 5 sec, release. Deep cervical flexors — universally weak in desk workers. Forward head posture adds significant moment arm load to cervical spine. No equipment. 60 seconds total.</div></div>
+      <div class="ex-card"><div class="ex-top"><span class="ex-name">Box Breathing</span><span class="ex-rx">2 min</span></div><div class="ex-desc">4 sec in / 4 sec hold / 4 sec out / 4 sec hold. Lowers cortisol — high chronic cortisol inhibits collagen synthesis.</div></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  SUPPLEMENTS                                       -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="supps" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">08</span><span class="sh-title">Supplements</span></div>
+
+  <div class="card">
+    <div class="card-head"><span class="ch-title">Supplement · Dose · Timing · When</span></div>
+    <div class="card-row card-highlight">
+      <div class="cr-left" style="min-width:0;flex:0 0 auto;width:50%;"><div class="cr-key">Hydrolyzed collagen</div><div class="cr-note">skin-sourced only</div></div>
+      <div class="cr-right">
+        <div class="cr-val">15g at T=0</div>
+        <div class="cr-desc">Load days only</div>
+      </div>
+    </div>
+    <div class="card-row card-highlight">
+      <div class="cr-left" style="min-width:0;flex:0 0 auto;width:50%;"><div class="cr-key">Vitamin C</div></div>
+      <div class="cr-right">
+        <div class="cr-val">200mg with collagen</div>
+        <div class="cr-desc">Load days only</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="cr-left" style="min-width:0;flex:0 0 auto;width:50%;"><div class="cr-key">Whey protein</div></div>
+      <div class="cr-right">
+        <div class="cr-val">25--30g post-bike</div>
+        <div class="cr-desc">Day A only — within 30 min of Bellemans bike</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="cr-left" style="min-width:0;flex:0 0 auto;width:50%;"><div class="cr-key">Collagen — commute</div><div class="cr-note">Zone 2 effort only</div></div>
+      <div class="cr-right">
+        <div class="cr-val">15g + 200mg vit C</div>
+        <div class="cr-desc">45 min before commuting — Zone 2 effort only. Skip for Zone 1 commutes.</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="cr-left" style="min-width:0;flex:0 0 auto;width:50%;"><div class="cr-key">Collagen — activity</div></div>
+      <div class="cr-right">
+        <div class="cr-val">15g + 200mg vit C</div>
+        <div class="cr-desc">Activity days — 45 min before heading out</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-head">Rules</div>
+  <div class="card">
+    <div class="card-row"><div class="cr-left"><div class="cr-time">01</div></div><div class="cr-right"><div class="cr-desc">Collagen on Days A, B, activity days, and Zone 2 commute days only. Day C has no loading event that warrants priming. Zone 1 commutes need no collagen.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">02</div></div><div class="cr-right"><div class="cr-desc">All collagen doses: at least 2 hours after any protein-containing meal. Dietary leucine blunts connective tissue synthesis response.</div></div></div>
+    <div class="card-row card-warn"><div class="cr-left"><div class="cr-time">03</div></div><div class="cr-right"><div class="cr-desc">Collagen and whey must never be combined — whey post-bike only, collagen pre-session only.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">04</div></div><div class="cr-right"><div class="cr-desc">Skin-sourced collagen only — Type I. Bone broth, gelatin, and bone collagen powders are not equivalent.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">05</div></div><div class="cr-right"><div class="cr-desc">Minimize saturated fat — directly reduces collagen synthesis (Baar 2024).</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">06</div></div><div class="cr-right"><div class="cr-desc">Vegetarian diet removes all dietary collagen sources — supplementation is mandatory.</div></div></div>
+  </div>
+
+  <div class="sub-head">Sleep &amp; GH Protocol</div>
+  <p class="note" style="margin-bottom:8px;">Collagen synthesis peaks during sleep via the GH pulse. The pre-session collagen window is addressed in the daily schedule — the nocturnal synthesis window is equally important and equally controllable.</p>
+  <div class="card">
+    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-key">Duration</div></div><div class="cr-right"><div class="cr-val">7–8h minimum</div><div class="cr-desc">GH pulse amplitude is sleep-duration dependent. Chronic short sleep suppresses the nocturnal collagen synthesis peak regardless of supplementation.</div></div></div>
+    <div class="card-row card-warn"><div class="cr-left"><div class="cr-key">No food</div></div><div class="cr-right"><div class="cr-val">90 min before sleep</div><div class="cr-desc">Insulin response from any macronutrient suppresses GH pulse. This applies to protein — a late whey shake before bed blunts the overnight synthesis window.</div></div></div>
+    <div class="card-row card-warn"><div class="cr-left"><div class="cr-key">No alcohol</div></div><div class="cr-right"><div class="cr-val">Same mechanism as food</div><div class="cr-desc">Alcohol suppresses GH secretion and disrupts sleep architecture. Any amount. Not a training day concern only — applies every night.</div></div></div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  TIMER                                             -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="timer" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">09</span><span class="sh-title">Timer</span></div>
+
+  <div class="timer-box">
+    <div class="timer-lbl">Countdown Timer</div>
+    <div class="timer-face" id="tFace">00:30</div>
+    <div class="timer-btns">
+      <button class="tbtn tbtn-go" id="tBtn" onclick="tStartPause()">START</button>
+      <button class="tbtn tbtn-rst" onclick="tReset()">RESET</button>
+    </div>
+    <div class="preset-grid">
+      <button class="tpre" onclick="tSet(5,'Chin tuck hold')">5s — Chin Tuck</button>
+      <button class="tpre" onclick="tSet(8,'Bird dog hold')">8s — Bird Dog</button>
+      <button class="tpre" onclick="tSet(5,'Superman hold')">5s — Superman</button>
+      <button class="tpre" onclick="tSet(20,'Single-leg wall sit')">20s — Single-Leg Wall Sit</button>
+      <button class="tpre" onclick="tSet(30,'Wall sit hold')">30s — Wall Sit</button>
+      <button class="tpre" onclick="tSet(45,'Rest between sets')">45s — Rest</button>
+      <button class="tpre" onclick="tSet(600,'Bike session')">10 min — Bike</button>
+      <button class="tpre" onclick="tSet(720,'Bike session')">12 min — Bike</button>
+      <button class="tpre" onclick="tSet(900,'BIKE MAX — stop at 15 min')">15 min — MAX ⚠</button>
+    </div>
+    <div class="timer-note" id="tNote">Select a preset above</div>
+  </div>
+
+  <div class="sh"><span class="sh-num">10</span><span class="sh-title">Wall Sit Tracker</span></div>
+  <p class="body" style="margin-bottom:14px;">6 × 30 sec · 45 sec rest · automated sequence</p>
+  <div class="ws-sets" id="wsSets"></div>
+  <div class="timer-btns" style="margin-bottom:14px;">
+    <button class="tbtn tbtn-go" id="wsBtn" onclick="wsNext()">Start Set 1</button>
+    <button class="tbtn tbtn-rst" onclick="wsReset()">Reset</button>
+  </div>
+  <div class="timer-face" id="wsFace">00:30</div>
+  <div class="timer-note" id="wsNote">Tap Start Set 1 to begin</div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  PHASE 1                                           -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="phase1" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">11</span><span class="sh-title">Phase 1 — Foundation</span><span class="sh-tag">Weeks 1--4</span></div>
+
+  <div class="phase" style="border-color:var(--amber2);">
+    <div class="phase-head" style="background:var(--amber-bg);">
+      <span class="ph-title" style="color:var(--amber);">Weeks 1--2</span>
+      <span class="ph-weeks">Early foundation</span>
+    </div>
+    <div class="phase-item">Hamstring isometric — heel press into floor, 3 × 5 holds of 5–10 sec.</div>
+    <div class="phase-item">Deep split squat: significant counterbalance — do not force depth.</div>
+    <div class="phase-item">Step down: hand support on wall, 10cm step.</div>
+    <div class="phase-item">Scap push-up on knees.</div>
+    <div class="phase-item">Wall sit: start at 45° if 60° produces >4/10 pain.</div>
+    <div class="phase-item">Bike: start at 10 min — do not push to 12 until tolerating without soreness.</div>
+    <div class="phase-item">Zone 2: swimming only. No elliptical Week 1.</div>
+    <div class="phase-item">Bent-knee calf raise (soleus): begin seated or with significant wall support. 3 × 12, slow eccentric.</div>
+    <div class="phase-item">Single-leg balance: eyes open only. Wall nearby. 2 × 20s each side.</div>
+    <div class="phase-item">Wall ankle dorsiflexion: foot close to wall (~8cm). Prioritize range over distance.</div>
+  </div>
+
+  <div class="phase" style="border-color:var(--border2);">
+    <div class="phase-head" style="background:var(--bg3);">
+      <span class="ph-title">Weeks 3--4</span>
+      <span class="ph-weeks">Building tolerance</span>
+    </div>
+    <div class="phase-item">Hamstring slides: progress to single-leg. Increase range of motion — start with partial slide, build toward full extension.</div>
+    <div class="phase-item">Reduce counterbalance on split squat gradually.</div>
+    <div class="phase-item">Step down: attempt 2--3 reps unassisted if hand-supported form is solid.</div>
+    <div class="phase-item">Elliptical OK for Zone 2 if no post-session knee soreness.</div>
+    <div class="phase-item">Wall sit: progress toward 60° if tolerating 45° without pain.</div>
+    <div class="phase-item">Single-leg balance: progress to eyes closed when 30s eyes-open is stable. Add slight knee bend (10°) when eyes-closed is solid.</div>
+    <div class="phase-item">Bent-knee calf raise: reduce wall support. Build toward unassisted single-leg.</div>
+  </div>
+
+  <div class="sh"><span class="sh-num">11b</span><span class="sh-title">Wall Sit Progression Ladder</span></div>
+  <p class="note" style="margin-bottom:8px;">Each rung must be completed without sharp pain before advancing. Dull ache acceptable.</p>
+  <div class="card">
+    <div class="card-row"><div class="cr-left"><div class="cr-time">Step 1</div></div><div class="cr-right"><div class="cr-val">6 × 30s at 45°</div><div class="cr-desc">Entry point — dull ache acceptable. Start here if 60° produces >4/10.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">Step 2</div></div><div class="cr-right"><div class="cr-val">6 × 30s at 60°</div><div class="cr-desc">Standard Phase 1 prescription. Exit criteria benchmark.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">Step 3</div></div><div class="cr-right"><div class="cr-val">6 × 45s at 60°</div><div class="cr-desc">Volume increase — same angle, longer hold.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">Step 4</div></div><div class="cr-right"><div class="cr-val">6 × 60s at 60°</div><div class="cr-desc">Phase 1 ceiling. Transition to Phase 2 when here and other exit criteria met.</div></div></div>
+    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">Step 5</div></div><div class="cr-right"><div class="cr-val">Single-leg 5 × 20s</div><div class="cr-desc">Phase 2 entry — primary knee only. Begin at 45° and rebuild progression above on one leg.</div></div></div>
+  </div>
+
+  <div class="sh"><span class="sh-num">12</span><span class="sh-title">Exit Criteria</span></div>
+  <p class="note" style="margin-bottom:12px;">All must be met before Phase 2.</p>
+  <div class="card">
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Wall sit</div></div><div class="cr-right"><div class="cr-val">6 × 30 sec at 60° — dull ache only</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Step down</div></div><div class="cr-right"><div class="cr-val">10 reps, good control, unassisted</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Bike</div></div><div class="cr-right"><div class="cr-val">Full 12 min, no soreness onset</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Stairs</div></div><div class="cr-right"><div class="cr-val">≤ 2/10 descending pain</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Soreness</div></div><div class="cr-right"><div class="cr-val">No next-day soreness from Days A &amp; B</div></div></div>
+  </div>
+
+  <div class="sh"><span class="sh-num">13</span><span class="sh-title">Progress Metrics</span><span class="sh-tag">Weekly</span></div>
+  <div class="card">
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Wall sit duration</div></div><div class="cr-right"><div class="cr-time">Seconds</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Wall sit angle tolerated</div></div><div class="cr-right"><div class="cr-time">Degrees</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Step down reps</div></div><div class="cr-right"><div class="cr-time">Count</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Bike before soreness</div></div><div class="cr-right"><div class="cr-time">Minutes</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Pain during/after load</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Stairs descending</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Deep squat heel elevation</div></div><div class="cr-right"><div class="cr-time">cm → 0</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Post-Day-A/B soreness (AM)</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Post-activity soreness</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Post-commute soreness (AM)</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
+  </div>
+  <p class="note">No improvement by week 6 — get imaging before continuing.</p>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  RULES                                             -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="rules" class="page">
+<div class="doc">
+  <div class="sh"><span class="sh-num">14</span><span class="sh-title">Key Rules</span></div>
+
+  <div class="rules">
+    <div class="rule-row"><div class="rule-n">01</div><div class="rule-c"><div class="rule-t">Mobility is non-negotiable</div><div class="rule-d">Daily on all day types including Day C. Hip and ankle stiffness are upstream drivers of knee load.</div></div></div>
+    <div class="rule-row"><div class="rule-n">02</div><div class="rule-c"><div class="rule-t">Collagen on load &amp; activity days only</div><div class="rule-d">Base days have no loading event that warrants priming.</div></div></div>
+    <div class="rule-row"><div class="rule-n">03</div><div class="rule-c"><div class="rule-t">All collagen: 2+ hours after any protein meal</div><div class="rule-d">Leucine blunts connective tissue synthesis response.</div></div></div>
+    <div class="rule-row"><div class="rule-n">04</div><div class="rule-c"><div class="rule-t">Load day morning sequence is fixed</div><div class="rule-d">Reordering disrupts the collagen timing architecture.</div></div></div>
+    <div class="rule-row"><div class="rule-n">05</div><div class="rule-c"><div class="rule-t">Bellemans Bike is the collagen target</div><div class="rule-d">Everything before it lands the bike at T+57, inside the 60--90 min peak window. Zone 2 commute counts as the Bellemans session — do not stack both.</div></div></div>
+    <div class="rule-row"><div class="rule-n">06</div><div class="rule-c"><div class="rule-t">Whey within 30 min after Bellemans Bike</div><div class="rule-d">Day A only. Never before, never mixed with collagen. On commute days, take whey after commuting.</div></div></div>
+    <div class="rule-row"><div class="rule-n">07</div><div class="rule-c"><div class="rule-t">Skin-sourced collagen only</div><div class="rule-d">Type I. Bone broth and gelatin are not equivalent.</div></div></div>
+    <div class="rule-row"><div class="rule-n">08</div><div class="rule-c"><div class="rule-t">Hamstring slides on Day A only</div><div class="rule-d">48h eccentric recovery required — every-other-day is the minimum. Isometric version any day.</div></div></div>
+    <div class="rule-row"><div class="rule-n">09</div><div class="rule-c"><div class="rule-t">Knee micro-sessions on Days A &amp; B only</div><div class="rule-d">Loaded stimuli — not habits. Excluded from Day C.</div></div></div>
+    <div class="rule-row"><div class="rule-n">10</div><div class="rule-c"><div class="rule-t">Tibialis raise, backward walk, dead hang daily</div><div class="rule-d">No recovery demand — corrective and decompressive without exception.</div></div></div>
+    <div class="rule-row"><div class="rule-n">11</div><div class="rule-c"><div class="rule-t">Buffer rule — base only if tomorrow is activity</div><div class="rule-d">Regardless of where it falls in the load schedule.</div></div></div>
+    <div class="rule-row"><div class="rule-n">12</div><div class="rule-c"><div class="rule-t">Activity days replace a Day A or B</div><div class="rule-d">Do not stack structured knee work on top.</div></div></div>
+    <div class="rule-row"><div class="rule-n">13</div><div class="rule-c"><div class="rule-t">Zone 2: swimming or elliptical only — Phase 1</div><div class="rule-d">No outdoor cycling as Zone 2. Phase 2+.</div></div></div>
+    <div class="rule-row"><div class="rule-n">14</div><div class="rule-c"><div class="rule-t">Zone 1 on Day C is unrestricted</div><div class="rule-d">Backward walk, easy bike commute, kayaking, casual swim. Zone 1 commutes do not require collagen and do not displace the Bellemans session.</div></div></div>
+    <div class="rule-row"><div class="rule-n">15</div><div class="rule-c"><div class="rule-t">Zone 2 commute replaces Bellemans Bike — not adds to it</div><div class="rule-d">Take collagen 45 min before. Run morning routine. Skip T+57 Bellemans session. Monitor next-morning soreness every commute in Phase 1.</div></div></div>
+    <div class="rule-row"><div class="rule-n">16</div><div class="rule-c"><div class="rule-t">Bellemans Bike: 10--15 min maximum</div><div class="rule-d">Cartilage adaptation window closes at 15 min. This applies to the stationary bike only — commutes are not capped.</div></div></div>
+    <div class="rule-row"><div class="rule-n">16</div><div class="rule-c"><div class="rule-t">Pain guide</div><div class="rule-d">Dull ache acceptable. Sharp or >4/10 = reduce load or angle immediately.</div></div></div>
+    <div class="rule-row"><div class="rule-n">17</div><div class="rule-c"><div class="rule-t">Do not skip mobility</div><div class="rule-d">Daily including Day C. Hip and ankle stiffness are upstream causes of knee load.</div></div></div>
+    <div class="rule-row"><div class="rule-n">18</div><div class="rule-c"><div class="rule-t">Glute work is not optional</div><div class="rule-d">VMO alone will not fix patellar tracking without glute medius.</div></div></div>
+    <div class="rule-row"><div class="rule-n">19</div><div class="rule-c"><div class="rule-t">Deep range is the goal</div><div class="rule-d">Use whatever assistance needed to reach depth — reduce over time.</div></div></div>
+  </div>
+
+  <div class="colophon">
+    <div class="col-bar"></div>
+    <div class="col-text">
+      Based on <strong>Bellemans</strong> cyclic loading, <strong>Baar</strong> connective tissue loading &amp; nutrition, and <strong>ATG</strong> (Ben Patrick) anterior chain &amp; deep range principles.<br>
+      Not a substitute for clinical diagnosis or physiotherapy. · v5.0 — March 2026
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+// ── Navigation ─────────────────────────────────────────
+const tabIds = ['cover','today','load','timer'];
+const tabBtnIds = ['tb-cover','tb-today','tb-load','tb-timer'];
+
+function nav(pageId, msBtn) {
+  // hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+  document.getElementById(pageId).classList.add('on');
+  window.scrollTo(0, 0);
+  // update tab bar if it's a tab page
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+  const idx = tabIds.indexOf(pageId);
+  if (idx >= 0) document.getElementById(tabBtnIds[idx]).classList.add('on');
+  // close menu
+  closeMenu();
+}
+
+function navTab(pageId, tabBtnId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+  document.getElementById(pageId).classList.add('on');
+  window.scrollTo(0, 0);
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById(tabBtnId).classList.add('on');
+  closeMenu();
+}
+
+// ── More menu ──────────────────────────────────────────
+function openMenu() {
+  document.getElementById('ov').classList.add('on');
+  document.getElementById('menuSheet').classList.add('open');
+  // mark More tab
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById('tb-more').classList.add('on');
+}
+function closeMenu() {
+  document.getElementById('ov').classList.remove('on');
+  document.getElementById('menuSheet').classList.remove('open');
+}
+
+// ── Schedule tabs ──────────────────────────────────────
+function schedTab(paneId, btn) {
+  document.querySelectorAll('.sched-pane').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.sched-tab').forEach(b => b.classList.remove('on'));
+  document.getElementById(paneId).classList.add('on');
+  btn.classList.add('on');
+}
+
+// ── Exercise group collapse ────────────────────────────
+function togEx(head) {
+  head.closest('.ex-group').classList.toggle('open');
+}
+
+// ── General Timer ──────────────────────────────────────
+let tInterval=null, tRunning=false, tSecs=30, tTarget=30, tLabel='';
+
+function tSet(s, label) {
+  tReset();
+  tSecs=s; tTarget=s; tLabel=label||'';
+  tUpdateFace();
+  document.getElementById('tNote').textContent = label || '';
+  // highlight selected preset
+  document.querySelectorAll('.tpre').forEach(b => b.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+}
+
+function tStartPause() {
+  if (tRunning) {
+    clearInterval(tInterval); tRunning=false;
+    document.getElementById('tBtn').textContent='RESUME';
+    document.getElementById('tBtn').className='tbtn tbtn-go';
+  } else {
+    tRunning=true;
+    document.getElementById('tBtn').textContent='PAUSE';
+    document.getElementById('tBtn').className='tbtn tbtn-pause';
+    tInterval=setInterval(()=>{
+      tSecs--;
+      if (tSecs<=0) {
+        tSecs=0; clearInterval(tInterval); tRunning=false;
+        document.getElementById('tBtn').textContent='START';
+        document.getElementById('tBtn').className='tbtn tbtn-go';
+        document.getElementById('tNote').textContent='✓ Done';
+        document.getElementById('tFace').className='timer-face done';
+        return;
+      }
+      tUpdateFace();
+    },1000);
+  }
+}
+
+function tReset() {
+  clearInterval(tInterval); tRunning=false; tSecs=tTarget;
+  document.getElementById('tBtn').textContent='START';
+  document.getElementById('tBtn').className='tbtn tbtn-go';
+  tUpdateFace();
+}
+
+function tUpdateFace() {
+  const m=Math.floor(tSecs/60), s=tSecs%60;
+  const el=document.getElementById('tFace');
+  el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  el.className='timer-face';
+  if (tRunning) {
+    if (tTarget>=600&&tSecs<=120) el.classList.add('danger');
+    else if (tTarget>=600&&tSecs<=180) el.classList.add('warn');
+    else el.classList.add('run');
+  }
+}
+
+// ── Wall Sit Tracker ────────────────────────────────────
+let wsSet=0, wsPhase='idle', wsSecs=0, wsInt=null;
+const WS_SETS=6, WS_HOLD=30, WS_REST=45;
+
+function wsRenderDots() {
+  const c=document.getElementById('wsSets'); c.innerHTML='';
+  for(let i=1;i<=WS_SETS;i++){
+    const d=document.createElement('div');
+    d.className='ws-dot';
+    if(i<wsSet){d.classList.add('done');d.textContent='✓';}
+    else if(i===wsSet){d.classList.add('active');d.textContent=i;}
+    else{d.textContent=i;}
+    c.appendChild(d);
+  }
+}
+
+function wsNext() {
+  if(wsPhase==='idle'){wsSet=1;wsStartHold();}
+}
+
+function wsStartHold() {
+  wsPhase='hold'; wsSecs=WS_HOLD;
+  document.getElementById('wsBtn').textContent='Holding…';
+  document.getElementById('wsBtn').className='tbtn tbtn-pause';
+  document.getElementById('wsNote').textContent='Set '+wsSet+' of '+WS_SETS+' — HOLD';
+  wsRenderDots();
+  clearInterval(wsInt);
+  wsInt=setInterval(()=>{
+    wsSecs--; wsUpdateFace();
+    if(wsSecs<=0){
+      clearInterval(wsInt);
+      if(wsSet>=WS_SETS){
+        wsPhase='done';
+        document.getElementById('wsFace').textContent='DONE';
+        document.getElementById('wsFace').style.color='var(--green)';
+        document.getElementById('wsNote').textContent='All 6 sets complete ✓';
+        document.getElementById('wsBtn').textContent='Done';
+        document.getElementById('wsBtn').className='tbtn tbtn-rst';
+        wsSet++; wsRenderDots();
+      } else { wsStartRest(); }
+    }
+  },1000);
+}
+
+function wsStartRest() {
+  wsPhase='rest'; wsSecs=WS_REST;
+  document.getElementById('wsBtn').textContent='Resting…';
+  document.getElementById('wsBtn').className='tbtn tbtn-rst';
+  document.getElementById('wsNote').textContent='Rest — set '+(wsSet+1)+' starts in '+WS_REST+'s';
+  wsInt=setInterval(()=>{
+    wsSecs--; wsUpdateFace();
+    if(wsSecs<=0){clearInterval(wsInt);wsSet++;wsStartHold();}
+  },1000);
+}
+
+function wsUpdateFace() {
+  const m=Math.floor(wsSecs/60),s=wsSecs%60;
+  const el=document.getElementById('wsFace');
+  el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  el.style.color=wsPhase==='hold'?'var(--amber)':'var(--muted2)';
+}
+
+function wsReset() {
+  clearInterval(wsInt);
+  wsSet=0;wsPhase='idle';wsSecs=WS_HOLD;
+  document.getElementById('wsFace').textContent='00:30';
+  document.getElementById('wsFace').style.color='var(--text)';
+  document.getElementById('wsBtn').textContent='Start Set 1';
+  document.getElementById('wsBtn').className='tbtn tbtn-go';
+  document.getElementById('wsNote').textContent='Tap Start Set 1 to begin';
+  wsRenderDots();
+}
+
+// Init
+wsRenderDots();
+
+
+// ── Day Briefings ─────────────────────────────────────────
+const DAY_BRIEFINGS = {
+  'A': {
+    warn: [
+      'Do not stack a Zone 2 ride after work today — the Bellemans bike is the cartilage stimulus. The adaptation window is spent.',
+      'Do not skip the collagen timing — if you miss T=0, delay the entire sequence. Do not start at T+5 without collagen.',
+      'Pain >4/10 on wall sit or step down: reduce angle or step height immediately. Do not push through.',
+      'Hamstring slides: arms assist as needed — do not pull through with lower back. Hips must stay up throughout the slide.'
+    ],
+    ok: [
+      'Zone 1 commute is fine but unnecessary on a Day A — you already have the Bellemans session.',
+      'Dull ache during wall sit is acceptable and expected. It is not a stop signal.',
+      'Counterbalance on split squat is correct form in Phase 1, not a workaround.'
+    ],
+    sub: [
+      'No bike available: substitute 10 min easy elliptical at T+57. Not equivalent but preserves cyclic loading.',
+      'Wall sit too painful even at 45°: substitute leg press isometric at low load, same timing.',
+      'No sliders available: use a folded towel on a smooth floor, or socks on timber/tiles.'
+    ],
+    caution: [
+      'Whey must be taken within 30 min of finishing the bike — not before, not combined with collagen.',
+      'Second collagen dose today is not needed — you have whey post-bike covering protein synthesis.',
+      'Zone 1 commute does not replace the Bellemans session. The session is about cartilage nutrition, not cardio — it requires a stationary bike at a controlled seat height (15–20° knee flexion at bottom of stroke), steady-state loading, and a hard stop at 15 min. A commute has none of these: seat height is wrong, terrain is variable, duration is uncontrolled, and collagen timing is hours off. Zone 1 commute on a Day A is just free movement — the Bellemans session still runs.'
+    ]
+  },
+  'C': {
+    warn: [
+      'No collagen today — do not take it. Day C has no loading event that warrants connective tissue priming.',
+      'No Zone 2 riding today. Unprimed connective tissue load with no collagen upstream.',
+      'No knee-specific micro-sessions today — mandatory only (tibialis raise, backward walk, dead hang).'
+    ],
+    ok: [
+      'Zone 1 commute is completely free — no ceiling, no protocol interaction.',
+      'Easy walking, kayaking, swimming all fine — Zone 1 movement is unrestricted.',
+      'Gap block is valid standalone desk-posture work even without collagen context.'
+    ],
+    sub: [
+      'Short on time: mobility (5 min) + dead hang is the minimum viable Day C. Do not skip mobility entirely.',
+      'No floor space: substitute cat-cow and ankle circles for standing hip circles and calf raises.'
+    ],
+    caution: [
+      'Day C is a recovery day. Its purpose is tissue decompression between loading days. Resist adding load.'
+    ]
+  },
+  'B': {
+    warn: [
+      'No bike today — do not add a Bellemans session to make up for it. Day B is intentionally bike-free.',
+      'Pain >4/10 on wall sit or step down: reduce immediately. Day B knee block is the same load as Day A.',
+      'No hamstring slides today — Day A only. 48h eccentric recovery window.'
+    ],
+    ok: [
+      'Best day for an after-work Zone 2 ride. Take second collagen dose 45 min before, 2+ hours after any protein meal.',
+      'Zone 1 commute fine any time today.',
+      'No whey today unless you do the after-work Zone 2 ride — in that case, 25-30g within 30 min of finishing.'
+    ],
+    sub: [
+      'No after-work energy: skip the Zone 2 ride. Do not force it — recovery quality matters more than adding load.',
+      'Wall sit still painful: Spanish squat (band fixed to post, vertical shin) is the Phase 2 substitution — introduce early if wall sit is not progressing.'
+    ],
+    caution: [
+      'If doing the Zone 2 ride: second collagen timing is critical. Must be 2+ hours after any protein meal including lunch.',
+      'Do not stack the Zone 2 ride on top of other evening activity — it is a loading event, not casual movement.'
+    ]
+  },
+  'X': {
+    warn: [
+      'No structured morning routine today — activity replaces it entirely. Do not stack.',
+      'No knee-specific micro-sessions on the same day as the activity.',
+      'If knee pain appears during the activity: stop, do not push through. This is not a training session — it is real terrain.'
+    ],
+    ok: [
+      'Collagen 15g + 200mg Vit C, 45 min before heading out. Treat it like pre-session collagen.',
+      'Whey 25-30g within 30-60 min of finishing.',
+      'Light walking after finishing is fine — it aids recovery without adding load.'
+    ],
+    sub: [
+      'Activity cancelled: treat as Day C — run light mobility and gap block only. Do not substitute a full training day.',
+      'Low-demand activity (easy flat hike, short ride): Day C light in the morning is acceptable before heading out.'
+    ],
+    caution: [
+      'Next morning: if knee soreness is present, run Day C only regardless of where you are in the cycle. Resume Day A or B when soreness resolves.',
+      'Ski day specifically: eccentric quad demand is very high on descents. Expect DOMS in the 24-48h window after.'
+    ]
+  }
+};
+
+// ── TODAY TAB ──────────────────────────────────────────
+
+const BLOCKS = {
+  'A': {
+    type:'A', title:'DAY A — BELLEMANS BIKE', titleClass:'amber',
+    pills:[{t:'Collagen T=0',c:'amber'},{t:'Bike T+57',c:'amber'},{t:'Hamstring slides',c:''},{t:'Whey after bike',c:''}],
+    note:'Full routine + Bellemans bike. Run after a Day C or rest. Do not stack two loading days without a C between.',
+    steps:[
+      {id:'sA_col',  time:'T=0',    title:'Collagen + Vitamin C',       sub:'15g · 200mg vit C · 2+ hrs after protein',
+       detail:[{n:'Collagen',rx:'15g hydrolyzed, skin-sourced',d:'Take on waking. 2+ hrs after any protein meal — leucine blunts connective tissue synthesis. Skin-sourced (Type I) only.'},
+               {n:'Vitamin C',rx:'200mg',d:'Take with collagen.'}]},
+      {id:'sA_mob',  time:'T+5',    title:'Mobility',                   sub:'5 min', navPage:'base',
+       detail:[{n:'90/90 Hip Rotations',rx:'10 × each side',d:'Rotate hips, front shin parallel to floor, hold 3 sec.'},
+               {n:'Cat-Cow',rx:'10 reps slow',d:''},
+               {n:"World's Greatest Stretch",rx:'5 × each side',d:'Lunge, rotate arm to ceiling. 2 sec hold.'},
+               {n:'Wall Ankle Dorsiflexion',rx:'10 each side · 2s hold',d:'Foot ~10cm from wall. Drive knee over toes. Upstream PFPS driver.'},
+               {n:'Thread the Needle',rx:'5–8 each side · 2s hold',d:'On hands and knees. Slide arm under body, rotate T-spine until shoulder touches floor.'},
+               {n:'Couch Stretch',rx:'2 × 30s each side',d:'Shin against wall, upright torso, squeeze glute.',timer:30}]},
+      {id:'sA_gap',  time:'T+10',   title:'Gap Block',                  sub:'8–10 min · filling collagen window', navPage:'base',
+       detail:[{n:'Bird Dog',rx:'2 × 5 · 8s hold',d:'Opposite arm and leg, hold 8s. Hips level.',timer:8},
+               {n:'Superman Hold',rx:'2 × 5 · 5s hold',d:'Both arms and legs, hold 5s.',timer:5},
+               {n:'Down Dog → Upward Dog',rx:'2 × 5',d:'2s hold each end.'},
+               {n:'L-Sit → Reverse Plank',rx:'2 × 5 · 2s holds',d:'Partial L-sit with bent knees if needed.'},
+               {n:'WLYT',rx:'2 × each letter · 2s hold',d:'Prone. W, L, Y, T. Hold 2s each.'},
+               {n:'Floor Slide',rx:'2 × 10',d:'Goalpost arms prone, slide overhead, forearms on floor.'},
+               {n:'Scap Push-Up',rx:'2 × 12 · knees Ph1',d:'Protract and retract only — no elbow bend.'},
+               {n:'Shoulder Tap',rx:'2 × 10 each side',d:'Push-up position. Tap opposite shoulder without rotating hips.'},
+               {n:'External Shoulder Rotation',rx:'2 × 12 each side',d:'Side-lying or band. Elbow 90°, rotate forearm up.'}]},
+      {id:'sA_pp',   time:'T+20',   title:'Push & Pull',                sub:'4 min', navPage:'load',
+       detail:[{n:'Push-Up',rx:'2 × 8–15',d:'3s down, 1s pause, 2s up. Technical failure only.'},
+               {n:'Pull-Up Progression',rx:'2 × 5–8',d:'Ph1: scapular pull from dead hang — depress shoulders fully, hold 2s. Progress toward full pull-up.'}]},
+      {id:'sA_core', time:'T+24',   title:'Core',                       sub:'2 min', navPage:'base',
+       detail:[{n:'Hollow Body Hold',rx:'2 × 25s',d:'Lower back to floor, slight leg and shoulder lift.',timer:20},
+               {n:'Side Plank',rx:'2 × 20s each',d:'Forearm and side of foot. Hips high.',timer:20}]},
+      {id:'sA_glut', time:'T+26',   title:'Glute Activation',           sub:'5 min', navPage:'load',
+       detail:[{n:'Clamshell or Hip Abduction',rx:'2 × 12 each · 2s hold top',d:'Add band when easy.'},
+               {n:'Single-Leg Glute Bridge',rx:'2 × 10 each · 2s hold top',d:'Drive through heel, squeeze at top. Pelvis level.'},
+               {n:'Dead Bug',rx:'2 × 10 each side',d:'Arms to ceiling, knees 90°. Lower opposite arm and leg without arching back.'}]},
+      {id:'sA_brk',  time:'T+31',   title:'Natural Break',              sub:'~14 min · collagen approaching peak', detail:[]},
+      {id:'sA_knee', time:'T+45',   title:'Knee & Lower Body',          sub:'12 min · collagen rising into peak', navPage:'load',
+       detail:[{n:'Slant Board Step Down',rx:'2×10 primary · 2×8 secondary',d:'10cm step Ph1. Lower 5s, 2s pause at bottom (foot hovering), return. Hand on wall → unassisted.'},
+               {n:'Wall Sit Isometric',rx:'6 × 30s · 45s rest',d:'60° knee flexion. Dull ache OK. Sharp or >4/10 = reduce angle immediately.',timer:30},
+               {n:'Deep Split Squat',rx:'2 × 10 each side',d:'Counterbalance Ph1. Rear knee toward floor, 2–3s hold at bottom, drive up.'},
+               {n:'Lateral Side Step',rx:'2 rounds × 15 steps',d:'Slight squat. Pause and reassert hip position after each step.'},
+               {n:'Hamstring Isometric',rx:'2 × 5 · 8s hold',d:'Heel press into floor or fixed surface. Use until slides feel comfortable.'},
+               {n:'Hamstring Slide',rx:'2 × 10',d:'On back, heels on sliders or towel. Bridge up, slide heels out 3–5s, return. Hips stay elevated. Arm assist OK. Day A only — 48h recovery.'},
+               {n:'Calf Raise — Straight Leg',rx:'3 × 15 each · 3s down',d:'Single-leg. Full plantarflexion top, full dorsiflexion bottom. 3s eccentric.'},
+               {n:'Calf Raise — Bent Knee (Soleus)',rx:'3 × 12–15 each · 3s down',d:'Knee bent ~30°. Isolates soleus — primary plantarflexor in all knee-flexed positions. Higher priority of the two.'}]},
+      {id:'sA_bike', time:'T+57',   title:'Bellemans Bike',             sub:'10–12 min · HARD STOP 15 MIN', navPage:'load', timer:720,
+       detail:[{n:'Bellemans Protocol',rx:'10–12 min · hard stop 15 min',d:'Stationary bike. Seat: knee at 15–20° flexion at bottom of stroke. Steady moderate resistance. Cyclic cartilage loading at collagen peak. Window closes at 15 min — stop.',timer:720}]},
+      {id:'sA_whey', time:'T+67',   title:'Whey Protein',              sub:'25–30g within 30 min of bike', detail:[
+               {n:'Whey',rx:'25–30g within 30 min',d:'Take immediately on finishing the bike. Never before, never mixed with collagen.'}]},
+    ],
+    micro:[
+      {n:'Tibialis Raise',     rx:'1 × 20 · 1s hold top', req:true},
+      {n:'Backward Walk',      rx:'2–3 rounds 30–60s',     req:true},
+      {n:'Dead Hang',          rx:'2 × 30s',            req:true},
+      {n:'Single-Leg Balance', rx:'2 × 20–30s each leg',   req:true},
+      {n:'Single-Leg Wall Sit',rx:'5 × 20s · 45s rest',    req:false},
+      {n:'Short Arc Quad',     rx:'2 × 15 each · 2s hold',           req:false},
+    ],
+    briefing:{
+      warn:['Do not stack a Zone 2 ride after work — Bellemans bike is the cartilage stimulus for today. Window is spent.',
+            'Do not skip collagen timing — if you miss T=0, delay the whole sequence. Do not start T+5 without collagen.',
+            'Pain >4/10 on wall sit or step down: reduce angle or step height immediately.',
+            'Hamstring slides: hips must stay elevated throughout. Do not pull through with the lower back.',
+            'Zone 1 commute does not replace the Bellemans session. The session is cartilage nutrition, not cardio — it requires a stationary bike at a controlled seat height (15–20° knee flexion at bottom of stroke), steady-state loading, and a hard stop at 15 min. A commute has none of these. Zone 1 commute on a Day A is free movement only — the Bellemans session still runs.'],
+      ok:['Dull ache during wall sit is acceptable and expected. It is not a stop signal.',
+          'Counterbalance on split squat is correct Phase 1 form, not a workaround.',
+          'Zone 1 commute is fine but has no protocol interaction — the Bellemans session still runs.'],
+      sub:['No stationary bike: substitute 10 min easy elliptical at T+57. Not equivalent but preserves cyclic loading.',
+           'Wall sit too painful even at 45°: substitute leg press isometric at low load.',
+           'No sliders: folded towel on smooth floor, or socks on timber/tiles.'],
+      caution:['Whey within 30 min of finishing the bike — not before, not combined with collagen.',
+               'No second collagen dose needed today — whey post-bike covers protein synthesis.'],
+    }
+  },
+
+  'B': {
+    type:'B', title:'DAY B — FULL, NO BIKE', titleClass:'',
+    pills:[{t:'Collagen T=0',c:'amber'},{t:'No bike',c:''},{t:'No hamstring slides',c:''}],
+    note:'Full routine without the bike or hamstring slides. Best day to slot an after-work Zone 2 ride. Run after a Day C or rest.',
+    steps:[
+      {id:'sB_col',  time:'T=0',   title:'Collagen + Vitamin C', sub:'15g · 200mg vit C · 2+ hrs after protein',
+       detail:[{n:'Collagen',rx:'15g hydrolyzed, skin-sourced',d:'Take on waking. 2+ hrs after any protein meal.'},
+               {n:'Vitamin C',rx:'200mg',d:'With collagen.'}]},
+      {id:'sB_mob',  time:'T+5',   title:'Mobility',             sub:'5 min', navPage:'base',
+       detail:[{n:'90/90 Hip Rotations',rx:'10 × each side',d:'Hold 3 sec.'},
+               {n:'Cat-Cow',rx:'10 reps slow',d:''},
+               {n:"World's Greatest Stretch",rx:'5 × each side',d:'2 sec hold.'},
+               {n:'Wall Ankle Dorsiflexion',rx:'10 each side · 2s hold',d:'Foot ~10cm from wall. Drive knee over toes.'},
+               {n:'Thread the Needle',rx:'5–8 each side · 2s hold',d:'On hands and knees. Rotate T-spine, shoulder to floor.'},
+               {n:'Couch Stretch',rx:'2 × 30s each side',d:'Upright torso, squeeze glute.',timer:30}]},
+      {id:'sB_gap',  time:'T+10',  title:'Gap Block',            sub:'8–10 min', navPage:'base',
+       detail:[{n:'Bird Dog',rx:'2 × 5 · 8s hold',d:'',timer:8},
+               {n:'Superman Hold',rx:'2 × 5 · 5s hold',d:'',timer:5},
+               {n:'Down Dog → Upward Dog',rx:'2 × 5',d:''},
+               {n:'L-Sit → Reverse Plank',rx:'2 × 5 · 2s holds',d:''},
+               {n:'WLYT',rx:'2 × each letter · 2s hold',d:''},
+               {n:'Floor Slide',rx:'2 × 10',d:''},
+               {n:'Scap Push-Up',rx:'2 × 12',d:''},
+               {n:'Shoulder Tap',rx:'2 × 10 each side',d:'No hip rotation.'},
+               {n:'External Shoulder Rotation',rx:'2 × 12 each side',d:'Side-lying or band.'}]},
+      {id:'sB_pp',   time:'T+20',  title:'Push & Pull',          sub:'4 min', navPage:'load',
+       detail:[{n:'Push-Up',rx:'2 × 8–15',d:'3s down, 1s pause, 2s up.'},
+               {n:'Pull-Up Progression',rx:'2 × 5–8',d:'Ph1: scapular pull from dead hang, hold 2s.'}]},
+      {id:'sB_core', time:'T+24',  title:'Core',                 sub:'2 min', navPage:'base',
+       detail:[{n:'Hollow Body Hold',rx:'2 × 25s',d:'',timer:20},
+               {n:'Side Plank',rx:'2 × 20s each',d:'',timer:20}]},
+      {id:'sB_glut', time:'T+26',  title:'Glute Activation',     sub:'5 min', navPage:'load',
+       detail:[{n:'Clamshell or Hip Abduction',rx:'2 × 12 each · 2s hold top',d:''},
+               {n:'Single-Leg Glute Bridge',rx:'2 × 10 each · 2s hold top',d:'Pelvis level.'},
+               {n:'Dead Bug',rx:'2 × 10 each side',d:''}]},
+      {id:'sB_brk',  time:'T+31',  title:'Natural Break',        sub:'~14 min · collagen approaching peak', detail:[]},
+      {id:'sB_knee', time:'T+45',  title:'Knee & Lower Body',    sub:'12 min · collagen rising into peak', navPage:'load',
+       detail:[{n:'Slant Board Step Down',rx:'2×10 primary · 2×8 secondary',d:'10cm step. Lower 5s, 2s pause at bottom, return.'},
+               {n:'Wall Sit Isometric',rx:'6 × 30s · 45s rest',d:'60° target. Dull ache OK. >4/10 = reduce angle.',timer:30},
+               {n:'Deep Split Squat',rx:'2 × 8 each · 3s hold bottom',d:'Counterbalance Ph1. 2–3s hold at bottom, drive up.'},
+               {n:'Lateral Side Step',rx:'2 rounds × 15 steps',d:'Pause and reassert hip position after each step.'},
+               {n:'Calf Raise — Straight Leg',rx:'3 × 15 each · 3s down',d:'Single-leg. Full range. 3s eccentric.'},
+               {n:'Calf Raise — Bent Knee (Soleus)',rx:'3 × 12–15 each · 3s down',d:'Knee bent ~30°. Soleus isolation. Higher priority than straight-leg version.'}]},
+    ],
+    micro:[
+      {n:'Tibialis Raise',     rx:'1 × 20 · 1s hold top', req:true},
+      {n:'Backward Walk',      rx:'2–3 rounds 30–60s',     req:true},
+      {n:'Dead Hang',          rx:'2 × 30s',            req:true},
+      {n:'Single-Leg Balance', rx:'2 × 20–30s each leg',   req:true},
+      {n:'Single-Leg Wall Sit',rx:'5 × 20s · 45s rest',    req:false},
+      {n:'Short Arc Quad',     rx:'2 × 15 each · 2s hold',           req:false},
+    ],
+    briefing:{
+      warn:['No bike today — do not add a Bellemans session to compensate.',
+            'No hamstring slides today — Day A only, 48h eccentric recovery window.',
+            'Pain >4/10 on wall sit or step down: reduce angle immediately.'],
+      ok:['Best day for an after-work Zone 2 ride — take second collagen 45 min before (2+ hrs after any protein meal).',
+          'Zone 1 commute fine any time today.',
+          'No whey today unless doing the after-work Zone 2 ride.'],
+      sub:['No after-work energy: skip the Zone 2 ride. Recovery quality matters more than adding load.',
+           'Wall sit not progressing: trial Spanish squat (band to post, vertical shin) — Phase 2 substitution.'],
+      caution:['After-work Zone 2 ride: second collagen must be 2+ hrs after any protein meal including lunch.',
+               'Do not stack the Zone 2 ride on top of other evening activity.'],
+    }
+  },
+
+  'C': {
+    type:'C', title:'DAY C — LIGHT', titleClass:'',
+    pills:[{t:'No collagen',c:''},{t:'~18 min',c:''},{t:'Zone 1 unrestricted',c:'green'}],
+    note:'Recovery and maintenance. Run between any two loading days (A or B), or before an activity day. No knee loading.',
+    steps:[
+      {id:'sC_mob',  time:'Morning', title:'Mobility',             sub:'5 min', navPage:'base',
+       detail:[{n:'90/90 Hip Rotations',rx:'10 × each',d:'Hold 3 sec.'},
+               {n:'Cat-Cow',rx:'10 reps',d:''},
+               {n:"World's Greatest Stretch",rx:'5 × each',d:''},
+               {n:'Wall Ankle Dorsiflexion',rx:'10 each side · 2s hold',d:'Foot ~10cm from wall. Drive knee forward over toes.'},
+               {n:'Thread the Needle',rx:'5–8 each side · 2s hold',d:'On hands and knees. Rotate T-spine, shoulder to floor.'},
+               {n:'Couch Stretch',rx:'2 × 30s each',d:'',timer:30}]},
+      {id:'sC_gap',  time:'Morning', title:'Gap Block',            sub:'8–10 min', navPage:'base',
+       detail:[{n:'Bird Dog',rx:'2×5·8s',d:'',timer:8},
+               {n:'Superman Hold',rx:'2×5·5s',d:'',timer:5},
+               {n:'Down Dog→Upward Dog',rx:'2×5',d:''},
+               {n:'L-Sit→Reverse Plank',rx:'2×5·2s',d:''},
+               {n:'WLYT',rx:'2 × each · 2s hold',d:''},
+               {n:'Floor Slide',rx:'2×10',d:''},
+               {n:'Scap Push-Up',rx:'2×12',d:''},
+               {n:'Shoulder Tap',rx:'2×10 each side',d:''},
+               {n:'External Shoulder Rotation',rx:'2×12 each side',d:''}]},
+      {id:'sC_core', time:'Morning', title:'Core',                 sub:'2 min', navPage:'base',
+       detail:[{n:'Hollow Body Hold',rx:'2×25s',d:'',timer:20},
+               {n:'Side Plank',rx:'2×20s each',d:'',timer:20}]},
+      {id:'sC_glut', time:'Morning', title:'Clamshell + Dead Bug', sub:'3–4 min', navPage:'base',
+       detail:[{n:'Clamshell or Hip Abduction',rx:'2×12 each · 2s hold top',d:''},
+               {n:'Dead Bug',rx:'2×10 each',d:''}]},
+    ],
+    micro:[
+      {n:'Tibialis Raise', rx:'1 × 20 · 1s hold top', req:true},
+      {n:'Backward Walk',  rx:'2–3 rounds',            req:true},
+      {n:'Dead Hang',      rx:'2 × 30s',            req:true},
+      {n:'Single-Leg Balance', rx:'2 × 20–30s each leg', req:true},
+    ],
+    briefing:{
+      warn:['No collagen today — Day C has no loading event that warrants it.',
+            'No Zone 2 riding today — unprimed connective tissue load with no collagen upstream.',
+            'No knee-specific micro-sessions today — mandatory only.'],
+      ok:['Zone 1 commute completely free — no ceiling, no protocol interaction.',
+          'Easy walking, kayaking, swimming all fine.',
+          'If before an activity day (ski/hike): rest only — skip this session entirely.'],
+      sub:['Short on time: mobility + dead hang is the minimum viable Day C.',
+           'Significant fatigue: reduce gap block to bird dog + WLYT only.'],
+      caution:['Day C is a recovery day. Its purpose is tissue decompression. Resist adding load.'],
+    }
+  },
+
+  'X': {
+    type:'X', title:'ACTIVITY / REST', titleClass:'',
+    pills:[{t:'Ski · Hike · Ride',c:'green'},{t:'Collagen before if active',c:'amber'},{t:'Whey after',c:''},{t:'Or full rest',c:''}],
+    note:'Ski, hike, or long ride. No structured morning routine — activity replaces it entirely. Run a Day C before this when possible.',
+    steps:[
+      {id:'sX_col', time:'Before',     title:'If active: Collagen + Vitamin C', sub:'45 min before heading out',
+       detail:[{n:'Collagen',rx:'15g · 45 min before activity',d:'At least 2 hrs after any protein meal.'},
+               {n:'Vitamin C',rx:'200mg',d:'With collagen.'}]},
+      {id:'sX_act', time:'During',     title:'Ski / Hike / Ride',              sub:'No protocol — go as planned', detail:[]},
+      {id:'sX_why', time:'After',      title:'If active: Whey Protein',        sub:'25–30g within 30–60 min of finishing',
+       detail:[{n:'Whey',rx:'25–30g',d:'No knee-specific micro-sessions same day. Light walking fine.'}]},
+      {id:'sX_nxt', time:'Next block', title:'If sore: Day C first',           sub:'Resume A or B when soreness resolves', detail:[]},
+    ],
+    micro:[
+      {n:'Tibialis Raise', rx:'1×20', req:true},
+      {n:'Backward Walk',  rx:'2–3 rounds', req:true},
+      {n:'Dead Hang',      rx:'2×30s', req:true},
+      {n:'Single-Leg Balance', rx:'2 × 20–30s each leg', req:true},
+    ],
+    briefing:{
+      warn:['No structured morning routine — activity replaces it. Do not stack.',
+            'No knee-specific micro-sessions on the same day.',
+            'Knee pain during activity: stop. This is real terrain, not a training session.'],
+      ok:['Collagen 15g + 200mg Vit C, 45 min before heading out.',
+          'Whey 25–30g within 30–60 min of finishing.',
+          'Light walking after finishing is fine.'],
+      sub:['Activity cancelled: treat as Day C — mobility and gap block only.',
+           'Low-demand activity (easy flat hike): Day C light in the morning is acceptable before heading out.'],
+      caution:['Next morning: if knee soreness present, run Day C only. Resume A or B when it resolves.',
+               'Ski day specifically: eccentric quad demand is high on descents. Expect DOMS in 24–48h window.'],
+    }
+  }
+};
+
+let currentBlock = 'A';
+let openSteps = {};
+
+function selectBlock(key, btn) {
+  currentBlock = key;
+  openSteps = {};
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBlock(key);
+}
+
+function toggleStep(id) {
+  openSteps[id] = !openSteps[id];
+  const stepEl = document.getElementById('step-' + id);
+  const detEl  = document.getElementById('det-'  + id);
+  if (!stepEl || !detEl) return;
+  if (openSteps[id]) { stepEl.classList.add('open'); detEl.classList.add('open'); }
+  else               { stepEl.classList.remove('open'); detEl.classList.remove('open'); }
+}
+
+function toggleBriefing(key) {
+  const el = document.getElementById('briefing-' + key);
+  if (el) el.classList.toggle('open');
+}
+
+function renderBlock(key) {
+  const d = BLOCKS[key];
+  const card = document.getElementById('dayCard');
+  if (!d) { card.innerHTML = ''; return; }
+
+  // Pills
+  const pillsHtml = d.pills.map(p =>
+    `<span class="today-pill ${p.c}">${p.t}</span>`
+  ).join('');
+
+  // Briefing
+  const b = d.briefing || {};
+  const bSections = [
+    {k:'warn',    label:'Do Not',        cls:'warn'},
+    {k:'caution', label:'Watch Out',     cls:'caution'},
+    {k:'ok',      label:'Fine To Do',    cls:'ok'},
+    {k:'sub',     label:'Substitutions', cls:'caution'},
+  ];
+  let bInner = '';
+  bSections.forEach(s => {
+    if (b[s.k] && b[s.k].length) {
+      bInner += `<div class="briefing-section">
+        <div class="briefing-section-title ${s.cls}">${s.label}</div>
+        ${b[s.k].map(item => `<div class="briefing-item">${item}</div>`).join('')}
+      </div>`;
+    }
+  });
+  const briefingHtml = bInner ? `<div class="briefing" id="briefing-${key}">
+    <div class="briefing-head" onclick="toggleBriefing('${key}')">
+      <span class="briefing-label">Day Briefing — Rules &amp; Substitutions</span>
+      <span class="briefing-chev">▼</span>
+    </div>
+    <div class="briefing-body">${bInner}</div>
+  </div>` : '';
+
+  // Steps
+  let stepsHtml = '';
+  if (d.steps && d.steps.length) {
+    stepsHtml = `<div class="today-card">
+      <div class="today-card-head"><div class="today-day-label">Morning Sequence</div></div>
+      <ul class="step-list">`;
+
+    d.steps.forEach(step => {
+      const hasDetail = step.detail && step.detail.length > 0;
+      const arrow = (hasDetail || step.navPage) ? `<span class="step-arrow${step.navPage && !hasDetail ? ' navlink' : ''}">›</span>` : '';
+      let rowClick = '';
+      if (hasDetail)       rowClick = `onclick="toggleStep('${step.id}')"`;
+      else if (step.navPage) rowClick = `onclick="nav('${step.navPage}', null)"`;
+
+      let detailHtml = '';
+      if (hasDetail) {
+        step.detail.forEach(ex => {
+          const timerBtn = ex.timer
+            ? `<button class="sde-timer-btn" onclick="event.stopPropagation();launchTimer(${ex.timer},'${ex.n}')">⧖ Timer — ${ex.timer}s</button>`
+            : '';
+          detailHtml += `<div class="step-detail-ex">
+            <div class="sde-name">${ex.n}</div>
+            <div class="sde-rx">${ex.rx}</div>
+            ${ex.d ? `<div class="sde-desc">${ex.d}</div>` : ''}
+            ${timerBtn}
+          </div>`;
+        });
+        if (step.navPage) {
+          detailHtml += `<div class="sde-navlink" onclick="event.stopPropagation();nav('${step.navPage}',null)">View full exercise descriptions &nbsp;›</div>`;
+        }
+      }
+
+      stepsHtml += `<li class="step" id="step-${step.id}">
+        <div class="step-row" ${rowClick}>
+          <div class="step-main">
+            <div class="step-time">${step.time}</div>
+            <div class="step-title">${step.title}</div>
+            <div class="step-sub">${step.sub}</div>
+          </div>
+          ${arrow}
+        </div>
+        ${detailHtml ? `<div class="step-detail" id="det-${step.id}">${detailHtml}</div>` : ''}
+      </li>`;
+    });
+    stepsHtml += `</ul></div>`;
+  }
+
+  // Micro
+  let microHtml = '';
+  if (d.micro && d.micro.length) {
+    microHtml = `<div class="today-sh">During the Day</div><div class="today-card"><ul class="step-list">`;
+    d.micro.forEach(m => {
+      const dotCls  = m.req ? 'req' : '';
+      const tagHtml = m.req
+        ? `<span class="micro-tag req">Required</span>`
+        : `<span class="micro-tag">Pick 2</span>`;
+      microHtml += `<li class="micro-item">
+        <div class="micro-dot ${dotCls}"></div>
+        <div class="micro-main">
+          <div class="micro-name">${m.n}</div>
+          <div class="micro-rx">${m.rx}</div>
+        </div>
+        ${tagHtml}
+      </li>`;
+    });
+    microHtml += `</ul></div>`;
+  }
+
+  card.innerHTML = `
+    <div class="today-card-head" style="border:1px solid var(--border2);margin-bottom:0;border-bottom:none;">
+      <div class="today-day-label">Block ${key}</div>
+      <div class="today-day-title ${d.titleClass}">${d.title}</div>
+      <div class="today-pills">${pillsHtml}</div>
+    </div>
+    ${d.note ? `<p class="note" style="font-size:14px;border:1px solid var(--border2);border-top:none;padding:12px 16px;margin-bottom:16px;">${d.note}</p>` : ''}
+    ${briefingHtml}
+    ${stepsHtml}
+    ${microHtml}
+  `;
+}
+
+function launchTimer(secs, label) {
+  navTab('timer', 'tb-timer');
+  tReset();
+  tSecs = secs; tTarget = secs; tLabel = label || '';
+  tUpdateFace();
+  document.getElementById('tNote').textContent = label || '';
+}
+
+// Init Today tab
+(function() {
+  const firstBtn = document.querySelector('.day-btn[data-block="A"]');
+  if (firstBtn) { firstBtn.classList.add('active'); renderBlock('A'); }
+})();
+</script>
