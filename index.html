@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Knee Rehab v6.5</title>
+<title>Knee Rehab v6.8</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1132,7 +1132,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">KNEE REHAB v6.5</div>
+  <div class="ms-title">KNEE REHAB v6.8</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Reference</div>
@@ -1240,7 +1240,7 @@ body { background: #fff; color: #000; }
     <div class="cover-big-num">6.0</div>
 
 <div class="cover-eyebrow">Full Body Training · Phase 1</div>
-<div class="cover-h1">KNEE<br>REHAB<br><em>v6.5</em></div>
+<div class="cover-h1">KNEE<br>REHAB<br><em>v6.8</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1283,7 +1283,27 @@ body { background: #fff; color: #000; }
 <div class="doc">
 
   <div class="changes">
-    <div class="changes-title">Changes from v6.4</div>
+    <div class="changes-title">Changes from v6.7 — Standing hamstring near-extension</div>
+    <ul class="changes-list">
+      <li><strong>Standing Hamstring Isometric — Near Extension added to General Optional.</strong> Standing, 10–15° knee flexion, heel pressed back and into floor. 3 × 20–30s each leg. No recovery demand — do at desk, kitchen, anywhere.</li>
+      <li><strong>Rationale:</strong> Prolonged standing causes the knee to drift into passive hyperextension — joint supported by ligaments and posterior capsule rather than active muscle. This places sustained passive tension on the posterior capsule (the symptomatic attachment) and removes hamstring co-contraction that would otherwise reduce patellofemoral contact pressure. Building near-extension hamstring endurance directly addresses standing-related posterior knee aching and knee fatigue on hiking flats and ski lift queues.</li>
+      <li>Completes the hamstring coverage across functional angles: near-extension (0–15°, standing) now covered by the new exercise; mid-range (60–80°, jump landing) covered by Hamstring Isometric in Flexion; lengthened position (hip flexed + knee extended) deferred to Phase 2 Nordic progression.</li>
+    </ul>
+  </div>
+  <div class="changes" style="margin-top:8px;border-color:var(--border);">
+    <div class="changes-title" style="color:var(--muted2);font-size:11px;">v6.6 → v6.7</div>
+    <ul class="changes-list">
+      <li>Posterior Chain Wall Sit removed — heel-drag cue mechanically incoherent in wall sit geometry. Hamstring Isometric in Flexion expanded to 4 sets. Optional pool reduced to 5 exercises. Rule 22 updated.</li>
+    </ul>
+  </div>
+  <div class="changes" style="margin-top:8px;border-color:var(--border);">
+    <div class="changes-title" style="color:var(--muted2);font-size:11px;">v6.5 → v6.6</div>
+    <ul class="changes-list">
+      <li>Posterior knee weakness under jump landing load addressed. Hamstring Isometric in Flexion and Posterior Chain Wall Sit added to Knee-Specific Optional. Rule 22 added. Phase 2 and Phase 3 posterior chain progressions added.</li>
+    </ul>
+  </div>
+  <div class="changes" style="margin-top:8px;border-color:var(--border);">
+    <div class="changes-title" style="color:var(--muted2);font-size:11px;">v6.4 → v6.5</div>
     <ul class="changes-list">
       <li>Wake Lock API added. The screen no longer sleeps while the app is open. Re-acquired automatically when the tab becomes visible again after a switch. Fails silently on Safari older than 16.4 — no effect on unsupported devices.</li>
     </ul>
@@ -2064,7 +2084,7 @@ body { background: #fff; color: #000; }
   </div>
 
   <div class="sub-head">Knee-Specific Optional — Pick 2 (Days A &amp; B Only)</div>
-  <p class="note" style="margin-bottom:8px;">SAQ is now mandatory (see above and Knee &amp; Lower Body block). These are supplementary. TKE is the recommended first pick — it addresses dynamic neuromuscular control at terminal extension, distinct from SAQ which is strength/hypertrophy.</p>
+  <p class="note" style="margin-bottom:8px;">SAQ is mandatory. These are supplementary. 5 exercises in pool — pick 2. <strong>Posterior knee symptoms (jump landing in flexion):</strong> prioritise Hamstring Isometric in Flexion (both picks) until resolved. Return to TKE-first selection once symptoms resolve.</p>
   <div class="ex-group open">
     <div class="ex-group-head" onclick="togEx(this)">
       <span class="eg-title">Knee-Specific Optional</span>
@@ -2072,7 +2092,9 @@ body { background: #fff; color: #000; }
       <span class="eg-chev">▼</span>
     </div>
     <div class="ex-body" id="src-opt">
-      <div class="ex-card card-highlight"><div class="ex-top"><span class="ex-name">Terminal Knee Extension ★</span><span class="ex-rx">10 reps each · 5s hold</span></div><div class="ex-desc">Recommended first pick. Band at knee height or foot against wall. Extend fully against resistance. Proprioception and dynamic neuromuscular re-education at terminal extension — teaches the knee to lock out correctly under load. Ski-specific: the functional extension pattern on flats and traverses. Distinct from SAQ which is VMO strength isolation.</div></div>
+      <div class="ex-card card-highlight" style="border-left:3px solid #BF5AF2;"><div class="ex-top"><span class="ex-name">Hamstring Isometric in Flexion ★ POSTERIOR</span><span class="ex-rx">3 × 30--45s · 60--80° flexion</span></div><div class="ex-desc"><strong>Priority pick — posterior knee weakness under jump landing load.</strong> Sit on edge of bench or step with knee at 60–80° flexion (roughly the angle of a jump landing). Press heel down firmly into the floor or against a resistance band anchored below. Hold isometric contraction 30–45s. This is a mid-range isometric — directly matches the flexion angle where weakness is felt. The existing Hamstring Slides on Day B are mid-range eccentric (a different stimulus). This fills the isometric gap. Targets biceps femoris (long head) and semimembranosus under sustained load at the functional angle. Safe in Phase 1 — no ballistic demand.</div></div>
+      <div class="ex-card card-highlight" style="border-left:3px solid #BF5AF2;"><div class="ex-top"><span class="ex-name">Hamstring Isometric in Flexion ★ POSTERIOR</span><span class="ex-rx">4 × 10s → 30--45s · 60--80° flexion</span></div><div class="ex-desc"><strong>Priority pick — use both optional picks on this exercise while posterior symptoms active.</strong> Seated on bench or chair, knee at 60–80° (jump-landing angle), heel pressed firmly into floor or against a resistance band anchored below. Hold isometric contraction. Start at 10s per set, build to 30–45s over 1–2 weeks — do not jump to full duration. Targets biceps femoris and semimembranosus at the functional deficit angle. Load should be felt as sustained tension near the back of the inner knee (posterior capsule attachment). Dull working tension = correct. Sharp pain or calf sensation = stop. Mechanistically distinct from Hamstring Slides (mid-range eccentric). No equipment needed for floor version. Safe in Phase 1.</div></div>
+      <div class="ex-card card-highlight"><div class="ex-top"><span class="ex-name">Terminal Knee Extension ★</span><span class="ex-rx">10 reps each · 5s hold</span></div><div class="ex-desc">Standard first pick once posterior symptoms resolve. Band at knee height or foot against wall. Extend fully against resistance. Proprioception and dynamic neuromuscular re-education at terminal extension — teaches the knee to lock out correctly under load. Ski-specific: the functional extension pattern on flats and traverses.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Wall Sit</span><span class="ex-rx">5 × 20s / 45s rest</span></div><div class="ex-desc">Primary knee only. Start 45° flexion, build toward 60° over weeks. Greater demand than bilateral wall sit — progression when bilateral becomes easy.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Deep Squat Hold</span><span class="ex-rx">3 × 20--30 sec</span></div><div class="ex-desc">Heels elevated if needed. Full depth. Reduce heel elevation over weeks — elevation is not cheating.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Hanging Knee Raise</span><span class="ex-rx">1 × max controlled</span></div><div class="ex-desc">Dead hang. Raise knees to 90° or higher, lower controlled. Hip flexor strength.</div></div>
@@ -2088,6 +2110,7 @@ body { background: #fff; color: #000; }
     </div>
     <div class="ex-body" id="src-gen">
       <div class="ex-card card-highlight"><div class="ex-top"><span class="ex-name">Short Foot Isometric ★</span><span class="ex-rx">1 × 30s each side · barefoot · see progression</span></div><div class="ex-desc">Targets intrinsic foot muscles (flexor digitorum brevis, abductor hallucis) for arch stabilisation during ground contact. Relevant for running and hiking — no rigid sole bridges the load path, arch must self-stabilise each footstrike. Not a cycling fix (cycling lateral load is geometric — cleat, wedge, insole). Motor pattern drill, not a strength exercise.<br><br><strong>Progression — do not skip phases:</strong><br>Wk 1–2 · Seated unloaded: sit, foot flat on floor, place thumb under navicular (inner mid-foot bony bump). Spread toes, press ball of foot and heel into floor simultaneously, dome arch without curling toes. Thumb gives biofeedback — feel the small lift. Hold 30s each side. If no lift is felt, the wrong muscles are working.<br>Wk 3–4 · Standing bilateral: both feet, bodyweight, same dome cue. Harder — gravity now works against the arch. Hold 30s each side.<br>Wk 5+ · Standing single-leg: one foot, full bodyweight. Approximates mid-stance load during walking and hiking. Hold 30s each side.<br><br>Drop when arch holds automatically during step-downs and single-leg balance without conscious cuing. With confirmed load-dependent collapse (arch holds unloaded but drops under bodyweight), expect 6–8 weeks to reliable single-leg hold — not 3–4.</div></div>
+      <div class="ex-card card-highlight"><div class="ex-top"><span class="ex-name">Standing Hamstring Isometric — Near Extension ★</span><span class="ex-rx">3 × 20--30s each leg · 10--15° flexion</span></div><div class="ex-desc">Stand facing a wall, slight knee bend (10–15° — barely perceptible, not a squat). Press heel back and into the floor as if trying to drag it toward you. Hold 20–30s. The hamstrings are working isometrically at near-full extension — the functional angle for prolonged standing.<br><br><strong>Why this matters:</strong> Prolonged standing causes the knee to drift toward passive hyperextension — joint held by ligaments and posterior capsule rather than muscle. This places sustained passive tension on the posterior capsule (the symptomatic attachment site) and increases patellofemoral contact pressure by removing hamstring co-contraction. Weak hamstrings at near-extension cannot prevent this drift. This exercise builds the holding capacity to actively manage knee position during long standing periods — hiking flats, ski lift queues, standing desk, kitchen.<br><br><strong>What you should feel:</strong> Low-level tension in the posterior thigh, not a hard contraction. This is an endurance isometric, not a strength exercise. If it cramps immediately, the muscle is severely underused at this range — reduce to 10s and build.<br><br><strong>No recovery demand.</strong> Do at desk, kitchen, anywhere. Pairs directly with the Hamstring Isometric in Flexion — together they cover near-extension (standing) and mid-range (jump landing) in one program.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Wall Calf Raise</span><span class="ex-rx">1 × 20 each</span></div><div class="ex-desc">Single-leg. Deep stretch at bottom, full rise at top.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Standing Hip Flexion Hold</span><span class="ex-rx">10 each side · 3s hold</span></div><div class="ex-desc">Standing, lift one knee to 90°, hold 3 sec, lower controlled. Hip flexor strength is absent from the program in any loaded form. Weak hip flexors create anterior pelvic tilt under fatigue (skiing descents, long hikes), which directly increases PFPS load. No equipment — do at desk or kitchen counter.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Chin Tuck</span><span class="ex-rx">5 × 5s hold</span></div><div class="ex-desc">Seated or standing. Retract head straight back (double chin), hold 5 sec, release. Deep cervical flexors — universally weak in desk workers. Forward head posture adds significant moment arm load to cervical spine. No equipment. 60 seconds total.</div></div>
@@ -2300,6 +2323,7 @@ body { background: #fff; color: #000; }
     <div class="phase-item">Introduce step-up (bodyweight first).</div>
     <div class="phase-item">Bike: extend to 15 min if tolerating. Introduce Zone 2 outdoor cycling if no soreness pattern.</div>
     <div class="phase-item">Pull-up: advance from scapular pull to partial to full.</div>
+    <div class="phase-item" style="color:#BF5AF2;"><strong>Posterior chain (if Phase 1 posterior symptoms resolved):</strong> Hamstring Slide progression — increase reps and introduce single-leg variant. Add Nordic hamstring curl negatives (controlled descent only). Replace seated isometric with eccentric hamstring loading through 60–80° flexion range.</div>
   </div>
 
   <div class="card" style="margin-bottom:24px;">
@@ -2319,6 +2343,7 @@ body { background: #fff; color: #000; }
     <div class="phase-item">Step down at 20–25cm, fully loaded, no compensation.</div>
     <div class="phase-item">Split squat: Bulgarian (rear foot elevated), rear leg extended, with load (dumbbell or pack weight).</div>
     <div class="phase-item">Plyometric progression: box step-up → step-down → controlled hop landing.</div>
+    <div class="phase-item" style="color:#BF5AF2;"><strong>Posterior chain — jump landing (if posterior symptoms cleared Phase 2):</strong> Introduce bike jump landing protocol. Start with low-amplitude compressions on flat ground, assess posterior knee response. Progress to small trail features. Full jump landing tolerance is the Phase 3 exit criterion for return to jump riding.</div>
     <div class="phase-item">Skiing: structured reintroduction with collagen protocol. Green → blue → black over 3+ sessions.</div>
     <div class="phase-item">Bike commute: Zone 2 fully unrestricted with collagen protocol.</div>
     <div class="phase-item">Maintenance program defined — frequency and volume reduction from Phase 3 peak.</div>
@@ -2364,13 +2389,14 @@ body { background: #fff; color: #000; }
     <div class="rule-row"><div class="rule-n">19</div><div class="rule-c"><div class="rule-t">Deep range is the goal</div><div class="rule-d">Use whatever assistance needed to reach depth — reduce over time.</div></div></div>
     <div class="rule-row"><div class="rule-n">20</div><div class="rule-c"><div class="rule-t">Upper body on Day C — optional addition only</div><div class="rule-d">Run after the Day C base blocks or as a standalone session on recovery days. No collagen. No knee loading. Pull volume asymmetric (more sets than push) until pull-ups reach 3×5, then rebalance. Skip if fatigued — Day C recovery purpose takes precedence.</div></div></div>
     <div class="rule-row"><div class="rule-n">21</div><div class="rule-c"><div class="rule-t">MVD is a valid Day C execution</div><div class="rule-d">4 exercises, ~5 min, no equipment: 90/90 Hip Rotations, Cat-Cow, Dead Hang, Backward Walk. Use on high-fatigue or low-energy days. It is the protocol floor — not a missed day, not outside the protocol. High fatigue and poor sleep directly impair connective tissue synthesis; doing less on those days is mechanistically correct.</div></div></div>
+    <div class="rule-row" style="border-left:3px solid #BF5AF2;"><div class="rule-n" style="color:#BF5AF2;">22</div><div class="rule-c"><div class="rule-t">Posterior knee under jump-landing load — priority exercise selection</div><div class="rule-d">Weakness felt at back of knee during bike jumps (knees flexed) = mid-range flexion eccentric deficit. Use both optional picks on Hamstring Isometric in Flexion on Days A &amp; B — run 4 sets instead of 2, or run two separate sessions. Start at 10s holds, build to 30–45s over 1–2 weeks. Safe in Phase 1. Phase 2 adds eccentric through flexion range. Phase 3 adds reactive/landing work. If posterior symptoms persist beyond 2 weeks on this protocol — assessment before advancing to Phase 2.</div></div></div>
   </div>
 
   <div class="colophon">
     <div class="col-bar"></div>
     <div class="col-text">
       Based on <strong>Bellemans</strong> cyclic loading, <strong>Baar</strong> connective tissue loading &amp; nutrition, and <strong>ATG</strong> (Ben Patrick) anterior chain &amp; deep range principles.<br>
-      Not a substitute for clinical diagnosis or physiotherapy. · v6.5 — March 2026
+      Not a substitute for clinical diagnosis or physiotherapy. · v6.8 — March 2026
     </div>
   </div>
 
