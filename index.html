@@ -102,7 +102,7 @@ line-height: 1;
 .tab-label {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 9px; letter-spacing: 0.05em;
-text-transform: uppercase; color: var(--muted);
+text-transform: uppercase; color: var(--muted2);
 transition: color 0.15s;
 }
 .tab-btn.on .tab-icon { color: var(--amber); }
@@ -156,7 +156,7 @@ padding: 0 20px 4px;
 }
 .ms-sub {
 font-family: ‘IBM Plex Mono’, monospace;
-font-size: 9px; color: var(--amber);
+font-size: 11px; color: var(--amber);
 letter-spacing: 0.15em;
 padding: 0 20px 16px;
 border-bottom: 1px solid var(--border);
@@ -164,7 +164,7 @@ border-bottom: 1px solid var(--border);
 
 .ms-group {
 font-family: ‘IBM Plex Mono’, monospace;
-font-size: 8px; font-weight: 600;
+font-size: 11px; font-weight: 600;
 letter-spacing: 0.2em; text-transform: uppercase;
 color: var(--muted);
 padding: 14px 20px 6px;
@@ -196,6 +196,7 @@ display: flex; align-items: center; gap: 10px;
 margin: 28px 0 14px;
 padding-bottom: 10px;
 border-bottom: 1px solid var(--border);
+font-size: inherit;
 }
 .sh:first-child { margin-top: 8px; }
 .sh-num {
@@ -643,8 +644,10 @@ transition: all 0.2s;
 .note {
 font-size: 13px; color: var(--muted2);
 border-left: 2px solid var(--border2);
-padding-left: 12px; margin: 10px 0;
+padding: 8px 12px; margin: 10px 0;
 font-style: italic; line-height: 1.55;
+background-color: var(--bg3);
+border-radius: 0 4px 4px 0;
 }
 .body { font-size: 16px; color: var(--text2); line-height: 1.7; margin-bottom: 10px; }
 
@@ -777,6 +780,7 @@ border-color: var(--red);
   display: flex; align-items: center; gap: 8px;
   background: var(--bg3);
   border: 1px solid var(--border2);
+  border-radius: 4px;
   padding: 8px 12px;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
@@ -815,11 +819,12 @@ border-color: var(--red);
 .layer-card { flex-direction: column; gap: 0; }
 .lc-num-col { width: auto; padding-top: 0; margin-bottom: 4px; }
 .ex-top { flex-direction: row; align-items: flex-start; }
-.tab-btn { flex-direction: row; gap: 6px; min-height: 52px; }
+.tab-btn { flex-direction: column; gap: 3px; min-height: 52px; }
 .tab-label { font-size: 11px; }
 .tab-icon { font-size: 15px; }
 .cover-sources { flex-direction: row; flex-wrap: wrap; gap: 20px; }
 body { font-size: 14px; }
+.menu-sheet { left: max(0px, calc(50% - 300px)); right: max(0px, calc(50% - 300px)); }
 }
 
 /* ─────────────────────────────────────────────────── */
@@ -845,6 +850,8 @@ padding: 10px 12px;
 min-width: 56px;
 background: var(--bg3);
 border: 1px solid var(--border2);
+border-radius: 6px;
+color: var(--text2);
 cursor: pointer;
 -webkit-tap-highlight-color: transparent;
 transition: all 0.12s;
@@ -869,8 +876,8 @@ color: var(--muted);
 }
 .day-btn.active .day-btn-type { color: var(--amber2); }
 
-.today-card { border: 1px solid var(--border2); margin-bottom: 16px; }
-.today-card-head { padding: 16px 16px 14px; border-bottom: 1px solid var(--border2); }
+.today-card { border: 1px solid var(--border2); border-radius: 6px; margin-bottom: 16px; overflow: hidden; }
+.today-card-head { padding: 16px 16px 14px; border-bottom: 1px solid var(--border); }
 .today-day-label {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 10px;
@@ -882,13 +889,14 @@ margin-bottom: 6px;
 .today-day-title {
 font-family: ‘Bebas Neue’, sans-serif;
 font-size: 32px;
+font-weight: 300;
 letter-spacing: 0.04em;
 color: var(--white);
 line-height: 1;
 margin-bottom: 8px;
 }
 .today-day-title.amber { color: var(--amber); }
-.today-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.today-pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .today-pill {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 10px;
@@ -920,20 +928,21 @@ transition: background 0.1s;
 }
 .step-row:active { background: var(--bg3); }
 
-.step-main { flex: 1; }
+.step-main { flex: 1; display: flex; align-items: baseline; gap: 8px; }
 .step-time {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 11px;
 color: var(--muted);
-margin-bottom: 3px;
 letter-spacing: 0.04em;
+min-width: 36px;
+flex-shrink: 0;
 }
 .step-title {
 font-size: 17px;
 font-weight: 500;
 color: var(--white);
 line-height: 1.25;
-margin-bottom: 3px;
+flex: 1;
 }
 .step-sub {
 font-size: 13px;
@@ -1031,6 +1040,7 @@ letter-spacing: 0.06em;
 text-transform: uppercase;
 padding: 3px 7px;
 border: 1px solid var(--border2);
+border-radius: 4px;
 color: var(--muted);
 flex-shrink: 0;
 }
@@ -1100,8 +1110,8 @@ body { background: #fff; color: #000; }
 .mvd-rx { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted2); }
 /* —————————————————–– */
 
-.briefing { border: 1px solid var(--border2); border-top: none; margin-bottom: 16px; overflow: hidden; }
-.briefing-head { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; background: var(--bg3); cursor: pointer; -webkit-tap-highlight-color: transparent; border-bottom: 1px solid var(--border); }
+.briefing { border: 1px solid var(--border2); margin-bottom: 16px; overflow: hidden; border-radius: 6px; }
+.briefing-head { display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; background: var(--bg3); cursor: pointer; -webkit-tap-highlight-color: transparent; border-bottom: 1px solid var(--border); border-radius: 6px 6px 0 0; }
 .briefing-head:active { background: var(--bg4); }
 .briefing-label { font-family: ‘IBM Plex Mono’, monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted2); }
 .briefing-chev { font-size: 10px; color: var(--muted); transition: transform 0.18s; }
@@ -1110,7 +1120,7 @@ body { background: #fff; color: #000; }
 .briefing.open .briefing-body { display: block; }
 .briefing-section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
 .briefing-section:last-child { border-bottom: none; }
-.briefing-section-title { font-family: ‘IBM Plex Mono’, monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 7px; }
+.briefing-section-title { font-family: ‘IBM Plex Mono’, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 7px; }
 .briefing-section-title.warn { color: var(--red); }
 .briefing-section-title.ok { color: var(--green); }
 .briefing-section-title.caution { color: var(--amber); }
