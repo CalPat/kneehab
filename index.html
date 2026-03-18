@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Knee Rehab v9.3</title>
+<title>Knee Rehab v9.4</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1000,6 +1000,31 @@ cursor: pointer;
 -webkit-tap-highlight-color: transparent;
 }
 .sde-navlink:active { opacity: 0.7; }
+.sde-full-toggle {
+margin-top: 8px;
+font-family: 'IBM Plex Mono', monospace;
+font-size: 11px;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: var(--muted2);
+cursor: pointer;
+background: none;
+border: none;
+padding: 4px 0;
+display: block;
+-webkit-tap-highlight-color: transparent;
+}
+.sde-full-toggle:active { opacity: 0.7; }
+.sde-full-body {
+display: none;
+margin-top: 8px;
+padding-top: 8px;
+border-top: 1px solid var(--border);
+font-size: 13px;
+color: var(--text2);
+line-height: 1.6;
+}
+.sde-full-body.open { display: block; }
 
 .today-sh {
 font-family: ‘IBM Plex Mono’, monospace;
@@ -1132,7 +1157,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">KNEE REHAB v9.3</div>
+  <div class="ms-title">KNEE REHAB v9.4</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Reference</div>
@@ -1240,7 +1265,7 @@ body { background: #fff; color: #000; }
     <div class="cover-big-num">7.1</div>
 
 <div class="cover-eyebrow">Full Body Training · Phase 1</div>
-<div class="cover-h1">KNEE<br>REHAB<br><em>v9.3</em></div>
+<div class="cover-h1">KNEE<br>REHAB<br><em>v9.4</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -2399,7 +2424,7 @@ body { background: #fff; color: #000; }
     <div class="col-bar"></div>
     <div class="col-text">
       Based on <strong>Bellemans</strong> cyclic loading, <strong>Baar</strong> connective tissue loading &amp; nutrition, and <strong>ATG</strong> (Ben Patrick) anterior chain &amp; deep range principles.<br>
-      Not a substitute for clinical diagnosis or physiotherapy. · v9.3 — March 2026
+      Not a substitute for clinical diagnosis or physiotherapy. · v9.4 — March 2026
     </div>
   </div>
 
@@ -2487,6 +2512,22 @@ function exTab(paneId, btn) {
     if (src && dest) dest.innerHTML = src.innerHTML;
   });
 })();
+
+// ── Exercise full-description lookup ───────────────────
+const exDescLookup = {};
+(function buildExDescLookup() {
+  document.querySelectorAll('[id^="src-"] .ex-card').forEach(card => {
+    const name = card.querySelector('.ex-name')?.textContent?.trim();
+    const desc = card.querySelector('.ex-desc')?.innerHTML?.trim();
+    if (name && desc) exDescLookup[name] = desc;
+  });
+})();
+
+function toggleExFull(btn) {
+  const body = btn.nextElementSibling;
+  const open = body.classList.toggle('open');
+  btn.textContent = open ? '▲ Less' : '▼ Full description';
+}
 
 // ── Exercise group collapse ────────────────────────────
 function togEx(head) {
@@ -2915,11 +2956,16 @@ function renderBlock(key) {
           const timerBtn = ex.timer
             ? `<button class="sde-timer-btn" onclick="event.stopPropagation();launchTimer(${ex.timer},'${ex.n}')">⧖ Timer — ${ex.timer}s</button>`
             : '';
+          const fullDesc = exDescLookup[ex.n];
+          const fullBtn = fullDesc
+            ? `<button class="sde-full-toggle" onclick="event.stopPropagation();toggleExFull(this)">▼ Full description</button><div class="sde-full-body">${fullDesc}</div>`
+            : '';
           detailHtml += `<div class="step-detail-ex">
             <div class="sde-name">${ex.n}</div>
             <div class="sde-rx">${ex.rx}</div>
             ${ex.d ? `<div class="sde-desc">${ex.d}</div>` : ''}
             ${timerBtn}
+            ${fullBtn}
           </div>`;
         });
         if (step.navPage) {
