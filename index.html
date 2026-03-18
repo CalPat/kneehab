@@ -1844,6 +1844,17 @@ body { background: #fff; color: #000; }
       </div>
       <div class="ex-body" id="ex-micro-daily"></div>
     </div>
+
+    <div class="sub-head">Optional Casual Pool — No Equipment, No Tracking Obligation</div>
+    <p class="note" style="margin-bottom:8px;">Distributed stimulus throughout the day. No obligation — pull from this list opportunistically.</p>
+    <div class="ex-group">
+      <div class="ex-group-head" onclick="togEx(this)">
+        <span class="eg-title">Casual Optional Pool</span>
+        <span class="eg-freq">any time · no tracking</span>
+        <span class="eg-chev">▼</span>
+      </div>
+      <div class="ex-body" id="ex-micro-casual"></div>
+    </div>
   </div>
 
 </div>
@@ -2086,7 +2097,7 @@ body { background: #fff; color: #000; }
       <span class="eg-freq">any time · no tracking</span>
       <span class="eg-chev">▼</span>
     </div>
-    <div class="ex-body">
+    <div class="ex-body" id="src-casual">
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Short Arc Quad Hold</span><span class="ex-rx">2–3 × 5–10s each · seated</span></div><div class="ex-desc">Seated at desk or on couch. Straighten one leg to full extension, hold 5–10s, lower slowly. Especially useful on Day C when the knee gets no direct loading. VMO terminal extension stimulus with zero setup.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Calf Raise</span><span class="ex-rx">1–2 × 12 each · slow eccentric</span></div><div class="ex-desc">Flat or step edge. Off days and Day C. Keeps Achilles and soleus under regular low-load stimulus between sessions. No equipment needed on flat floor.</div></div>
       <div class="ex-card"><div class="ex-top"><span class="ex-name">Wall Sit Short Hold</span><span class="ex-rx">2–3 × 20–30s</span></div><div class="ex-desc">Before stairs, prolonged standing, or any activity. Isometric pain modulation effect (Rio protocol) persists ~45 min post-hold. Practical analgesic utility on any day.</div></div>
@@ -2486,6 +2497,7 @@ function exTab(paneId, btn) {
     ['src-opt',    'ex-load-opt'],
     ['src-gen',    'ex-load-gen'],
     ['src-daily',  'ex-micro-daily'],
+    ['src-casual', 'ex-micro-casual'],
   ];
   map.forEach(([srcId, destId]) => {
     const src  = document.getElementById(srcId);
