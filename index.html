@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Knee Rehab v9.5</title>
+<title>Knee Rehab v9.6</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1038,17 +1038,18 @@ padding: 14px 0 8px;
 /* Micro items — no checkboxes */
 .micro-item {
 display: flex;
-align-items: center;
+align-items: flex-start;
 gap: 12px;
 padding: 14px 16px;
 border-bottom: 1px solid var(--border);
 }
 .micro-item:last-child { border-bottom: none; }
-.micro-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+.micro-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex-shrink: 0; margin-top: 5px; }
 .micro-dot.req { background: var(--green); }
 .micro-main { flex: 1; }
 .micro-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
 .micro-rx { font-family: ‘IBM Plex Mono’, monospace; font-size: 12px; color: var(--muted2); }
+.micro-desc { font-size: 13px; color: var(--text2); line-height: 1.5; margin-top: 5px; }
 .micro-tag {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 9px;
@@ -1157,7 +1158,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">KNEE REHAB v9.5</div>
+  <div class="ms-title">KNEE REHAB v9.6</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Reference</div>
@@ -1265,7 +1266,7 @@ body { background: #fff; color: #000; }
     <div class="cover-big-num">7.1</div>
 
 <div class="cover-eyebrow">Full Body Training · Phase 1</div>
-<div class="cover-h1">KNEE<br>REHAB<br><em>v9.5</em></div>
+<div class="cover-h1">KNEE<br>REHAB<br><em>v9.6</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -2424,7 +2425,7 @@ body { background: #fff; color: #000; }
     <div class="col-bar"></div>
     <div class="col-text">
       Based on <strong>Bellemans</strong> cyclic loading, <strong>Baar</strong> connective tissue loading &amp; nutrition, and <strong>ATG</strong> (Ben Patrick) anterior chain &amp; deep range principles.<br>
-      Not a substitute for clinical diagnosis or physiotherapy. · v9.5 — March 2026
+      Not a substitute for clinical diagnosis or physiotherapy. · v9.6 — March 2026
     </div>
   </div>
 
@@ -2822,26 +2823,26 @@ const BLOCKS = {
     note:'Informal daily habits. No obligation — frequency is the mechanism. Safe on any day type including Recovery.',
     steps:[
       {id:'sD_tib',  time:'Any', title:'Tibialis Raise',                sub:'1 × 20 · 1s hold top',
-       detail:[{n:'Tibialis Raise',rx:'1 × 20 · 1s hold top',d:'Heels against wall. Lift toes as high as possible, 1s hold at top, lower slowly. At desk, kitchen counter, anywhere. Anterior tibialis stimulus is highest at dorsiflexion end-range.'}]},
+       detail:[{n:'Tibialis Raise',rx:'1 × 20 · 1s hold top',d:'Anterior tibialis strengthening — the ATG anterior chain driver. Addresses dorsiflexion deficit and reduces knee valgus tendency under load.'}]},
       {id:'sD_bw',   time:'Any', title:'Backward Walk',                 sub:'2–3 rounds 30–60s',
-       detail:[{n:'Backward Walk',rx:'2–3 rounds 30–60s',d:'Walk backward slowly. Resistance band optional. Trains anterior tibial chain in decompressed knee position. Daily is the point — not a workout.'}]},
+       detail:[{n:'Backward Walk',rx:'2–3 rounds 30–60s',d:'Trains the anterior tibial chain in a decompressed knee position. Frequency is the mechanism — not a workout.'}]},
       {id:'sD_hang', time:'Any', title:'Dead Hang',                     sub:'90s total · bar required',
-       detail:[{n:'Dead Hang',rx:'90s total',d:'Hang from bar, relaxed shoulders. Spinal decompression, grip, scapular stability. Skip or reduce if any shoulder discomfort or overhead history.',timer:90}]},
+       detail:[{n:'Dead Hang',rx:'90s total',d:'Spinal decompression, grip strength, and scapular stability in one movement. No recovery demand. Skip if any shoulder discomfort.',timer:90}]},
       {id:'sD_bal',  time:'Any', title:'Single-Leg Balance',            sub:'60s total · both legs · progress levels',
-       detail:[{n:'Single-Leg Balance',rx:'60s total · both legs',d:'L1: eyes open flat. L2: eyes closed flat. L3: eyes open + slight knee bend. L4: eyes closed + knee bend. L5: foam pad. L6: eyes closed + foam. L7: arm reach or slow head turn. Apply 2×2 rule to advance levels.'}]},
+       detail:[{n:'Single-Leg Balance',rx:'60s total · both legs',d:'PFPS degrades patellofemoral proprioception — this directly addresses that deficit. The primary missing ski and hike preparation element.'}]},
       {id:'sD_sf',   time:'Any', title:'Short Foot Isometric',          sub:'30s each side · barefoot',
-       detail:[{n:'Short Foot Isometric',rx:'30s each side · barefoot',d:'Dome arch without curling toes. Wk 1–2: seated unloaded. Wk 3–4: standing bilateral. Wk 5+: standing single-leg.'}]},
+       detail:[{n:'Short Foot Isometric',rx:'30s each side · barefoot',d:'Intrinsic foot muscle activation for arch stability during ground contact. Motor pattern drill — builds the self-supporting arch that load transfer relies on.'}]},
       {id:'sD_hiso', time:'Any', title:'Standing Hamstring ISO',        sub:'3 × 20–30s each leg · near extension',
-       detail:[{n:'Standing Hamstring ISO — Near Extension',rx:'3 × 20–30s each leg',d:'Stand facing wall, slight knee bend (10–15°). Press heel back and into floor as if dragging it toward you. Builds hamstring endurance at near-full extension for prolonged standing, hiking flats, ski lift queues.'}]},
+       detail:[{n:'Standing Hamstring ISO — Near Extension',rx:'3 × 20–30s each leg',d:'Prevents passive hyperextension drift during prolonged standing. Covers the 0–15° hamstring range that no other exercise in the program addresses.'}]},
     ],
     micro:[
-      {n:'Short Arc Quad Hold',        rx:'2–3 × 5–10s each · seated',         tag:'Casual'},
-      {n:'Single-Leg Calf Raise',      rx:'1–2 × 12 each · slow eccentric',     tag:'Casual'},
-      {n:'Wall Sit Short Hold',        rx:'2–3 × 20–30s',                        tag:'Casual'},
-      {n:'Deep Squat Hold',            rx:'3 × 20–30s · heels elevated as needed',tag:'Casual'},
-      {n:'Floor L-Sit',                rx:'2–3 × 20–30s · heels on floor',       tag:'Casual'},
-      {n:'Shoulder CARs',              rx:'1 × 5 each arm',                      tag:'Casual'},
-      {n:'Neck CARs',                  rx:'3–5 rotations each direction',         tag:'Casual'},
+      {n:'Short Arc Quad Hold',        rx:'2–3 × 5–10s each · seated',          tag:'Casual', d:'VMO terminal extension at zero setup. Useful on non-Load days when the knee gets no formal loading.'},
+      {n:'Single-Leg Calf Raise',      rx:'1–2 × 12 each · slow eccentric',     tag:'Casual', d:'Low-load Achilles and soleus stimulus between sessions. Maintains tissue integrity without recovery demand.'},
+      {n:'Wall Sit Short Hold',        rx:'2–3 × 20–30s',                        tag:'Casual', d:'Rio protocol analgesic effect — isometric pain inhibition persists ~45 min. Use before stairs, prolonged standing, or any activity.'},
+      {n:'Deep Squat Hold',            rx:'3 × 20–30s · heels elevated as needed',tag:'Casual', d:'End-range cartilage loading at a flexion angle daily life never reaches. Reduce heel elevation incrementally as ankle dorsiflexion improves.'},
+      {n:'Floor L-Sit',                rx:'2–3 × 20–30s · heels on floor',       tag:'Casual', d:'Active shoulder depression and tricep isometric — neither covered elsewhere in the program. Reduce heel support height over weeks.'},
+      {n:'Shoulder CARs',              rx:'1 × 5 each arm',                      tag:'Casual', d:'Maintains shoulder capsule health relevant to daily dead hang loading. Use if no bar access that day.'},
+      {n:'Neck CARs',                  rx:'3–5 rotations each direction',         tag:'Casual', d:'Cervical mobility after prolonged screen time. Peripheral to knee program — consistent with longevity framing.'},
     ],
     briefing:{
       ok:['All habits have no recovery demand — safe on any day type.',
@@ -3005,6 +3006,7 @@ function renderBlock(key) {
         <div class="micro-main">
           <div class="micro-name">${m.n}</div>
           <div class="micro-rx">${m.rx}</div>
+          ${m.d ? `<div class="micro-desc">${m.d}</div>` : ''}
         </div>
         ${tagHtml}
       </li>`;
