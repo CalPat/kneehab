@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Knee Rehab v9.7</title>
+<title>Knee Rehab v9.8</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1158,7 +1158,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">KNEE REHAB v9.7</div>
+  <div class="ms-title">KNEE REHAB v9.8</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Reference</div>
@@ -1266,7 +1266,7 @@ body { background: #fff; color: #000; }
     <div class="cover-big-num">7.1</div>
 
 <div class="cover-eyebrow">Full Body Training · Phase 1</div>
-<div class="cover-h1">KNEE<br>REHAB<br><em>v9.7</em></div>
+<div class="cover-h1">KNEE<br>REHAB<br><em>v9.8</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -2425,7 +2425,7 @@ body { background: #fff; color: #000; }
     <div class="col-bar"></div>
     <div class="col-text">
       Based on <strong>Bellemans</strong> cyclic loading, <strong>Baar</strong> connective tissue loading &amp; nutrition, and <strong>ATG</strong> (Ben Patrick) anterior chain &amp; deep range principles.<br>
-      Not a substitute for clinical diagnosis or physiotherapy. · v9.7 — March 2026
+      Not a substitute for clinical diagnosis or physiotherapy. · v9.8 — March 2026
     </div>
   </div>
 
@@ -3006,7 +3006,7 @@ function renderBlock(key) {
         ? `<button class="sde-full-toggle" onclick="event.stopPropagation();toggleExFull(this)">▼ Full description</button><div class="sde-full-body">${mFull}</div>`
         : '';
       microHtml += `<li class="micro-item">
-        <div class="micro-dot ${dotCls}"></div>
+        ${(!m.tag || m.req) ? `<div class="micro-dot ${dotCls}"></div>` : ''}
         <div class="micro-main">
           <div class="micro-name">${m.n}</div>
           <div class="micro-rx">${m.rx}</div>
