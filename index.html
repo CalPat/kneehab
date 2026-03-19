@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Knee Rehab v9.8</title>
+<title>Knee Rehab v9.9</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -494,6 +494,8 @@ min-height: 48px;
 .sched-tab.on { color: var(--amber); border-bottom-color: var(--amber); }
 .sched-pane { display: none; }
 .sched-pane.on { display: block; }
+.ref-sched-pane { display: none; }
+.ref-sched-pane.on { display: block; }
 
 /* ─────────────────────────────────────────────────── */
 /*  RULES                                              */
@@ -835,6 +837,39 @@ scrollbar-width: none;
 }
 .day-selector::-webkit-scrollbar { display: none; }
 
+.phase-selector {
+display: flex;
+align-items: center;
+gap: 6px;
+margin-bottom: 18px;
+}
+.phase-label {
+font-family: 'IBM Plex Mono', monospace;
+font-size: 10px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--muted);
+margin-right: 2px;
+}
+.phase-btn {
+font-family: 'IBM Plex Mono', monospace;
+font-size: 10px;
+letter-spacing: 0.05em;
+padding: 4px 10px;
+border-radius: 20px;
+border: 1px solid var(--border2);
+background: transparent;
+color: var(--muted2);
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+transition: all 0.12s;
+}
+.phase-btn.on {
+background: var(--amber-bg);
+border-color: var(--amber2);
+color: var(--amber);
+}
+
 .day-btn {
 flex: 0 0 auto;
 display: flex;
@@ -1158,14 +1193,13 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">KNEE REHAB v9.8</div>
+  <div class="ms-title">KNEE REHAB v9.9</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Reference</div>
   <button class="ms-btn" onclick="nav('overview',this)"><span class="ms-icon">◈</span><span class="ms-lbl">Program Overview</span><span class="ms-arr">›</span></button>
   <button class="ms-btn" onclick="nav('phases',this)"><span class="ms-icon">▲</span><span class="ms-lbl">Phases &amp; Progression</span><span class="ms-arr">›</span></button>
   <button class="ms-btn" onclick="nav('rules',this)"><span class="ms-icon">◉</span><span class="ms-lbl">Key Rules</span><span class="ms-arr">›</span></button>
-  <button class="ms-btn" onclick="nav('schedule',this)"><span class="ms-icon">≡</span><span class="ms-lbl">Schedule Reference</span><span class="ms-arr">›</span></button>
 
   <div class="ms-group">Info</div>
   <button class="ms-btn" onclick="nav('supps',this)"><span class="ms-icon">◐</span><span class="ms-lbl">Supplements</span><span class="ms-arr">›</span></button>
@@ -1243,7 +1277,7 @@ body { background: #fff; color: #000; }
     <span class="tab-icon">▣</span><span class="tab-label">Today</span>
   </button>
   <button class="tab-btn" id="tb-exercises" onclick="navTab('exercises','tb-exercises')">
-    <span class="tab-icon">●</span><span class="tab-label">Exercises</span>
+    <span class="tab-icon">●</span><span class="tab-label">Reference</span>
   </button>
   <button class="tab-btn" id="tb-timer" onclick="navTab('timer','tb-timer')">
     <span class="tab-icon">⧖</span><span class="tab-label">Timer</span>
@@ -1266,7 +1300,7 @@ body { background: #fff; color: #000; }
     <div class="cover-big-num">7.1</div>
 
 <div class="cover-eyebrow">Full Body Training · Phase 1</div>
-<div class="cover-h1">KNEE<br>REHAB<br><em>v9.8</em></div>
+<div class="cover-h1">KNEE<br>REHAB<br><em>v9.9</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1580,6 +1614,13 @@ body { background: #fff; color: #000; }
   <div class="sh"><span class="sh-title">Today</span></div>
   <p class="body" style="margin-bottom:14px;">Pick the block that fits today.</p>
 
+  <div class="phase-selector" id="phaseSelector">
+    <span class="phase-label">Phase</span>
+    <button class="phase-btn on" data-phase="1" onclick="setPhase(1,this)">Ph 1</button>
+    <button class="phase-btn"    data-phase="2" onclick="setPhase(2,this)">Ph 2</button>
+    <button class="phase-btn"    data-phase="3" onclick="setPhase(3,this)">Ph 3</button>
+  </div>
+
   <div class="day-selector" id="daySelector">
     <button class="day-btn type-a" data-block="A" onclick="selectBlock('A',this)">
       <span class="day-btn-type">Load</span>
@@ -1751,12 +1792,13 @@ body { background: #fff; color: #000; }
 
 <div id="exercises" class="page">
 <div class="doc">
-  <div class="sh"><span class="sh-title">Exercises</span></div>
+  <div class="sh"><span class="sh-title">Reference</span></div>
 
   <div class="sched-tabs" id="exTabs">
     <button class="sched-tab on"  onclick="exTab('ex-base',this)">Base · Daily</button>
     <button class="sched-tab"     onclick="exTab('ex-load',this)">Load</button>
     <button class="sched-tab"     onclick="exTab('ex-micro',this)">Daily Habits</button>
+    <button class="sched-tab"     onclick="exTab('ex-sched',this)">Schedule</button>
   </div>
 
   <!-- Base pane -->
@@ -1875,6 +1917,21 @@ body { background: #fff; color: #000; }
       </div>
       <div class="ex-body" id="ex-micro-casual"></div>
     </div>
+  </div>
+
+  <!-- Schedule pane -->
+  <div id="ex-sched" class="sched-pane">
+    <p class="note" style="margin-bottom:12px;">Full breakdown by day type. Use <strong>Today</strong> tab for daily execution.</p>
+    <div class="sched-tabs" id="exSchedTabs">
+      <button class="sched-tab on"  onclick="exSchedTab('rs-bike',this)">Load</button>
+      <button class="sched-tab"     onclick="exSchedTab('rs-base',this)">Recovery</button>
+      <button class="sched-tab"     onclick="exSchedTab('rs-act',this)">Activity</button>
+      <button class="sched-tab"     onclick="exSchedTab('rs-end',this)">Endurance</button>
+    </div>
+    <div id="rs-bike" class="ref-sched-pane on"></div>
+    <div id="rs-base" class="ref-sched-pane"></div>
+    <div id="rs-act"  class="ref-sched-pane"></div>
+    <div id="rs-end"  class="ref-sched-pane"></div>
   </div>
 
 </div>
@@ -2425,7 +2482,7 @@ body { background: #fff; color: #000; }
     <div class="col-bar"></div>
     <div class="col-text">
       Based on <strong>Bellemans</strong> cyclic loading, <strong>Baar</strong> connective tissue loading &amp; nutrition, and <strong>ATG</strong> (Ben Patrick) anterior chain &amp; deep range principles.<br>
-      Not a substitute for clinical diagnosis or physiotherapy. · v9.8 — March 2026
+      Not a substitute for clinical diagnosis or physiotherapy. · v9.9 — March 2026
     </div>
   </div>
 
@@ -2475,6 +2532,25 @@ function closeMenu() {
   document.getElementById('menuSheet').classList.remove('open');
 }
 
+// ── Phase indicator ────────────────────────────────────
+let currentPhase = 1;
+function setPhase(n, btn) {
+  currentPhase = n;
+  localStorage.setItem('kh_phase', n);
+  document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+(function restorePhase() {
+  const saved = localStorage.getItem('kh_phase');
+  if (!saved) return;
+  currentPhase = parseInt(saved);
+  const btn = document.querySelector(`.phase-btn[data-phase="${saved}"]`);
+  if (btn) {
+    document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+  }
+})();
+
 // ── Schedule tabs ──────────────────────────────────────
 function schedTab(paneId, btn) {
   document.querySelectorAll('.sched-pane').forEach(p => p.classList.remove('on'));
@@ -2487,6 +2563,14 @@ function schedTab(paneId, btn) {
 function exTab(paneId, btn) {
   document.querySelectorAll('#exercises .sched-pane').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('#exTabs .sched-tab').forEach(b => b.classList.remove('on'));
+  document.getElementById(paneId).classList.add('on');
+  btn.classList.add('on');
+}
+
+// ── Schedule sub-tabs inside Reference ─────────────────
+function exSchedTab(paneId, btn) {
+  document.querySelectorAll('#ex-sched .ref-sched-pane').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('#exSchedTabs .sched-tab').forEach(b => b.classList.remove('on'));
   document.getElementById(paneId).classList.add('on');
   btn.classList.add('on');
 }
@@ -2508,6 +2592,15 @@ function exTab(paneId, btn) {
     ['src-casual', 'ex-micro-casual'],
   ];
   map.forEach(([srcId, destId]) => {
+    const src  = document.getElementById(srcId);
+    const dest = document.getElementById(destId);
+    if (src && dest) dest.innerHTML = src.innerHTML;
+  });
+})();
+
+// ── Clone schedule panes into Reference hub ────────────
+(function initSchedHub() {
+  [['s-bike','rs-bike'],['s-base','rs-base'],['s-act','rs-act'],['s-end','rs-end']].forEach(([srcId, destId]) => {
     const src  = document.getElementById(srcId);
     const dest = document.getElementById(destId);
     if (src && dest) dest.innerHTML = src.innerHTML;
@@ -2711,6 +2804,11 @@ const BLOCKS = {
       {id:'sA_bike', time:'T+45',   title:'Bellemans Bike',             sub:'Aim to do — 10–12 min · sub elliptical if no bike', navPage:'load', timer:720,
        detail:[{n:'Bellemans Protocol',rx:'10–12 min · hard stop 15 min',d:'Aim to do every session. Stationary bike. Seat: knee at 15–20° flexion at bottom of stroke. Steady moderate resistance. Cyclic cartilage loading at collagen peak. Window closes at 15 min — stop.',timer:720},
                {n:'Substitute',rx:'10 min elliptical if no stationary bike',d:'Not equivalent but preserves cyclic loading. Use when no stationary bike available.'}]},
+      {id:'sA_opt', time:'Optional', title:'Knee-Specific Optional', sub:'Pick 2 — after bike or as a standalone', navPage:'load',
+       detail:[{n:'Hamstring Isometric in Flexion ★ POSTERIOR',rx:'3 × 30–45s · 60–80° flexion',d:'Priority pick while posterior symptoms are active. Isometric mid-range matches the functional deficit angle — jump landing and ski descent load. Use both optional picks on this exercise while posterior symptoms persist.'},
+               {n:'Terminal Knee Extension ★',rx:'10 reps each · 5s hold',d:'Standard first pick once posterior symptoms resolve. Proprioception and VMO activation at terminal extension — the ski-specific functional pattern on flats and traverses.'},
+               {n:'Single-Leg Wall Sit',rx:'5 × 20s / 45s rest',d:'Progression from bilateral wall sit. Greater unilateral load demand — advance when bilateral becomes easy at 60°.'},
+               {n:'Hanging Knee Raise ★',rx:'1 × max controlled',d:'Primary hip flexor strength exercise. Weak hip flexors drive anterior pelvic tilt under fatigue (ski descents, long hikes), directly increasing PFPS load. Also trains grip and scapular stability.'}]},
     ],
     micro:[],
     briefing:{
