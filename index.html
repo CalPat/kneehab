@@ -837,39 +837,6 @@ scrollbar-width: none;
 }
 .day-selector::-webkit-scrollbar { display: none; }
 
-.phase-selector {
-display: flex;
-align-items: center;
-gap: 6px;
-margin-bottom: 18px;
-}
-.phase-label {
-font-family: 'IBM Plex Mono', monospace;
-font-size: 10px;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: var(--muted);
-margin-right: 2px;
-}
-.phase-btn {
-font-family: 'IBM Plex Mono', monospace;
-font-size: 10px;
-letter-spacing: 0.05em;
-padding: 4px 10px;
-border-radius: 20px;
-border: 1px solid var(--border2);
-background: transparent;
-color: var(--muted2);
-cursor: pointer;
--webkit-tap-highlight-color: transparent;
-transition: all 0.12s;
-}
-.phase-btn.on {
-background: var(--amber-bg);
-border-color: var(--amber2);
-color: var(--amber);
-}
-
 .day-btn {
 flex: 0 0 auto;
 display: flex;
@@ -1613,13 +1580,6 @@ body { background: #fff; color: #000; }
 
   <div class="sh"><span class="sh-title">Today</span></div>
   <p class="body" style="margin-bottom:14px;">Pick the block that fits today.</p>
-
-  <div class="phase-selector" id="phaseSelector">
-    <span class="phase-label">Phase</span>
-    <button class="phase-btn on" data-phase="1" onclick="setPhase(1,this)">Ph 1</button>
-    <button class="phase-btn"    data-phase="2" onclick="setPhase(2,this)">Ph 2</button>
-    <button class="phase-btn"    data-phase="3" onclick="setPhase(3,this)">Ph 3</button>
-  </div>
 
   <div class="day-selector" id="daySelector">
     <button class="day-btn type-a" data-block="A" onclick="selectBlock('A',this)">
@@ -2531,25 +2491,6 @@ function closeMenu() {
   document.getElementById('ov').classList.remove('on');
   document.getElementById('menuSheet').classList.remove('open');
 }
-
-// ── Phase indicator ────────────────────────────────────
-let currentPhase = 1;
-function setPhase(n, btn) {
-  currentPhase = n;
-  localStorage.setItem('kh_phase', n);
-  document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-}
-(function restorePhase() {
-  const saved = localStorage.getItem('kh_phase');
-  if (!saved) return;
-  currentPhase = parseInt(saved);
-  const btn = document.querySelector(`.phase-btn[data-phase="${saved}"]`);
-  if (btn) {
-    document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-  }
-})();
 
 // ── Schedule tabs ──────────────────────────────────────
 function schedTab(paneId, btn) {
