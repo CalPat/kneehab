@@ -24,3 +24,6 @@
 - Use a versioning header in the HTML (e.g., ``).
 - Generate summary in a MD document `kneehab V##.MD`
 - update index.html to latest version
+- every minor change update verson number .01.
+  - medium change .1
+  - major change 1.
