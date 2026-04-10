@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Knee Rehab v11.0</title>
+<title>Knee Rehab v11.1</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1268,10 +1268,9 @@ body { background: #fff; color: #000; }
   <div class="cover-page">
     <div class="cover-grid"></div>
     <div class="cover-stripe"></div>
-    <div class="cover-big-num">7.1</div>
 
 <div class="cover-eyebrow">Full Body Training · Phase 1</div>
-<div class="cover-h1">KNEE<br>REHAB<br><em>v10.26</em></div>
+<div class="cover-h1">KNEE<br>REHAB<br><em>v11.1</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1316,7 +1315,17 @@ body { background: #fff; color: #000; }
 <div class="doc">
 
   <div class="changes">
-    <div class="changes-title">Changes v11.0 — Rehab → Training: A/B split, upper body mandatory, daily habits integrated</div>
+    <div class="changes-title">Changes v11.1 — Day R: adaptive recovery & yoga</div>
+    <ul class="changes-list">
+      <li><strong>Day R — Recovery & Mobility added.</strong> Adaptive yoga/mobility session. Pick 2–3 categories based on what feels tight (Hips, Hamstrings, Thoracic, Quads/IT Band, Shoulders, or General Flow). Hold durations doubled from Day A/B (60s vs 30s) per Mitchell's dose-response model. No collagen, no knee eccentric loading. Insert anywhere in A/B rotation.</li>
+      <li><strong>New exercises:</strong> Supine Spinal Twist (thoracic rotation gap fill), Thread-the-Needle, Standing Forward Fold, Child's Pose with Reach, Down Dog holds.</li>
+      <li><strong>Lateral Quad Roll gets a proper home</strong> in Quads/IT Band category with extended duration (2 min each side).</li>
+      <li><strong>General Flow option:</strong> ~12 min continuous sequence (Cat-Cow → Down Dog → Lizard → Pigeon → Twist → Child's Pose) for days with no specific complaint.</li>
+      <li><strong>Day A time estimate corrected</strong> from ~45 min to ~55 min.</li>
+    </ul>
+  </div>
+  <div class="changes" style="margin-top:8px;border-color:var(--border);">
+    <div class="changes-title" style="color:var(--muted2);font-size:11px;">Changes v11.0 — Rehab → Training: A/B split, upper body mandatory, daily habits integrated</div>
     <ul class="changes-list">
       <li><strong>Program restructured from rehab to training.</strong> 4 day types (Load, Recovery, Activity, Daily Habits) → 3 day types (Day A Lower Body, Day B Upper Body, Activity). Alternating A→B→A→B with Activity days inserted as needed.</li>
       <li><strong>Upper body mandatory.</strong> Full upper body block moved from optional (Recovery day) to mandatory (Day B). Collagen required on Day B — upper body mechanical loading qualifies under Baar protocol.</li>
@@ -1604,6 +1613,9 @@ body { background: #fff; color: #000; }
   <button class="day-btn type-c" data-block="B" onclick="selectBlock('B',this)">
     <span class="day-btn-type">Day B</span>
   </button>
+  <button class="day-btn" data-block="R" onclick="selectBlock('R',this)">
+    <span class="day-btn-type">Recovery</span>
+  </button>
   <button class="day-btn" data-block="X" onclick="selectBlock('X',this)">
     <span class="day-btn-type">Activity</span>
   </button>
@@ -1640,6 +1652,7 @@ body { background: #fff; color: #000; }
   <div class="sched-tabs">
     <button class="sched-tab on"  onclick="schedTab('s-bike',this)">Day A</button>
     <button class="sched-tab"     onclick="schedTab('s-base',this)">Day B</button>
+    <button class="sched-tab"     onclick="schedTab('s-rec',this)">Recovery</button>
     <button class="sched-tab"     onclick="schedTab('s-act',this)">Activity</button>
     <button class="sched-tab"     onclick="schedTab('s-end',this)">Endurance</button>
   </div>
@@ -1647,7 +1660,7 @@ body { background: #fff; color: #000; }
   <!-- Day A — Lower Body -->
 
   <div id="s-bike" class="sched-pane on">
-    <p class="note" style="margin-bottom:12px;">Day A — Lower Body. Collagen T=0. Alternates with Day B. ~45 min.</p>
+    <p class="note" style="margin-bottom:12px;">Day A — Lower Body. Collagen T=0. Alternates with Day B. ~55 min.</p>
     <div class="card">
       <div class="card-row"><div class="cr-left"><div class="cr-time">T=0</div></div><div class="cr-right"><div class="cr-val">Collagen + vitamin C</div><div class="cr-note">2+ hours after any protein meal</div></div></div>
       <div class="card-row"><div class="cr-left"><div class="cr-time">T+5</div></div><div class="cr-right"><div class="cr-val">Primer <span style="color:var(--muted);font-size:12px;">3 min</span></div><div class="cr-note">Tibialis Raise · Dead Hang</div></div></div>
@@ -1735,6 +1748,21 @@ body { background: #fff; color: #000; }
       <div class="card-row"><div class="cr-left"><div class="cr-key">After</div></div><div class="cr-right"><div class="cr-val">1 warmup set bottom-up · pike push-up working sets</div><div class="cr-desc">Retain 1 set of bottom-up as shoulder activation. Add pike push-up 3×8 as the overhead strength vehicle.</div></div></div>
       <div class="card-row"><div class="cr-left"><div class="cr-key">Pike path</div></div><div class="cr-right"><div class="cr-val">Flat → feet elevated → wall handstand</div><div class="cr-desc">Elevating feet shifts load toward overhead pressing. Progress when 3×12 clean at current elevation.</div></div></div>
     </div>
+  </div>
+
+  <!-- Day R — Recovery & Mobility -->
+
+  <div id="s-rec" class="sched-pane">
+    <p class="note" style="margin-bottom:12px;">Day R — Recovery & Mobility. No collagen. ~15–20 min. Pick 2–3 categories based on what feels tight. Longer holds than Day A/B.</p>
+    <div class="card">
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Pick</div></div><div class="cr-right"><div class="cr-val">Hips Tight</div><div class="cr-note">Pigeon 60s each · Lizard 60s each · 90/90 slow</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Pick</div></div><div class="cr-right"><div class="cr-val">Hamstrings Tight</div><div class="cr-note">Down Dog holds 3×30s · Standing Forward Fold 60s</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Pick</div></div><div class="cr-right"><div class="cr-val">Thoracic Stiff</div><div class="cr-note">Supine Twist 30s each · Thread-the-Needle 30s each · Cat-Cow extended</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Pick</div></div><div class="cr-right"><div class="cr-val">Quads / IT Band</div><div class="cr-note">Lateral Quad Roll 2 min each · Couch Stretch 60s each</div></div></div>
+      <div class="card-row"><div class="cr-left"><div class="cr-key">Pick</div></div><div class="cr-right"><div class="cr-val">Shoulders Tight</div><div class="cr-note">Dead Hang 90s · Shoulder CARs slow · Child's Pose with Reach 60s</div></div></div>
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-key">Or</div></div><div class="cr-right"><div class="cr-val">General — Full Flow ~12 min</div><div class="cr-note">Cat-Cow → Down Dog → Lizard → Pigeon → Twist → Child's Pose · 60s each position</div></div></div>
+    </div>
+    <p class="note">No collagen. No knee eccentric loading. Insert anywhere in the rotation. Not mandatory — skip if recovered.</p>
   </div>
 
   <!-- Activity Day -->
@@ -2430,6 +2458,7 @@ body { background: #fff; color: #000; }
     <div class="rule-row"><div class="rule-n">13</div><div class="rule-c"><div class="rule-t">Pain guide</div><div class="rule-d">Dull ache acceptable. Sharp or >4/10 = reduce load or angle immediately.</div></div></div>
     <div class="rule-row"><div class="rule-n">14</div><div class="rule-c"><div class="rule-t">Upper body is mandatory on Day B</div><div class="rule-d">Full upper body block. Pull volume asymmetric until pull-ups reach 3×5, then rebalance.</div></div></div>
     <div class="rule-row"><div class="rule-n">15</div><div class="rule-c"><div class="rule-t">MVD is a valid Day B execution</div><div class="rule-d">4 exercises, ~5 min: 90/90, Cat-Cow, Dead Hang, Backward Walk. Use on high-fatigue days. Not a missed day.</div></div></div>
+    <div class="rule-row"><div class="rule-n">18</div><div class="rule-c"><div class="rule-t">Day R is adaptive — pick 2–3 categories based on current state</div><div class="rule-d">Recovery & Mobility day. Longer holds (60s) for deeper tissue adaptation. No collagen, no knee eccentric loading. Insert anywhere in rotation. Not mandatory. If a position feels like hard work, you are pushing too deep — back off.</div></div></div>
     <div class="rule-row"><div class="rule-n">16</div><div class="rule-c"><div class="rule-t">Bird Dog: pick one variation per session</div><div class="rule-d">Slow Return, Elbow-to-Knee, or Bird Dog Row. All 90s total. Rotate for progression and variety.</div></div></div>
     <div class="rule-row"><div class="rule-n">17</div><div class="rule-c"><div class="rule-t">Hip Flexor: pick one option per session</div><div class="rule-d">Hanging Knee Raise, Tuck L-Sit, or Foot-Supported L-Sit. Both Day A and Day B.</div></div></div>
   </div>
@@ -2701,7 +2730,7 @@ wsRenderDots();
 const BLOCKS = {
   'A': {
     type:'A', title:'DAY A — LOWER BODY', titleClass:'amber',
-    pills:[{t:'Collagen T=0',c:'amber'},{t:'~45 min',c:''},{t:'Bike aim to do',c:''},{t:'Ruck optional PM',c:''}],
+    pills:[{t:'Collagen T=0',c:'amber'},{t:'~55 min',c:''},{t:'Bike aim to do',c:''},{t:'Ruck optional PM',c:''}],
     note:'Lower body training day. Alternates with Day B. <strong>Asymmetry Rule:</strong> On all alternating exercises, start with the weaker side and add one extra set to the weaker side. <strong>Soreness Rule:</strong> Muscle soreness >2/10 → replace dynamic exercises with their isometric modifier. Articular soreness (behind kneecap or inside joint) → rest day.',
     steps:[
       {id:'sA_col',  time:'T=0',    title:'Collagen + Vitamin C',       sub:'15g · 200mg vit C · 2+ hrs after protein',
@@ -2849,6 +2878,46 @@ const BLOCKS = {
            'Low-demand activity (easy flat hike): warm-up still applies. Collagen optional if short duration.'],
       caution:['Next morning: if knee soreness present, take a rest day. Resume training when soreness resolves.',
                'Ski day specifically: eccentric quad demand is high on descents. Expect DOMS in 24–48h window.'],
+    }
+  },
+
+  'R': {
+    type:'R', title:'DAY R — RECOVERY & MOBILITY', titleClass:'',
+    pills:[{t:'No collagen',c:''},{t:'~15–20 min',c:''},{t:'Pick 2–3 categories',c:'green'},{t:'Longer holds',c:''}],
+    note:'Adaptive recovery session. Pick 2–3 categories based on what feels tight or sore. Hold durations are doubled from Day A/B (60s vs 30s) — recovery day is the opportunity for deeper tissue adaptation (Mitchell: longer holds = more viscoelastic creep). No collagen needed. No knee eccentric loading. Insert anywhere in the rotation.',
+    stepLabel:'Pick 2–3 Categories',
+    steps:[
+      {id:'sR_hips', time:'Pick', title:'Hips Tight',                  sub:'After long sitting, ski days · ~6 min',
+       detail:[{n:'Pigeon Pose — Extended',rx:'60s each side',d:'Double the Day A/B hold. Deeper piriformis and obturator stretch under sustained bodyweight. <strong>Regression:</strong> Supine Hip ER with Block.',timer:60},
+               {n:'Lizard Pose — Extended',rx:'60s each side',d:'Double the Day A/B hold. Sink deeper into hip flexor and adductor stretch. Drop to forearms if flexibility allows.',timer:60},
+               {n:'90/90 Hip Rotations — Slow',rx:'10 each side · 5s hold',d:'Extended hold at end range each side. Focus on the direction that feels restricted.'}]},
+      {id:'sR_hams', time:'Pick', title:'Hamstrings Tight',            sub:'After Day A, hiking · ~4 min',
+       detail:[{n:'Down Dog Hold',rx:'3 × 30s',d:'Sustained posterior chain loading. Press heels toward floor, straighten knees as range allows. Not a flow — hold the position.',timer:30},
+               {n:'Standing Forward Fold',rx:'60s',d:'Feet hip-width, fold from hips, let gravity pull. Knees slightly bent to protect posterior knee. Sustained tensile load across entire posterior chain under gravity.',timer:60}]},
+      {id:'sR_thor', time:'Pick', title:'Thoracic Stiff',              sub:'After desk days · ~4 min',
+       detail:[{n:'Supine Spinal Twist',rx:'30s each side',d:'On back, knees together, drop both knees to one side. Opposite shoulder stays on floor. Sustained end-range thoracic rotation — fills the rotation gap from WGS removal.',timer:30},
+               {n:'Thread-the-Needle',rx:'30s each side',d:'All-fours. Slide one arm under the body, rotating thoracic spine. Cheek rests on floor. Isolates thoracic rotation without lumbar compensation.',timer:30},
+               {n:'Cat-Cow Extended',rx:'10 cycles · 3s hold each end',d:'Slower than the Day A/B version. 3s hold in full flexion and full extension. Spinal segmental control through full range.'}]},
+      {id:'sR_quads', time:'Pick', title:'Quads / IT Band',            sub:'After step-downs, skiing · ~6 min',
+       detail:[{n:'Lateral Quad Roll',rx:'2 min each side',d:'VL tightness reduction. Foam roller on outer quad, hip to just above lateral knee. Roll slowly; 2s pause on tender spots. Longer duration than daily habit version for deeper tissue release.',timer:120},
+               {n:'Couch Stretch — Extended',rx:'60s each side',d:'Double the Day A/B hold. Deeper rectus femoris stretch. Squeeze rear glute to increase hip extension.',timer:60}]},
+      {id:'sR_shldr', time:'Pick', title:'Shoulders Tight',            sub:'After Day B, climbing · ~4 min',
+       detail:[{n:'Dead Hang — Extended',rx:'90s total',d:'Longer hang than Primer. Full spinal decompression and shoulder capsule stretch under gravity.',timer:90},
+               {n:'Shoulder CARs — Slow',rx:'1 × 5 each arm · 5s per position',d:'Slower than Day A/B version. Pause at each range limit for 5s — identifies and loads restricted angles.'},
+               {n:'Child\'s Pose with Reach',rx:'60s',d:'Knees wide, arms extended overhead on floor. Walk fingers forward for maximal lat and shoulder stretch. Sustained traction through the entire anterior shoulder chain.',timer:60}]},
+      {id:'sR_gen', time:'Pick', title:'General — Full Flow',          sub:'No specific complaint · ~12 min',
+       detail:[{n:'Full Yoga Flow',rx:'~12 min · continuous',d:'Continuous sequence, 60s each position: Cat-Cow (10 slow cycles) → Down Dog (60s) → Lizard right (60s) → Down Dog (30s) → Lizard left (60s) → Down Dog (30s) → Pigeon right (60s) → Pigeon left (60s) → Supine Spinal Twist right (30s) → Supine Spinal Twist left (30s) → Child\'s Pose (60s). No rushing. Mitchell principle: sustained positions, not flowing through quickly.'}]},
+    ],
+    micro:[],
+    briefing:{
+      ok:['No collagen needed — passive loading, no high-intensity mechanical stimulus.',
+          'No knee eccentric loading — safe after Day A.',
+          'Insert anywhere: A→R→B or A→B→R or after Activity days.',
+          'Not mandatory — skip if you feel recovered.',
+          'Can combine with Daily Habits (short foot, SL balance, backward walk).'],
+      sub:['Short on time: pick 1 category only (~4–6 min). Still counts.',
+           'High fatigue: General flow at lower intensity — skip any position that feels effortful.'],
+      caution:['This is recovery, not training. If a position feels like hard work, you are pushing too deep. Back off.'],
     }
   },
 
