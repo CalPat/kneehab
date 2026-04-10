@@ -61,7 +61,7 @@ padding-top: var(--safe-top);
 
 /* ── Doc wrapper ─────────────────────────────────── */
 .doc {
-padding: calc(var(--sel-h) + 16px) 16px calc(var(--tab-h) + 16px);
+padding: 16px 16px calc(var(--tab-h) + var(--sel-h) + 16px);
 max-width: 600px;
 margin: 0 auto;
 }
@@ -813,7 +813,7 @@ border-color: var(--red);
 .metro-dismiss { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); background: none; border: none; cursor: pointer; padding: 2px 0 0; -webkit-tap-highlight-color: transparent; display: block; width: 100%; text-align: right; }
 
 @media (min-width: 601px) {
-.doc { padding: calc(var(--sel-h) + 24px) 32px calc(var(--tab-h) + 24px); }
+.doc { padding: 24px 32px calc(var(--tab-h) + var(--sel-h) + 24px); }
 .layer-stack { flex-direction: row; }
 .layer-card { flex-direction: column; gap: 0; }
 .lc-num-col { width: auto; padding-top: 0; margin-bottom: 4px; }
@@ -834,12 +834,12 @@ gap: 6px;
 overflow-x: auto;
 scrollbar-width: none;
 position: fixed;
-top: var(--safe-top);
+bottom: var(--tab-h);
 left: 0; right: 0;
 z-index: 150;
 background: var(--bg);
 padding: 12px 16px 12px;
-border-bottom: 1px solid var(--border2);
+border-top: 1px solid var(--border2);
 max-width: 100%;
 }
 .day-selector::-webkit-scrollbar { display: none; }
@@ -1114,7 +1114,7 @@ body { background: #fff; color: #000; }
   <div class="ms-title">KNEE REHAB v10.26</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
-  <div class="ms-group">Reference</div>
+  <div class="ms-group">Exercises</div>
   <button class="ms-btn" onclick="nav('overview',this)"><span class="ms-icon">◈</span><span class="ms-lbl">Program Overview</span><span class="ms-arr">›</span></button>
   <button class="ms-btn" onclick="nav('phases',this)"><span class="ms-icon">▲</span><span class="ms-lbl">Phases &amp; Progression</span><span class="ms-arr">›</span></button>
   <button class="ms-btn" onclick="nav('rules',this)"><span class="ms-icon">◉</span><span class="ms-lbl">Key Rules</span><span class="ms-arr">›</span></button>
@@ -1188,11 +1188,11 @@ body { background: #fff; color: #000; }
 </div>
 
 <div class="tab-bar">
+  <button class="tab-btn" id="tb-exercises" onclick="navTab('exercises','tb-exercises')">
+    <span class="tab-icon">●</span><span class="tab-label">Exercises</span>
+  </button>
   <button class="tab-btn on" id="tb-cover" onclick="navTab('cover','tb-cover')">
     <span class="tab-icon">◼</span><span class="tab-label">Home</span>
-  </button>
-  <button class="tab-btn" id="tb-exercises" onclick="navTab('exercises','tb-exercises')">
-    <span class="tab-icon">●</span><span class="tab-label">Reference</span>
   </button>
   <button class="tab-btn" id="tb-timer" onclick="navTab('timer','tb-timer')">
     <span class="tab-icon">⧖</span><span class="tab-label">Timer</span>
@@ -1590,7 +1590,7 @@ body { background: #fff; color: #000; }
 
 <div id="schedule" class="page">
 <div class="doc">
-  <div class="sh"><span class="sh-title">Schedule Reference</span></div>
+  <div class="sh"><span class="sh-title">Schedule</span></div>
   <p class="body" style="margin-bottom:12px;">Full breakdown by day type. Use <strong>Today</strong> tab for daily execution.</p>
 
   <div class="sched-tabs">
@@ -1751,7 +1751,7 @@ body { background: #fff; color: #000; }
 
 <div id="exercises" class="page">
 <div class="doc">
-  <div class="sh"><span class="sh-title">Reference</span></div>
+  <div class="sh"><span class="sh-title">Exercises</span></div>
 
   <div class="sched-tabs" id="exTabs">
     <button class="sched-tab on"  onclick="exTab('ex-base',this)">Base · Daily</button>
