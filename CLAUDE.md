@@ -16,9 +16,10 @@
 
 ## Foundations
 **Keith Baar (UC Davis)** — connective tissue synthesis maximised by hydrolyzed collagen + 200mg vitamin C ~45–60 min before mechanical loading, outside any protein window. Nocturnal GH pulse is the second synthesis window.
-**Johan Bellemans (KU Leuven)** — cartilage nutrition driven by cyclic compressive loading. Bellemans Bike (15–20° flexion at bottom of stroke, 10–12 min, hard stop 15 min) is the primary cartilage stimulus. Added to Day C as optional standalone.
+**Johan Bellemans (KU Leuven)** — cartilage nutrition driven by cyclic compressive loading. Bellemans Bike (15–20° flexion at bottom of stroke, 10–12 min, hard stop 15 min) is the primary cartilage stimulus on Day A.
 **Ben Patrick / ATG** — anterior chain loading, deep range of motion, tibialis work. Addresses upstream PFPS drivers.
-**Peter Attia** - reference for long-term health goals
+**Jules Mitchell** — yoga biomechanics. Poses are mechanical loading, not passive stretching. Sustained holds (30s+) drive viscoelastic creep and connective tissue adaptation. Directly complements Baar's collagen window — yoga positions during the synthesis peak are tissue-loading opportunities, not cooldown.
+**Peter Attia** — reference for long-term health goals
 
 ## Output Protocols
 - Every rehab plan must be saved as `kneehab V##.html`.
