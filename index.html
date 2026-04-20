@@ -2905,6 +2905,39 @@ const BLOCKS = {
     }
   },
 
+  'N': {
+    type:'N', title:'DIET & SUPPLEMENTS', titleClass:'', stepLabel:'Reference',
+    pills:[{t:'Daily',c:'green'},{t:'Reference',c:''},{t:'No tracking',c:''}],
+    note:'Protein targets, supplement stack, timing rules, and recovery factors. Not a training day — reference card for daily nutrition.',
+    steps:[
+      {id:'sN_prot', time:'Daily', title:'Protein',                         sub:'140–180g per day',
+       detail:[{n:'Protein Target',rx:'140–180g / day',d:'Distribute across meals — ~35-45g per feeding to maximise muscle protein synthesis (Attia). Four meals is ideal. Quality sources: meat, fish, eggs, dairy.'},
+               {n:'Collagen Spacing',rx:'2+ hr gap',d:'Keep 2+ hours between any protein meal and collagen dose. Dietary amino acids (especially leucine) compete with collagen peptides for absorption and blunt the connective tissue synthesis signal.'}]},
+      {id:'sN_stack', time:'Daily', title:'Daily Stack',                    sub:'Collagen 15g + Vit C 200mg + Creatine 5g',
+       detail:[{n:'Collagen + Vitamin C',rx:'15g collagen + 200mg vit C',d:'Connective tissue synthesis (Baar / Shaw 2017). Hydrolyised collagen provides glycine, proline, hydroxyproline — rate-limiting substrates for tendon and ligament remodelling. Vitamin C is a required cofactor for collagen crosslinking.'},
+               {n:'Creatine Monohydrate',rx:'5g / day',d:'Most evidence-backed supplement in sports science. Increases phosphocreatine stores — more force output, faster recovery between sets. Timing does not matter — just daily consistency. Can be taken with collagen, no absorption interaction.'},
+               {n:'Day A/B Timing',rx:'45–60 min before training',d:'Take the full stack 45–60 min before mechanical loading. Peak circulating hydroxyproline aligns with the training stimulus — maximises collagen synthesis at the loaded tissue.'},
+               {n:'Activity Day Timing',rx:'45–60 min before heading out',d:'Same window as Day A/B. The warm-up fills the gap.'},
+               {n:'Rest Day Timing',rx:'Before bed',d:'No training stimulus — target the nocturnal GH pulse instead. GH drives IGF-1 locally in connective tissue, upregulating collagen synthesis overnight. This window is training-independent — it happens every night.'}]},
+      {id:'sN_time', time:'Daily', title:'Timing Rules',                    sub:'Meal spacing and sleep',
+       detail:[{n:'Stop Eating Before Bed',rx:'2–3 hrs before sleep',d:'Late eating blunts the nocturnal GH pulse (Baar\'s second connective tissue synthesis window) and degrades sleep quality. Metabolic health benefit (Attia).'},
+               {n:'Rest Day Exception',rx:'Collagen before bed is OK',d:'Small collagen dose is not a meal — does not trigger the insulin response that suppresses GH. Take it as the last thing before bed on rest days.'}]},
+      {id:'sN_cold', time:'Day A/B', title:'Cold Exposure',                 sub:'Avoid within 4–6 hrs of training',
+       detail:[{n:'Post-Training Window',rx:'No cold for 4–6 hrs after Day A/B',d:'Cold suppresses mTOR signalling — the pathway that drives muscle protein synthesis and hypertrophy. Even short dips (2–5 min) are not proven safe post-training. The blunting is dose-dependent (colder + longer = worse) but no threshold has been established (Roberts 2015, Petersen & Fyfe 2021).'},
+               {n:'Safe Windows',rx:'Off days · mornings · after Zone 2',d:'OK on Recovery days, Activity days, or morning before training. Endurance / Zone 2 adaptations are unaffected — cold only blunts the strength/hypertrophy (mTOR) pathway.'}]},
+      {id:'sN_heat', time:'Any', title:'Heat (Sauna / Hot Bath)',           sub:'No timing restriction',
+       detail:[{n:'Heat Exposure',rx:'Post-training or evening',d:'No blunting effect on muscle adaptation. Increases blood flow and may aid recovery. No timing restriction relative to training. Use as desired.'}]},
+    ],
+    micro:[],
+    briefing:{
+      ok:['This is a reference card — no exercises, no tracking.',
+          'Collagen + Creatine can be mixed in the same drink.',
+          'Protein target assumes active adult in rehab/training context (Attia: 1.6–2.2 g/kg).'],
+      caution:['Collagen must be separated from protein meals by 2+ hours.',
+               'Cold water after Day A/B blunts strength gains — even brief exposure.'],
+    }
+  },
+
   'D': {
     type:'D', title:'DAILY HABITS', titleClass:'', stepLabel:'Informal — Do Opportunistically', microLabel:'Casual Pool',
     pills:[{t:'Every day',c:'green'},{t:'No tracking',c:''},{t:'No recovery demand',c:''}],
