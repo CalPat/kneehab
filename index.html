@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v11.5</title>
+<title>kneehab v11.6</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1115,7 +1115,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v11.5</div>
+  <div class="ms-title">kneehab v11.6</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Exercises</div>
@@ -1218,7 +1218,7 @@ body { background: #fff; color: #000; }
     <div class="cover-stripe"></div>
 
 <div class="cover-eyebrow">Full Body Training · Phase 1</div>
-<div class="cover-h1">kneehab<br><em>v11.5</em></div>
+<div class="cover-h1">kneehab<br><em>v11.6</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1262,6 +1262,20 @@ body { background: #fff; color: #000; }
 <div id="overview" class="page">
 <div class="doc">
 
+  <div class="changes">
+    <div class="changes-title">Changes v11.6 — activity & recovery day overhaul</div>
+    <ul class="changes-list">
+      <li><strong>Activity Day: post-activity recovery protocol added.</strong> Light walk, protein meal timing, and gentle evening stretching guidance after activity.</li>
+      <li><strong>Activity Day: recovery scaling by activity type.</strong> Easy hike → resume next day. Hard hike/ride → consider Day R. Full ski day → plan rest day, expect 24–48h DOMS.</li>
+      <li><strong>Activity Day: warm-up strengthened for ski days.</strong> No longer "optional but recommended" — ski-specific warning added about eccentric demand on cold tissue.</li>
+      <li><strong>Activity Day: warm-up reordered.</strong> Hip Abduction now before Wall Sit — glute med activation before quad-dominant exercises (controls knee valgus).</li>
+      <li><strong>Recovery Day: Walk elevated to default.</strong> Walk first on every Day R, then pick stretch categories. Most important recovery activity.</li>
+      <li><strong>Recovery Day: Box Breathing added to General Full Flow.</strong> 90s parasympathetic downregulation — vagal tone supports inflammation resolution.</li>
+      <li><strong>Recovery Day: collagen guidance added.</strong> Light session: no collagen. Heavy session (3+ categories): consider collagen 45 min before.</li>
+      <li><strong>Recovery Day: Thoracic Foam Roller Extension added.</strong> New exercise in Thoracic Stiff category — more effective than mobilisation drills alone for desk-related kyphosis.</li>
+      <li><strong>Recovery Day: neural tension safety note.</strong> Hamstring stretching now distinguishes muscular stretch (safe) from sciatic nerve tension (back off).</li>
+    </ul>
+  </div>
   <div class="changes">
     <div class="changes-title">Changes v11.5 — diet & supplements reference</div>
     <ul class="changes-list">
@@ -2835,39 +2849,48 @@ const BLOCKS = {
       {id:'sX_col', time:'T=0',        title:'If active: Collagen + Vitamin C', sub:'45 min before heading out',
        detail:[{n:'Collagen',rx:'15g · 45 min before activity',d:'At least 2 hrs after any protein meal.'},
                {n:'Vitamin C',rx:'200mg',d:'With collagen.'}]},
-      {id:'sX_wrm', time:'T+15',       title:'Pre-Activity Warm-Up',           sub:'~10 min · during collagen window · optional but recommended',
+      {id:'sX_wrm', time:'T+15',       title:'Pre-Activity Warm-Up',           sub:'~10 min · during collagen window · do it on ski days',
        detail:[{n:'Cat-Cow → Down Dog → Up Dog',rx:'3 cycles · ~60s',d:'Spinal segmental warm-up. Cold spinal segments before skiing or hiking means compensatory movement through knees and hips.'},
                {n:'90/90 Hip Rotations',rx:'10 each side · 3s hold',d:'Opens hip rotation range before sustained flexion loading.'},
                {n:'Lizard Pose',rx:'20s each side',d:'Hip flexor + adductor activation. Shorter pre-activity dose (20s vs 60s recovery dose).',timer:20},
                {n:'Kneeling Ankle Drive',rx:'10 each side · 2s hold',d:'Critical before ski boots and hiking boots. Half-kneeling, drive knee over toes.'},
+               {n:'Hip Abduction',rx:'2 × 12 each · 2s hold top',d:'Glute med activation first — controls knee valgus during all subsequent quad-dominant loading.'},
                {n:'Wall Sit',rx:'3 × 10s',d:'Quad and patellofemoral activation before load. Fires tracking system before ski descents or trail descents.',timer:10},
-               {n:'Hip Abduction',rx:'2 × 12 each · 2s hold top',d:'Glute med activation before quad-dominant descent loading.'},
                {n:'Single-Leg Balance',rx:'30s each leg',d:'Proprioception priming before uneven terrain.'}]},
       {id:'sX_act', time:'T+45',       title:'Ski / Hike / Ride',              sub:'No protocol — go as planned', detail:[]},
-      {id:'sX_nxt', time:'Next block', title:'If sore: rest day first',         sub:'Resume Day A or B when soreness resolves', detail:[]},
+      {id:'sX_post', time:'After',     title:'Post-Activity Recovery',          sub:'Within 1–2 hrs of finishing',
+       detail:[{n:'Light Walk',rx:'10–15 min · easy pace',d:'Promotes circulation and begins clearing metabolic waste. Do not sit down immediately after high-demand activity.'},
+               {n:'Protein Meal',rx:'30–45g within 1–2 hrs',d:'Post-activity is a muscle protein synthesis window — unlike collagen timing, this is a standard protein meal. Prioritise whole food sources.'},
+               {n:'Gentle Stretching (evening)',rx:'Quads · Hip Flexors · Calves · 30s each',d:'Low-intensity tissue movement — not deep stretching. Couch Stretch, Standing Quad Stretch, or Lizard Pose at easy intensity. Goal is blood flow and range maintenance, not adaptation.'}]},
+      {id:'sX_nxt', time:'Next day',   title:'Scaling Recovery to Demand',      sub:'Match next-day plan to activity intensity',
+       detail:[{n:'Easy hike / flat ride',rx:'Resume A/B next day',d:'Low eccentric demand — normal rotation resumes. Collagen timing as usual.'},
+               {n:'Hard hike / long ride',rx:'Consider rest or Day R next day',d:'Moderate eccentric demand. If muscle soreness >2/10 next morning, take a Day R or full rest before resuming A/B.'},
+               {n:'Full ski day',rx:'Expect 24–48h DOMS · rest day recommended',d:'High eccentric quad demand on descents. Plan a rest day or Day R the following day. Do not run Day A until quad soreness resolves below 2/10. Articular soreness (behind kneecap or inside joint) → rest until resolved.'}]},
     ],
     micro:[],
     briefing:{
       warn:['No training routine — do not run Day A or B before activity. Warm-up only.',
-            'Knee pain during activity: stop.'],
+            'Knee pain during activity: stop.',
+            'Ski days: do the warm-up. Eccentric quad demand on cold tissue with restricted ankle ROM (ski boots) directly aggravates PFPS.'],
       ok:['Collagen 15g + 200mg Vit C at T=0. Warm-up fills the 45-min window.',
-          'Warm-up is optional but strongly recommended for ski days.',
-          'Light walking after finishing is fine.'],
+          'Post-activity: light walk + protein meal within 1–2 hrs.',
+          'Gentle stretching in the evening — not deep, just tissue movement.'],
       sub:['Activity cancelled: do mobility + dead hang only (~10 min).',
            'Low-demand activity (easy flat hike): warm-up still applies. Collagen optional if short duration.'],
-      caution:['Next morning: if knee soreness present, take a rest day. Resume training when soreness resolves.',
-               'Ski day specifically: eccentric quad demand is high on descents. Expect DOMS in 24–48h window.'],
+      caution:['Easy hike → resume A/B next day. Hard hike/ride → consider Day R first. Full ski day → plan a rest day, expect 24–48h DOMS.',
+               'Articular soreness (behind kneecap, inside joint) after activity → rest until fully resolved.'],
     }
   },
 
   'R': {
     type:'R', title:'DAY R<br>RECOVERY & MOBILITY', titleClass:'',
-    pills:[{t:'No collagen',c:''},{t:'~15–20 min',c:''},{t:'Pick 2–3 categories',c:'green'},{t:'Longer holds',c:''}],
-    note:'Adaptive recovery session. Pick 2–3 categories based on what feels tight or sore. Hold durations are doubled from Day A/B (60s vs 30s) — recovery day is the opportunity for deeper tissue adaptation (Mitchell: longer holds = more viscoelastic creep). No collagen needed. No knee eccentric loading. Insert anywhere in the rotation.',
-    stepLabel:'Pick 2–3 Categories',
+    pills:[{t:'Walk + stretch',c:'green'},{t:'~30–40 min',c:''},{t:'Collagen if heavy session',c:'amber'},{t:'Longer holds',c:''}],
+    note:'Adaptive recovery session. Walk first, then pick 1–2 stretch categories based on what feels tight or sore. Hold durations are doubled from Day A/B (60s vs 30s) — recovery day is the opportunity for deeper tissue adaptation (Mitchell: longer holds = more viscoelastic creep). No knee eccentric loading. Insert anywhere in the rotation. <strong>Collagen note:</strong> not required for light recovery, but if doing a heavy session (3+ categories with 60s holds), consider collagen 45 min before — sustained loaded stretching qualifies as mild mechanical stimulus under Baar.',
+    stepLabel:'Walk + Pick 1–2 Categories',
     steps:[
-      {id:'sR_gen', time:'Pick', title:'General — Full Flow',          sub:'No specific complaint · ~12 min',
-       detail:[{n:'Cat-Cow',rx:'10 slow cycles',d:'Full spinal flexion and extension. Slow, controlled, breathe into each end range.'},
+      {id:'sR_gen', time:'Pick', title:'General — Full Flow',          sub:'No specific complaint · ~14 min',
+       detail:[{n:'Box Breathing',rx:'90s · 4s in / 4s hold / 4s out / 4s hold',d:'Parasympathetic downregulation before recovery work. Vagal tone directly impacts inflammation resolution — the transition from inflammatory to proliferative healing phase. Sit or lie comfortably. This is not optional fluff — it is a recovery signal.',timer:90},
+               {n:'Cat-Cow',rx:'10 slow cycles',d:'Full spinal flexion and extension. Slow, controlled, breathe into each end range.'},
                {n:'Down Dog',rx:'60s',d:'Press heels toward floor, straighten knees as range allows. Full posterior chain loading.',timer:60},
                {n:'Lizard right',rx:'60s',d:'Deep hip flexor and adductor stretch. Drop to forearms if flexibility allows.',timer:60},
                {n:'Down Dog',rx:'30s',d:'Transition. Reset posterior chain.',timer:30},
@@ -2884,9 +2907,10 @@ const BLOCKS = {
                {n:'90/90 Hip Rotations — Slow',rx:'10 each side · 5s hold',d:'Extended hold at end range each side. Focus on the direction that feels restricted.'}]},
       {id:'sR_hams', time:'Pick', title:'Hamstrings Tight',            sub:'After Day A, hiking · ~4 min',
        detail:[{n:'Down Dog Hold',rx:'3 × 30s',d:'Sustained posterior chain loading. Press heels toward floor, straighten knees as range allows. Not a flow — hold the position.',timer:30},
-               {n:'Standing Forward Fold',rx:'60s',d:'Feet hip-width, fold from hips, let gravity pull. Knees slightly bent to protect posterior knee. Sustained tensile load across entire posterior chain under gravity.',timer:60}]},
-      {id:'sR_thor', time:'Pick', title:'Thoracic Stiff',              sub:'After desk days · ~4 min',
-       detail:[{n:'Supine Spinal Twist',rx:'30s each side',d:'On back, knees together, drop both knees to one side. Opposite shoulder stays on floor. Sustained end-range thoracic rotation — fills the rotation gap from WGS removal.',timer:30},
+               {n:'Standing Forward Fold',rx:'60s',d:'Feet hip-width, fold from hips, let gravity pull. Knees slightly bent to protect posterior knee. Sustained tensile load across entire posterior chain under gravity. <strong>Neural tension check:</strong> if stretch is felt behind the knee or into the calf (sharp, electric, or burning), that is sciatic nerve tension, not muscle tightness — back off and bend knees more. Muscular stretch felt in the mid-belly of the hamstring is safe to hold.',timer:60}]},
+      {id:'sR_thor', time:'Pick', title:'Thoracic Stiff',              sub:'After desk days · ~6 min',
+       detail:[{n:'Thoracic Foam Roller Extension',rx:'60s · arms overhead',d:'Lie lengthwise on foam roller (spine along roller), arms overhead or out to sides. Gravity opens thoracic kyphosis. More effective than mobilisation drills alone for desk-related thoracic stiffness. Breathe into the stretch.',timer:60},
+               {n:'Supine Spinal Twist',rx:'30s each side',d:'On back, knees together, drop both knees to one side. Opposite shoulder stays on floor. Sustained end-range thoracic rotation — fills the rotation gap from WGS removal.',timer:30},
                {n:'Thread-the-Needle',rx:'30s each side',d:'All-fours. Slide one arm under the body, rotating thoracic spine. Cheek rests on floor. Isolates thoracic rotation without lumbar compensation.',timer:30},
                {n:'Cat-Cow Extended',rx:'10 cycles · 3s hold each end',d:'Slower than the Day A/B version. 3s hold in full flexion and full extension. Spinal segmental control through full range.'}]},
       {id:'sR_quads', time:'Pick', title:'Quads / IT Band',            sub:'After step-downs, skiing · ~6 min',
@@ -2896,19 +2920,22 @@ const BLOCKS = {
        detail:[{n:'Dead Hang — Extended',rx:'90s total',d:'Longer hang than Primer. Full spinal decompression and shoulder capsule stretch under gravity.',timer:90},
                {n:'Shoulder CARs — Slow',rx:'1 × 5 each arm · 5s per position',d:'Slower than Day A/B version. Pause at each range limit for 5s — identifies and loads restricted angles.'},
                {n:'Child\'s Pose with Reach',rx:'60s',d:'Knees wide, arms extended overhead on floor. Walk fingers forward for maximal lat and shoulder stretch. Sustained traction through the entire anterior shoulder chain.',timer:60}]},
-      {id:'sR_walk', time:'Always', title:'Walk',                      sub:'20–30 min · easy pace · any terrain',
-       detail:[{n:'Walk',rx:'20–30 min · easy pace',d:'Low-intensity movement. Promotes circulation and tissue recovery without loading demand. Zone 1 — conversational pace. Flat or gentle terrain. Can include backward walk segments (2–3 rounds 30–60s) for anterior tibial chain.'}]},
+      {id:'sR_walk', time:'Always', title:'Walk (do this every Day R)',  sub:'20–30 min · easy pace · the most important recovery activity',
+       detail:[{n:'Walk',rx:'20–30 min · easy pace',d:'The single most effective recovery tool. Low-intensity movement promotes circulation, clears metabolic waste, and drives tissue recovery without loading demand. Zone 1 — conversational pace. Flat or gentle terrain. This is not a category to pick — do it on every Day R, then add stretch categories if needed. Can include backward walk segments (2–3 rounds 30–60s) for anterior tibial chain.'}]},
     ],
     micro:[],
     briefing:{
-      ok:['No collagen needed — passive loading, no high-intensity mechanical stimulus.',
+      ok:['Walk first on every Day R — most important recovery activity.',
+          'Light session (1–2 categories): no collagen needed.',
+          'Heavy session (3+ categories, 60s holds): consider collagen 45 min before.',
           'No knee eccentric loading — safe after Day A.',
           'Insert anywhere: A→R→B or A→B→R or after Activity days.',
           'Not mandatory — skip if you feel recovered.',
           'Can combine with Daily Habits (short foot, SL balance, backward walk).'],
-      sub:['Short on time: pick 1 category only (~4–6 min). Still counts.',
+      sub:['Short on time: walk + 1 category only (~25–30 min total). Still counts.',
            'High fatigue: General flow at lower intensity — skip any position that feels effortful.'],
-      caution:['This is recovery, not training. If a position feels like hard work, you are pushing too deep. Back off.'],
+      caution:['This is recovery, not training. If a position feels like hard work, you are pushing too deep. Back off.',
+               'Hamstring stretching: if you feel it behind the knee or into the calf (sharp/electric), that is nerve tension — back off. Mid-belly stretch is safe.'],
     }
   },
 

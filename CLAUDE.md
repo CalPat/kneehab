@@ -35,3 +35,4 @@
   - medium change .1
   - major change 1.
 - do not worry about phasing. program is constantly evolving as user progresses.
+- **Delete old versions.** Only keep the latest version of both `kneehab V##.html` and `kneehab V##.MD`. Remove previous versions when creating a new one.
