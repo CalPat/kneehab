@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v11.6</title>
+<title>kneehab v11.61</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1115,7 +1115,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v11.6</div>
+  <div class="ms-title">kneehab v11.61</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Exercises</div>
@@ -2736,9 +2736,10 @@ const BLOCKS = {
     pills:[{t:'Collagen T=0',c:'amber'},{t:'~55 min',c:''},{t:'Bike aim to do',c:''},{t:'Ruck optional PM',c:''}],
     note:'Lower body training day. Alternates with Day B. <strong>Asymmetry Rule:</strong> On all alternating exercises, start with the weaker side and add one extra set to the weaker side. <strong>Soreness Rule:</strong> Muscle soreness >2/10 → replace dynamic exercises with their isometric modifier. Articular soreness (behind kneecap or inside joint) → rest day.',
     steps:[
-      {id:'sA_col',  time:'T=0',    title:'Collagen + Vitamin C',       sub:'15g · 200mg vit C · 2+ hrs after protein',
+      {id:'sA_col',  time:'T=0',    title:'Collagen + Vitamin C + Creatine', sub:'15g · 200mg vit C · 5g creatine · 2+ hrs after protein',
        detail:[{n:'Collagen',rx:'15g hydrolyzed, skin-sourced',d:'Take on waking. 2+ hrs after any protein meal — leucine blunts connective tissue synthesis. Skin-sourced (Type I) only.'},
-               {n:'Vitamin C',rx:'200mg',d:'Take with collagen.'}]},
+               {n:'Vitamin C',rx:'200mg',d:'Take with collagen.'},
+               {n:'Creatine Monohydrate',rx:'5g',d:'Mix with collagen drink. No absorption interaction — timing doesn\'t matter, just daily consistency. Increases phosphocreatine stores for better force output and faster recovery between sets.'}]},
       {id:'sA_mob',  time:'T+5',    title:'Mobility',                   sub:'~5 min', navPage:'base',
        detail:[{n:'90/90 Hip Rotations',rx:'10 × each side',d:'Restores hip rotation range. Poor hip ER is a primary upstream driver of patellofemoral load.'},
                {n:'Cat-Cow → Down Dog → Up Dog',rx:'5 Cat-Cows · 3–5 cycles · ~90s',d:'Spinal segmental warm-up flowing into posterior chain loading. Down Dog lengthens hamstrings and calves. Up Dog opens hip flexors and thoracic extension.'},
@@ -2793,9 +2794,10 @@ const BLOCKS = {
     pills:[{t:'Collagen T=0',c:'amber'},{t:'~40 min',c:''},{t:'Knee maintenance',c:''},{t:'Ruck optional PM',c:''}],
     note:'Upper body training day. Alternates with Day A. Includes knee maintenance (isometrics only — no eccentric demand, no recovery conflict). <strong>Asymmetry Rule</strong> applies to all alternating exercises.',
     steps:[
-      {id:'sB_col',  time:'T=0',    title:'Collagen + Vitamin C',       sub:'15g · 200mg vit C · 2+ hrs after protein',
+      {id:'sB_col',  time:'T=0',    title:'Collagen + Vitamin C + Creatine', sub:'15g · 200mg vit C · 5g creatine · 2+ hrs after protein',
        detail:[{n:'Collagen',rx:'15g hydrolyzed, skin-sourced',d:'Required — upper body mechanical loading qualifies under Baar protocol. Take on waking, 2+ hrs after any protein meal.'},
-               {n:'Vitamin C',rx:'200mg',d:'Take with collagen.'}]},
+               {n:'Vitamin C',rx:'200mg',d:'Take with collagen.'},
+               {n:'Creatine Monohydrate',rx:'5g',d:'Mix with collagen drink. No absorption interaction — timing doesn\'t matter, just daily consistency.'}]},
       {id:'sB_mob',  time:'T+5',    title:'Mobility',                   sub:'~6 min', navPage:'base',
        detail:[{n:'90/90 Hip Rotations',rx:'10 × each side',d:'Restores hip rotation range — daily.'},
                {n:'Cat-Cow → Down Dog → Up Dog',rx:'5 Cat-Cows · 3–5 cycles · ~90s',d:'Spinal segmental warm-up flowing into posterior chain loading.'},
@@ -2846,9 +2848,10 @@ const BLOCKS = {
     pills:[{t:'Ski · Hike · Ride',c:'green'},{t:'Collagen before if active',c:'amber'},{t:'Or full rest',c:''}],
     note:'Ski, hike, or long ride. No training routine — activity replaces it. Take collagen, run the pre-activity warm-up during the window, then go.',
     steps:[
-      {id:'sX_col', time:'T=0',        title:'If active: Collagen + Vitamin C', sub:'45 min before heading out',
+      {id:'sX_col', time:'T=0',        title:'If active: Collagen + Vitamin C + Creatine', sub:'45 min before heading out',
        detail:[{n:'Collagen',rx:'15g · 45 min before activity',d:'At least 2 hrs after any protein meal.'},
-               {n:'Vitamin C',rx:'200mg',d:'With collagen.'}]},
+               {n:'Vitamin C',rx:'200mg',d:'With collagen.'},
+               {n:'Creatine Monohydrate',rx:'5g',d:'Mix with collagen drink. Daily consistency is what matters.'}]},
       {id:'sX_wrm', time:'T+15',       title:'Pre-Activity Warm-Up',           sub:'~10 min · during collagen window · do it on ski days',
        detail:[{n:'Cat-Cow → Down Dog → Up Dog',rx:'3 cycles · ~60s',d:'Spinal segmental warm-up. Cold spinal segments before skiing or hiking means compensatory movement through knees and hips.'},
                {n:'90/90 Hip Rotations',rx:'10 each side · 3s hold',d:'Opens hip rotation range before sustained flexion loading.'},
