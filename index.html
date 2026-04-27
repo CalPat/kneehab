@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v11.76</title>
+<title>kneehab v11.8</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1116,16 +1116,16 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v11.76</div>
+  <div class="ms-title">kneehab v11.8</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Exercises</div>
-  <button class="ms-btn" onclick="nav('overview',this)"><span class="ms-icon">◈</span><span class="ms-lbl">Program Overview</span><span class="ms-arr">›</span></button>
   <button class="ms-btn" onclick="nav('phases',this)"><span class="ms-icon">▲</span><span class="ms-lbl">Phases &amp; Progression</span><span class="ms-arr">›</span></button>
   <button class="ms-btn" onclick="nav('rules',this)"><span class="ms-icon">◉</span><span class="ms-lbl">Key Rules</span><span class="ms-arr">›</span></button>
 
   <div class="ms-group">Info</div>
   <button class="ms-btn" onclick="nav('supps',this)"><span class="ms-icon">◐</span><span class="ms-lbl">Supplements</span><span class="ms-arr">›</span></button>
+  <button class="ms-btn" onclick="nav('revisions',this)"><span class="ms-icon">◇</span><span class="ms-lbl">Revision History</span><span class="ms-arr">›</span></button>
 </div>
 
 <!-- ══════════════════════════════════════════════════ -->
@@ -1223,14 +1223,11 @@ body { background: #fff; color: #000; }
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
-  <span class="cover-chip">TODAY TAB</span>
-  <span class="cover-chip">COLLAGEN REBUILT</span>
+  <span class="cover-chip">A/B SPLIT</span>
+  <span class="cover-chip">COLLAGEN PM</span>
   <span class="cover-chip">2×2 RULE</span>
   <span class="cover-chip">SKIING PREP</span>
-  <span class="cover-chip">BIKE COMMUTE</span>
-  <span class="cover-chip">LATERAL STEP-UP</span>
-  <span class="cover-chip">SKATER SQUAT</span>
-  <span class="cover-chip">UPPER BODY · DAY C</span>
+  <span class="cover-chip">UPPER BODY</span>
   <span class="cover-chip">RECOVERY DAY</span>
 </div>
 
@@ -1251,17 +1248,67 @@ body { background: #fff; color: #000; }
   </div>
 </div>
 
+  <div class="cover-divider"></div>
+
+  <div class="sh"><span class="sh-title">Day Types</span></div>
+  <p class="body" style="margin-bottom:14px;">Alternate Day A and Day B. Never two Day A's in a row. Activity and Recovery days insert as needed.</p>
+
+  <div class="layer-stack">
+    <div class="layer-card">
+      <div class="lc-num-col">DAY A</div>
+      <div class="lc-main">
+        <div class="lc-title amber">LOWER BODY</div>
+        <div class="lc-body">Mobility · Core · Glute · Dead Hang<br>Knee Block (~18 min)<br>~33 min total</div>
+        <div class="lc-rule">Collagen PM block (Bellemans default)</div>
+      </div>
+    </div>
+    <div class="layer-card">
+      <div class="lc-num-col">DAY B</div>
+      <div class="lc-main">
+        <div class="lc-title">UPPER BODY</div>
+        <div class="lc-body">Mobility · Core · Knee Maintenance (iso only)<br>Upper Body (~20 min)<br>~35 min total</div>
+        <div class="lc-rule">Collagen PM block</div>
+      </div>
+    </div>
+    <div class="layer-card">
+      <div class="lc-num-col">DAY R</div>
+      <div class="lc-main">
+        <div class="lc-title">RECOVERY</div>
+        <div class="lc-body">Walk + pick 1–2 stretch categories<br>Longer holds (60s vs 30s)<br>No knee eccentric loading</div>
+        <div class="lc-rule">No collagen unless heavy session</div>
+      </div>
+    </div>
+    <div class="layer-card">
+      <div class="lc-num-col">ACT</div>
+      <div class="lc-main">
+        <div class="lc-title" style="color:#4A7A5A;">ACTIVITY</div>
+        <div class="lc-body">Ski · Hike · Ride<br>Pre-activity warm-up during collagen window</div>
+        <div class="lc-rule">Collagen 45 min before · replaces a training day</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh"><span class="sh-title">Bike Commute</span></div>
+  <p class="body" style="margin-bottom:14px;">1–2× per week. How it slots in depends on intensity.</p>
+
+  <div class="card">
+    <div class="card-row card-green"><div class="cr-left"><div class="cr-key">Zone 1<br><span style="font-size:11px;color:var(--muted);">easy pace</span></div></div><div class="cr-right"><div class="cr-val">Free — any day</div><div class="cr-desc">No collagen needed. Day schedule unchanged.</div></div></div>
+    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-key">Zone 2<br><span style="font-size:11px;color:var(--muted);">harder effort</span></div></div><div class="cr-right"><div class="cr-val">Can serve as Collagen Block loading option</div><div class="cr-desc">Time collagen 45–60 min before commuting. Replaces Bellemans Bike that day.</div></div></div>
+  </div>
+  <p class="note">Phase 1: monitor next-morning knee soreness after every commute. If soreness appears consistently, cap commutes at 30–40 min and build up.</p>
+
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════ -->
 
-<!--  OVERVIEW                                          -->
+<!--  REVISIONS                                         -->
 
 <!-- ══════════════════════════════════════════════════ -->
 
-<div id="overview" class="page">
+<div id="revisions" class="page">
 <div class="doc">
+  <div class="sh"><span class="sh-title">Revision History</span></div>
 
   <div class="changes" style="margin-bottom:18px;">
     <div class="changes-title">Changes v11.7 — collagen timing restructure</div>
@@ -1510,105 +1557,6 @@ body { background: #fff; color: #000; }
     <ul class="changes-list" style="color:var(--muted);">
       <li>Short Arc Quad promoted to mandatory. Exercise names standardised. GitHub Pages style fix.</li>
     </ul>
-  </div>
-
-  <div class="sh"><span class="sh-title">Three Day Cards</span></div>
-  <p class="body" style="margin-bottom:14px;">The week runs on three cards in a fixed cycle. No decisions — check which day you're on, follow the card.</p>
-
-  <div class="layer-stack">
-    <div class="layer-card">
-      <div class="lc-num-col">DAY A</div>
-      <div class="lc-main">
-        <div class="lc-title amber">LOWER BODY</div>
-        <div class="lc-body">Full morning routine<br>+ Knee block<br>+ Collagen PM block (Bellemans default)</div>
-        <div class="lc-rule">Days 1 &amp; 5 in cycle<br>Collagen PM block</div>
-      </div>
-    </div>
-    <div class="layer-card">
-      <div class="lc-num-col">DAY B</div>
-      <div class="lc-main">
-        <div class="lc-title">FULL · NO BIKE</div>
-        <div class="lc-body">Full morning routine<br>No bike<br>+ Knee micro-sessions</div>
-        <div class="lc-rule">Day 3 in cycle<br>Collagen PM block</div>
-      </div>
-    </div>
-    <div class="layer-card">
-      <div class="lc-num-col">DAY C</div>
-      <div class="lc-main">
-        <div class="lc-title">LIGHT</div>
-        <div class="lc-body">Mobility · Spinal &amp; Shoulder · Core<br>RKC Plank · Adductor ISO Hold<br>Mandatory micro-sessions only<br><span style="color:var(--muted2);font-size:12px;">+ Upper Body optional (collagen if included)</span><br><span style="color:var(--muted2);font-size:12px;">+ Bellemans Bike optional (no collagen unless UB also done)</span></div>
-        <div class="lc-rule">Wed · Fri · Mon (MVD)<br>Collagen only if upper body block included<br>Zone 1 unrestricted</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sh"><span class="sh-title">7-Day Cycle</span></div>
-
-  <div class="card">
-    <div class="card-row">
-      <div class="cr-left"><div class="cr-time">Mon</div></div>
-      <div class="cr-right"><div class="cr-val">Recovery — MVD / Active Recovery</div><div class="cr-desc">~5 min floor session — no equipment. Active recovery after weekend activity days.</div></div>
-    </div>
-    <div class="card-row card-highlight">
-      <div class="cr-left"><div class="cr-time">Tue</div></div>
-      <div class="cr-right"><div class="cr-val">Load Day</div><div class="cr-desc">Full routine. Collagen PM block (Bellemans Bike default).</div></div>
-    </div>
-    <div class="card-row">
-      <div class="cr-left"><div class="cr-time">Wed</div></div>
-      <div class="cr-right"><div class="cr-val">Recovery</div><div class="cr-desc">Mobility + posture block + core + hip abduction. Zone 1 unrestricted. Upper body optional.</div></div>
-    </div>
-    <div class="card-row card-highlight">
-      <div class="cr-left"><div class="cr-time">Thu</div></div>
-      <div class="cr-right"><div class="cr-val">Load Day</div><div class="cr-desc">Full routine. Collagen PM block (Bellemans Bike default).</div></div>
-    </div>
-    <div class="card-row">
-      <div class="cr-left"><div class="cr-time">Fri</div></div>
-      <div class="cr-right"><div class="cr-val">Recovery — Buffer</div><div class="cr-desc">Recovery buffer before weekend activity. Zone 1 unrestricted. Upper body optional.</div></div>
-    </div>
-    <div class="card-row card-green">
-      <div class="cr-left"><div class="cr-time">Sat</div></div>
-      <div class="cr-right"><div class="cr-val">Activity — Ski / Hike / Ride</div><div class="cr-desc">Collagen 45 min before heading out. Pre-activity warm-up during window. No structured knee work.</div></div>
-    </div>
-    <div class="card-row">
-      <div class="cr-left"><div class="cr-time">Sun</div></div>
-      <div class="cr-right"><div class="cr-val">Activity or Rest</div><div class="cr-desc">Second activity day, or full rest. If sore from Saturday: rest only.</div></div>
-    </div>
-  </div>
-
-  <div class="sh"><span class="sh-title">Bike Commute</span></div>
-  <p class="body" style="margin-bottom:14px;">1--2× per week. How it slots in depends on intensity.</p>
-
-  <div class="card">
-    <div class="card-row card-green">
-      <div class="cr-left"><div class="cr-key">Zone 1<br><span style="font-size:11px;color:var(--muted);">easy pace</span></div></div>
-      <div class="cr-right">
-        <div class="cr-val">Free — any day</div>
-        <div class="cr-desc">No collagen needed. Counts as Zone 1 movement. Day schedule unchanged. Bellemans session still runs if it's a Load day.</div>
-      </div>
-    </div>
-    <div class="card-row card-highlight">
-      <div class="cr-left"><div class="cr-key">Zone 2<br><span style="font-size:11px;color:var(--muted);">harder effort</span></div></div>
-      <div class="cr-right">
-        <div class="cr-val">Replaces Bellemans session</div>
-        <div class="cr-desc">Zone 2 commute can serve as the Collagen Block loading option. Time collagen 45–60 min before commuting. Skip Bellemans that day — do not stack both.</div>
-      </div>
-    </div>
-    <div class="card-row card-warn">
-      <div class="cr-left"><div class="cr-key">Zone 2<br><span style="font-size:11px;color:var(--muted);">on Load Day</span></div></div>
-      <div class="cr-right">
-        <div class="cr-val">Commute replaces the Bellemans bike</div>
-        <div class="cr-desc">Run full morning routine but skip the Bellemans session. Zone 2 commute can serve as the Collagen Block loading option if timed within the window.</div>
-      </div>
-    </div>
-  </div>
-  <p class="note">Phase 1: monitor next-morning knee soreness after every commute — both Zone 1 and Zone 2. 1 hour is long relative to normal program sessions. If soreness appears consistently, cap commutes at 30--40 min and build up. Hilly terrain and any intensity drift will load the knee more than flat Zone 1 pace.</p>
-
-  <div class="sh"><span class="sh-title">Commute Day Summary</span></div>
-  <div class="card">
-    <div class="card-head"><span class="ch-title">Commute type · Collagen · Bellemans · Day type</span></div>
-    <div class="card-row"><div class="cr-left" style="width:45%"><div class="cr-key" style="font-size:13px;">Zone 1, any day</div></div><div class="cr-right"><div class="cr-desc">No collagen · Bellemans unchanged · Day type unchanged</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:45%"><div class="cr-key" style="font-size:13px;">Zone 2, Recovery</div></div><div class="cr-right"><div class="cr-desc">Collagen before · No Bellemans · Counts as Load day stimulus</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:45%"><div class="cr-key" style="font-size:13px;">Zone 2, Load Day</div></div><div class="cr-right"><div class="cr-desc">Collagen before · Commute replaces Bellemans · Run morning routine</div></div></div>
   </div>
 
 </div>
@@ -2048,19 +1996,6 @@ body { background: #fff; color: #000; }
   <div class="sh"><span class="sh-title">Load Day Exercises</span><span class="sh-tag">Load Day Only</span></div>
   <p class="body">Added on Load Days only.</p>
 
-  <div class="sub-head">Push &amp; Pull — Recovery only (not Load day)</div>
-  <div class="ex-group">
-    <div class="ex-group-head" onclick="togEx(this)">
-      <span class="eg-title">Push &amp; Pull</span>
-      <span class="eg-freq">Recovery Day — Upper Body block</span>
-      <span class="eg-chev">▼</span>
-    </div>
-    <div class="ex-body" id="src-pp">
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Push-Up</span><span class="ex-rx">2 × 8–15</span></div><div class="ex-desc">Standard or hands elevated. 3 sec down, 1 sec pause, 2 sec up. Technical failure — not absolute failure.</div></div>
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Pull-Up Progression</span><span class="ex-rx">2 × 5–8</span></div><div class="ex-desc">Ph1: dead hang scapular pull — depress shoulders fully without bending elbows, hold 2s at top. Ph2: partial pull to chin at bar height. Ph3: full pull-up. Vertical pull pattern was absent — fills lat, lower trap, rhomboid gap not covered by rows. Bar already required for dead hang.</div></div>
-    </div>
-  </div>
-
   <div class="sub-head">Glute Load — T+24</div>
   <div class="ex-group open">
     <div class="ex-group-head" onclick="togEx(this)">
@@ -2273,7 +2208,7 @@ body { background: #fff; color: #000; }
 <div id="phases" class="page">
 <div class="doc">
   <div class="sh"><span class="sh-title">Phases &amp; Progression</span></div>
-  <p class="body" style="margin-bottom:16px;">Three phases. Phase 1 is fully prescribed — do not advance until all exit criteria are met. Phase 2 and Phase 3 are outlined; full prescriptions are written on entry.</p>
+  <p class="body" style="margin-bottom:16px;">Three phases. Phase 1 is fully prescribed. Phase 2 and Phase 3 are outlined; full prescriptions written on entry. The 2×2 rule governs all progression — no hard phase gates.</p>
 
   <div class="sub-head">Phase 1 — Foundation · Weeks 1–4</div>
 
@@ -2282,15 +2217,13 @@ body { background: #fff; color: #000; }
       <span class="ph-title" style="color:var(--amber);">Weeks 1--2</span>
       <span class="ph-weeks">Early foundation</span>
     </div>
-    <div class="phase-item">Split squat: front foot elevated 10–15cm, rear leg extended on floor, significant counterbalance. Do not force depth.</div>
+    <div class="phase-item">Split squat: slant board, front foot elevated 10–15cm, rear leg extended, significant counterbalance. Do not force depth.</div>
     <div class="phase-item">Step down: hand support on wall, 10cm step.</div>
-    <div class="phase-item">Scap push-up on knees.</div>
-    <div class="phase-item">Wall sit: start at 45° if 60° produces >4/10 pain.</div>
-    <div class="phase-item">Bike: start at 10 min — do not push to 12 until tolerating without soreness.</div>
-    <div class="phase-item">Zone 2: swimming only. No elliptical Week 1.</div>
-    <div class="phase-item">Bent-knee calf raise (soleus): begin seated or with significant wall support. 3 × 12, slow eccentric.</div>
+    <div class="phase-item">SL Wall Sit: start at 45° if 60° produces >4/10 pain. 5 × 20s.</div>
+    <div class="phase-item">Soleus calf raise: begin seated or with significant wall support. 2 × 12, slow eccentric.</div>
+    <div class="phase-item">Kneeling Ankle Drive: gentle loading, prioritize range over force.</div>
     <div class="phase-item">Single-leg balance: eyes open only. Wall nearby. 2 × 20s each side.</div>
-    <div class="phase-item">Wall ankle dorsiflexion: foot close to wall (~8cm). Prioritize range over distance.</div>
+    <div class="phase-item">Scap push-up on knees.</div>
   </div>
 
   <div class="phase" style="border-color:var(--border2);">
@@ -2298,13 +2231,12 @@ body { background: #fff; color: #000; }
       <span class="ph-title">Weeks 3--4</span>
       <span class="ph-weeks">Building tolerance</span>
     </div>
-    <div class="phase-item">Hamstring slides: progress to single-leg. Increase range of motion — start with partial slide, build toward full extension.</div>
-    <div class="phase-item">Split squat: lower front foot elevation gradually toward both feet flat. Reduce counterbalance. Rear leg stays extended.</div>
-    <div class="phase-item">Step down: attempt 2--3 reps unassisted if hand-supported form is solid.</div>
-    <div class="phase-item">Elliptical OK for Zone 2 if no post-session knee soreness.</div>
-    <div class="phase-item">Wall sit: progress toward 60° if tolerating 45° without pain.</div>
-    <div class="phase-item">Single-leg balance: progress to eyes closed when 30s eyes-open is stable. Add slight knee bend (10°) when eyes-closed is solid.</div>
-    <div class="phase-item">Bent-knee calf raise: reduce wall support. Build toward unassisted single-leg.</div>
+    <div class="phase-item">Hamstring slides: progress to single-leg. Start partial range, build toward full extension.</div>
+    <div class="phase-item">Split squat: lower front foot elevation toward flat. Reduce counterbalance. Rear leg stays extended.</div>
+    <div class="phase-item">Step down: attempt 2–3 reps unassisted if hand-supported form is solid.</div>
+    <div class="phase-item">SL Wall Sit: progress toward 60° if tolerating 45° without pain.</div>
+    <div class="phase-item">Single-leg balance: progress to eyes closed when 30s eyes-open is stable.</div>
+    <div class="phase-item">Soleus calf raise: reduce wall support. Build toward unassisted single-leg.</div>
   </div>
 
   <div class="sh"><span class="sh-title">2×2 Progression Rule</span></div>
@@ -2315,68 +2247,59 @@ body { background: #fff; color: #000; }
     <div class="card-row"><div class="cr-left"><div class="cr-key">Principle</div></div><div class="cr-right"><div class="cr-val">Pull one lever at a time. Never increase two variables simultaneously (e.g., angle and duration).</div></div></div>
   </div>
 
-  <div class="sh"><span class="sh-title">Wall Sit Progression Ladder</span></div>
-  <p class="note" style="margin-bottom:8px;">Wall sit is in the knee micro-session only (5 sets) — removed from the main Knee &amp; Lower Body block. Each rung uses the 2×2 rule. Dull ache acceptable, sharp or >4/10 = reduce angle.</p>
+  <div class="sh"><span class="sh-title">SL Wall Sit Progression Ladder</span></div>
+  <p class="note" style="margin-bottom:8px;">Single-leg wall sit in Knee Block (Day A) and Knee Maintenance (Day B). Each rung uses the 2×2 rule. Dull ache acceptable, sharp or >4/10 = reduce angle.</p>
   <div class="card">
     <div class="card-row"><div class="cr-left"><div class="cr-time">Step 1</div></div><div class="cr-right"><div class="cr-val">5 × 20s at 45°</div><div class="cr-desc">Entry point if 60° produces >4/10. Dull ache acceptable.</div></div></div>
-    <div class="card-row"><div class="cr-left"><div class="cr-time">Step 2</div></div><div class="cr-right"><div class="cr-val">5 × 30s at 60°</div><div class="cr-desc">Standard Phase 1 prescription. Readiness check benchmark.</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-time">Step 2</div></div><div class="cr-right"><div class="cr-val">5 × 20–30s at 60°</div><div class="cr-desc">Standard Phase 1 prescription. Readiness check benchmark.</div></div></div>
     <div class="card-row"><div class="cr-left"><div class="cr-time">Step 3</div></div><div class="cr-right"><div class="cr-val">5 × 30s at 65°–70°</div><div class="cr-desc">Angle progression — pull one degree increment at a time.</div></div></div>
     <div class="card-row"><div class="cr-left"><div class="cr-time">Step 4</div></div><div class="cr-right"><div class="cr-val">5 × 45s at 70°</div><div class="cr-desc">Duration progression at new angle.</div></div></div>
-    <div class="card-row"><div class="cr-left"><div class="cr-time">Step 5</div></div><div class="cr-right"><div class="cr-val">5 × 60s at 75°–80°</div><div class="cr-desc">Phase 1 ceiling on both levers. Progress to single-leg when here and readiness criteria met.</div></div></div>
-    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">Step 6</div></div><div class="cr-right"><div class="cr-val">Single-leg 5 × 20s at 45°</div><div class="cr-desc">Phase 2 introduction — primary knee only. Rebuild angle and duration progression on one leg.</div></div></div>
+    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">Step 5</div></div><div class="cr-right"><div class="cr-val">5 × 60s at 75°–80°</div><div class="cr-desc">Phase 1 ceiling. Add light load when duration and angle both maxed.</div></div></div>
   </div>
 
   <div class="sh"><span class="sh-title">Phase 1 Readiness Check</span></div>
   <p class="note" style="margin-bottom:12px;">Not a hard gate — a signal that new Phase 2 exercises can be introduced one at a time. Each new exercise starts at its easiest lever, governed by the 2×2 rule. The program never hard-resets. Minimum 4 weeks regardless of symptom resolution — connective tissue remodeling has a biological floor. No improvement on any criterion by week 6 → imaging before continuing.</p>
   <div class="card">
     <div class="card-row card-highlight"><div class="cr-left"><div class="cr-key">Minimum time</div></div><div class="cr-right"><div class="cr-val">≥ 4 weeks</div><div class="cr-desc">Regardless of symptom resolution. Connective tissue adaptation has a biological floor.</div></div></div>
-    <div class="card-row"><div class="cr-left"><div class="cr-key">Wall sit</div></div><div class="cr-right"><div class="cr-val">6 × 30s at 60°, no pain during or after</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">SL Wall Sit</div></div><div class="cr-right"><div class="cr-val">5 × 30s at 60°, no pain during or after</div></div></div>
     <div class="card-row"><div class="cr-left"><div class="cr-key">Step down</div></div><div class="cr-right"><div class="cr-val">10 reps unassisted, ≤2/10, no trunk compensation</div></div></div>
-    <div class="card-row"><div class="cr-left"><div class="cr-key">Dynamic quad control</div></div><div class="cr-right"><div class="cr-val">Single-leg step-up 15cm — 10 reps, ≤2/10, controlled descent</div></div></div>
-    <div class="card-row"><div class="cr-left"><div class="cr-key">Hamstring tolerance</div></div><div class="cr-right"><div class="cr-val">Hamstring isometric in flexion — 4 × 30s, no posterior knee pain</div></div></div>
-    <div class="card-row"><div class="cr-left"><div class="cr-key">Bike</div></div><div class="cr-right"><div class="cr-val">12 min, no soreness during or next morning</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Dynamic quad</div></div><div class="cr-right"><div class="cr-val">Single-leg step-up 15cm — 10 reps, ≤2/10, controlled descent</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Hamstring</div></div><div class="cr-right"><div class="cr-val">Hamstring Slide — single-leg, full range, no posterior knee pain</div></div></div>
     <div class="card-row"><div class="cr-left"><div class="cr-key">Stairs</div></div><div class="cr-right"><div class="cr-val">≤ 2/10 during, no next-morning soreness</div></div></div>
     <div class="card-row"><div class="cr-left"><div class="cr-key">Symmetry</div></div><div class="cr-right"><div class="cr-val">Injured side wall sit duration ≥ 80% of uninjured side</div></div></div>
-    <div class="card-row"><div class="cr-left"><div class="cr-key">Soreness</div></div><div class="cr-right"><div class="cr-val">No next-day soreness from Load Days</div></div></div>
+    <div class="card-row"><div class="cr-left"><div class="cr-key">Soreness</div></div><div class="cr-right"><div class="cr-val">No next-day soreness from Day A</div></div></div>
   </div>
 
   <div class="sh"><span class="sh-title">Progress Metrics</span><span class="sh-tag">Weekly</span></div>
   <div class="card">
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Wall sit duration</div></div><div class="cr-right"><div class="cr-time">Seconds</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Wall sit angle tolerated</div></div><div class="cr-right"><div class="cr-time">Degrees</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Step down reps</div></div><div class="cr-right"><div class="cr-time">Count</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Bike before soreness</div></div><div class="cr-right"><div class="cr-time">Minutes</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Pain during/after load</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Stairs descending</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">SL Wall Sit duration / angle</div></div><div class="cr-right"><div class="cr-time">Seconds / Degrees</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Step down reps (unassisted)</div></div><div class="cr-right"><div class="cr-time">Count</div></div></div>
     <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Deep squat heel elevation</div></div><div class="cr-right"><div class="cr-time">cm → 0</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Post-Day-A/B soreness (AM)</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Post-activity soreness</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
-    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Post-commute soreness (AM)</div></div><div class="cr-right"><div class="cr-time">0--10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Pain during/after Day A</div></div><div class="cr-right"><div class="cr-time">0–10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Stairs descending</div></div><div class="cr-right"><div class="cr-time">0–10</div></div></div>
+    <div class="card-row"><div class="cr-left" style="width:60%;"><div class="cr-key" style="font-size:13px;">Post-activity soreness (AM)</div></div><div class="cr-right"><div class="cr-time">0–10</div></div></div>
   </div>
   <p class="note">No improvement by week 6 — get imaging before continuing.</p>
 
   <!-- ── Phase 2 ── -->
   <div class="sub-head" style="margin-top:32px;">Phase 2 — Load Development · Weeks 5+</div>
-  <p class="note" style="margin-bottom:12px;">Entry: Phase 1 readiness criteria met (all). Introduce new exercises one at a time — each starts at its easiest lever, governed by the 2×2 rule. Program never hard-resets. Phase 2 looks like Phase 1 with more levers pulled and new exercises introduced gradually.</p>
+  <p class="note" style="margin-bottom:12px;">Entry: all Phase 1 readiness criteria met. Introduce new exercises one at a time — each starts at its easiest lever. Program never hard-resets.</p>
 
   <div class="phase" style="border-color:var(--border2);">
     <div class="phase-head" style="background:var(--bg3);">
       <span class="ph-title">Direction</span>
       <span class="ph-weeks">Increased load, reduced isometric dependence</span>
     </div>
-    <div class="phase-item">Single-leg wall sit: pull angle lever (45°→60°) and duration lever (20s→30s). Apply 2×2 rule to each lever.</div>
-    <div class="phase-item">Step down: pull step height lever (15cm→20cm) and eccentric tempo lever. Apply 2×2 rule.</div>
-    <div class="phase-item">Overcoming ISO Step-Up → Lateral Step-Up: progress from isometric to dynamic when range allows, then pull height and load levers per 2×2 rule.</div>
-    <div class="phase-item">Cossack Squat: introduce when deep knee flexion pain-free and single-leg control established. Progression ladder — each rung governed by 2×2 rule. Limiting factor is usually passive adductor flexibility — do not force depth: (1) Lateral lunge, partial depth, feet ~1.5× shoulder width; (2) Lateral lunge, full depth, wider stance; (3) Cossack with heel elevated on small plate or wedge (reduces dorsiflexion demand); (4) Full Cossack, flat floor, bodyweight; (5) Cossack with load (goblet hold).</div>
-    <div class="phase-item">Lateral Crossunder Lunge: introduce at bodyweight, 2 × 8 each side. Step one foot behind and across into a deep lunge — transverse and frontal plane hip loading combined. Targets glute medius (eccentric), hip adductors, and hip external rotators under load. Ski-relevant rotational hip control. <strong>Distinct from Cossack</strong> — different planes, different primary demands. Introduce as a concurrent Phase 2 addition, not as a Cossack regression or alternative.</div>
-    <div class="phase-item">Split squat: remove counterbalance. Introduce rear foot elevated (Bulgarian) in second half of phase.</div>
-    <div class="phase-item">Copenhagen plank: pull lever from short lever (knee on bench) to long lever (ankle on bench) when 3 × 30s is manageable. Already in main block from v10.27.</div>
-    <div class="phase-item">Single-Leg RDL: progress load (BW → DB/KB → barbell). Hip hinge pattern introduced v10.27.</div>
-    <div class="phase-item">Short arc quad: progress to light resistance band or ankle weight.</div>
-    <div class="phase-item">Introduce step-up (bodyweight first).</div>
-    <div class="phase-item">Bike: extend Bellemans to 15 min if tolerating.</div>
-    <div class="phase-item">Pull-up: advance from scapular pull to partial to full.</div>
-    <div class="phase-item" style="color:#BF5AF2;"><strong>Posterior chain (if Phase 1 posterior symptoms resolved):</strong> Hamstring Slide progression — increase reps and introduce single-leg variant. Add Nordic hamstring curl negatives (controlled descent only). Replace seated isometric with eccentric hamstring loading through 60–80° flexion range.</div>
+    <div class="phase-item">SL Wall Sit: continue pulling angle (→70°) and duration (→45s) levers per 2×2.</div>
+    <div class="phase-item">Step down: pull step height (15cm→20cm) and eccentric tempo levers.</div>
+    <div class="phase-item">Overcoming ISO Step-Up → Lateral Step-Up: transition to dynamic when range allows, then pull height and load levers.</div>
+    <div class="phase-item">Split squat: remove counterbalance → flat ground → rear foot elevated (Bulgarian) in second half of phase.</div>
+    <div class="phase-item">Cossack Squat: introduce when deep flexion pain-free. Ladder: partial lateral lunge → full → heel elevated Cossack → flat Cossack → loaded.</div>
+    <div class="phase-item">Lateral Crossunder Lunge: bodyweight, 2 × 8 each. Transverse + frontal plane hip loading. Ski-relevant rotational control. Distinct from Cossack — different planes.</div>
+    <div class="phase-item">Copenhagen plank: short lever (knee) → long lever (ankle) when 3 × 30s manageable.</div>
+    <div class="phase-item">SL RDL: progress load (BW → DB/KB → barbell).</div>
+    <div class="phase-item">Pull-up: advance from eccentric-only → band-assisted → full.</div>
+    <div class="phase-item" style="color:#BF5AF2;"><strong>Posterior chain:</strong> Hamstring Slide → single-leg variant. Add Nordic curl negatives (controlled descent only).</div>
   </div>
 
   <div class="card" style="margin-bottom:24px;">
@@ -2392,14 +2315,14 @@ body { background: #fff; color: #000; }
       <span class="ph-title">Direction</span>
       <span class="ph-weeks">Ski and activity load tolerance</span>
     </div>
-    <div class="phase-item">Full single-leg wall sit isometric at 60° — primary knee.</div>
+    <div class="phase-item">SL Wall Sit at 60°+ — primary knee, full duration.</div>
     <div class="phase-item">Step down at 20–25cm, fully loaded, no compensation.</div>
     <div class="phase-item">Split squat: Bulgarian (rear foot elevated), rear leg extended, with load (dumbbell or pack weight).</div>
     <div class="phase-item">Plyometric progression: box step-up → step-down → controlled hop landing.</div>
     <div class="phase-item" style="color:#BF5AF2;"><strong>Posterior chain — jump landing (if posterior symptoms cleared Phase 2):</strong> Introduce bike jump landing protocol. Start with low-amplitude compressions on flat ground, assess posterior knee response. Progress to small trail features. Full jump landing tolerance is the Phase 3 exit criterion for return to jump riding.</div>
-    <div class="phase-item">Skiing: structured reintroduction with collagen protocol. Green → blue → black over 3+ sessions.</div>
+    <div class="phase-item">Skiing: structured reintroduction with collagen. Green → blue → black over 3+ sessions.</div>
     <div class="phase-item">Rucking: progress to 45–60 min, 25–30 lbs, hilly terrain.</div>
-    <div class="phase-item">Maintenance program defined — frequency and volume reduction from Phase 3 peak.</div>
+    <div class="phase-item">Maintenance program defined — frequency and volume reduction from peak.</div>
   </div>
 
   <div class="card">
