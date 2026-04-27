@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v11.74</title>
+<title>kneehab v11.75</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1116,7 +1116,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v11.74</div>
+  <div class="ms-title">kneehab v11.75</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG · PHASE 1</div>
 
   <div class="ms-group">Exercises</div>
@@ -1942,16 +1942,6 @@ body { background: #fff; color: #000; }
       <div class="ex-body" id="ex-micro-daily"></div>
     </div>
 
-    <div class="sub-head">Optional Casual Pool — No Equipment, No Tracking Obligation</div>
-    <p class="note" style="margin-bottom:8px;">Distributed stimulus throughout the day. No obligation — pull from this list opportunistically.</p>
-    <div class="ex-group">
-      <div class="ex-group-head" onclick="togEx(this)">
-        <span class="eg-title">Casual Optional Pool</span>
-        <span class="eg-freq">any time · no tracking</span>
-        <span class="eg-chev">▼</span>
-      </div>
-      <div class="ex-body" id="ex-micro-casual"></div>
-    </div>
   </div>
 
   <!-- Schedule pane -->
@@ -2159,24 +2149,6 @@ body { background: #fff; color: #000; }
   </div>
 
 
-  <div class="sub-head">Optional Casual Pool — No Equipment, No Tracking Obligation</div>
-  <p class="note" style="margin-bottom:8px;">Distributed stimulus throughout the day. No obligation — pull from this list opportunistically. The biology supports frequent low-load input for cartilage and connective tissue.</p>
-  <div class="ex-group">
-    <div class="ex-group-head" onclick="togEx(this)">
-      <span class="eg-title">Casual Optional Pool</span>
-      <span class="eg-freq">any time · no tracking</span>
-      <span class="eg-chev">▼</span>
-    </div>
-    <div class="ex-body" id="src-casual">
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Short Arc Quad Hold</span><span class="ex-rx">2–3 × 5–10s each · seated</span></div><div class="ex-desc">Seated at desk or on couch. Straighten one leg to full extension, hold 5–10s, lower slowly. Especially useful on Day C when the knee gets no direct loading. VMO terminal extension stimulus with zero setup.</div></div>
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Single-Leg Calf Raise</span><span class="ex-rx">1–2 × 12 each · slow eccentric</span></div><div class="ex-desc">Flat or step edge. Off days and Day C. Keeps Achilles and soleus under regular low-load stimulus between sessions. No equipment needed on flat floor.</div></div>
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Wall Sit Short Hold</span><span class="ex-rx">2–3 × 20–30s</span></div><div class="ex-desc">Before stairs, prolonged standing, or any activity. Isometric pain modulation effect (Rio protocol) persists ~45 min post-hold. Practical analgesic utility on any day.</div></div>
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Neck CARs</span><span class="ex-rx">3–5 slow rotations each direction</span></div><div class="ex-desc">After prolonged screen time. Maintains cervical mobility degraded by desk work. Peripheral to knee program — consistent with longevity framing. 30s total.</div></div>
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Floor L-Sit</span><span class="ex-rx">2–3 × 20–30s · heels on floor</span></div><div class="ex-desc">Seated on floor, hands beside hips, press down through straight arms. Posterior pelvic tilt, slight hip lift if possible. Heels remain on floor — this is not the full unsupported L-sit. <strong>Unique contributions:</strong> active shoulder depression under vertical load (lower trap, serratus anterior) and tricep isometric — neither is covered elsewhere in the program. <strong>Progress:</strong> reduce heel support height over weeks as hip flexor and shoulder depression strength develops. Floor access required. No recovery demand — do at any point during the day.</div></div>
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Deep Squat Hold</span><span class="ex-rx">3 × 20–30s · heels elevated as needed</span></div><div class="ex-desc">Full depth. Heels elevated on a plate or wedge — elevation is not cheating. This is end-range cartilage loading at a flexion angle daily life never reaches. Goal: reduce heel elevation incrementally over weeks as ankle dorsiflexion improves. No equipment needed once elevation reaches zero. Daily is appropriate — load is isometric, duration is short, no eccentric component.</div></div>
-      <div class="ex-card"><div class="ex-top"><span class="ex-name">Face Pull</span><span class="ex-rx">2 × 15 · band</span></div><div class="ex-desc">Band anchored at face height. Pull to forehead — elbows flared high, externally rotate at end range so knuckles point back. Addresses ER deficit and scapular retraction simultaneously. Corrects desk-work internal rotation dominance. WLYT covers the same muscles under bodyweight; Face Pull adds continuous band tension through full ROM and higher isolated ER load. Use opportunistically — no setup beyond a band anchor.</div></div>
-    </div>
-  </div>
 
 </div>
 </div>
@@ -2556,7 +2528,6 @@ function exSchedTab(paneId, btn) {
     ['src-opt',    'ex-load-opt'],
 
     ['src-daily',  'ex-micro-daily'],
-    ['src-casual', 'ex-micro-casual'],
   ];
   map.forEach(([srcId, destId]) => {
     const src  = document.getElementById(srcId);
@@ -2975,7 +2946,7 @@ const BLOCKS = {
   },
 
   'D': {
-    type:'D', title:'DAILY HABITS', titleClass:'', stepLabel:'Informal — Do Opportunistically', microLabel:'Casual Pool',
+    type:'D', title:'DAILY HABITS', titleClass:'', stepLabel:'Informal — Do Opportunistically',
     pills:[{t:'Every day',c:'green'},{t:'No tracking',c:''},{t:'No recovery demand',c:''}],
     note:'Informal habits and daily reference. Habits: do opportunistically throughout the day. Tibialis Raise and Dead Hang are in structured knee blocks on Day A/B — listed here for frequency on off days. Backward Walk is part of the evening ruck. Diet, cold/heat exposure, and sleep protocol are reference items — not exercises.',
     steps:[
@@ -2991,6 +2962,8 @@ const BLOCKS = {
        detail:[{n:'Shoulder CARs',rx:'1 × 5 each arm',d:'Full controlled articular rotation — maintains shoulder capsule health. Slow, deliberate, full ROM. Equipment-free — do anywhere.'}]},
       {id:'sD_wrist', time:'Any', title:'Eccentric Wrist Extension',    sub:'1 × 15 each arm · 3s lowering · light DB',
        detail:[{n:'Eccentric Wrist Extension',rx:'1 × 15 each arm · 3s lowering',d:'Lateral epicondylitis prehab — gold-standard treatment for wrist extensor tendinopathy (Stasinopoulos & Johnson 2005). Forearm pronated on knee or table edge, light DB (2–5 lbs). Start at full wrist extension, lower slowly (3s) to full flexion. Reset at top. This is the Tyler Twist equivalent with a dumbbell. <strong>Progression:</strong> increase weight by 1 lb when 15 reps feel easy. Do daily — frequency is the mechanism.'}]},
+      {id:'sD_dsq',  time:'Any', title:'Deep Squat Hold',               sub:'3 × 20–30s · heels elevated as needed',
+       detail:[{n:'Deep Squat Hold',rx:'3 × 20–30s · heels elevated as needed',d:'Full depth squat hold. End-range cartilage loading at a flexion angle daily life never reaches. Heels elevated on a plate or wedge — elevation is not cheating. Goal: reduce heel elevation incrementally as ankle dorsiflexion improves. Daily is appropriate — isometric, short duration, no eccentric component.',timer:25}]},
       {id:'sD_hang', time:'Any', title:'Dead Hang',                    sub:'60–90s total · bar required',
        detail:[{n:'Dead Hang',rx:'60–90s total',d:'Spinal decompression, grip strength, scapular stability. No recovery demand. Bar required. Skip or reduce if any shoulder discomfort.',timer:60}]},
       {id:'sD_prot', time:'Daily', title:'Protein Target',               sub:'140–180g per day',
@@ -3006,14 +2979,7 @@ const BLOCKS = {
                {n:'No Food Before Bed',rx:'90 min before sleep',d:'Insulin response from any macronutrient suppresses GH pulse. Any protein meal within 90 min of sleep blunts the overnight synthesis window.'},
                {n:'Rest Day Collagen',rx:'Before bed on rest days',d:'No training stimulus — target the nocturnal GH pulse. Small collagen dose is not a meal — does not trigger the insulin response that suppresses GH.'}]},
     ],
-    micro:[
-      {n:'Short Arc Quad Hold',        rx:'2–3 × 5–10s each · seated',          tag:'Casual', d:'VMO terminal extension at zero setup.'},
-      {n:'Single-Leg Calf Raise',      rx:'1–2 × 12 each · slow eccentric',     tag:'Casual', d:'Low-load Achilles and soleus stimulus between sessions.'},
-      {n:'Wall Sit Short Hold',        rx:'2–3 × 20–30s',                        tag:'Casual', d:'Rio protocol analgesic effect — isometric pain inhibition persists ~45 min.'},
-      {n:'Deep Squat Hold',            rx:'3 × 20–30s · heels elevated as needed',tag:'Casual', d:'End-range cartilage loading at a flexion angle daily life never reaches.'},
-      {n:'Floor L-Sit',                rx:'2–3 × 20–30s · heels on floor',       tag:'Casual', d:'Active shoulder depression and tricep isometric.'},
-      {n:'Neck CARs',                  rx:'3–5 rotations each direction',         tag:'Casual', d:'Cervical mobility after prolonged screen time.'},
-    ],
+    micro:[],
     briefing:{
       ok:['All habits have no recovery demand — safe on any day.',
           'Frequency is the mechanism — accumulated low-load stimulus, not single-session volume.',
