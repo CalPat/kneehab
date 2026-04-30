@@ -1,5 +1,7 @@
-# Knee Rehab Program — Summary v9.0
-*March 2026 · Based on Bellemans, Baar, ATG (Ben Patrick)*
+# Knee Rehab Program — Summary v11.93
+*April 2026 · Based on Bellemans, Baar, ATG, Mitchell, San Millán, Attia*
+
+Single-file app: `index.html` is the interactive program. This README is the high-level reference.
 
 ---
 
@@ -7,294 +9,244 @@
 
 **Keith Baar (UC Davis)** — connective tissue synthesis maximised by hydrolyzed collagen + 200mg vitamin C ~45–60 min before mechanical loading, outside any protein window. Nocturnal GH pulse is the second synthesis window.
 
-**Johan Bellemans (KU Leuven)** — cartilage nutrition driven by cyclic compressive loading. Bellemans Bike (15–20° flexion at bottom of stroke, 10–12 min, hard stop 15 min) is the primary cartilage stimulus.
+**Johan Bellemans (KU Leuven)** — cartilage nutrition driven by cyclic compressive loading. Bellemans Bike (15–20° flexion at bottom of stroke, 10–12 min, hard stop 15 min) is the primary cartilage stimulus, run in the Collagen Block.
 
 **Ben Patrick / ATG** — anterior chain loading, deep range of motion, tibialis work. Addresses upstream PFPS drivers.
 
----
+**Jules Mitchell** — yoga biomechanics. Sustained holds (30s+, ideally 60s+) drive viscoelastic creep and connective tissue adaptation. Yoga positions during the collagen synthesis peak are tissue-loading opportunities, not passive stretching.
 
-## Collagen Protocol
+**Iñigo San Millán (University of Colorado)** — mitochondrial function, fat oxidation, Zone 2 training as the foundation for metabolic health and longevity.
 
-**The Rule:** Take 15g hydrolyzed collagen (skin-sourced, Type I) + 200mg vitamin C approximately 45–60 minutes before any qualifying mechanical load session. Minimum 2 hours after last protein meal.
-
-### Collagen Warranted
-
-| Session | Notes |
-|---|---|
-| Load Day full morning sequence | Primary load day. Always take. |
-| Recovery with upper body block | Upper body block is the qualifying event. |
-| Zone 2 commute | Take 45–60 min before. Non-morning: only if ≥2h post last protein and session ends ≥2h before sleep. Does not stack with same-day session or Bellemans Bike. |
-| Activity day — hiking, skiing, sport | Take 45–60 min before heading out. |
-
-### Collagen Not Warranted
-
-| Session | Reason |
-|---|---|
-| Recovery without upper body block | Mobility alone is sub-threshold. |
-| True rest day | No qualifying loading event. |
-| Zone 1 easy walk or commute | Sub-threshold for meaningful mechanotransduction. |
-
-### Non-Negotiables
-- Skin-sourced Type I only — hydrolyzed collagen peptides or gelatin
-- Minimum 2h after last protein meal
-- A qualifying mechanical load event must follow within 45–60 min
-- Sleep deprivation, chronic stress, and alcohol directly impair synthesis
+**Peter Attia** — long-term health and longevity reference.
 
 ---
 
-## Day Structure
+## Day Types
 
-| Day Type | Collagen | Bike | Duration |
-|----------|----------|------|----------|
-| **Load** | 45–60 min before session | Aim to do — 10–12 min at T+45; sub 10 min elliptical if no bike | ~45 min |
-| **Recovery** | Only if upper body block included | None | ~18 min base · ~55 min with UB |
-| **Activity** | 45–60 min before heading out | N/A | Warmup only |
-
-**Rule: Never 2 Load days in a row — always separate with Recovery or Activity.**
-
-**Weekly cycle example:** Load → Recovery → Load → Recovery → Load → Activity
-
----
-
-## Minimum Viable Day (MVD)
-
-4 exercises, ~5 min, no equipment. Valid Recovery execution.
-
-90/90 Hip Rotations · Cat-Cow · Dead Hang · Backward Walk
-
----
-
-## 2×2 Progression Rule
-
-**Universal — applies to all exercises, all phases. Replaces hard phase transitions.**
-
-> If ≤2/10 pain during AND morning after, two consecutive sessions → pull the next lever.
-> If pain >2/10 at any point → hold current level for one full week before reassessing.
-
-Pull one lever at a time. Never increase two variables simultaneously.
-
----
-
-## Morning Sequence (Load Day)
-
-| Time | Block |
-|------|-------|
-| T=0 | Collagen 15g + Vitamin C 200mg |
-| T+5 | Mobility — ~7 min |
-| T+12 | Spinal & Shoulder — ~8 min |
-| T+20 | Core — ~4 min |
-| T+24 | Glute — ~3 min |
-| T+28 | Knee & Lower Body — ~17 min |
-| T+45 | Bellemans Bike — aim to do · 10–12 min · hard stop 15 min · sub 10 min elliptical if no bike |
-
----
-
-## Exercise Blocks
-
-### Mobility — Daily, ~7 min
-- 90/90 Hip Rotations — 10 × each side, 3s hold
-- Cat-Cow — 10 reps slow
-- World's Greatest Stretch — 5 × each side, 2s hold
-- Wall Ankle Dorsiflexion — 10 each side, 2s hold
-- Couch Stretch — 2 × 30s each
-- Lateral Quad Roll — 60s each side · foam roller (VL tightness / lateral retinaculum — the lateral pull opposing VMO on the patella)
-
-### Spinal & Shoulder
-Load Day: 3 exercises. Recovery: all 7. Bird Dog, WLYT, Face Pull on all Load days.
-
-| Exercise | Load | Recovery |
+| Day | Purpose | Duration |
 |---|---|---|
-| Bird Dog | ✓ | ✓ |
-| Down Dog → Upward Dog | — | ✓ |
-| WLYT | ✓ | ✓ |
-| Floor Slide | — | ✓ |
-| Scap Push-Up | — | ✓ |
-| Shoulder Tap | — | ✓ |
-| Face Pull | ✓ | ✓ |
+| **Day A** — Lower Body | Full knee block, glute, core, mobility | ~46 min |
+| **Day B** — Upper Body | Upper body, knee maintenance isometrics, core, mobility | ~37 min |
+| **Day R** — Recovery & Mobility | Walk + General Flow OR targeted categories | ~12–30 min |
+| **Activity** | Ski / Hike / Ride with warm-up | Varies |
+| **Collagen Block (⚗️)** | Standalone afternoon synthesis session | ~10 min |
+| **Daily Habits** | Informal habits + diet/supplement reference | Opportunistic |
 
-### Core — ~4 min, daily
-- Hollow Body Hold — 60s total
-- Side Plank — 90s total
-- RKC Plank — 2 × 30s (full-body co-contraction — glutes, quads, fists, abs simultaneously)
+**Rule: Alternate A → B → A → B. Never two Day A's in a row.** Day A is eccentric; Day B is isometric only. Alternation guarantees 48h+ eccentric recovery.
 
-### Glute — ~3 min, daily
-- Hip Abduction — 2 × 12 each, 2s hold top
-- Supine Hip External Rotation with Block — 3 × 30–45s each side (deep external rotators — diagnosis-specific for PFPS)
-- Single-Leg Glute Bridge — 2 × 10 each (Load Day only)
+**Weekly cycle example:** A → B → A → B → A → Activity → R
 
-### Knee & Lower Body — ~17 min (Load Day)
+---
 
-| Exercise | Prescription | Progression Levers |
+## Day A — Lower Body (~46 min)
+
+| Time | Block | Duration |
 |---|---|---|
-| Wall Sit Isometric | 5 × 20–30s · 45s rest | 20s→30s / 45°→60°→single leg |
-| Slant Board Step Down | 2×10 primary · 2×8 secondary | Step height / tempo / load |
-| Short Arc Quad | 3 × 15 each · 2s hold | Hold duration / ankle weight |
-| Split Squat Progression | 2 × 8–10 each · BW Ph1 | Depth / tempo / elevation / load |
-| Skater Squat | 2 × 8 each · controlled | Assisted→unassisted / depth / tempo / load |
-| Hamstring Slide | 2 × 10 · 4–6s eccentric | Eccentric tempo / range / assistance |
-| Calf Raise — Straight Knee | 1 set Ph1 | Full volume Phase 2+ |
-| Calf Raise — Bent Knee (Soleus) | 2 × 12–15 each | Step edge / tempo / load |
-| Standing Hamstring ISO — Near Extension | 3 × 20–30s each leg | Duration / single leg / loading angle |
+| T=0 | Mobility — 6 items | ~7 min |
+| T+7 | Core — Bird Dog, Hollow Body, Side Plank, Hip Flexor | ~6 min |
+| T+13 | Glute — Copenhagen, Hip Abduction, SL Glute Bridge | ~3 min |
+| T+16 | Dead Hang | 60s |
+| T+17 | Knee & Lower Body | ~18 min |
+| Evening (optional) | Short Ruck — 20–30 min loaded pack | — |
+| Afternoon | Collagen Block | ~10 min |
+
+### Day A Mobility (6 items)
+90/90 Hip Rotations · Cat-Cow → Down Dog → Up Dog flow · Kneeling Ankle Drive · Half-Kneeling Rotation · Lizard Pose 30s · Pigeon Pose 60s
+
+### Day A Knee Block
+Tibialis Raise · SL Wall Sit · Slant Board Step Down · Split Squat (slant board, 2s pause) · Overcoming ISO Step-Up (Curtsy as swap) · Hamstring Slide · SL RDL · Soleus Calf Raise
 
 ---
 
-## Hamstring Coverage
+## Day B — Upper Body (~37 min)
 
-| Angle | Exercise | When | Stimulus |
-|---|---|---|---|
-| 0–15° near extension | Standing Hamstring ISO — Near Extension | Load Day + daily habit | Isometric endurance — prolonged standing |
-| 60–80° mid-range | Hamstring Isometric in Flexion | Load Day optional | Isometric at jump-landing angle |
-| Mid-range eccentric | Hamstring Slide | Every Load Day | Eccentric deceleration, 4–6s tempo |
-| Lengthened | Nordic negatives → full Nordic | Phase 2–3 | Eccentric full range |
+| Time | Block | Duration |
+|---|---|---|
+| T=0 | Mobility — 7 items | ~9 min |
+| T+9 | Core — Bird Dog, WLYT, RKC OR Ab Wheel, Side Plank, Hip Flexor | ~7 min |
+| T+16 | Dead Hang | 60s |
+| T+17 | Knee Maintenance — isometrics only | ~6 min |
+| T+23 | Upper Body | ~20 min |
+| Evening (optional) | Short Ruck — 20–30 min loaded pack | — |
+| Afternoon | Collagen Block | ~10 min |
 
----
+### Day B Mobility (7 items)
+90/90 Hip Rotations · Cat-Cow → Down Dog → Up Dog flow · Kneeling Ankle Drive · Half-Kneeling Rotation · Lizard Pose 30s · Couch Stretch 60s · Pigeon Pose 60s
 
-## Progression Levers — All Key Exercises
+### Day B Knee Maintenance (isometrics, reduced volume)
+Tibialis Raise · SL Wall Sit 3 × 20s · Copenhagen 2 × 20s
 
-| Exercise | Levers (2×2 rule governs each step) |
-|---|---|
-| Wall Sit | 60°→65°→70°→75°→80° / 20s→30s→45s→60s hold / bilateral→asymmetric→single leg |
-| Step Down | 10cm→15cm→20cm→25cm / 3s→4s eccentric / bodyweight→KB at chest |
-| Skater Squat | Assisted→unassisted / partial→full depth / standard→3s eccentric / bodyweight→loaded |
-| Split Squat | Partial→full depth / standard→3s eccentric / flat→rear foot elevated / bodyweight→loaded |
-| Calf Raise | Flat→step edge / 3s→5s eccentric / bodyweight→weighted / two legs→single leg |
-| Hamstring Slide | 3s→4s→6s eccentric / partial→full extension / two-leg return→no assistance / 2×10→3×12 |
-| Short Arc Quad | 2s→3s→5s hold / bodyweight→ankle weight |
-| Cossack Squat (Phase 2+) | Partial→full depth / tempo / bodyweight→loaded |
+### Day B Upper Body
+Scap Pull-Up · Eccentric Pull-Up · Ring Row · Push-Up Tempo · KB Press · Face Pull · Scap Push-Up
 
 ---
 
-## Knee-Specific Optional — Pick 2 (Load Day)
+## Day R — Recovery & Mobility
 
-| Exercise | Priority |
-|---|---|
-| Hamstring Isometric in Flexion ★ POSTERIOR | Both picks while posterior symptoms active (4 sets) |
-| Terminal Knee Extension ★ | Standard first pick once posterior resolved |
-| Single-Leg Wall Sit | Phase 1 → Phase 2 progression |
-| Deep Squat Hold | Mobility + posterior chain |
-| Hanging Knee Raise ★ | **Recommended second pick.** Primary hip flexor load in the program — weak hip flexors drive anterior pelvic tilt under fatigue (ski, long hike), directly increasing PFPS load. Bar required; substitute: Standing Hip Flexion Hold with ankle weight. |
+**Default:** 20–30 min easy walk + General Full Flow (~12 min).
+
+**Targeted picks (pick 2–3 based on current state):**
+- Hips Tight — Pigeon, Lizard, 90/90 slow
+- Hamstrings Tight — Down Dog hold, Standing Forward Fold (with neural tension check)
+- Thoracic Stiff — Foam Roller Extension, Supine Twist, Thread-the-Needle, Cat-Cow extended
+- Quads / IT Band — Lateral Quad Roll, Couch Stretch
+- Shoulders Tight — Dead Hang extended, Shoulder CARs slow, Child's Pose with Reach
+
+**Collagen guidance:** none for light sessions. Heavy session (3+ categories) → collagen 45 min before.
+
+---
+
+## Activity Day
+
+Ski / hike / bike outing replaces whichever training day is next.
+
+**Pre-activity warm-up:** Cat-Cow flow · 90/90 Hip Rotations · Kneeling Ankle Drive · Lizard 20s · Hip Abduction · Wall Sit (strengthened for ski days)
+
+**Collagen:** 45–60 min before heading out.
+
+**Post-activity:** light walk, protein meal within window, gentle evening stretching.
+
+**Recovery scaling:**
+- Easy hike → resume next day
+- Hard hike or ride → consider Day R
+- Full ski day → plan rest day, expect 24–48h DOMS
+
+---
+
+## Collagen Block (⚗️)
+
+Standalone afternoon session. Decoupled from morning sessions in v11.7.
+
+**Sequence:**
+1. Take 15g hydrolyzed Type I collagen + 200mg vitamin C + 5g creatine (during eating window — IF-compatible)
+2. Wait 45–60 min
+3. Pick one loading option (~10 min):
+
+| Option | Tissue | Frequency |
+|---|---|---|
+| **Bellemans Bike** (default) | Cartilage | Most days |
+| Isometric Circuit | Tendons | Rotate in |
+| Yoga Holds | Fascia / capsules | Rotate in |
+| Loaded Walk | General CT | Rotate in |
+
+A Zone 2 ride can replace Bellemans Bike if timed within the synthesis window.
 
 ---
 
 ## Daily Habits
 
-Informal — no tracking obligation, no recovery demand. Do opportunistically throughout the day.
+Informal — no tracking obligation, no recovery demand.
 
 - Tibialis Raise — 1 × 20, 1s hold top
-- Backward Walk — 2–3 rounds 30–60s
-- Dead Hang — 90s total · *Skip or reduce if shoulder discomfort or overhead history*
-- Single-Leg Balance — 60s total, both legs · progress levels: eyes open flat → eyes closed → knee bend → foam pad
+- Backward Walk — 2–3 rounds 30–60s (or part of evening ruck)
+- Dead Hang — 60–90s total, daily
+- Single-Leg Balance — 60s each, progress: eyes open → eyes closed → knee bend → foam pad
 - Short Foot Isometric — 30s each side, barefoot
-- Standing Hamstring ISO — Near Extension — 3 × 20–30s each leg *(also in Load Day Knee block)*
+- Shoulder CARs — 1 × 5 each arm
+- Eccentric Wrist Extension — 1 × 15 each arm, 3s lowering, light DB (lateral epicondylitis prehab)
+- Deep Squat Hold — 3 × 20–30s, heels elevated as needed
+- Lateral Quad Roll — 60s each side, foam roller (VL tightness)
 
-### Optional Casual Pool — No Tracking Obligation
-
-| Exercise | When |
-|---|---|
-| Short Arc Quad Hold | Desk or couch, any time |
-| Single-Leg Calf Raise | Flat or step edge, off days |
-| Wall Sit Short Hold | 2–3 × 20–30s before stairs or prolonged activity |
-| Shoulder CARs | If no bar access |
-| Neck CARs | After prolonged screen time |
-| Floor L-Sit | Floor access, any time — shoulder depression + tricep isometric |
+### Diet & Supplements
+- Protein target: 140–180g/day, ~35–45g per feeding
+- Daily stack: collagen + vit C + creatine
+- Cold exposure: avoid within 4–6 hrs of Day A/B (mTOR suppression)
+- Sleep: 7–9h, dark room — nocturnal GH pulse is the second synthesis window
 
 ---
 
-## Upper Body Session — Recovery Optional
+## Collagen Protocol
 
-Collagen warranted when this block is included. Pull volume asymmetric (7 sets pull : 3 sets push) until pull-ups reach 3×5.
+**The Rule:** 15g hydrolyzed Type I collagen + 200mg vitamin C, 45–60 min before mechanical loading, ≥2h after last protein meal.
 
-| Block | Exercise | Sets × Reps |
-|---|---|---|
-| Warmup | Scap Pull-Up | 2 × 8 |
-| Warmup | Shoulder CARs | 1 × 5 each |
-| Pull A | Eccentric Pull-Up | 4 × 3–5 negatives |
-| Pull B | Ring Row | 3 × 10 |
-| Push A | Push-Up (Tempo) | 3 × 8 |
-| Push B | Bottom-Up KB Press | 3 × 8 each · 15lbs |
-| Accessory | Face Pull / Band Pull-Apart | 2 × 15 |
+**Why timing matters:** leucine in dietary protein blunts the connective tissue synthesis signal. Allow 2–2.5h after a meal for clearance.
 
----
+**IF-compatible example (16:8):** lunch 12 PM → collagen 2:30 PM → load ~3:15 PM.
 
-## Phase 1 Readiness Check
+**When collagen is taken:**
+- Collagen Block on Day A and Day B (afternoon)
+- Pre-activity on Activity days
+- Pre-Zone 2 ride (if timed within window)
 
-Not a hard gate — a signal that new Phase 2 exercises can be introduced one at a time. Minimum 4 weeks regardless of symptom resolution. No improvement on any criterion by week 6 → imaging before continuing.
-
-| Criterion | Test | Pass |
-|---|---|---|
-| Minimum time | Calendar | ≥ 4 weeks |
-| Quad endurance | Wall sit | 6 × 30s at 60°, no pain during or after |
-| Eccentric quad control | Slant board step down | 10 reps unassisted, ≤2/10, no trunk compensation |
-| Dynamic quad control | Single-leg step-up 15cm | 10 reps, ≤2/10, controlled descent |
-| Hamstring tolerance | Hamstring isometric in flexion | 4 × 30s, no posterior knee pain |
-| Cartilage tolerance | Bellemans Bike | 12 min, no soreness during or next morning |
-| Functional pain | Stairs | ≤2/10 during, no next-morning soreness |
-| Symmetry | Wall sit duration | Injured ≥80% of uninjured side |
-
----
-
-## Phase Direction
-
-### Phase 1 — Foundation (Weeks 1–4+)
-Pull levers on all existing exercises per 2×2 rule. Exit: readiness criteria above.
-
-### Phase 2 — Load Development (Weeks 5+)
-Introduce new exercises one at a time: single-leg wall sit, step height 15–20cm, skater squat unassisted, Cossack squat (partial depth), adductor isometric hold → Copenhagen plank, Bulgarian split squat, step-up, bike 15 min. Nordic negatives for hamstrings.
-
-### Phase 3 — Sport Prep (Weeks 11+)
-Full single-leg wall sit, step down 20–25cm loaded, Bulgarian with weight, plyometrics, Cossack squat full depth loaded, ski reintroduction.
+**When skipped:**
+- True rest days
+- Zone 1 walks
+- Light Day R
+- Sub-threshold mobility-only work
 
 ---
 
 ## Key Rules
 
-0. **Never 2 Load days in a row** — always separate with Recovery or Activity.
-1. Mobility daily.
-2. Collagen: 45–60 min before any qualifying mechanical load session, ≥2h after last protein meal.
-3. Qualifying sessions: Load Days, Recovery with upper body block, Zone 2 commute, activity days.
-4. Morning sequence is fixed.
-5. Bellemans Bike: aim to do every Load day. Sub 10 min elliptical if no stationary bike. Zone 2 commute replaces it — do not stack.
-6. Skin-sourced collagen only (Type I).
-7. Hamstring slides every Load day — the "never 2 in a row" rule guarantees 48h+ recovery.
-8. Wall Sit and Short Arc Quad are in the main Knee block of every Load day (no longer separate micro-sessions).
-9. Daily habits (tibialis raise, backward walk, dead hang, balance, short foot, standing hamstring ISO): informal, not tracked.
-10. 2×2 Rule governs all progression — universal, no exceptions.
-11. Buffer rule — Recovery if tomorrow is an activity day.
-12. Zone 2 in Phase 1: swimming or elliptical only.
-13. Pain guide: dull ache acceptable. Sharp or >4/10 = reduce immediately.
-14. Glute work is not optional.
-15. No improvement by week 6 — imaging before continuing.
-16. Zone 2 commute replaces Bellemans Bike — not adds to it.
-17. Bellemans Bike: 10–15 min maximum. Hard stop. Applies to stationary bike only.
-18. Deep range is the goal.
-19. Upper body on Recovery optional only. Collagen warranted if included. Skip if fatigued.
-20. MVD is a valid Recovery execution.
-21. Posterior knee jump-landing: both optional picks → Hamstring Isometric in Flexion (4 sets). Symptoms persist 2 weeks → assessment before Phase 2.
-22. Phase transitions are not hard resets — introduce new exercises one at a time per 2×2 rule.
+| # | Rule |
+|---|---|
+| 00 | Alternate Day A and Day B — never two Day A's in a row |
+| 01 | Mobility is non-negotiable — daily on both days |
+| 02 | Collagen Block is a separate afternoon session on Day A and Day B |
+| 03 | All collagen: 2+ hours after any protein meal |
+| 04 | Morning sequence is recommended on both days (mobility → core → strength) |
+| 05 | Bellemans Bike is the default Collagen Block loading option |
+| 06 | Zone 2 cycling unrestricted; can serve as Collagen Block loading |
+| 07 | Skin-sourced Type I collagen only |
+| 08 | Hamstring slides on every Day A |
+| 10 | Daily habits informal, no tracking obligation |
+| 11 | Activity days replace a training day, not stacked |
+| 12 | Short ruck: not same day as Zone 2 bike |
+| 13 | Pain guide: dull ache acceptable; sharp or >4/10 = reduce immediately |
+| 14 | Upper body mandatory on Day B |
+| 15 | Low energy: do Mobility + Core only, or Day R |
+| 16 | Bird Dog — pick one variation per session |
+| 17 | Hip Flexor — pick one option per session |
+| 18 | Day R is adaptive — pick 2–3 categories based on current state |
+| 2×2 | Universal progression gate (see below) |
+
+### Asymmetry Rule
+On all alternating exercises: start with the weaker side, add one extra set to the weaker side.
+
+### Soreness Rule
+Muscle soreness >2/10 → replace dynamic exercises with their isometric modifier.
+Articular soreness (behind kneecap or inside joint) → rest day.
+
+### 2×2 Progression Rule
+> Pain ≤2/10 during AND morning after, two consecutive sessions → pull the next lever.
+> Pain >2/10 at any point → hold current level one full week before reassessing.
+
+Pull one lever at a time. Never increase two variables simultaneously. No hard phases — continuous progression governed by tissue response.
 
 ---
 
-## Changes from v8.0
+## Progression Levers — Key Exercises
 
-1. **Three day types** — Load (replaces Day A + B), Recovery (was C), Activity (was X). Never 2 Load days in a row.
-2. **Merged Load day** — Day A and B exercises combined into one Load day. The "never 2 in a row" rule guarantees 48h+ recovery, making Hamstring Slides and Skater Squat safe every Load day.
-3. **Lateral Step-Up removed** — replaced by Skater Squat (now every Load day).
-4. **Wall Sit and Short Arc Quad moved into the main Knee block** — no longer separate micro-sessions. Wall Sit is first in the Knee block at T+28.
-5. **Standing Hamstring ISO Near Extension added to the Knee block** — final item, mechanistically paired with Hamstring Slide (eccentric) and Hamstring ISO in Flexion (optional).
-6. **Bellemans Bike reframed as aim-to-do** — sub 10 min elliptical if no stationary bike. Moves to T+45 (was T+57).
-7. **Push & Pull removed from Load day** — Upper Body lives on Recovery only.
-8. **Formal micro-sessions eliminated** — daily habits are informal and untracked. "During the Day" section removed from all day types.
-9. **Target Load day session length: ~45 min** (was 33–46 min across A/B with separate micro-sessions).
-
----
-
-## Changes from v7.1
-
-1. **Spinal & Shoulder trimmed on Load Days** — subset of 3 exercises (Bird Dog, WLYT, Face Pull). Recovery runs all 7.
-2. **Weekly cycle updated** — Load → Recovery → Load → Recovery pattern.
-3. **Monday formalized as Recovery in MVD mode** — active recovery after weekend activity days.
-4. **Activity day schedule reference expanded** — pre-activity warm-up visible in Schedule tab.
+| Exercise | Levers |
+|---|---|
+| SL Wall Sit | 20s → 30s · 45° → 60° · bodyweight → light load |
+| Slant Board Step Down | Step height · 3s → 5s eccentric · BW → vest/DB |
+| Split Squat | Slant board → flat → forefoot on step · BW → goblet → barbell |
+| Overcoming ISO Step-Up | Hold time · angle depth · → full Lateral Step-Up when range allows |
+| SL RDL | BW → DB → barbell |
+| Hamstring Slide | 4s → 6s eccentric · partial → full extension · two-leg → SL return |
+| Soleus Calf Raise | Flat → step edge · 3s → 5s eccentric · BW → weighted |
+| Copenhagen Plank | Short lever (knee on bench) → long lever (ankle on bench) · 20s → 30s |
+| Bellemans Bike | Minutes → resistance → cadence (within 10–15 min hard cap) |
+| Short Ruck | Duration first → weight → terrain (2×2 rule) |
+| Ab Wheel Rollout | From knees → tall kneeling → from toes |
+| Pull-Up | Eccentric (negatives) → assisted → full reps · 3 × 5 = balance push:pull volume |
 
 ---
 
-*Not a substitute for clinical diagnosis or physiotherapy. · v9.0 — March 2026*
+## Architecture (for AI agents)
+
+- Single-file app: `index.html` (~3400 lines)
+- `BLOCKS` object drives Today tab (keys: `A`, `B`, `R`, `X`, `N`, `D`)
+- `renderBlock(key)` renders day card from `BLOCKS` data
+- `src-*` elements in base/load pages mirrored to `ex-*` hub panes via `initExHub()`
+- Reference hub tabs: Base · Daily, Load, Daily Habits, Schedule
+- No standalone Spinal block — Bird Dog / WLYT live in Core
+- No Primer block — Tibialis Raise is first exercise in knee blocks
+- No Phase 1/2/3 — program is continuous, governed by 2×2 rule
+- Versioning: minor change `.01`, medium `.1`, major `1.` — three locations to update on bump (title, ms-title, cover-h1)
+- Workflow: `.worktrees/` for feature branches (gitignored). No test suite — verification is manual browser check.
+
+---
+
+*Not a substitute for clinical diagnosis or physiotherapy. · v11.93 — April 2026*
