@@ -249,4 +249,4 @@ Pull one lever at a time. Never increase two variables simultaneously. No hard p
 
 ---
 
-*Not a substitute for clinical diagnosis or physiotherapy. · v11.93 — April 2026*
+*Not a substitute for clinical diagnosis or physiotherapy. · v11.94 — May 2026*
