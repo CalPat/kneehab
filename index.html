@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v12.02</title>
+<title>kneehab v12.03</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1116,7 +1116,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v12.02</div>
+  <div class="ms-title">kneehab v12.03</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG</div>
 
   <div class="ms-group">Exercises</div>
@@ -1218,7 +1218,7 @@ body { background: #fff; color: #000; }
     <div class="cover-stripe"></div>
 
 <div class="cover-eyebrow">Full Body Training</div>
-<div class="cover-h1">kneehab<br><em>v12.02</em></div>
+<div class="cover-h1">kneehab<br><em>v12.03</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1265,7 +1265,7 @@ body { background: #fff; color: #000; }
       <div class="lc-num-col">DAY B</div>
       <div class="lc-main">
         <div class="lc-title">UPPER BODY</div>
-        <div class="lc-body">Mobility · Core · Knee Maintenance (iso only)<br>Upper Body (~18 min) · KB Suitcase Carry Finisher<br>~38 min total</div>
+        <div class="lc-body">Mobility · Core · Dead Hang<br>Upper Body (~18 min) · KB Suitcase Carry Finisher<br>~32 min total</div>
         <div class="lc-rule">Collagen PM block</div>
       </div>
     </div>
@@ -1308,6 +1308,19 @@ body { background: #fff; color: #000; }
 <div id="revisions" class="page">
 <div class="doc">
   <div class="sh"><span class="sh-title">Revision History</span></div>
+
+  <div class="changes" style="margin-bottom:18px;">
+    <div class="changes-title">Changes v12.03 — drop Knee Maintenance block from Day B</div>
+    <ul class="changes-list">
+      <li><strong>CUT · entire Knee Maintenance block on Day B</strong> (Tib Raise · SL Wall Sit 3×20s · Copenhagen 2×20s, ~6 min). Day B becomes pure upper body recovery for the lower body.</li>
+      <li><strong>Reasoning:</strong> Rio/Baar daily-isometric protocols are evidence-based for *active patellar tendinopathy*, not maintenance in asymptomatic patients. User is months pain-free. The "half-dose maintenance" framing (SL Wall Sit 3×20s vs Day A's 5×20–30s) was worst-of-both — sub-therapeutic and decision overhead. Tib Raise already triple-exposed (Daily Habits + Day A); Copenhagen on Day A's glute block sufficient for asymptomatic adductor health.</li>
+      <li><strong>Recovery argument:</strong> Day B previously loaded the knee every other day. Removing it gives the lower body a genuine recovery window. Adaptation needs stimulus *and* recovery; recovery was the missing variable.</li>
+      <li><strong>Knee still gets:</strong> Day A full block (training stimulus), Bellemans Bike (cartilage cyclic loading), Daily Habits Tib Raise (frequency), walking + rucking + standing (functional load).</li>
+      <li><strong>Reversible:</strong> if patellar tendon symptoms ever return, easy to add back as targeted intervention rather than baseline ritual.</li>
+      <li><strong>Day B timeline shifts:</strong> Upper Body moves T+20 → T+14. Suitcase Carry Finisher T+38 → T+32. Total time ~38 → ~32 min.</li>
+      <li><strong>What did not change:</strong> Day A, Day R, Activity, Collagen Block, Daily Habits all unchanged. v12.02 Down Dog scap cue stands. v12.01 standing protocol stands. v12.0 KB additions stand. Right-side gating still applies to Day A's Step Down · Split Squat · SL Wall Sit (those remain bodyweight until reassessment clears).</li>
+    </ul>
+  </div>
 
   <div class="changes" style="margin-bottom:18px;">
     <div class="changes-title">Changes v12.02 — drop Scap Push-Up, fold scap protraction into Down Dog</div>
@@ -1726,17 +1739,16 @@ body { background: #fff; color: #000; }
   <!-- Day B — Upper Body -->
 
   <div id="s-base" class="sched-pane">
-    <p class="note" style="margin-bottom:12px;">Day B — Upper Body. Alternates with Day A. ~38 min. Collagen is a separate afternoon block.</p>
+    <p class="note" style="margin-bottom:12px;">Day B — Upper Body. Alternates with Day A. ~32 min. Collagen is a separate afternoon block.</p>
     <div class="card">
       <div class="card-row"><div class="cr-left"><div class="cr-time">T=0</div></div><div class="cr-right"><div class="cr-val">Mobility <span style="color:var(--muted);font-size:12px;">~6 min</span></div><div class="cr-note">90/90 · Cat-Cow flow · Kneeling Ankle · Half-Kneeling Rotation · Couch 60s · Lateral Quad Roll</div></div></div>
       <div class="card-row"><div class="cr-left"><div class="cr-time">T+6</div></div><div class="cr-right"><div class="cr-val">Core <span style="color:var(--muted);font-size:12px;">~7 min</span></div><div class="cr-note">Bird Dog (pick variation) · WLYT · RKC/Ab Wheel · Side Plank · Hip Flexor</div></div></div>
       <div class="card-row"><div class="cr-left"><div class="cr-time">T+13</div></div><div class="cr-right"><div class="cr-val">Dead Hang <span style="color:var(--muted);font-size:12px;">60s</span></div><div class="cr-note">Spinal decompression · transition to bar</div></div></div>
-      <div class="card-row"><div class="cr-left"><div class="cr-time">T+14</div></div><div class="cr-right"><div class="cr-val">Knee Maintenance <span style="color:var(--muted);font-size:12px;">~6 min</span></div><div class="cr-note">Tib Raise · SL Wall Sit (3×20s) · Copenhagen (reduced volume)</div></div></div>
-      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T+20</div></div><div class="cr-right"><div class="cr-val">Upper Body <span style="color:var(--muted2);font-size:12px;">~18 min</span></div><div class="cr-note">Scap Pull-Up (prep) · Pull-Up · Ring Row · Push-Up · KB Press · Face Pull</div></div></div>
-      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T+38</div></div><div class="cr-right"><div class="cr-val">Loaded Carry Finisher <span style="color:var(--muted2);font-size:12px;">~4 min</span></div><div class="cr-note">KB Suitcase Carry 2 × 40m per side · heaviest KB</div></div></div>
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T+14</div></div><div class="cr-right"><div class="cr-val">Upper Body <span style="color:var(--muted2);font-size:12px;">~18 min</span></div><div class="cr-note">Scap Pull-Up (prep) · Pull-Up · Ring Row · Push-Up · KB Press · Face Pull</div></div></div>
+      <div class="card-row card-highlight"><div class="cr-left"><div class="cr-time">T+32</div></div><div class="cr-right"><div class="cr-val">Loaded Carry Finisher <span style="color:var(--muted2);font-size:12px;">~4 min</span></div><div class="cr-note">KB Suitcase Carry 2 × 40m per side · heaviest KB</div></div></div>
       <div class="card-row"><div class="cr-left"><div class="cr-time">PM</div></div><div class="cr-right"><div class="cr-val">Short Ruck (optional)</div><div class="cr-note">20–30 min loaded pack · not same day as Zone 2 bike</div></div></div>
     </div>
-    <p class="note">Upper body is mandatory. Knee maintenance is isometric only — no recovery conflict with Day A. Zone 2 cycling unrestricted. Lizard moved to Day A only (pre-knee-loading priority). Pigeon moved to Day R only.</p>
+    <p class="note">Upper body is mandatory. <strong>v12.03: Knee Maintenance block removed</strong> — Day A is the knee training stimulus; Day B is now genuine lower-body recovery. Zone 2 cycling unrestricted. Lizard moved to Day A only (pre-knee-loading priority). Pigeon moved to Day R only.</p>
 
     <div class="sub-head">Upper Body — Day B (~20 min)</div>
     <p class="note" style="margin-bottom:10px;">Mandatory on Day B. Pull: 7 sets total. Push: 6 sets. Intentionally asymmetric until pull-ups reach 3×5 — corrects current imbalance.</p>
@@ -2306,7 +2318,7 @@ body { background: #fff; color: #000; }
   <div class="sh"><span class="sh-title">Key Rules</span></div>
 
   <div class="rules">
-    <div class="rule-row" style="border-left:3px solid var(--amber);"><div class="rule-n" style="color:var(--amber);">00</div><div class="rule-c"><div class="rule-t">Alternate Day A and Day B — never two Day A's in a row</div><div class="rule-d">Day A (Lower Body) has eccentric knee loading. Day B (Upper Body) has isometric knee maintenance only. Alternating guarantees 48h+ eccentric recovery. Activity days replace whichever day is next.</div></div></div>
+    <div class="rule-row" style="border-left:3px solid var(--amber);"><div class="rule-n" style="color:var(--amber);">00</div><div class="rule-c"><div class="rule-t">Alternate Day A and Day B — never two Day A's in a row</div><div class="rule-d">Day A (Lower Body) has eccentric knee loading. Day B (Upper Body) is genuine lower-body recovery as of v12.03 (no knee work). Alternating guarantees 48h+ eccentric recovery. Activity days replace whichever day is next.</div></div></div>
     <div class="rule-row"><div class="rule-n">01</div><div class="rule-c"><div class="rule-t">Mobility is non-negotiable — daily on both days</div><div class="rule-d">Full mobility block runs on both days. Couch Stretch on Day B only (active recovery for rectus femoris after Day A loading).</div></div></div>
     <div class="rule-row"><div class="rule-n">02</div><div class="rule-c"><div class="rule-t">Collagen Block is a separate afternoon session on Day A and Day B</div><div class="rule-d">Take collagen + vit C + creatine during eating window (early afternoon for 16:8 IF). 45–60 min later, pick a loading option (~10 min). Skip on Activity days — collagen timing stays pre-activity. Rest days: collagen before bed.</div></div></div>
     <div class="rule-row"><div class="rule-n">03</div><div class="rule-c"><div class="rule-t">All collagen: 2+ hours after any protein meal</div><div class="rule-d">Leucine blunts connective tissue synthesis response. Allow 2.5 hrs after a full meal for leucine clearance (2 hrs minimum after a light meal). 16:8 IF example: lunch 12 PM → collagen 2:30 PM → load ~3:15 PM. Collagen triggers a mild insulin response — keep it inside the eating window.</div></div></div>
@@ -2646,8 +2658,8 @@ const BLOCKS = {
   },
   'B': {
     type:'B', title:'DAY B<br>UPPER BODY', titleClass:'',
-    pills:[{t:'~38 min',c:''},{t:'Knee maintenance',c:''},{t:'Suitcase Carry',c:'amber'},{t:'Collagen PM',c:'amber'}],
-    note:'Upper body training day. Alternates with Day A. Includes knee maintenance (isometrics only — no eccentric demand, no recovery conflict). <strong>Asymmetry Rule</strong> applies to all alternating exercises.',
+    pills:[{t:'~32 min',c:''},{t:'Upper + Carry',c:''},{t:'Suitcase Carry',c:'amber'},{t:'Collagen PM',c:'amber'}],
+    note:'Upper body training day. Alternates with Day A. <strong>v12.03: Knee Maintenance block removed</strong> — Day A is the knee training stimulus; Day B is genuine lower-body recovery (knee still gets Bellemans Bike, Daily Habits Tib Raise, walking/rucking/standing). <strong>Asymmetry Rule</strong> applies to all alternating exercises.',
     steps:[
       {id:'sB_mob',  time:'T=0',    title:'Mobility',                   sub:'~6 min', navPage:'base',
        detail:[{n:'90/90 Hip Rotations',rx:'10 × each side',d:'Restores hip rotation range — daily.'},
@@ -2664,18 +2676,14 @@ const BLOCKS = {
                {n:'Hip Flexor — pick one',rx:'2 × 8–10 or 2 × 15–20s',d:'Same options as Day A: (1) Hanging Knee Raise — 2 × 8–10; (2) Tuck L-Sit — 2 × 15–20s; (3) Foot-Supported L-Sit — 2 × 20–30s.',timer:20}]},
       {id:'sB_hang', time:'T+13',   title:'Dead Hang',                   sub:'60s · bar',
        detail:[{n:'Dead Hang',rx:'60s total',d:'Spinal decompression, grip strength, scapular stability. Placed after floor work — transition to bar before upper body. Skip if shoulder discomfort.',timer:60}]},
-      {id:'sB_knee', time:'T+14',   title:'Knee Maintenance',           sub:'~6 min · isometrics only', navPage:'load',
-       detail:[{n:'Tibialis Raise',rx:'1 × 20 · 1s hold top',d:'Anterior tibialis strengthening. Moved to knee blocks — frequency maintained via Daily Habits on off days.'},
-               {n:'Single-Leg Wall Sit',rx:'3 × 20s · 45s rest',d:'Reduced volume maintenance dose. Isometric cartilage stimulus — no eccentric demand, no recovery conflict with Day A.',timer:20},
-               {n:'Copenhagen Plank — Short Lever',rx:'2 × 20s each side',d:'Adductor maintenance dose. Reduced from Day A volume. Apply asymmetry rule.',timer:20}]},
-      {id:'sB_ub',   time:'T+20',   title:'Upper Body',                 sub:'~18 min', navPage:'base',
+      {id:'sB_ub',   time:'T+14',   title:'Upper Body',                 sub:'~18 min', navPage:'base',
        detail:[{n:'Scap Pull-Up (prep)',rx:'1 × 8',d:'<strong>v12.0: demoted to single prep set</strong> — Eccentric Pull-Up trains scap stabilization under real load, separate scap drills are warm-up not training stimulus. Depress and retract from dead hang. No elbow bend. 1s hold at top.'},
                {n:'Eccentric Pull-Up',rx:'4 × 3–5 negatives',d:'Jump to top, 5s down, full hang at bottom. Primary pull-up builder. 90s rest between sets. <strong>Elbow swap:</strong> Band-Assisted Pull-Up (concentric + 3s controlled lower) — band takes load at bottom where elbow is most vulnerable.'},
                {n:'Ring Row',rx:'3 × 10',d:'Feet flat, ~45° body angle. 2s pause at chest. Horizontal pull — mid trap, rhomboids, rear delt. <strong>Elbow swap:</strong> Neutral grip (rings allow this), stop 2–3 inches before chest — reduces peak grip demand at end range.'},
                {n:'Push-Up with Tempo',rx:'3 × 8',d:'3s eccentric, 1s pause at bottom. Hollow body — glutes and abs engaged throughout. <strong>Elbow swap:</strong> Push-up on fists or parallettes — wrist stays neutral instead of extended, eliminates extensor chain load through the wrist.'},
                {n:'Bottom-Up KB Press',rx:'3 × 8 each · 15 lbs',d:'Vertical push, stability-dominant. Progress bell weight, not reps. <strong>Elbow swap:</strong> Standard KB Press in rack position — removes extreme grip stabilization demand. Same shoulder pattern, no wrist extensor overload.'},
                {n:'Face Pull / Pull-Apart',rx:'2 × 15',d:'Posterior shoulder balance. Band at face height, elbows flared, external rotation at end range.'}]},
-      {id:'sB_carry', time:'T+38',  title:'Loaded Carry Finisher',      sub:'~4 min · NEW v12.0',
+      {id:'sB_carry', time:'T+32',  title:'Loaded Carry Finisher',      sub:'~4 min',
        detail:[{n:'KB Suitcase Carry',rx:'2 × 40m per side · heaviest KB',d:'<strong>v12.0 NEW.</strong> Loaded unilateral carry — spinal axial compression under sustained load + anti-lateral-flexion oblique work + directly trains right-side QL / glute med pattern under load. Knee-spared, no CNS cost. <strong>Setup:</strong> heaviest KB you own in one hand, walk 40m at normal pace, switch hands, return. That\'s one set. Rest 90s, repeat. <strong>Cues:</strong> walk tall, ribcage stacked over pelvis, opposite shoulder pulled down (anti-lateral-flexion). Do not lean to counterbalance — let the loaded side\'s obliques and QL do the work. <strong>Why this loading is safe for right-side asymmetry:</strong> intentional asymmetry trained as 2×40m each side is *fixing* the QL / glute med pattern, not hiding it inside a "bilateral" lift where the strong side compensates. <strong>Progression:</strong> both sides 40m unbroken with good posture → +4 kg.'}]},
       {id:'sB_ruck', time:'Evening', title:'Short Ruck (optional)',      sub:'20–30 min · loaded pack · not same day as Zone 2 bike',
        detail:[{n:'Short Ruck',rx:'20–30 min · loaded pack',d:'Same protocol as Day A. Evening option. Not on the same day as a Zone 2 bike ride. <strong>Progression (2×2 rule):</strong> 20 min 10–15 lbs flat → duration → weight → hills.'},
@@ -2686,10 +2694,9 @@ const BLOCKS = {
       warn:['Short ruck: not on the same day as a Zone 2 bike ride.'],
       ok:['Collagen is a separate afternoon block — not part of this session.',
           'Zone 1 completely free — no protocol interaction.',
-          'Knee maintenance block is isometric only — no recovery conflict with Day A.',
+          'v12.03: Knee Maintenance block removed — Day B is genuine lower-body recovery.',
           'Easy walking, kayaking, swimming all fine.'],
       sub:['Short on time: mobility + upper body is the minimum.',
-           'Skip knee maintenance if truly pressed for time — these are maintenance, not primary.',
            'Elbow flare-up: use elbow swaps on all grip-heavy exercises (marked in each exercise detail). Do not skip upper body — swaps preserve the training stimulus while reducing wrist extensor load.'],
       caution:['If before an activity day (ski/hike): consider skipping upper body to preserve energy. Keep mobility and primer.',
                'Lateral epicondyle pain during any exercise: switch to that exercise\'s elbow swap immediately. Do not push through — tendinopathy responds to load management, not rest.'],
