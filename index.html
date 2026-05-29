@@ -1877,17 +1877,18 @@ body { background: #fff; color: #000; }
   <div class="sh"><span class="sh-title">Exercises</span></div>
 
   <div class="sched-tabs" id="exTabs">
-    <button class="sched-tab on"  onclick="exTab('ex-base',this)">Base · Daily</button>
-    <button class="sched-tab"     onclick="exTab('ex-load',this)">Load</button>
+    <button class="sched-tab on"  onclick="exTab('ex-warmup',this)">Warm-Up</button>
+    <button class="sched-tab"     onclick="exTab('ex-strength',this)">Strength</button>
+    <button class="sched-tab"     onclick="exTab('ex-cardio',this)">Cardio</button>
     <button class="sched-tab"     onclick="exTab('ex-micro',this)">Daily Habits</button>
     <button class="sched-tab"     onclick="exTab('ex-sched',this)">Schedule</button>
   </div>
 
   <!-- Base pane -->
-  <div id="ex-warmup" class="sched-pane"></div>
+  <div id="ex-warmup" class="sched-pane on"></div>
   <div id="ex-strength" class="sched-pane"></div>
   <div id="ex-cardio" class="sched-pane"></div>
-  <div id="ex-base" class="sched-pane on">
+  <div id="ex-base" class="sched-pane">
     <p class="note" style="margin-bottom:12px;">Every day — Load, Recovery, and Activity. ~18–21 min total.</p>
 
     <div class="sub-head">Mobility — 5 min</div>
@@ -1998,10 +1999,9 @@ body { background: #fff; color: #000; }
   <div id="ex-sched" class="sched-pane">
     <p class="note" style="margin-bottom:12px;">Full breakdown by day type. Use <strong>Today</strong> tab for daily execution.</p>
     <div class="sched-tabs" id="exSchedTabs">
-      <button class="sched-tab on"  onclick="exSchedTab('rs-bike',this)">Load</button>
-      <button class="sched-tab"     onclick="exSchedTab('rs-base',this)">Recovery</button>
-      <button class="sched-tab"     onclick="exSchedTab('rs-act',this)">Activity</button>
-      <button class="sched-tab"     onclick="exSchedTab('rs-end',this)">Endurance</button>
+      <button class="sched-tab on"  onclick="exSchedTab('rs-bike',this)">Strength</button>
+      <button class="sched-tab"     onclick="exSchedTab('rs-base',this)">Cardio</button>
+      <button class="sched-tab"     onclick="exSchedTab('rs-act',this)">Rest</button>
     </div>
     <div id="rs-bike" class="ref-sched-pane on"></div>
     <div id="rs-base" class="ref-sched-pane"></div>
