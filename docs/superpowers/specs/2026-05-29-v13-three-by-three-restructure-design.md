@@ -42,11 +42,11 @@ v13.0 is a structural restructure, not an additive change. It supersedes Day A a
 
 | # | Session | Plyo | Loaded time | Total (incl. warm-up) |
 |---|---|---|---|---|
-| 1 | Strength | Jump Rope | ~60 min | ~76 min |
+| 1 | Strength | Jump Rope | ~52 min | ~68 min |
 | 2 | Cardio | — | 60 min | ~76 min |
-| 3 | Strength | KB Swing | ~60 min | ~76 min |
+| 3 | Strength | KB Swing | ~52 min | ~68 min |
 | 4 | Cardio | — | 60 min | ~76 min |
-| 5 | Strength | — | ~55 min | ~71 min |
+| 5 | Strength | — | ~47 min | ~63 min |
 | 6 | Cardio | — | 60 min | ~76 min |
 | 7 | Rest | — | ~35 min | ~35 min |
 
@@ -57,7 +57,7 @@ v13.0 is a structural restructure, not an additive change. It supersedes Day A a
 - Activity Day (ski, hike, ride) absorbs any Cardio slot — does not require schedule adjustment
 - Days of week are not specified — Cal maps cycle positions to calendar
 
-**Weekly total commitment:** ~8:00–8:30 active (depending on optional finisher uptake). Base math: 175 min Strength loaded + 180 min Cardio + 96 min Warm-up (6 × 16) + 35 min Rest = 486 min = 8:06.
+**Weekly total commitment:** ~7:45–8:15 active (depending on optional finisher uptake). Base math: 151 min Strength loaded + 180 min Cardio + 96 min Warm-up (6 × 16) + 35 min Rest = 462 min = 7:42.
 
 ---
 
@@ -86,25 +86,23 @@ v13.0 is a structural restructure, not an additive change. It supersedes Day A a
 
 ## 5. Strength Session
 
-**Single template, all mandatory. ~55–60 min loaded.**
+**Single template, all mandatory. ~47–52 min loaded. Ordered per Baar — isometric tendon prep before high-load impact (plyo).**
 
 | # | Pattern | Exercise | Dose | Notes |
 |---|---|---|---|---|
-| 1 | Plyo (when scheduled) | Jump Rope OR KB Swing | 3 × 30s rope · 3 × 10 swing | 2 of 3 Strength sessions per cycle. Rotation: Jump Rope → KB Swing → none → cycle |
-| 2 | Bilateral squat | KB Front Rack Squat | 3 × 8 · 2s pause | Single KB alternating → progress to double KB. Right-side gating does not apply (bilateral) |
-| 3 | Hinge | SL RDL | 3 × 8 each side · KB-loadable | |
-| 4 | Knee eccentric | Step Down (slant board) | 3 × 8 each side · 3s eccentric | Right-side bodyweight gated (v11.95 + v12.01). Stance-leg tracking cue. Compensation watch: knee valgus / trunk lean / pelvis drop |
-| 5 | Knee isometric | ISO Step-Up | 3 × 30s each side · overcoming | Right-side bodyweight gated. Limited step height per v11.4. Replaces SL Wall Sit (more functional hip-extending position, glute med co-activation, better sport carryover) |
+| 1 | Knee isometric (tendon primer) | ISO Step-Up | 3 × 30s each side · overcoming | Right-side bodyweight gated. Limited step height per v11.4. Replaces SL Wall Sit (more functional hip-extending position, glute med co-activation). **Sequence position: first per Baar — isometric loading primes tendon stiffness before plyo impact.** |
+| 2 | Plyo (when scheduled) | Jump Rope OR KB Swing | 3 × 30s rope · 3 × 10 swing | 2 of 3 Strength sessions per cycle. Rotation: Jump Rope → KB Swing → none → cycle. Drop landing introduced as later plyo phase per v12.0 phasing (Phase 3 bilateral drop jump 12"). |
+| 3 | Bilateral squat | KB Front Rack Squat | 3 × 8 · 2s pause | Single KB alternating → progress to double KB. Right-side gating does not apply (bilateral) |
+| 4 | Hinge | SL RDL | 3 × 8 each side · KB-loadable | |
+| 5 | Knee eccentric | Step Down (slant board) | 3 × 8 each side · 3s eccentric | Right-side bodyweight gated (v11.95 + v12.01). Stance-leg tracking cue. Compensation watch: knee valgus / trunk lean / pelvis drop |
 | 6 | Knee unilateral sagittal | Split Squat 2s | 3 × 8 each side · 2s pause | Right-side bodyweight gated |
-| 7 | Knee unilateral frontal | Cossack Squat | 3 × 6 each side · bodyweight → KB goblet | Right-side bodyweight gated. Fills frontal-plane gap (only frontal-plane work in program) |
-| 8 | Primary push | KB Press | 3 × 5–8 each side | |
-| 9 | Secondary push | Push-Up Tempo | 3 × 8–10 · 3s eccentric | |
-| 10 | Primary pull | Eccentric Pull-Up | 3 × 3–5 · 5s lowering | |
-| 11 | Secondary pull | Ring Row | 3 × 8–10 | |
-| 12 | Glute | SL Glute Bridge | 3 × 12 each side · pelvis-level cue (v11.95) | |
-| 13 | Anti-rotation (loaded) | Pallof Press | 3 × 8 each side · band or cable | Bird Dog in warm-up is positional bodyweight; Pallof is loaded application |
-| 14 | Calf (soleus) | Soleus Calf Raise | 3 × 15 each side | |
-| 15 | Tib | Tib Raise | 1 × 20 · 1s hold top | |
+| 7 | Primary push | KB Press | 3 × 5–8 each side | |
+| 8 | Secondary push | Push-Up Tempo | 3 × 8–10 · 3s eccentric | |
+| 9 | Primary pull | Eccentric Pull-Up | 3 × 3–5 · 5s lowering | |
+| 10 | Secondary pull | Ring Row | 3 × 8–10 | |
+| 11 | Glute | SL Glute Bridge | 3 × 12 each side · pelvis-level cue (v11.95) | |
+| 12 | Calf (soleus) | Soleus Calf Raise | 3 × 15 each side | |
+| 13 | Tib | Tib Raise | 1 × 20 · 1s hold top | |
 
 **Optional finishers (any Strength session, time-permitting):**
 
@@ -124,6 +122,11 @@ v13.0 is a structural restructure, not an additive change. It supersedes Day A a
 - **Ab Wheel** from formal session — moved to Optional Finisher pool
 - **Hip Abduction** from session — daily warm-up Side Plank w/ Abduction + Daily Habits SL Standing Micro-Dose cover glute med direct work 6x/week
 - **Face Pull** from session — daily warm-up WLYT covers scap retraction 6x/week
+
+### Considered for v13 but cut after expert review
+
+- **Cossack Squat** — frontal-plane gap remains, but BBM critique (corrective-exercise overload for someone months pain-free) won out. Cal is beginner to weight training; simplification matters more than 3D plane coverage right now. Can reintroduce when load progression on bilateral compounds plateaus.
+- **Pallof Press** — Bird Dog in daily warm-up provides positional anti-rotation 6x/week. Same BBM rationale on simplification. Reintroduce if loaded anti-rotation becomes a gap.
 
 ---
 
@@ -190,13 +193,11 @@ v13.0 is a structural restructure, not an additive change. It supersedes Day A a
 | Knee eccentric (Step Down) | 3x | Strength common |
 | Knee isometric (ISO Step-Up) | 3x | Strength common |
 | Knee unilateral sagittal (Split Squat) | 3x | Strength common |
-| Knee unilateral frontal (Cossack) | 3x | Strength common |
 | Primary push (KB Press) | 3x | Strength common |
 | Secondary push (Push-Up Tempo) | 3x | Strength common |
 | Primary pull (Eccentric Pull-Up) | 3x | Strength common |
 | Secondary pull (Ring Row) | 3x | Strength common |
 | Glute (SL Glute Bridge) | 3x | Strength common |
-| Anti-rotation loaded (Pallof Press) | 3x | Strength common |
 | Calf (Soleus) | 3x | Strength common |
 | Tib | 3x + Daily Habits off-days | Strength common + Daily Habits |
 | Plyo (vertical impact + hip-power) | 2x | Strength rotation (Jump Rope + KB Swing) |
@@ -214,6 +215,14 @@ v13.0 is a structural restructure, not an additive change. It supersedes Day A a
 | Hip ER + flexor mobility long-hold (Pigeon + Lizard) | 1x | Rest day |
 | Cardio (intentional) | 3x = 180 min | Cardio sessions |
 
+**Gaps acknowledged (deferred per expert review — see Appendix A):**
+- Frontal-plane work (Cossack deferred)
+- Loaded anti-rotation (Pallof deferred — positional anti-rotation via Bird Dog 6x/week stands in)
+- Barbell-loaded bilateral compounds (deferred — Cal beginner to weight training)
+- Bench press chest/anterior delt (deferred with barbell)
+- VO2 max structured session (Attia critique — not addressed in v13)
+- Rotational power (med ball throws, etc.)
+
 **Every major strength pattern: 3x/week. Adaptation concern (per Schoenfeld meta-analyses) resolved.**
 
 ---
@@ -228,11 +237,9 @@ v13.0 is a structural restructure, not an additive change. It supersedes Day A a
 | Step Down | 2x/week (Day A, with rotation skip) | 3x/week | +50–100% |
 | ISO Step-Up | rotation choice | 3x/week | +200% |
 | Split Squat 2s | rotation choice | 3x/week | +200% |
-| Cossack Squat | not in program | 3x/week | NEW |
-| Pallof Press | not in program | 3x/week | NEW |
-| Knee unilateral total | ~6 exposures/week | ~12 exposures/week | +100% |
+| Knee unilateral total | ~6 exposures/week | ~9 exposures/week | +50% |
 
-This is a meaningful jump. Justified by:
+This is a moderate jump. Justified by:
 - Cal months pain-free
 - KB-loading well, plateaued on bodyweight progressions
 - Strength research (Schoenfeld) supports 3x/week per pattern over 1–2x for adaptation
@@ -245,7 +252,6 @@ Items gated to right-side bodyweight:
 - Step Down (slant board)
 - ISO Step-Up
 - Split Squat 2s
-- Cossack Squat
 
 Left side may progress to loaded variations per 2×2 rule. Right side holds at bodyweight until reassessment passes.
 
@@ -346,7 +352,7 @@ If volume proves excessive (knee symptoms return, generalized fatigue, missed se
 
 | Symptom | First lever | Second lever |
 |---|---|---|
-| Knee symptoms during Strength | Drop Cossack (newest item) | Drop Split Squat (most-overlapped with Step Down) |
+| Knee symptoms during Strength | Drop Split Squat (most-overlapped with Step Down) | Drop ISO Step-Up (preserve eccentric Step Down + bilateral KB FR Squat) |
 | Generalized fatigue / poor recovery | Drop optional finishers entirely | Cut Strength sessions from 3x → 2x per cycle, add a Rest position |
 | Plyo intolerance | Drop one phase (per v12.0 rule), hold 2 weeks | Remove plyo from program until reassessment |
 | Right-side regression | Tighten gating — remove right-side load entirely, drop to bodyweight on left | Reduce Strength to 2x per cycle on right side |
@@ -375,9 +381,61 @@ If checkpoint 1 fails: trigger the volume reversibility levers in section 12.
 
 ## 14. Out of Scope
 
-- Plyo phase progression beyond Phase 1 — handled separately when criteria clear
+- Plyo phase progression beyond Phase 1 — handled separately when criteria clear. Drop landing path inherits from v12.0 (Phase 3 bilateral drop jump 12" → Phase 4 SL hops + drop jump 18–24")
 - Collagen Block (key `N`) — unchanged from v12; not touched
 - Daily Habits content other than Wall Slide drop — unchanged
 - Diet & supplement reference content — unchanged
 - Tib Raise daily dose / progression — unchanged
 - Pull-up volume rebalancing rule (Rule 14 — "asymmetric pull until 3×5") — preserved, applies within Strength session common
+
+### Deferred for future versions
+
+- **Barbell compounds** (back squat, deadlift, overhead press) — Cal is beginner to weight training; KB-first progression is the v13 stance. Plan to introduce when KB Front Rack Squat double-KB (~64 kg total) is mastered and Cal is ready for barbell skill acquisition
+- **Bench press** — paired with barbell introduction
+- **Cossack Squat** — frontal-plane work deferred (see Appendix A); reintroduce when bilateral compound progression plateaus or knee tolerates higher complexity
+- **Pallof Press** — loaded anti-rotation deferred (see Appendix A); reintroduce if Bird Dog positional anti-rotation proves insufficient
+- **Attia-style VO2 max session** (Norwegian 4×4 or similar) — could replace 1 of 3 weekly Cardio slots when Cal wants structured high-intensity exposure
+- **Rotational power** (med ball throws, rotational chops) — kinesiology gap
+- **Deceleration training** (controlled drop landings) — already in v12.0 plyo phasing as later phase, not formal v13 addition
+
+---
+
+## Appendix A — Expert Review Decisions
+
+Initial v13 draft was stress-tested against five expert lenses: Peter Attia (longevity / Zone 2 / VO2 max), Barbell Medicine (evidence-based strength), Keith Baar (connective tissue mechanobiology), Johan Bellemans (cartilage cyclic loading), and a generalist kinesiology lens (biomechanics / motor control).
+
+### Critiques applied to v13
+
+| Source | Critique | v13 response |
+|---|---|---|
+| Baar | Isometric tendon loading should precede high-load impact (plyo) | **ISO Step-Up reordered to position 1 in Strength session; plyo follows at position 2** |
+| BBM | Too many corrective-exercise additions for someone months pain-free | **Cossack Squat and Pallof Press removed.** Strength session reduced from 15 to 13 items |
+| Kinesiology | Drop landing for deceleration | **Acknowledged — already in v12.0 plyo phasing (Phase 3 bilateral drop jump 12"), inherited by v13** |
+| BBM | No barbell, no bench | **Acknowledged as out-of-scope for v13. Cal is beginner to weight training; KB-first progression is the v13 stance. Deferred to future versions.** |
+
+### Critiques acknowledged but not addressed in v13
+
+| Source | Critique | Why deferred |
+|---|---|---|
+| Attia | No VO2 max session (Norwegian 4×4) | "Intensity agnostic" cardio is a deliberate design choice tied to Cal's "do what feels good" philosophy. Future option: reframe 1 of 3 Cardio slots as structured high-intensity |
+| Attia | No structured grip work | Dead Hang in Daily Habits is the current grip exposure. Could formalize with Farmer's carries timed and loaded |
+| Attia | Zone 2 dogma | v13 inherits v12.04 BBM-flavored framing — explicitly rejects strict Zone 2 prescription |
+| BBM | Right-side perma-gating | Right-side gating tied to v12.01 clinical thread; remains until reassessment criterion passes. Re-evaluation 2026-07-24 |
+| BBM | Daily warm-up = corrective exercise mythology | Disagree partially — warm-up serves the right-side glute med thread (v12.01) which is clinical-signal-driven, not generic corrective work. Held |
+| Baar | Warm-up isometrics shorter than tendon-adaptation dose (45–60s) | Hollow + RKC at 30s each is on the lower edge of his protocol. Held at 30s for time-budget reasons; bump to 45s if tendon stiffness becomes a measurable goal |
+| Bellemans | Bellemans Bike should be mandatory, not "default" | Currently "default opener" per Rule 05; functionally close to mandatory. Could tighten language to "required 3x/wk" |
+| Bellemans | No post-strength cartilage flush | Optional 10-min Bellemans Bike post-Strength could be added. Held off — already a substantial session |
+| Kinesiology | Motor variability low | Held — Cal is beginner, pattern grooving is acceptable at this stage. Variability concerns kick in at intermediate+ |
+| Kinesiology | Single-leg dominance heavy | KB FR Squat is the bilateral compound; barbell additions will increase bilateral exposure |
+| Kinesiology | No rotational power | Deferred to future versions |
+| Kinesiology | Tempo emphasis limited to Step Down | Could add tempo to KB Press, SL RDL. Held for simplicity in v13 |
+| Kinesiology | Proprioceptive challenge in loaded work missing | SL Balance in Daily Habits covers unloaded; loaded proprioception (eyes-closed Step Down, unstable surface SL RDL) is a future progression |
+| Kinesiology | No gait drills | Backward Walk in Daily Habits is the current gait touch. Future formal gait work possible |
+
+### Net effect of expert review on v13
+
+- **Strength session: 15 → 13 items** (Cossack, Pallof removed)
+- **Loaded time: ~55–60 min → ~47–52 min** per Strength session
+- **Sequence: plyo first → ISO Step-Up first, plyo second** (Baar tendon-priming)
+- **Total weekly: ~8:06 → ~7:42** baseline
+- **Multiple deferred items documented in Section 14 for future versions**
