@@ -1676,17 +1676,8 @@ body { background: #fff; color: #000; }
   <button class="day-btn" data-block="C" onclick="selectBlock('C',this)">
     <span class="day-btn-num">🚴</span>
   </button>
-  <button class="day-btn type-a" data-block="A" onclick="selectBlock('A',this)">
-    <span class="day-btn-num">🦵</span>
-  </button>
-  <button class="day-btn type-c" data-block="B" onclick="selectBlock('B',this)">
-    <span class="day-btn-num">💪</span>
-  </button>
   <button class="day-btn" data-block="R" onclick="selectBlock('R',this)">
     <span class="day-btn-num">🧘</span>
-  </button>
-  <button class="day-btn" data-block="X" onclick="selectBlock('X',this)">
-    <span class="day-btn-num">⛷️</span>
   </button>
   <button class="day-btn" data-block="N" onclick="selectBlock('N',this)">
     <span class="day-btn-num">⚗️</span>
@@ -2955,7 +2946,7 @@ const BLOCKS = {
 
 };
 
-let currentBlock = 'A';
+let currentBlock = 'S';
 let openSteps = {};
 
 function selectBlock(key, btn) {
@@ -3363,7 +3354,7 @@ requestWakeLock();
 
 // Init Today tab
 (function() {
-  const firstBtn = document.querySelector('.day-btn[data-block="R"]');
-  if (firstBtn) { firstBtn.classList.add('active'); renderBlock('R'); }
+  const firstBtn = document.querySelector('.day-btn[data-block="S"]');
+  if (firstBtn) { firstBtn.classList.add('active'); renderBlock('S'); }
 })();
 </script>
