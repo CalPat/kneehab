@@ -2898,6 +2898,44 @@ const BLOCKS = {
     }
   },
 
+  'W': {
+    type:'W', title:'DAILY WARM-UP', titleClass:'', stepLabel:'~16 min · before Strength or Cardio',
+    pills:[{t:'~16 min',c:'amber'},{t:'Active days',c:'green'},{t:'Optional on Rest',c:''}],
+    note:'<strong>v13.0 NEW</strong> — daily warm-up is real training, not just prep. 10 items covering mobility, anterior core (Hollow + RKC combo), lateral core + glute med (Side Plank w/ Abduction), adductor (Copenhagen), anti-rotation (Bird Dog), scap retraction (WLYT), and hip flexor under load. Performed before every Strength and Cardio session. Optional on Rest day. The right-side glute med pattern items (Side Plank w/ Abduction, Copenhagen, Bird Dog) reinforce the v12.01 thread daily — previously only 2x/week on Day A.',
+    steps:[
+      {id:'sW_9090',time:'~1 min', title:'90/90 Hip Rotations', sub:'1 × 5–8 each side',
+       detail:[{n:'90/90 Hip Rotations',rx:'1 × 5–8 each side · slow controlled',d:'Seated 90/90 position — front leg 90° flexion, back leg 90° abduction. Rotate both knees side-to-side, finding end-range. Hip IR/ER mobility.'}]},
+      {id:'sW_catcow',time:'~2 min', title:'Cat-Cow → Down Dog → Up Dog', sub:'5–8 breaths through flow',
+       detail:[{n:'Cat-Cow → Down Dog → Up Dog',rx:'5–8 breaths through flow',d:'Cat-Cow (sagittal spinal articulation). Down Dog — <strong>"Press the floor, scaps wide"</strong> — active scap protraction 3–5 breaths (v12.02). Up Dog (thoracic extension + scap depression/retraction). Flow continuously through 5–8 breaths.'}]},
+      {id:'sW_hkr',time:'~1.5 min', title:'Half-Kneeling Rotation', sub:'1 × 8 each side · 2s end-range pause',
+       detail:[{n:'Half-Kneeling Rotation',rx:'1 × 8 each side · 2s end-range pause',d:'Thoracic rotation (v11.92). Half-kneeling stance, hands at chest height, rotate trunk to back-knee side. 2s pause at end-range. Switch sides.'}]},
+      {id:'sW_ankle',time:'~1 min', title:'Kneeling Ankle Dorsiflexion', sub:'1 × 8–10 each side',
+       detail:[{n:'Kneeling Ankle Dorsiflexion (ankle dive)',rx:'1 × 8–10 each side',d:'Half-kneeling. Front knee drives forward over toe, maintaining heel contact. Ankle DF mobility. Switch sides.'}]},
+      {id:'sW_core',time:'~1.5 min', title:'Core Hold Combo', sub:'30s Hollow → 30s RKC Plank · back-to-back', timer:60,
+       detail:[{n:'Core Hold Combo',rx:'30s Hollow → 30s RKC Plank · no rest between',d:'<strong>v13.0 NEW.</strong> 30s Hollow body (supine, arms overhead, legs hovering, lower back pressed to floor). Transition prone. 30s RKC Plank — <strong>max tension whole-body irradiation</strong> — squeeze glutes hard, brace core, drive elbows toward feet, quads on. No rest between. 60s total anti-extension under load, supine + prone, with transitional control bonus.'}]},
+      {id:'sW_sp',time:'~2 min', title:'Side Plank with Abduction', sub:'2 × 30–45s each side',
+       detail:[{n:'Side Plank with Abduction',rx:'2 × 30–45s each side',d:'Side plank position. <strong>Top leg lifts and holds</strong> during the side plank duration. Anti-lateral flexion + glute med direct (top leg abduction). Right-side compensation watch: top knee faces forward, no rolling open. Drives v12.01 right-side glute med thread.'}]},
+      {id:'sW_cope',time:'~2 min', title:'Copenhagen Plank', sub:'2 × 20s each side',
+       detail:[{n:'Copenhagen Plank',rx:'2 × 20s each side',d:'Side plank position with top leg knee resting on bench. Adductor + anti-lateral. Right-side bias for v12.01 thread.'}]},
+      {id:'sW_hf',time:'~1.5 min', title:'Hip Flexor (Tuck L-Sit / Hanging Knee Raise)', sub:'1 × 10s hold or 1 × 8 reps',
+       detail:[{n:'Hip Flexor',rx:'1 × 10s hold or 1 × 8 reps',d:'<strong>Default:</strong> Tuck L-Sit — seated on floor, hands beside hips, press up, knees tucked under chest, feet off floor. <strong>When near bar:</strong> Hanging Knee Raise. Active hip flexion + anterior core under load.'}]},
+      {id:'sW_bd',time:'~1.5 min', title:'Bird Dog', sub:'1 × 8 each side · rotate variation',
+       detail:[{n:'Bird Dog',rx:'1 × 8 each side',d:'Rotate variation: Slow Return / Elbow-to-Knee / Bird Dog Row. <strong>v11.95 compensation watch:</strong> support-leg adductor activation = pelvis rotating, brace obliques first.'}]},
+      {id:'sW_wlyt',time:'~2 min', title:'WLYT', sub:'1 round (5 each letter)',
+       detail:[{n:'WLYT',rx:'1 round (5 each letter)',d:'Floor, prone. W (elbows bent, shoulder blades squeezed back). L (arms 90° external rotation). Y (arms overhead, scap depression). T (arms horizontal abduction). 5 reps each letter, slow controlled.'}]},
+    ],
+    micro:[],
+    briefing:{
+      ok:['Daily warm-up serves as both mobility prep and core/glute med training.',
+          'Performed before every Strength and Cardio session.',
+          'Optional on Rest day.',
+          'Right-side glute med items (Side Plank w/ Abduction, Copenhagen, Bird Dog) reinforce the v12.01 thread daily.',
+          'Core Hold Combo: 60s sustained anti-extension under load with prone↔supine transitional control.'],
+      sub:[],
+      caution:['Hollow + RKC Plank must be done with intent — max tension on RKC Plank or it overlaps too much with the warm-up Hollow.'],
+    }
+  },
+
 };
 
 let currentBlock = 'A';
