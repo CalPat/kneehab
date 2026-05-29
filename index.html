@@ -1885,6 +1885,7 @@ body { background: #fff; color: #000; }
   </div>
 
   <!-- Base pane -->
+  <div id="ex-warmup" class="sched-pane"></div>
   <div id="ex-base" class="sched-pane on">
     <p class="note" style="margin-bottom:12px;">Every day — Load, Recovery, and Activity. ~18–21 min total.</p>
 
@@ -2438,6 +2439,7 @@ function exSchedTab(paneId, btn) {
 (function initExHub() {
   const map = [
     ['src-mob',    'ex-base-mob'],
+    ['src-warmup', 'ex-warmup'],
     ['src-postA',  'ex-base-postA'],
     ['src-postB',  'ex-base-postB'],
     ['src-postC',  'ex-base-postC'],
