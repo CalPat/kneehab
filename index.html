@@ -3044,6 +3044,32 @@ const BLOCKS = {
     }
   },
 
+  'C': {
+    type:'C', title:'CARDIO', titleClass:'', stepLabel:'60 min intentional · 3x per cycle',
+    pills:[{t:'60 min',c:'green'},{t:'3x per cycle',c:''},{t:'No zone gating',c:''}],
+    note:'<strong>v13.0 NEW</strong> — Cardio elevated from informal to protected slot. 3 sessions per cycle × 60 min = 180 min/week, hitting the v12.04 weekly cardio target by structure. <strong>No zone gating:</strong> log time, not HR. Intuitive intensity per BBM-flavored framing. Bellemans Bike as default opener for cartilage stim (cyclic compressive loading at 15–20° flexion). Modality flexes: ride, ruck, hike, row, swim. Activity Day (ski/hike/ride) absorbs a Cardio slot — variable duration, replaces the 60-min target for that day.',
+    steps:[
+      {id:'sC_bike',time:'10–12 min', title:'Bellemans Bike (default opener)', sub:'15–20° flexion · hard stop 15 min', timer:720,
+       detail:[{n:'Bellemans Bike',rx:'10–12 min working · hard stop 15 min',d:'Cyclic cartilage loading at 15–20° flexion at bottom of stroke. Specific seat height. <strong>Hard stop at 15 min</strong> — more does not improve cartilage nutrition. Most effective during collagen synthesis window (see Collagen Block).'}]},
+      {id:'sC_main',time:'45–50 min', title:'Main aerobic', sub:'Ride · Ruck · Hike · Row · Swim',
+       detail:[{n:'Modality flex',rx:'45–50 min sustained aerobic',d:'Pick what feels good. Ride · Loaded Ruck · Hike · Row · Swim. No HR target — intuitive intensity. <strong>Counts toward Weekly Cardio Total</strong> (180 min/week target, v12.04).'},
+               {n:'Sequencing',rx:'After Strength or 6+ hr separated',d:'Dedicated cardio after strength on same day, or 6+ hours separated. Never immediately before Strength.'}]},
+      {id:'sC_act',time:'Variable', title:'OR Activity Day', sub:'Ski · Hike · Ride · 60–180+ min',
+       detail:[{n:'Activity Day',rx:'Variable, 60–180+ min',d:'Ski, hike, ride — absorbs the Cardio slot entirely. No additional 60-min cardio needed that day. Take collagen 45–60 min before heading out (Collagen Block timing pre-activity).'}]},
+    ],
+    micro:[],
+    briefing:{
+      ok:['60 min protected slot — 3x per cycle hits 180 min/week.',
+          'No zone gating — log time, intensity flexes.',
+          'Bellemans Bike is the cartilage-specific opener; ride/ruck/etc. do not replace it.',
+          'Activity Day absorbs a Cardio slot when it happens.',
+          'Daily Warm-Up (W) before this session.'],
+      sub:['If cardio target consistently unmet, drop to 45 min × 3 = 135 min/week (between WHO floor and AHA range).'],
+      caution:['Never immediately before Strength — 6+ hr separation or after Strength only.',
+               'Bellemans Bike hard stop 15 min.'],
+    }
+  },
+
 };
 
 let currentBlock = 'A';
