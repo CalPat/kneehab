@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v13.0</title>
+<title>kneehab v13.01</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1116,7 +1116,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v13.0</div>
+  <div class="ms-title">kneehab v13.01</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG</div>
 
   <div class="ms-group">Exercises</div>
@@ -1218,7 +1218,7 @@ body { background: #fff; color: #000; }
     <div class="cover-stripe"></div>
 
 <div class="cover-eyebrow">Full Body Training</div>
-<div class="cover-h1">kneehab<br><em>v13.0</em></div>
+<div class="cover-h1">kneehab<br><em>v13.01</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1668,7 +1668,7 @@ body { background: #fff; color: #000; }
 
 <div class="day-selector" id="daySelector">
   <button class="day-btn" data-block="W" onclick="selectBlock('W',this)">
-    <span class="day-btn-num">🌅</span>
+    <span class="day-btn-num">☀️</span>
   </button>
   <button class="day-btn type-a" data-block="S" onclick="selectBlock('S',this)">
     <span class="day-btn-num">💪</span>
@@ -2948,7 +2948,7 @@ const BLOCKS = {
 
 };
 
-let currentBlock = 'S';
+let currentBlock = 'W';
 let openSteps = {};
 
 function selectBlock(key, btn) {
@@ -3356,7 +3356,7 @@ requestWakeLock();
 
 // Init Today tab
 (function() {
-  const firstBtn = document.querySelector('.day-btn[data-block="S"]');
-  if (firstBtn) { firstBtn.classList.add('active'); renderBlock('S'); }
+  const firstBtn = document.querySelector('.day-btn[data-block="W"]');
+  if (firstBtn) { firstBtn.classList.add('active'); renderBlock('W'); }
 })();
 </script>
