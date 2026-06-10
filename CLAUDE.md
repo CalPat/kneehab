@@ -16,7 +16,7 @@
 
 ## Foundations
 **Keith Baar (UC Davis)** — connective tissue synthesis maximised by hydrolyzed collagen + 200mg vitamin C ~45–60 min before mechanical loading, outside any protein window. Nocturnal GH pulse is the second synthesis window.
-**Johan Bellemans (KU Leuven)** — cartilage nutrition driven by cyclic compressive loading. Bellemans Bike (15–20° flexion at bottom of stroke, 10–12 min, hard stop 15 min) is the primary cartilage stimulus on Day A.
+**Johan Bellemans (KU Leuven)** — cartilage nutrition driven by cyclic compressive loading. Cartilage is avascular; gentle cyclic movement (easy walking or biking) during the collagen synthesis window feeds it via fluid exchange. The rigid stationary-bike protocol (fixed seat height, hard 15-min stop) was dropped in v13.07 — too onerous, never followed; casual movement after collagen delivers the stimulus.
 **Ben Patrick / ATG** — anterior chain loading, deep range of motion, tibialis work. Addresses upstream PFPS drivers.
 **Jules Mitchell** — yoga biomechanics. Poses are mechanical loading, not passive stretching. Sustained holds (30s+) drive viscoelastic creep and connective tissue adaptation. Directly complements Baar's collagen window — yoga positions during the synthesis peak are tissue-loading opportunities, not cooldown.
 **Iñigo San Millán (University of Colorado)** — mitochondrial function, fat oxidation, and Zone 2 training as the foundation for metabolic health and longevity. His lactate-threshold framework connects aerobic base building directly to disease prevention (insulin resistance, cardiovascular disease, cancer). Zone 2 work in the program aligns with his metabolic prescription.
