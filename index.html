@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v13.11</title>
+<title>kneehab v13.12</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1116,7 +1116,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v13.11</div>
+  <div class="ms-title">kneehab v13.12</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG</div>
 
   <div class="ms-group">Exercises</div>
@@ -1218,7 +1218,7 @@ body { background: #fff; color: #000; }
     <div class="cover-stripe"></div>
 
 <div class="cover-eyebrow">Full Body Training</div>
-<div class="cover-h1">kneehab<br><em>v13.11</em></div>
+<div class="cover-h1">kneehab<br><em>v13.12</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -2281,7 +2281,7 @@ body { background: #fff; color: #000; }
     <div class="card-head"><span class="ch-title">Session · Notes</span></div>
     <div class="card-row card-highlight">
       <div class="cr-left" style="min-width:0;flex:0 0 auto;width:50%;"><div class="cr-key">Day A / Day B — afternoon block</div></div>
-      <div class="cr-right"><div class="cr-desc">Standalone Collagen Block. Pick a loading option: easy walk or bike, isometric circuit, yoga holds, or loaded walk.</div></div>
+      <div class="cr-right"><div class="cr-desc">Standalone Collagen Block. Pick a loading option: easy walk or bike, jump rope (tendons), isometric circuit, yoga holds, or loaded walk.</div></div>
     </div>
     <div class="card-row card-highlight">
       <div class="cr-left" style="min-width:0;flex:0 0 auto;width:50%;"><div class="cr-key">Activity day — hike, ski, sport</div></div>
@@ -2743,17 +2743,19 @@ const BLOCKS = {
                {n:'Creatine Monohydrate',rx:'5g',d:'Mix with collagen drink. No absorption interaction — timing doesn\'t matter, just daily consistency.'}]},
       {id:'sN_bike', time:'T+45',     title:'Default: Easy Movement — Walk or Bike',          sub:'~15–20 min · casual · within the collagen window',
        detail:[{n:'Easy movement (walk or bike)',rx:'~15–20 min · casual pace',d:'<strong>v13.07 — replaces the rigid Bellemans Bike protocol (too onerous, never followed).</strong> After collagen, just go about your day: a walk or an easy bike ride within the synthesis window. Cartilage is avascular — gentle cyclic compressive loading drives fluid exchange (nutrients in, waste out), and casual walking or cycling delivers exactly that. No fixed seat height, no hard stop, no timer — the point is movement during the window, not a prescription. A commute, a dog walk, or an easy spin all count.'}]},
-      {id:'sN_iso',  time:'T+45',     title:'Option 2: Isometric Circuit',      sub:'~8 min · no equipment · tendons',
+      {id:'sN_rope', time:'T+45',     title:'Option 2: Jump Rope (Baar protocol)', sub:'6–10 min · knees-permitting · tendons',
+       detail:[{n:'Jump Rope',rx:'6–10 min · easy bounce · knees-permitting',d:'<strong>v13.12 — this IS the Shaw 2017 protocol.</strong> Rope-skipping was the literal loading stimulus that doubled the P1NP collagen-synthesis signal after a gelatin + vitamin C dose — not a proxy load, the exact one from the study. <strong>Primary loading:</strong> patellar &amp; quad tendon, Achilles, plantar fascia under cyclic strain at the synthesis peak. <strong>Cap at 6–10 min</strong> — the synthesis signal saturates fast; past ~10 min there is no extra tendon benefit, only impact cost. Single-bounce or low double-unders both fine — strain rate matters more than amplitude. <strong>Compensations to avoid:</strong> don\'t chase volume (more ≠ more synthesis); keep landings soft and quiet (forefoot, knees soft); stop on any sharp pain. <strong>Knees-permitting:</strong> this is your Phase-1 lowest-amplitude plyo and you\'re months pain-free — watch for effusion after, as always. <strong>Regression:</strong> fewer minutes, or no-rope pogo hops on a soft surface. <strong>Progression:</strong> keep rope work here at Phase 1; the Strength block\'s plyo phasing governs higher amplitude.'}]},
+      {id:'sN_iso',  time:'T+45',     title:'Option 3: Isometric Circuit',      sub:'~8 min · no equipment · tendons',
        detail:[{n:'Tibialis Raise',rx:'1 × 20 · 1s hold top',d:'Anterior tibialis tendon loading. Dorsiflexion under load.'},
                {n:'Single-Leg Wall Sit',rx:'3 × 20s each · 45s rest',d:'Patellar and quad tendon isometric loading. 45° flexion. Isometric = sustained tendon tension without joint shear.',timer:20},
                {n:'Soleus Calf Raise',rx:'2 × 12 each · 3s down',d:'Achilles tendon and soleus under eccentric load. Knee bent ~30° isolates soleus over gastrocnemius.'},
                {n:'Copenhagen Plank',rx:'2 × 20s each side',d:'Adductor tendon loading. Short lever (knee on bench).',timer:20}]},
-      {id:'sN_yoga', time:'T+45',     title:'Option 3: Yoga Holds',             sub:'~10 min · mat · fascia & joint capsules',
+      {id:'sN_yoga', time:'T+45',     title:'Option 4: Yoga Holds',             sub:'~10 min · mat · fascia & joint capsules',
        detail:[{n:'Lizard Pose',rx:'60s each side',d:'Hip flexor and adductor fascia under sustained bodyweight load. Drop to forearms if flexibility allows. Mitchell principle: 60s holds drive viscoelastic creep — connective tissue adaptation, not just stretching.',timer:60},
                {n:'Pigeon Pose',rx:'60s each side',d:'Deep external rotator and hip capsule loading. Piriformis, obturator group. Sustained load at collagen peak = tissue-loading opportunity (Mitchell + Baar synergy).',timer:60},
                {n:'Down Dog',rx:'60s',d:'Full posterior chain connective tissue — hamstring fascia, Achilles, plantar fascia, thoracolumbar fascia. Press heels toward floor.',timer:60},
                {n:'Child\'s Pose with Reach',rx:'60s',d:'Shoulder capsule, lat fascia, thoracolumbar fascia. Arms extended overhead, walk fingers forward.',timer:60}]},
-      {id:'sN_walk', time:'T+45',     title:'Option 4: Loaded Walk / Ruck',     sub:'15–20 min · general CT',
+      {id:'sN_walk', time:'T+45',     title:'Option 5: Loaded Walk / Ruck',     sub:'15–20 min · general CT',
        detail:[{n:'Loaded Walk',rx:'15–20 min · easy pace',d:'Cyclic loading across all lower limb connective tissues under functional gait — Achilles, plantar fascia, knee joint capsule, hip capsule. Backpack optional (10–15 lbs). This is Zone 1 — conversational pace. Include 2–3 rounds of backward walking (30–60s each) for anterior tibial chain.'},
                {n:'Barefoot Walk Option',rx:'10–15 min · soft surface',d:'If available — grass, sand, carpet. Intrinsic foot connective tissue stimulus. Short foot musculature and plantar fascia under natural loading.'}]},
     ],
@@ -2762,6 +2764,7 @@ const BLOCKS = {
       warn:['Skip this block on Activity days — collagen timing stays pre-activity on those days.',
             'Must be 2+ hours after any protein meal — leucine blunts connective tissue synthesis.'],
       ok:['Default is just easy movement — a walk or easy bike during the synthesis window feeds cartilage (cyclic compression). No rigid protocol (v13.07).',
+          'Jump rope (v13.12) is the highest-value tendon option — it is the literal Shaw 2017 loading stimulus. Cap at 6–10 min (synthesis saturates), knees-permitting.',
           'Isometric circuit is the best no-equipment option for tendons.',
           'Yoga holds complement Baar with Mitchell — sustained loading at collagen peak.',
           'Rotate options across the week for maximum tissue coverage.',
