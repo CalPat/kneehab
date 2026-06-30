@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v13.15</title>
+<title>kneehab v13.17</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -1116,7 +1116,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v13.15</div>
+  <div class="ms-title">kneehab v13.17</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG</div>
 
   <div class="ms-group">Exercises</div>
@@ -1218,7 +1218,7 @@ body { background: #fff; color: #000; }
     <div class="cover-stripe"></div>
 
 <div class="cover-eyebrow">Full Body Training</div>
-<div class="cover-h1">kneehab<br><em>v13.15</em></div>
+<div class="cover-h1">kneehab<br><em>v13.17</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1246,6 +1246,17 @@ body { background: #fff; color: #000; }
     <div class="cs-desc">Anterior chain &amp; deep range</div>
   </div>
 </div>
+
+  <div class="cover-divider"></div>
+
+  <div class="sh"><span class="sh-title">Bike Commute</span></div>
+  <p class="body" style="margin-bottom:14px;">1–2× per week. How it slots in depends on intensity.</p>
+
+  <div class="card">
+    <div class="card-row card-green"><div class="cr-left"><div class="cr-key">Zone 1<br><span style="font-size:11px;color:var(--muted);">easy pace</span></div></div><div class="cr-right"><div class="cr-val">Free — any day</div><div class="cr-desc">No collagen needed. Day schedule unchanged.</div></div></div>
+    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-key">Zone 2<br><span style="font-size:11px;color:var(--muted);">harder effort</span></div></div><div class="cr-right"><div class="cr-val">Can serve as Collagen Block loading option</div><div class="cr-desc">Time collagen 45–60 min before commuting. Replaces Bellemans Bike that day.</div></div></div>
+  </div>
+  <p class="note">Phase 1: monitor next-morning knee soreness after every commute. If soreness appears consistently, cap commutes at 30–40 min and build up.</p>
 
   <div class="cover-divider"></div>
 
@@ -1286,15 +1297,6 @@ body { background: #fff; color: #000; }
       </div>
     </div>
   </div>
-
-  <div class="sh"><span class="sh-title">Bike Commute</span></div>
-  <p class="body" style="margin-bottom:14px;">1–2× per week. How it slots in depends on intensity.</p>
-
-  <div class="card">
-    <div class="card-row card-green"><div class="cr-left"><div class="cr-key">Zone 1<br><span style="font-size:11px;color:var(--muted);">easy pace</span></div></div><div class="cr-right"><div class="cr-val">Free — any day</div><div class="cr-desc">No collagen needed. Day schedule unchanged.</div></div></div>
-    <div class="card-row card-highlight"><div class="cr-left"><div class="cr-key">Zone 2<br><span style="font-size:11px;color:var(--muted);">harder effort</span></div></div><div class="cr-right"><div class="cr-val">Can serve as Collagen Block loading option</div><div class="cr-desc">Time collagen 45–60 min before commuting. Replaces Bellemans Bike that day.</div></div></div>
-  </div>
-  <p class="note">Phase 1: monitor next-morning knee soreness after every commute. If soreness appears consistently, cap commutes at 30–40 min and build up.</p>
 
   </div>
 </div>
@@ -3096,17 +3098,17 @@ function renderBlock(key) {
   }
 
   card.innerHTML = `
-    <div class="today-card-head" style="border:1px solid var(--border2);margin-bottom:0;border-bottom:none;border-radius:10px 10px 0 0;">
+    <div class="today-card-head" style="border:1px solid var(--border2);margin-bottom:16px;border-radius:10px;">
       <div class="today-day-label">${key === 'D' ? '' : key}</div>
       <div class="today-day-title ${d.titleClass}">${d.title}</div>
       <div class="today-pills">${pillsHtml}</div>
     </div>
-    ${d.note ? `<p class="note" style="font-size:14px;border:1px solid var(--border2);border-top:none;padding:12px 16px;margin-bottom:16px;">${d.note}</p>` : ''}
     ${briefingHtml}
     <div id="dayStepsSection">
     ${stepsHtml}
     ${microHtml}
     </div>
+    ${d.note ? `<p class="note" style="font-size:14px;border:1px solid var(--border2);padding:12px 16px;border-radius:10px;margin-top:16px;margin-bottom:0;">${d.note}</p>` : ''}
   `;
 }
 
