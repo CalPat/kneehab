@@ -36,3 +36,10 @@
   - major change 1.
 - do not worry about phasing. program is constantly evolving as user progresses.
 - **Delete old versions.** Only keep the latest version of both `kneehab V##.html` and `kneehab V##.MD`. Remove previous versions when creating a new one.
+
+## Architecture / Source of Truth
+- **Source of truth for current program structure is the `BLOCKS` object in `kneehab V##.html`.** The per-version `.MD` is a changelog summary, and the embedded `changes-*` blocks in the HTML are *historical* — never quote them as the current design. Read `BLOCKS` before answering any "what does the program currently do" question.
+- **Current block keys (v13.x):** `W` Daily Warm-Up · `S` STRENGTH (single full-body template, ~40–45 min, 3× per cycle, 2 sets @ RPE 8) · `C` CARDIO (60 min, 3× per cycle, no zone gating; modality flexes: ride/ruck/hike/row/swim) · `R` Recovery & Mobility · `N` Collagen Block · `D` Daily Habits.
+  - The v12 **Day A (lower) / Day B (upper) split was removed in v13.0** and replaced by the single `S` template. There is no upper/lower split and no "load day" that is only one or the other.
+- `renderBlock(key)` renders each day card from `BLOCKS`; `src-*` elements mirror to `ex-*` reference-hub panes via `initExHub()`.
+- Single-file app: `index.html` is the live program and must be kept byte-synced to the latest `kneehab V##.html`. No test suite — verification is a manual browser check.
