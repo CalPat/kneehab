@@ -1,8 +1,8 @@
-# kneehab v13.43 — Exposure, Not Compensation
+# kneehab v13.44 — Exposure, Not Compensation
 
 **Date:** 2026-08-14
-**Type:** Minor (.01) ×3 — v13.41 built the depth gate, v13.42 made it side-aware, v13.43 corrects the mechanism and caps the actual driver.
-**Supersedes:** v13.4, v13.41, v13.42
+**Type:** Minor (.01) ×4 — v13.41 built the depth gate, v13.42 made it side-aware, v13.43 corrected the mechanism and capped the actual driver, v13.44 fixes the joint-load rationale.
+**Supersedes:** v13.4, v13.41, v13.42, v13.43
 
 ---
 
@@ -34,9 +34,30 @@ That's the driver. The test squat that produced the pain landed on top of **accu
 
 ## Why a long static deep hold is the wrong tool here
 
-**It contradicts one of this program's own foundations.** Cartilage is avascular and fed by **cyclic** compressive loading (Bellemans) — fluid in, waste out. A sustained static deep hold is the opposite: prolonged compression expresses fluid out and impedes the exchange. Deep flexion is also where patellofemoral contact pressure on the lateral facet peaks. Thirty minutes of static accumulation is close to an anti-Bellemans dose.
+### v13.44 correction: depth is not the villain
 
-**And the program had already dropped it.** Deep Squat Hold was cut in v13.03. It returned outside the program at roughly six times the dose.
+Patellofemoral joint **force** does rise steeply with flexion — but **stress** does not track it.
+
+| Activity | PFJ force |
+|---|---|
+| Level walking | ~0.5× bodyweight |
+| Stairs | ~3–4× BW |
+| Bodyweight squat at 90° | ~3–5× BW |
+| Deep squat | up to ~7–8× BW |
+
+**Contact area grows with flexion** — the patella seats into the trochlear groove, roughly 2 cm² near extension to 4–6 cm² by 90° and beyond. Past ~90–100° the **quadriceps tendon contacts the femoral trochlea** and shares load (the "wrapping effect"). **Peak patellofemoral stress therefore sits nearer 90° than at maximum depth.** The joint is well designed for the deep position; v13.43 overstated this.
+
+**So the case against the practice is not peak load. It is three other things:**
+
+1. **Sustained beats peak.** Cartilage is viscoelastic. Brief passes load it and let it rebound; a minutes-long hold drives progressive fluid exudation and degrades load distribution the longer you stay. Static and cyclic are different stimuli, not different amounts of one — the Bellemans point, intact.
+2. **The tissue is untrained.** Very deep flexion engages surfaces — including the odd facet on the extreme medial patella, which only articulates past ~135° — that a knee which has never gone there has never conditioned.
+3. **Accumulated dose.** 30 min/day is a lot of anything for a joint with a symptom history.
+
+Novel surface × long duration is the risk, not the peak number.
+
+**And the program had already dropped it.**
+
+Deep Squat Hold was cut in v13.03. It returned outside the program at roughly six times the dose.
 
 **What it's actually buying:** the practice targets ankle dorsiflexion and hip flexion range. Ankle DF measured **5 in knee-to-wall** — above threshold, already ruled out as a limiter anywhere — and hip range is covered across `W` and `R`. Marginal benefit low, cost now demonstrated.
 
@@ -57,6 +78,12 @@ This is a **dose problem, not a ban.**
 - **Stop rule:** any sharp anterolateral sensation, or discomfort appearing after standing up, means the dose was too long.
 
 > **The point:** gating depth inside the Strength session is meaningless while uncapped end-range compression accumulates outside it.
+
+### 1b. The box is not a "safe angle" (v13.44)
+
+A cap near parallel sits close to where patellofemoral **stress** actually peaks — contact area and the quad-tendon wrap buffer the *deeper* positions, not the mid-range ones. **Capped is not unloaded.**
+
+Do not model this as "deep = dangerous, parallel = safe." **The 24-hour response check is the arbiter, not the degree measurement** — which is exactly why the gate was built as a response test rather than an angle.
 
 ### 2. Ceiling test reinterpreted
 
