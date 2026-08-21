@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>kneehab v14.3</title>
+<title>kneehab v14.31</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
 <style>
 /* ── Variables ───────────────────────────────────── */
@@ -949,7 +949,7 @@ body { background: #fff; color: #000; }
 
 <div class="menu-sheet" id="menuSheet">
   <div class="ms-handle" onclick="closeMenu()"></div>
-  <div class="ms-title">kneehab v14.3</div>
+  <div class="ms-title">kneehab v14.31</div>
   <div class="ms-sub">BAAR · BELLEMANS · ATG</div>
 
   <div class="ms-group">Exercises</div>
@@ -991,7 +991,7 @@ body { background: #fff; color: #000; }
     <div class="cover-stripe"></div>
 
 <div class="cover-eyebrow">Full Body Training</div>
-<div class="cover-h1">kneehab<br><em>v14.3</em></div>
+<div class="cover-h1">kneehab<br><em>v14.31</em></div>
 
 <div class="cover-chips">
   <span class="cover-chip">PFPS</span>
@@ -1077,7 +1077,48 @@ body { background: #fff; color: #000; }
 
 <!-- ══════════════════════════════════════════════════ -->
 
-<!--  REVISIONS                                         -->
+<!--  GLOBAL DAY SELECTOR (fixed, all pages)           -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div class="day-selector" id="daySelector">
+  <button class="day-btn" data-block="W" onclick="selectBlock('W',this)">
+    <span class="day-btn-num">☀️</span>
+  </button>
+  <button class="day-btn type-a" data-block="S" onclick="selectBlock('S',this)">
+    <span class="day-btn-num">💪</span>
+  </button>
+  <button class="day-btn" data-block="C" onclick="selectBlock('C',this)">
+    <span class="day-btn-num">🚴</span>
+  </button>
+  <button class="day-btn" data-block="R" onclick="selectBlock('R',this)">
+    <span class="day-btn-num">🧘</span>
+  </button>
+  <button class="day-btn" data-block="N" onclick="selectBlock('N',this)">
+    <span class="day-btn-num">⚗️</span>
+  </button>
+  <button class="day-btn" data-block="D" onclick="selectBlock('D',this)">
+    <span class="day-btn-num">✨</span>
+  </button>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  TODAY                                            -->
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<div id="today" class="page on">
+<div class="doc">
+
+  <div id="dayCard"></div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+
+<!--  SCHEDULE (reference)                              -->
 
 <!-- ══════════════════════════════════════════════════ -->
 

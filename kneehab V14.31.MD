@@ -413,3 +413,63 @@ Neither anchor is fatiguing enough to compromise a 60-minute session. **Don't re
 If MTB regularly takes the anchor slot, the tendon is covered — but **rope quietly disappears from the week**, and with it the osteogenic work. Trail chatter through a suspended bike is nowhere near rope for strain *rate*.
 
 The fix is free: **bone ignores the collagen window entirely.** A couple of minutes of rope at any point on a ride day restores it without touching the anchor logic. It isn't competing for anything.
+
+---
+
+# v14.31 — FIX: v14.21 deleted the Today page
+
+**v14.21 through v14.3 were broken.** The Today tab — the main screen — rendered nothing.
+
+## Root cause
+
+v14.21 removed the Revision History page with a cut running from `<div id="revisions" class="page">` to `<div id="schedule" class="page">`. Three things sat **between** those two markers, and all three went with it:
+
+- the **global day selector** — the whole W/S/C/R/N/D block picker
+- the **`#today` page** and its `#dayCard` render target
+- the `SCHEDULE` section banner (leaving an orphaned `REVISIONS` banner above `#schedule`)
+
+`renderBlock` opens with `const card = document.getElementById('dayCard')` and ends with `card.innerHTML = _cardHtml`. With `#dayCard` gone, `card` was null and the assignment threw. No block could render, and there were no buttons to switch blocks with either.
+
+## Why the invariants missed it
+
+The removal script had 17 assertions and they all passed, because they were built on a wrong picture of the file. I enumerated pages with:
+
+```python
+re.search(r'<div id="(\w+)" class="page"', line)
+```
+
+The Today page is the default-visible tab, so its markup is `class="page on"` — **the regex requires `class="page"` closed immediately by a quote, so it never matched.** Today never appeared in my page list, so I never thought to assert it, and the cut spanned a region I believed was empty.
+
+The lesson isn't "add another assertion." It's that **assertions derived from an incomplete survey inherit the survey's blind spot.** A checklist of things I already knew about could never have caught a page I didn't know existed.
+
+## The check that would have caught it
+
+Not a page list — a **referential integrity check**. Every `getElementById('x')` in the script must find an `id="x"` in the HTML:
+
+```
+getElementById targets missing from the HTML: today, dayCard    ← on the broken file
+getElementById targets missing from the HTML: none              ← after the fix
+```
+
+That check makes no assumptions about which elements matter. It derives the requirement from the code itself.
+
+## New standing tests
+
+Both now run before any commit:
+
+- **`loadtest.js`** — executes the entire script against a DOM stub built from the real HTML's id set, and reports any `getElementById` target that doesn't exist.
+- **`e2e.js`** — runs the actual page-load path, then asserts `#dayCard` exists, the Today block rendered on load, the default block is the Opener, all six blocks render, and the `N` pick interaction survives a real render.
+
+```
+PASS  dayCard element exists
+PASS  Today block rendered on load (26333 chars)
+PASS  default block is the Opener
+PASS  renderBlock('W'|'S'|'C'|'R'|'N'|'D') produced output
+PASS  pickStep on a freshly rendered N did not throw
+```
+
+Also added: a tag-balance check across every string in `BLOCKS`, and HTML div-balance and CSS brace-balance checks.
+
+## Restored
+
+The day selector, `#today`, `#dayCard` and the `SCHEDULE` banner, all taken verbatim from `ffccbc1` (v14.2, the last good commit). A full id-and-class diff against v14.2 now shows only `revisions` missing, which is intentional. **No program content changed** — v14.21's note trims and everything in v14.22 and v14.3 stand.
