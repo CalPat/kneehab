@@ -473,3 +473,40 @@ Also added: a tag-balance check across every string in `BLOCKS`, and HTML div-ba
 ## Restored
 
 The day selector, `#today`, `#dayCard` and the `SCHEDULE` banner, all taken verbatim from `ffccbc1` (v14.2, the last good commit). A full id-and-class diff against v14.2 now shows only `revisions` missing, which is intentional. **No program content changed** — v14.21's note trims and everything in v14.22 and v14.3 stand.
+
+---
+
+# v14.4 — the Isometric Circuit is now actually isometric
+
+It had four items and **three were duplicates of Strength**:
+
+| Circuit | Strength |
+|---|---|
+| Tibialis Raise `1 × 20 · 1s hold` | **Tib Raise** `1 × 20 · 1s hold` — identical |
+| Soleus Calf Raise `2 × 12` | **Soleus Calf Raise** `3 × 15` |
+| Copenhagen Plank `2 × 20s` | **Copenhagen Plank** `2 × 20s` + lever ladder |
+| Mǎbù | — unique |
+
+**v14.0 created the worst of them.** It moved Copenhagen into `S` precisely because it *fatigues* — muscle bucket — and then left it in the collagen circuit too. Soleus and Tib Raise predate the sort and were never re-examined; v14.0 swapped SL Wall Sit → Mǎbù and stopped there.
+
+## The real problem, not the duplication
+
+All three are **rep-based work that fatigues**, which is the muscle bucket by this program's own sorting test. So the "Isometric Circuit" was mostly a muscle circuit wearing an isometric label — exactly the category error the v14.0 re-sort existed to remove. Only Mǎbù was a genuine sustained hold.
+
+## Rebuilt
+
+Two true holds, chosen to be the rope's zero-impact equivalent **tissue for tissue**:
+
+| | Rope loads | Circuit answer |
+|---|---|---|
+| Quad / patellar tendon | impact + eccentric | **Mǎbù** — 4 × 45s |
+| Achilles | strain rate | **Bent-Knee Calf Hold** — 4 × 45s |
+| Plantar fascia | impact | same hold, barefoot on a step edge |
+
+**Bent-Knee Calf Hold** *(new)*: forefoot on the edge of a step, barefoot, heels hanging, rise onto the forefoot and **hold** — no reps. Knee bent ~30° throughout, which biases soleus over gastrocnemius and puts the Achilles under sustained tension; barefoot on the step edge loads the plantar fascia in the same hold. **Watch:** letting the knee straighten (shifts load off the soleus), rolling to the outside of the foot, gripping with the toes. **Progression:** longer → single leg → hold a KB.
+
+Explicitly *not* the same exercise as the Soleus Calf Raise in `S` — that one is 3 × 15 eccentric reps, which is muscle work. This is a tendon hold.
+
+**Dose matters here.** 4 × 45s each puts the circuit alongside the rope's 6–10 min rather than well under it. And Baar and Rio both run isometrics near **70% MVC** — bodyweight versions may sit below that, which makes the load progressions (goblet Mǎbù, single-leg calf hold) the point rather than an optional extra.
+
+Nothing was lost: Tib Raise, Soleus Calf Raise and Copenhagen all remain in `S`, where the tissue sort says they belong.
