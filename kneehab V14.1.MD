@@ -166,3 +166,59 @@ The floating 30 BPM pill and everything behind it: the widget, the expandable pa
 `.tbtn` goes with it — the `SHARED BUTTONS` header created during the timer removal existed only because the metronome still used those rules. Nothing else did, so it is gone too.
 
 `index.html`: 2964 → 2694 lines. Combined with the timer removal, the file is down from **3386 to 2694 lines** — about 20% smaller — with no change to any programming content.
+
+---
+
+# v14.1 — anchor + complement, and two corrections
+
+## The Collagen Block: the window is an amplifier, not a gate
+
+**Correction 1 — the "10 minutes saturates" rule is per *tissue*, not per person.** The old note said loading only needs ~10 min and more does not increase synthesis. True of the tissue you just loaded — its cells stop responding for roughly six hours. Not true across tissues: the amino-acid pool from the dose is **systemic**, and any tissue that gets a mechanical signal can use it. Loading the patellar tendon does nothing to saturate the hip capsule, the shoulder, or the plantar fascia.
+
+**So the way to get more out of one dose is more tissues, never more minutes.**
+
+**Correction 2 — do not let the window gate the loading.** Mechanical loading raises collagen synthesis on its own; the dose roughly doubles it. Missing the timing costs the amplification, not the session, and skipping because the timing slipped is strictly worse. The program has made this mistake once already — v13.07 dropped the rigid Bellemans bike protocol as *"too onerous, never followed."*
+
+The instruction inverts: **you are loading today anyway — when convenient, time the collagen so the loading lands 45–60 min after. When it isn't, load anyway.**
+
+## Anchor + complement replaces "pick one of five"
+
+| | Options | Why |
+|---|---|---|
+| **Anchor** — pick **one** | Jump Rope *(default)* · Isometric Circuit · Ruck | All load lower-limb tendon. Two of them is the same tissue twice — no extra synthesis, and for rope, real impact cost for nothing. |
+| **Complement** — optional | **Yoga Holds** *(default)* · Easy Movement | Loads tissue the anchor misses, so it genuinely adds. |
+
+**Default pairing: Rope + Yoga Holds** — near-zero overlap, roughly double the coverage. Run them **back to back, not spread across the afternoon**: hydrolysed collagen peaks around 45–60 min and washes out over hours, so a later second bout runs on a thinner pool.
+
+**Yoga Holds is close to mandatory rather than optional** — it is the only item in the block that loads anything above the waist (shoulder capsule and lat fascia in Child's Pose with Reach). Everything else is legs, and shoulder and elbow are named sites.
+
+**Window-independent, listed for convenience only:** Ruck and Easy Movement. Cartilage is fed by cyclic fluid exchange, not amino acids, and has no refractory period, so it never competes. The *bone* half of jump rope is likewise strain-rate driven and indifferent to collagen.
+
+## The overlap rules
+
+> **One anchor per window.**
+> **Add a complement freely** — different tissue, so it adds.
+> **A different window 6h+ away is NOT overlap** — the Opener (~06:30) and this block (~15:15) are ~8h apart, so they are two legitimate bouts on the same tissue. The Opener is unamplified; this one isn't.
+> **Cartilage work never counts against any of this.**
+
+**Is redundant loading harmful, or merely wasted?** Depends on the modality, and the principle is: *the adaptive response saturates, the mechanical load does not.*
+
+| Twice in one window | Extra benefit | Extra cost | Verdict |
+|---|---|---|---|
+| Isometrics on already-loaded tendon | None | Near zero | Harmless, wasted time |
+| Rope past ~10 min, or repeated | None | Real — impact accrues whether or not bone is listening | **Net negative** |
+| Walk / bike / ruck | Still accruing | Near zero | Not overlap at all |
+
+And **"it felt fine" is not the test.** v13.41 established that the knee signal can arrive on a lag — that is why the 24-hour rule exists. Redundant impact you can't feel today is exactly what shows up tomorrow as a knee short of full lockout on the Squat to Box.
+
+**Bone footnote:** bone saturates at ~40–50 impacts, takes ~8h to resensitise, and split bouts beat one long bout (Robling; rodent-derived, human data thinner). A second short rope bout ~8h away is a real gain — a couple of minutes at the **end** of the Opener plus the afternoon bout. Never at the *start* of the morning: impact into cold, overnight-hyper-hydrated tissue is the worst risk-per-benefit slot in the day.
+
+## Suitcase Carry — progresses on distance, not load
+
+v14.0 said go heavy. **That was wrong, and the v13.15 note already said why:** the gap between a carry (~30 N·m) and a side plank (~200 N·m) is *the lever, not the weight*. Torque is force × moment arm, and the bell hangs about 20 cm from the spine however heavy it is. **Even a maximal one-arm carry cannot reach side-plank torque.** More bell was never going to close that gap — and the user does not have a heavier bell in any case.
+
+- **The high-torque lateral work is the Copenhagen lever ladder** — same session, no equipment. A long-lever Copenhagen is side-plank-class and arguably harder, since the support point is at the ankle and the adductors carry a share.
+- **The carry keeps the job only it can do:** *loaded standing* — stance-leg glute med holding the pelvis level through gait, the actual v12.01 fault, which a horizontal side plank never trains.
+- **Progression is distance:** 2 × 40m → 3 × 40m → 2 × 60m → continuous. Not a consolation prize — the target fault is a sustained postural failure, and QL and glute med in gait are endurance-role muscles, so distance is arguably the *more* specific progression.
+- **Optional load route:** the ruck pack carried one-handed by the haul handle — the one piece of kit with no ceiling and fine increments. **Strap it**, because a thin haul handle puts grip on the critical path.
+- **Held in reserve:** overhead (waiter) carry — same bell, higher centre of mass, larger destabilising moment, genuinely harder at identical weight. Shifts emphasis to shoulder, which is a named site, so it's a deliberate choice not the default.
