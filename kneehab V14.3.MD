@@ -370,3 +370,46 @@ Neither competes with anything here. **Walk, ride and ruck whenever you like** �
 ```
 
 Four rows, three stages, no "needs no window" group at all. Down from five competing options in v14.0.
+
+---
+
+# v14.3 — does the activity count as the anchor?
+
+The blanket rule was *"skip this block on Activity days — the activity itself is the loading."* Written for a big day, and **wrong for the most common case**: a 60-minute session landing at collagen time.
+
+## Ask what it loaded, not what it was called
+
+Both a trail ride and a bike commute live under the word "ride," and they are not the same exposure.
+
+| Session | Loads tendon? | Why |
+|---|---|---|
+| **MTB (real trail ride)** | **Yes** | Out-of-saddle climbing is a high knee-extensor moment; the descending attack position is a *sustained quad isometric*; terrain absorption adds eccentric work and impact |
+| **Ruck, hike, ski** | **Yes** | Achilles, plantar, patellar under genuine strain |
+| **Seated commute, fire road, recovery spin** | **No** | Low peak force, no impact, near-nothing through the patellar tendon |
+| **Kayak, row, swim** | **Not the knee** | Upper limb only |
+
+**Self-check: could you feel your quads working?** Sustained quad engagement is the signal. Legs merely turning over isn't.
+
+*(Correcting v14.1's implicit assumption that cycling is uniformly low tendon load — that's true of road cycling and false of mountain biking.)*
+
+## The two cases
+
+**It counts** → dose 45–60 min before, go, and the activity takes its turn in the rope ⇄ circuit alternation rather than sitting outside it. Sixty minutes is far past the ~10-minute saturation point.
+
+**It doesn't** → **anchor first, then go.** Nothing has to move:
+
+```
+14:30  Collagen + vit C + creatine
+15:15  ANCHOR — rope 6–10 min, or the circuit
+15:25  Ride
+```
+
+Neither anchor is fatiguing enough to compromise a 60-minute session. **Don't reverse it** — a ride starting at T+45 ends near T+105 with the amino pool thinning, so you'd be loading the tail rather than the peak.
+
+## The second-order cost, which is the non-obvious part
+
+**The anchor slot and the bone stimulus are not the same thing.**
+
+If MTB regularly takes the anchor slot, the tendon is covered — but **rope quietly disappears from the week**, and with it the osteogenic work. Trail chatter through a suspended bike is nowhere near rope for strain *rate*.
+
+The fix is free: **bone ignores the collagen window entirely.** A couple of minutes of rope at any point on a ride day restores it without touching the anchor logic. It isn't competing for anything.
