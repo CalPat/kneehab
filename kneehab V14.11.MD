@@ -222,3 +222,21 @@ v14.0 said go heavy. **That was wrong, and the v13.15 note already said why:** t
 - **Progression is distance:** 2 × 40m → 3 × 40m → 2 × 60m → continuous. Not a consolation prize — the target fault is a sustained postural failure, and QL and glute med in gait are endurance-role muscles, so distance is arguably the *more* specific progression.
 - **Optional load route:** the ruck pack carried one-handed by the haul handle — the one piece of kit with no ceiling and fine increments. **Strap it**, because a thin haul handle puts grip on the critical path.
 - **Held in reserve:** overhead (waiter) carry — same bell, higher centre of mass, larger destabilising moment, genuinely harder at identical weight. Shifts emphasis to shoulder, which is a named site, so it's a deliberate choice not the default.
+
+---
+
+# v14.11 — the Ruck is not an anchor
+
+A correction to v14.1. The Ruck was listed as one of three anchors because it used to be "Option 5" — wrong slot.
+
+**Its value is cartilage and strain-*magnitude* bone.** Neither has a refractory period, and neither cares about collagen peptides. And 15–20+ minutes of walking doesn't fit a ten-minute loading window regardless. So it was never competing for the window, and listing it as an anchor implied a trade-off that doesn't exist.
+
+| | |
+|---|---|
+| **Anchor — pick one** | Jump Rope · Isometric Circuit |
+| **Complement — optional** | Yoga Holds |
+| **Needs no window** | Ruck · Easy Movement |
+
+The rule is unchanged and now unambiguous: **Rope or Isometric Circuit, never both** — same tissue twice (patellar/quad tendon, Achilles), no extra synthesis, and with the rope you pay real impact for it.
+
+**"Can I ruck and rope?" is not a question this block answers.** Rope in the window, ruck when you ruck. They aren't two options on one menu.
