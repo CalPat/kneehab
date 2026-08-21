@@ -240,3 +240,56 @@ A correction to v14.1. The Ruck was listed as one of three anchors because it us
 The rule is unchanged and now unambiguous: **Rope or Isometric Circuit, never both** — same tissue twice (patellar/quad tendon, Achilles), no extra synthesis, and with the rope you pay real impact for it.
 
 **"Can I ruck and rope?" is not a question this block answers.** Rope in the window, ruck when you ruck. They aren't two options on one menu.
+
+---
+
+# v14.2 — the Collagen Block becomes a staged decision
+
+The block was a *decision tree* rendered as a flat list of five identical rows. The rule — pick one anchor, optionally add a complement, ignore the rest — existed only in prose. You had to read a paragraph to learn what the screen should have shown you.
+
+## What changed
+
+**Stage headers.** The step list is now grouped, each group carrying its own instruction:
+
+```
+01  THE DOSE            Eating window · 2.5h clear of protein
+02  PICK ONE ANCHOR     Same tissue twice buys nothing
+03  ADD A COMPLEMENT    Optional · different tissue, so it adds
+—   NEEDS NO WINDOW     Not part of the choice — do these whenever
+```
+
+That last group is deliberately un-numbered and set in muted type. Ruck and Easy Movement are *outside* the decision, and the typography now says so without a sentence.
+
+**Mutual exclusivity you can feel.** The two anchors carry a selection marker. Tap one and it fills pink; the sibling drops to 34% opacity with its marker collapsing to a dash. The rule stops being something you remember and becomes something the screen enforces. The complement is a separate toggle in mint, so anchor and complement never look like competing choices.
+
+**A live readout.** Above the list, in Bebas: `ROPE + YOGA`, updating as you select, reading `Pick an anchor` when empty. The block now answers its own question at a glance.
+
+**Motion, once.** A 180ms dim on the sibling and a small rise on the readout swap. Nothing else animates — one moment, where the decision happens.
+
+## Implementation
+
+Generic rather than special-cased. Any block that gains a `stages` array plus per-step `stage` / `pick` / `pickLabel` renders this way — `R`'s "pick 1–2 categories" could adopt it unchanged.
+
+- `stages:[{k,n,label,hint,free}]` on the block; `stage:` / `pick:'one'|'opt'` / `pickLabel:` on steps
+- Selection lives in `localStorage` under `kneehab.picks`, **every access wrapped in try/catch** so a blocked or absent store degrades to unselected rather than breaking the render
+- Stage headers emit once per stage via a `Set`, so a future reorder degrades gracefully instead of repeating headers
+- Markers are `role="button"`, keyboard-reachable, and `stopPropagation` so tapping one selects without expanding the row
+
+Colours come from the existing tokens — `--amber` for anchors, `--green` for the complement — so it reads as the same app, not a bolt-on.
+
+**Also removed:** a stale `// ── Timer Modal` comment header left behind by the v14.0 timer removal.
+
+## Verification
+
+Beyond `node --check` and the six-block render pass: a dedicated harness with a real `classList` stub exercises the interaction — initial state, pick, add complement, switch anchor, deselect, persistence, and the localStorage-blocked path.
+
+```
+stage headers: The dose | Pick ONE anchor | Add a complement | Needs no window
+markers rendered: 3 (expect 3)
+initial      readout: "Pick an anchor"
+pick rope    rope=[picked] iso=[dimmed]   readout="Rope"
+add yoga     yoga=[picked-alt]            readout="Rope + Yoga"
+switch iso   rope=[dimmed] iso=[picked]   readout="Isometrics + Yoga"
+deselect     rope=[-] iso=[-]             readout="Pick an anchor"
+savePicks with blocked storage: survived
+```
