@@ -333,3 +333,40 @@ Nothing is lost: the full chain is in the git log, and v11.0→v13.2 is also sum
 ## Also found, not touched
 
 Four pages are **unreachable** — zero nav references anywhere: `#schedule` (165 lines), `#base` (77), `#load` (57), `#micro` (106). They are v12-era content describing Day A / Day B, and `#schedule` holds the last surviving `Current Baseline` changelog block. That is ~405 lines of dead markup, but removing pages is a wider change than trimming history, so it is flagged rather than done.
+
+---
+
+# v14.22 — alternate the anchors; drop what never belonged on the menu
+
+The block now matches how it's actually used.
+
+## Alternate, don't default
+
+v14.1 made Jump Rope the default and the Isometric Circuit the flared-knee swap. **They alternate instead.** Both land on the same tissue — patellar/quad tendon, Achilles — so doing both in one window still buys nothing. But they load it in **different modes**: the rope is strain *rate*, the circuit is sustained tension. Tendon responds to both, so alternating gives varied stimulus and halves cumulative impact.
+
+**Rope, then circuit, then rope.** The circuit remains the **override** — on a grumbly knee, take it regardless of whose turn it is, because it's the zero-impact one.
+
+## Yoga is optional — a correction
+
+v14.1 called Yoga Holds "near-mandatory," on the grounds that it was the only above-waist loading in the block. **That overstated it.** The Opener's Dead Hang covers shoulder capsule, lat fascia and the elbow *every single day*, so the gap it was supposedly filling is already filled.
+
+What yoga uniquely adds here is **hip capsule and fascia loaded at the collagen peak**. Worth having; not worth forcing. Add it when you feel like it. If you do, run it back to back with the anchor.
+
+## Easy Movement and Ruck cards removed
+
+Both were in the "needs no window" group, which is a contradiction: if something isn't a choice you make in this block, listing it as a row implies it is one. That was the exact confusion behind "so no ruck and rope?"
+
+- **Cartilage** is fed by cyclic fluid exchange, not amino acids, and has **no refractory period**.
+- **Bone** responds to strain rate and is equally indifferent to collagen peptides.
+
+Neither competes with anything here. **Walk, ride and ruck whenever you like** — the principle stays in the note and briefing, the false menu-items don't. Rucking keeps its full card in Cardio.
+
+## The block, end to end
+
+```
+01  THE DOSE                 Collagen + Vit C + Creatine
+02  PICK ONE ANCHOR          Jump Rope  ⇄  Isometric Circuit   (alternate)
+03  ADD IF YOU FEEL LIKE IT  Yoga Holds
+```
+
+Four rows, three stages, no "needs no window" group at all. Down from five competing options in v14.0.
