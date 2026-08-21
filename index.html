@@ -308,7 +308,6 @@ color: var(--amber); margin-bottom: 1px;
 }
 .cs-desc { font-size: 12px; color: var(--muted2); }
 
-
 /* ─────────────────────────────────────────────────── */
 /*  CARDS — mobile-native list style                   */
 /* ─────────────────────────────────────────────────── */
@@ -557,24 +556,6 @@ flex-shrink: 0; margin-top: 2px;
 .phase-item:nth-child(even) { background: var(--bg2); }
 
 /* ─────────────────────────────────────────────────── */
-/*  SHARED BUTTONS                                     */
-/* ─────────────────────────────────────────────────── */
-.tbtn {
-font-family: ‘IBM Plex Mono’, monospace;
-font-size: 13px; font-weight: 500;
-letter-spacing: 0.08em; text-transform: uppercase;
-padding: 0 20px;
-height: 48px;
-border: 1px solid; cursor: pointer;
-background: none; flex: 1;
--webkit-tap-highlight-color: transparent;
-}
-.tbtn:active { opacity: 0.7; }
-.tbtn-go { color: var(--amber); border-color: var(--amber2); }
-.tbtn-pause { color: #C08030; border-color: #604010; }
-.tbtn-rst { color: var(--muted2); border-color: var(--border2); }
-
-/* ─────────────────────────────────────────────────── */
 /*  MISC ELEMENTS                                      */
 /* ─────────────────────────────────────────────────── */
 .note {
@@ -637,66 +618,6 @@ margin: 4px 4px 4px 0;
 .pill-r {
 color: var(--red); background: var(--red-bg);
 border-color: var(--red);
-}
-
-/* ─────────────────────────────────────────────────── */
-/*  METRONOME OVERLAY                                   */
-/* ─────────────────────────────────────────────────── */
-.metro {
-  position: fixed;
-  top: calc(var(--safe-top) + 10px);
-  right: 12px;
-  z-index: 400;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-.metro-pill {
-  display: flex; align-items: center; gap: 8px;
-  background: var(--bg3);
-  border: 1px solid var(--border2);
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
-  min-height: 40px;
-}
-.metro-pill:active { background: var(--bg4); }
-.metro-pill.running { border-color: var(--amber); background: var(--amber-bg); }
-.metro-icon { font-size: 14px; color: var(--muted2); transition: color 0.15s; flex-shrink: 0; line-height: 1; }
-.metro-pill.running .metro-icon { color: var(--amber); }
-.metro-icon.flash { color: var(--white) !important; }
-.metro-bpm-display { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--text2); line-height: 1; letter-spacing: 0.04em; transition: color 0.15s; }
-.metro-pill.running .metro-bpm-display { color: var(--amber); }
-.metro-bpm-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; line-height: 1; }
-.metro-panel { background: var(--bg2); border: 1px solid var(--border2); border-bottom: none; padding: 14px 14px 10px; margin-bottom: -1px; display: none; }
-.metro-panel.open { display: block; }
-.metro-panel-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.metro-adj { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; width: 36px; height: 36px; background: var(--bg3); border: 1px solid var(--border2); color: var(--text2); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; -webkit-tap-highlight-color: transparent; }
-.metro-adj:active { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
-.metro-bpm-big { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--white); line-height: 1; letter-spacing: 0.04em; flex: 1; text-align: center; }
-.metro-presets { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
-.metro-pre { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.07em; padding: 5px 8px; background: var(--bg3); border: 1px solid var(--border2); color: var(--muted2); cursor: pointer; -webkit-tap-highlight-color: transparent; white-space: nowrap; }
-.metro-pre:active, .metro-pre.on { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
-.metro-beats-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-.metro-beats-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; }
-.metro-beat-btn { font-family: 'IBM Plex Mono', monospace; font-size: 10px; width: 30px; height: 28px; background: var(--bg3); border: 1px solid var(--border2); color: var(--muted2); cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.metro-beat-btn.on { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
-.metro-beat-dots { display: flex; gap: 5px; align-items: center; margin-left: auto; }
-.metro-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border2); transition: background 0.06s; }
-.metro-dot.accent { background: var(--amber); }
-.metro-dot.tick   { background: var(--muted2); }
-.metro-dismiss { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); background: none; border: none; cursor: pointer; padding: 2px 0 0; -webkit-tap-highlight-color: transparent; display: block; width: 100%; text-align: right; }
-
-@media (min-width: 601px) {
-.doc { padding: 24px 32px calc(var(--tab-h) + var(--sel-h) + 24px); }
-.layer-stack { flex-direction: row; }
-.layer-card { flex-direction: column; gap: 0; }
-.lc-num-col { width: auto; padding-top: 0; margin-bottom: 4px; }
-.ex-top { flex-direction: row; align-items: flex-start; }
-.tab-btn { flex-direction: row; gap: 6px; min-height: 52px; }
-.tab-label { font-size: 11px; }
-.tab-icon { font-size: 15px; }
-.cover-sources { flex-direction: row; flex-wrap: wrap; gap: 20px; }
-body { font-size: 14px; }
 }
 
 /* ─────────────────────────────────────────────────── */
@@ -972,50 +893,6 @@ body { background: #fff; color: #000; }
 
 <!-- ══════════════════════════════════════════════════ -->
 
-<!-- ══════════════════════════════════════════════════ -->
-<!--  METRONOME OVERLAY                                 -->
-<!-- ══════════════════════════════════════════════════ -->
-<div class="metro" id="metro">
-  <div class="metro-panel" id="metroPanel">
-    <div class="metro-panel-row">
-      <button class="metro-adj" onclick="metroBpmAdj(-5)">−5</button>
-      <button class="metro-adj" onclick="metroBpmAdj(-1)">−</button>
-      <div class="metro-bpm-big" id="metroBpmBig">30</div>
-      <button class="metro-adj" onclick="metroBpmAdj(1)">+</button>
-      <button class="metro-adj" onclick="metroBpmAdj(5)">+5</button>
-    </div>
-    <div class="metro-panel-row" style="gap:6px;margin-bottom:10px;">
-      <button class="tbtn tbtn-go" id="metroStartBtn" onclick="metroStartStop()" style="flex:2;height:38px;font-size:12px;">START</button>
-      <button class="metro-pre" id="metroTapBtn" onclick="metroTap()" style="flex:1;height:38px;font-size:10px;padding:0;">TAP</button>
-    </div>
-    <div class="metro-presets" id="metroPresets">
-      <button class="metro-pre" onclick="metroSetBpm(20)">20 — 3s eccentric</button>
-      <button class="metro-pre" onclick="metroSetBpm(30)" class="metro-pre on">30 — 2s eccentric</button>
-      <button class="metro-pre" onclick="metroSetBpm(40)">40 — 1.5s</button>
-      <button class="metro-pre" onclick="metroSetBpm(60)">60 — 1s rep</button>
-      <button class="metro-pre" onclick="metroSetBpm(80)">80 — brisk</button>
-    </div>
-    <div class="metro-beats-row">
-      <span class="metro-beats-label">Beats</span>
-      <button class="metro-beat-btn" onclick="metroSetBeats(1)">1</button>
-      <button class="metro-beat-btn" onclick="metroSetBeats(2)">2</button>
-      <button class="metro-beat-btn on" onclick="metroSetBeats(4)">4</button>
-      <button class="metro-beat-btn" onclick="metroSetBeats(8)">8</button>
-      <div class="metro-beat-dots" id="metroDots"></div>
-    </div>
-    <button class="metro-dismiss" onclick="metroHide()">hide ×</button>
-  </div>
-  <div class="metro-pill" id="metroPill" onclick="metroPillTap()">
-    <span class="metro-icon" id="metroIcon">♩</span>
-    <div>
-      <div class="metro-bpm-display" id="metroBpmPill">30</div>
-      <div class="metro-bpm-label">bpm</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════ -->
-<!--  TIMER MODAL                                       -->
 <!-- ══════════════════════════════════════════════════ -->
 
 <div class="tab-bar">
@@ -2076,8 +1953,6 @@ body { background: #fff; color: #000; }
     </div>
   </div>
 
-
-
 </div>
 </div>
 
@@ -2203,7 +2078,6 @@ body { background: #fff; color: #000; }
 </div>
 
 <!-- ══════════════════════════════════════════════════ -->
-
 
 <script>
 // ── Navigation ─────────────────────────────────────────
@@ -2785,150 +2659,6 @@ function renderBlock(key) {
 }
 
 // ── Timer Modal ─────────────────────────────────────
-// ── Metronome ────────────────────────────────────────
-let metroAC = null, metroTimer = null;
-let metroBpm = 30, metroBeats = 4, metroBeat = 0, metroRunning = false, metroExpanded = false;
-let metroTapTimes = [];
-
-function metroCtx() {
-  if (!metroAC) metroAC = new (window.AudioContext || window.webkitAudioContext)();
-  return metroAC;
-}
-
-function metroClick(accent) {
-  const ctx = metroCtx();
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
-  osc.connect(gain); gain.connect(ctx.destination);
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(accent ? 880 : 440, ctx.currentTime);
-  gain.gain.setValueAtTime(accent ? 0.16 : 0.07, ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.07);
-  osc.start(ctx.currentTime);
-  osc.stop(ctx.currentTime + 0.07);
-}
-
-function metroFlash() {
-  const icon = document.getElementById('metroIcon');
-  icon.classList.add('flash');
-  setTimeout(() => icon.classList.remove('flash'), 80);
-}
-
-function metroUpdateDots() {
-  const c = document.getElementById('metroDots');
-  if (!c) return;
-  c.innerHTML = '';
-  for (let i = 0; i < metroBeats; i++) {
-    const d = document.createElement('div');
-    const active = metroRunning && (i === (metroBeat === 0 ? metroBeats - 1 : metroBeat - 1));
-    d.className = 'metro-dot' + (active ? (i === 0 ? ' accent' : ' tick') : '');
-    c.appendChild(d);
-  }
-}
-
-function metroTick() {
-  const accent = metroBeat === 0;
-  metroClick(accent);
-  metroFlash();
-  // update dot for the beat just fired
-  const dots = document.querySelectorAll('#metroDots .metro-dot');
-  dots.forEach((d,i) => { d.className = 'metro-dot' + (i === metroBeat ? (accent ? ' accent' : ' tick') : ''); });
-  metroBeat = (metroBeat + 1) % metroBeats;
-}
-
-function metroStart() {
-  if (metroRunning) return;
-  metroCtx().resume();
-  metroRunning = true; metroBeat = 0;
-  document.getElementById('metroPill').classList.add('running');
-  const btn = document.getElementById('metroStartBtn');
-  if (btn) { btn.textContent = 'STOP'; btn.className = 'tbtn tbtn-pause'; }
-  metroTick();
-  metroTimer = setInterval(metroTick, 60000 / metroBpm);
-}
-
-function metroStop() {
-  clearInterval(metroTimer); metroTimer = null;
-  metroRunning = false; metroBeat = 0;
-  document.getElementById('metroPill').classList.remove('running');
-  const btn = document.getElementById('metroStartBtn');
-  if (btn) { btn.textContent = 'START'; btn.className = 'tbtn tbtn-go'; }
-  metroUpdateDots();
-}
-
-function metroStartStop() {
-  if (metroRunning) metroStop(); else metroStart();
-}
-
-let metroPillTapCount = 0, metroPillTapTimer = null;
-function metroPillTap() {
-  metroPillTapCount++;
-  clearTimeout(metroPillTapTimer);
-  metroPillTapTimer = setTimeout(() => {
-    const n = metroPillTapCount;
-    metroPillTapCount = 0;
-    if (n >= 2) {
-      // double tap — toggle panel
-      metroExpanded = !metroExpanded;
-      document.getElementById('metroPanel').classList.toggle('open', metroExpanded);
-    } else {
-      // single tap — start / stop
-      if (metroRunning) metroStop(); else metroStart();
-    }
-  }, 260);
-}
-
-function metroBpmAdj(delta) {
-  metroBpm = Math.min(200, Math.max(10, metroBpm + delta));
-  metroSyncDisplay();
-  document.querySelectorAll('.metro-pre').forEach(b => b.classList.remove('on'));
-  if (metroRunning) { clearInterval(metroTimer); metroTimer = setInterval(metroTick, 60000 / metroBpm); }
-}
-
-function metroSetBpm(bpm) {
-  metroBpm = bpm; metroSyncDisplay();
-  document.querySelectorAll('.metro-pre').forEach(b => b.classList.remove('on'));
-  event.currentTarget.classList.add('on');
-  if (metroRunning) { clearInterval(metroTimer); metroTimer = setInterval(metroTick, 60000 / metroBpm); }
-}
-
-function metroSetBeats(n) {
-  metroBeats = n; metroBeat = 0;
-  document.querySelectorAll('.metro-beat-btn').forEach(b => b.classList.remove('on'));
-  event.currentTarget.classList.add('on');
-  metroUpdateDots();
-}
-
-function metroSyncDisplay() {
-  document.getElementById('metroBpmBig').textContent = metroBpm;
-  document.getElementById('metroBpmPill').textContent = metroBpm;
-}
-
-function metroTap() {
-  const now = Date.now();
-  metroTapTimes = metroTapTimes.filter(t => now - t < 3000);
-  metroTapTimes.push(now);
-  const btn = document.getElementById('metroTapBtn');
-  if (btn) { btn.style.borderColor = 'var(--amber)'; btn.style.color = 'var(--amber)'; setTimeout(() => { btn.style.borderColor = ''; btn.style.color = ''; }, 120); }
-  if (metroTapTimes.length < 2) return;
-  const intervals = [];
-  for (let i = 1; i < metroTapTimes.length; i++) intervals.push(metroTapTimes[i] - metroTapTimes[i-1]);
-  const avg = intervals.reduce((a,b) => a+b, 0) / intervals.length;
-  metroBpm = Math.min(200, Math.max(10, Math.round(60000 / avg)));
-  metroSyncDisplay();
-  document.querySelectorAll('.metro-pre').forEach(b => b.classList.remove('on'));
-  if (metroRunning) { clearInterval(metroTimer); metroTimer = setInterval(metroTick, 60000 / metroBpm); }
-}
-
-function metroHide() {
-  metroStop();
-  metroExpanded = false;
-  document.getElementById('metroPanel').classList.remove('open');
-}
-
-// init dots
-metroUpdateDots();
-
 // ── Wake Lock (prevent iPhone sleep while app is open) ──
 let wakeLock = null;
 

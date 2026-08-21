@@ -158,3 +158,11 @@ Timers are not used. The whole feature is gone rather than partly gone:
 `index.html` drops from 3386 to 2963 lines. Nav goes from three tabs to two (Home, Exercises) plus More.
 
 **Verification:** the removal script asserts eleven invariants — three tab buttons survive, all pages present, `BLOCKS` intact with six keys, metronome wired, no timer residue — and refuses to write unless all pass. It caught one over-deletion (a boundary walk that would have taken the tab bar) before anything was saved. After writing: `node --check` passes, all six blocks render clean with zero timers and zero `undefined`, and no dangling handler references remain.
+
+## v14.0 follow-up — the metronome is removed
+
+The floating 30 BPM pill and everything behind it: the widget, the expandable panel (BPM adjusters, TAP tempo, tempo presets, beat selector, dot display), all `metro*` JS, and the `.metro-*` CSS.
+
+`.tbtn` goes with it — the `SHARED BUTTONS` header created during the timer removal existed only because the metronome still used those rules. Nothing else did, so it is gone too.
+
+`index.html`: 2964 → 2694 lines. Combined with the timer removal, the file is down from **3386 to 2694 lines** — about 20% smaller — with no change to any programming content.
