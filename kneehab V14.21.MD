@@ -293,3 +293,43 @@ switch iso   rope=[dimmed] iso=[picked]   readout="Isometrics + Yoga"
 deselect     rope=[-] iso=[-]             readout="Pick an anchor"
 savePicks with blocked storage: survived
 ```
+
+---
+
+# v14.21 — version history older than v14 removed
+
+## What went
+
+**The Revision History page** — 402 lines, ~46 kB, linked from the More menu. It covered **v11.1 → v12.03**: Day A / Day B splits, the Bellemans Bike, the Knee Maintenance block, Scap Push-Ups, the yoga day. None of those structures exist any more, so the page was documenting a program that no longer runs. Its menu link went with it, leaving Key Rules and Supplements.
+
+**The pre-v14 tails on the block notes**, which had been accumulating since v13.0:
+
+| Note | Before | After | Versions now referenced |
+|---|---|---|---|
+| `S` | 14,591 | 2,663 | v14.0, v14.1 |
+| `C` | 1,753 | 1,216 | v14.0 |
+| `D` | 1,267 | 922 | — |
+| `R` | 927 | 900 | — |
+| `N` | 4,590 | 4,590 | v14.1, v14.11 |
+| `W` | 4,275 | 4,275 | v14.0 |
+
+The `S` note alone shed **11,920 characters** of v13.44 → v13.0 changelog.
+
+**Total: `index.html` 2848 → 2444 lines, 328 kB → 269 kB.**
+
+## What deliberately stayed
+
+A version label is not the same thing as version history. Several pre-v14 *rules* still govern, and all of them survive — they live in the briefings and step details rather than the notes, which is exactly why the notes were safe to cut:
+
+- The **squat depth gate** and the box ratchet (v13.41) — in the KB Front Rack Squat detail and the `S` briefing
+- The **24-hour response rule** (v13.41) — `S` briefing
+- The **PFJ force-vs-stress correction** and "the box is not a safe angle" (v13.44) — both places
+- **Capped Deep Squat Sitting** (v13.43) and **Frog Rock** (v13.41) — their own step details
+
+Where a still-governing rule carried a pre-v14 label in a note, the label was stripped and the content kept, so the note now reads as a description of how the block works rather than as a changelog. **No note references any version below v14.**
+
+Nothing is lost: the full chain is in the git log, and v11.0→v13.2 is also summarised in project memory.
+
+## Also found, not touched
+
+Four pages are **unreachable** — zero nav references anywhere: `#schedule` (165 lines), `#base` (77), `#load` (57), `#micro` (106). They are v12-era content describing Day A / Day B, and `#schedule` holds the last surviving `Current Baseline` changelog block. That is ~405 lines of dead markup, but removing pages is a wider change than trimming history, so it is flagged rather than done.
