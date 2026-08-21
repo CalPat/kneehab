@@ -557,33 +557,8 @@ flex-shrink: 0; margin-top: 2px;
 .phase-item:nth-child(even) { background: var(--bg2); }
 
 /* ─────────────────────────────────────────────────── */
-/*  TIMER                                              */
+/*  SHARED BUTTONS                                     */
 /* ─────────────────────────────────────────────────── */
-.timer-box {
-background: var(--bg2);
-border: 1px solid var(--border2);
-padding: 20px 16px;
-margin-bottom: 16px;
-}
-.timer-lbl {
-font-family: ‘IBM Plex Mono’, monospace;
-font-size: 9px; letter-spacing: 0.2em;
-text-transform: uppercase; color: var(--muted);
-margin-bottom: 10px;
-}
-.timer-face {
-font-family: ‘Bebas Neue’, sans-serif;
-font-size: 96px; letter-spacing: 0.02em;
-color: var(--white); line-height: 1;
-margin-bottom: 16px;
-transition: color 0.3s;
-}
-.timer-face.run { color: var(--amber); }
-.timer-face.warn { color: #C87820; }
-.timer-face.danger { color: var(--red); }
-.timer-face.done { color: var(--green); }
-
-.timer-btns { display: flex; gap: 10px; }
 .tbtn {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 13px; font-weight: 500;
@@ -598,50 +573,6 @@ background: none; flex: 1;
 .tbtn-go { color: var(--amber); border-color: var(--amber2); }
 .tbtn-pause { color: #C08030; border-color: #604010; }
 .tbtn-rst { color: var(--muted2); border-color: var(--border2); }
-
-.preset-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 8px;
-margin-top: 14px; padding-top: 14px;
-border-top: 1px solid var(--border);
-}
-.tpre {
-font-family: ‘IBM Plex Mono’, monospace;
-font-size: 11px; font-weight: 500;
-letter-spacing: 0.05em;
-padding: 0 12px;
-height: 44px;
-background: var(--bg3); border: 1px solid var(--border2);
-color: var(--muted2); cursor: pointer;
-text-align: center;
--webkit-tap-highlight-color: transparent;
-transition: all 0.1s;
-}
-.tpre:active { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
-.tpre.selected { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
-
-.timer-note {
-font-family: ‘IBM Plex Mono’, monospace;
-font-size: 11px; color: var(--muted);
-margin-top: 12px; font-style: italic;
-}
-
-/* Wall sit dots */
-.ws-sets { display: flex; gap: 8px; margin-bottom: 16px; }
-.ws-dot {
-flex: 1;
-height: 44px;
-border: 1px solid var(--border2);
-display: flex; align-items: center; justify-content: center;
-font-family: ‘IBM Plex Mono’, monospace;
-font-size: 13px; color: var(--muted);
-transition: all 0.2s;
-}
-.ws-dot.done { border-color: var(--green); color: var(--green); background: var(--green-bg); }
-.ws-dot.active { border-color: var(--amber); color: var(--amber); background: var(--amber-bg); }
-
-#wsFace { font-size: 72px !important; }
 
 /* ─────────────────────────────────────────────────── */
 /*  MISC ELEMENTS                                      */
@@ -707,66 +638,6 @@ margin: 4px 4px 4px 0;
 color: var(--red); background: var(--red-bg);
 border-color: var(--red);
 }
-
-/* ─────────────────────────────────────────────────── */
-/*  TIMER MODAL                                         */
-/* ─────────────────────────────────────────────────── */
-.tmodal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.82);
-  z-index: 500;
-  display: flex; align-items: flex-end; justify-content: center;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.2s;
-}
-.tmodal-overlay.open { opacity: 1; pointer-events: all; }
-
-.tmodal {
-  background: var(--bg2);
-  border: 1px solid var(--border2);
-  border-bottom: none;
-  border-radius: 16px 16px 0 0;
-  padding: 20px 20px calc(var(--safe-bottom) + 20px);
-  width: 100%; max-width: 480px;
-  transform: translateY(100%);
-  transition: transform 0.28s cubic-bezier(0.32,0.72,0,1);
-}
-.tmodal-overlay.open .tmodal { transform: translateY(0); }
-
-.tmodal-handle {
-  width: 36px; height: 4px;
-  background: var(--border2); border-radius: 2px;
-  margin: 0 auto 16px;
-}
-.tmodal-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--amber);
-  margin-bottom: 4px; text-align: center;
-}
-.tmodal-face {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 88px; letter-spacing: 0.02em;
-  color: var(--white); line-height: 1;
-  text-align: center; margin-bottom: 16px;
-  transition: color 0.3s;
-}
-.tmodal-face.run    { color: var(--amber); }
-.tmodal-face.warn   { color: #C87820; }
-.tmodal-face.danger { color: var(--red); }
-.tmodal-face.done   { color: var(--green); }
-.tmodal-btns { display: flex; gap: 10px; margin-bottom: 12px; }
-.tmodal-close {
-  width: 100%;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0; height: 40px;
-  background: none; border: 1px solid var(--border2);
-  color: var(--muted2); cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.tmodal-close:active { background: var(--bg3); }
-
 
 /* ─────────────────────────────────────────────────── */
 /*  METRONOME OVERLAY                                   */
@@ -982,38 +853,6 @@ border-bottom: 1px solid var(--border);
 .sde-name { font-size: 17px; font-weight: 500; color: var(--amber); margin-bottom: 3px; }
 .sde-rx { font-family: ‘IBM Plex Mono’, monospace; font-size: 12px; color: var(--muted2); margin-bottom: 6px; }
 .sde-desc { font-size: 14px; color: var(--text2); line-height: 1.75; }
-.sde-timer-btn {
-margin-top: 10px;
-font-family: ‘IBM Plex Mono’, monospace;
-font-size: 12px;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-padding: 10px 16px;
-background: none;
-border: 1px solid var(--amber2);
-color: var(--amber);
-cursor: pointer;
--webkit-tap-highlight-color: transparent;
-width: 100%;
-}
-.sde-timer-btn:active { background: var(--amber-bg); }
-.sde-navlink {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 10px 0 0;
-margin-top: 10px;
-border-top: 1px solid var(--border);
-font-family: ‘IBM Plex Mono’, monospace;
-font-size: 11px;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-color: var(--amber2);
-cursor: pointer;
--webkit-tap-highlight-color: transparent;
-}
-.sde-navlink:active { opacity: 0.7; }
 .sde-full-toggle {
 margin-top: 8px;
 font-family: 'IBM Plex Mono', monospace;
@@ -1178,18 +1017,6 @@ body { background: #fff; color: #000; }
 <!-- ══════════════════════════════════════════════════ -->
 <!--  TIMER MODAL                                       -->
 <!-- ══════════════════════════════════════════════════ -->
-<div class="tmodal-overlay" id="tModalOverlay" onclick="tModalBgClick(event)">
-  <div class="tmodal">
-    <div class="tmodal-handle"></div>
-    <div class="tmodal-label" id="tModalLabel">Timer</div>
-    <div class="tmodal-face" id="tModalFace">00:30</div>
-    <div class="tmodal-btns">
-      <button class="tbtn tbtn-go" id="tModalBtn" onclick="tModalStartPause()" style="flex:2">START</button>
-      <button class="tbtn tbtn-rst" onclick="tModalReset()" style="flex:1">RESET</button>
-    </div>
-    <button class="tmodal-close" onclick="tModalClose()">CLOSE</button>
-  </div>
-</div>
 
 <div class="tab-bar">
   <button class="tab-btn" id="tb-exercises" onclick="navTab('exercises','tb-exercises')">
@@ -1197,9 +1024,6 @@ body { background: #fff; color: #000; }
   </button>
   <button class="tab-btn" id="tb-cover" onclick="navTab('cover','tb-cover')">
     <span class="tab-icon">▲</span><span class="tab-label">Home</span>
-  </button>
-  <button class="tab-btn" id="tb-timer" onclick="navTab('timer','tb-timer')">
-    <span class="tab-icon">⧖</span><span class="tab-label">Timer</span>
   </button>
   <button class="tab-btn" id="tb-more" onclick="openMenu()">
     <span class="tab-icon">☰</span><span class="tab-label">More</span>
@@ -2330,44 +2154,6 @@ body { background: #fff; color: #000; }
 
 <!-- ══════════════════════════════════════════════════ -->
 
-<div id="timer" class="page">
-<div class="doc">
-  <div class="sh"><span class="sh-title">Timer</span></div>
-
-  <div class="timer-box">
-    <div class="timer-lbl">Countdown Timer</div>
-    <div class="timer-face" id="tFace">00:30</div>
-    <div class="timer-btns">
-      <button class="tbtn tbtn-go" id="tBtn" onclick="tStartPause()">START</button>
-      <button class="tbtn tbtn-rst" onclick="tReset()">RESET</button>
-    </div>
-    <div class="preset-grid">
-      <button class="tpre" onclick="tSet(8,'Bird dog hold')">8s — Bird Dog</button>
-      <button class="tpre" onclick="tSet(30,'Supine hip ER hold')">30s — Hip ER Hold</button>
-      <button class="tpre" onclick="tSet(20,'Single-leg wall sit')">20s — Single-Leg Wall Sit</button>
-      <button class="tpre" onclick="tSet(30,'Wall sit hold')">30s — Wall Sit</button>
-      <button class="tpre" onclick="tSet(30,'Standing hamstring ISO')">30s — Ham ISO</button>
-      <button class="tpre" onclick="tSet(45,'Rest between sets')">45s — Rest</button>
-      <button class="tpre" onclick="tSet(600,'Bike session')">10 min — Bike</button>
-      <button class="tpre" onclick="tSet(720,'Bike session')">12 min — Bike</button>
-      <button class="tpre" onclick="tSet(900,'BIKE MAX — stop at 15 min')">15 min — MAX ⚠</button>
-    </div>
-    <div class="timer-note" id="tNote">Select a preset above</div>
-  </div>
-
-  <div class="sh"><span class="sh-title">Wall Sit Tracker</span></div>
-  <p class="body" style="margin-bottom:14px;">5 × 20–30 sec · 45 sec rest · automated sequence · single-leg</p>
-  <div class="ws-sets" id="wsSets"></div>
-  <div class="timer-btns" style="margin-bottom:14px;">
-    <button class="tbtn tbtn-go" id="wsBtn" onclick="wsNext()">Start Set 1</button>
-    <button class="tbtn tbtn-rst" onclick="wsReset()">Reset</button>
-  </div>
-  <div class="timer-face" id="wsFace">00:30</div>
-  <div class="timer-note" id="wsNote">Tap Start Set 1 to begin</div>
-
-</div>
-</div>
-
 <!-- ══════════════════════════════════════════════════ -->
 <!-- ══════════════════════════════════════════════════ -->
 
@@ -2421,8 +2207,8 @@ body { background: #fff; color: #000; }
 
 <script>
 // ── Navigation ─────────────────────────────────────────
-const tabIds = ['cover','exercises','timer'];
-const tabBtnIds = ['tb-cover','tb-exercises','tb-timer'];
+const tabIds = ['cover','exercises'];
+const tabBtnIds = ['tb-cover','tb-exercises'];
 
 const _scrollPos = {};
 function _showPage(pageId, tabBtnId) {
@@ -2533,143 +2319,6 @@ function togEx(head) {
   head.closest('.ex-group').classList.toggle('open');
 }
 
-// ── General Timer ──────────────────────────────────────
-let tInterval=null, tRunning=false, tSecs=30, tTarget=30, tLabel='';
-
-function tSet(s, label) {
-  tReset();
-  tSecs=s; tTarget=s; tLabel=label||'';
-  tUpdateFace();
-  document.getElementById('tNote').textContent = label || '';
-  // highlight selected preset
-  document.querySelectorAll('.tpre').forEach(b => b.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
-  tStartPause();
-}
-
-function tStartPause() {
-  if (tRunning) {
-    clearInterval(tInterval); tRunning=false;
-    document.getElementById('tBtn').textContent='RESUME';
-    document.getElementById('tBtn').className='tbtn tbtn-go';
-  } else {
-    tRunning=true;
-    document.getElementById('tBtn').textContent='PAUSE';
-    document.getElementById('tBtn').className='tbtn tbtn-pause';
-    tInterval=setInterval(()=>{
-      tSecs--;
-      if (tSecs<=0) {
-        tSecs=0; clearInterval(tInterval); tRunning=false;
-        document.getElementById('tBtn').textContent='START';
-        document.getElementById('tBtn').className='tbtn tbtn-go';
-        document.getElementById('tNote').textContent='✓ Done';
-        document.getElementById('tFace').className='timer-face done';
-        if (navigator.vibrate) navigator.vibrate([200,100,200]);
-        setTimeout(()=>{ tReset(); document.getElementById('tNote').textContent=tLabel; }, 1500);
-        return;
-      }
-      tUpdateFace();
-    },1000);
-  }
-}
-
-function tReset() {
-  clearInterval(tInterval); tRunning=false; tSecs=tTarget;
-  document.getElementById('tBtn').textContent='START';
-  document.getElementById('tBtn').className='tbtn tbtn-go';
-  tUpdateFace();
-  tStartPause();
-}
-
-function tUpdateFace() {
-  const m=Math.floor(tSecs/60), s=tSecs%60;
-  const el=document.getElementById('tFace');
-  el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-  el.className='timer-face';
-  if (tRunning) {
-    if (tTarget>=600&&tSecs<=120) el.classList.add('danger');
-    else if (tTarget>=600&&tSecs<=180) el.classList.add('warn');
-    else el.classList.add('run');
-  }
-}
-
-// ── Wall Sit Tracker ────────────────────────────────────
-let wsSet=0, wsPhase='idle', wsSecs=0, wsInt=null;
-const WS_SETS=5, WS_HOLD=30, WS_REST=45;
-
-function wsRenderDots() {
-  const c=document.getElementById('wsSets'); c.innerHTML='';
-  for(let i=1;i<=WS_SETS;i++){
-    const d=document.createElement('div');
-    d.className='ws-dot';
-    if(i<wsSet){d.classList.add('done');d.textContent='✓';}
-    else if(i===wsSet){d.classList.add('active');d.textContent=i;}
-    else{d.textContent=i;}
-    c.appendChild(d);
-  }
-}
-
-function wsNext() {
-  if(wsPhase==='idle'){wsSet=1;wsStartHold();}
-}
-
-function wsStartHold() {
-  wsPhase='hold'; wsSecs=WS_HOLD;
-  document.getElementById('wsBtn').textContent='Holding…';
-  document.getElementById('wsBtn').className='tbtn tbtn-pause';
-  document.getElementById('wsNote').textContent='Set '+wsSet+' of '+WS_SETS+' — HOLD';
-  wsRenderDots();
-  clearInterval(wsInt);
-  wsInt=setInterval(()=>{
-    wsSecs--; wsUpdateFace();
-    if(wsSecs<=0){
-      clearInterval(wsInt);
-      if(wsSet>=WS_SETS){
-        wsPhase='done';
-        document.getElementById('wsFace').textContent='DONE';
-        document.getElementById('wsFace').style.color='var(--green)';
-        document.getElementById('wsNote').textContent='All 6 sets complete ✓';
-        document.getElementById('wsBtn').textContent='Done';
-        document.getElementById('wsBtn').className='tbtn tbtn-rst';
-        wsSet++; wsRenderDots();
-      } else { wsStartRest(); }
-    }
-  },1000);
-}
-
-function wsStartRest() {
-  wsPhase='rest'; wsSecs=WS_REST;
-  document.getElementById('wsBtn').textContent='Resting…';
-  document.getElementById('wsBtn').className='tbtn tbtn-rst';
-  document.getElementById('wsNote').textContent='Rest — set '+(wsSet+1)+' starts in '+WS_REST+'s';
-  wsInt=setInterval(()=>{
-    wsSecs--; wsUpdateFace();
-    if(wsSecs<=0){clearInterval(wsInt);wsSet++;wsStartHold();}
-  },1000);
-}
-
-function wsUpdateFace() {
-  const m=Math.floor(wsSecs/60),s=wsSecs%60;
-  const el=document.getElementById('wsFace');
-  el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-  el.style.color=wsPhase==='hold'?'var(--amber)':'var(--muted2)';
-}
-
-function wsReset() {
-  clearInterval(wsInt);
-  wsSet=0;wsPhase='idle';wsSecs=WS_HOLD;
-  document.getElementById('wsFace').textContent='00:30';
-  document.getElementById('wsFace').style.color='var(--text)';
-  document.getElementById('wsBtn').textContent='Start Set 1';
-  document.getElementById('wsBtn').className='tbtn tbtn-go';
-  document.getElementById('wsNote').textContent='Tap Start Set 1 to begin';
-  wsRenderDots();
-}
-
-// Init
-wsRenderDots();
-
-
 // ── TODAY TAB ──────────────────────────────────────────
 
 const BLOCKS = {
@@ -2680,40 +2329,40 @@ const BLOCKS = {
     stepLabel:'Walk + Pick 1–2 Categories',
     steps:[
       {id:'sR_gen', time:'Pick', title:'General — Full Flow',          sub:'No specific complaint · ~14 min',
-       detail:[{n:'Box Breathing',rx:'90s · 4s in / 4s hold / 4s out / 4s hold',d:'Parasympathetic downregulation before recovery work. Vagal tone directly impacts inflammation resolution — the transition from inflammatory to proliferative healing phase. Sit or lie comfortably. This is not optional fluff — it is a recovery signal.',timer:90},
+       detail:[{n:'Box Breathing',rx:'90s · 4s in / 4s hold / 4s out / 4s hold',d:'Parasympathetic downregulation before recovery work. Vagal tone directly impacts inflammation resolution — the transition from inflammatory to proliferative healing phase. Sit or lie comfortably. This is not optional fluff — it is a recovery signal.'},
                {n:'Cat-Cow',rx:'10 slow cycles',d:'Full spinal flexion and extension. Slow, controlled, breathe into each end range.'},
-               {n:'Down Dog',rx:'60s',d:'Press heels toward floor, straighten knees as range allows. Full posterior chain loading.',timer:60},
-               {n:'Lizard right',rx:'60s',d:'Deep hip flexor and adductor stretch. Drop to forearms if flexibility allows.',timer:60},
-               {n:'Down Dog',rx:'30s',d:'Transition. Reset posterior chain.',timer:30},
-               {n:'Lizard left',rx:'60s',d:'Match the right side. Notice asymmetries.',timer:60},
-               {n:'Down Dog',rx:'30s',d:'Transition.',timer:30},
-               {n:'Pigeon right',rx:'60s',d:'Deep piriformis and external rotator stretch under bodyweight.',timer:60},
-               {n:'Pigeon left',rx:'60s',d:'Match the right side.',timer:60},
-               {n:'Supine Twist right',rx:'30s',d:'Knees together, drop to one side. Opposite shoulder stays on floor.',timer:30},
-               {n:'Supine Twist left',rx:'30s',d:'Match the right side.',timer:30},
-               {n:'Child\'s Pose',rx:'60s',d:'Knees wide, arms extended. Final decompression. Mitchell principle: sustained positions, not flowing through quickly.',timer:60}]},
+               {n:'Down Dog',rx:'60s',d:'Press heels toward floor, straighten knees as range allows. Full posterior chain loading.'},
+               {n:'Lizard right',rx:'60s',d:'Deep hip flexor and adductor stretch. Drop to forearms if flexibility allows.'},
+               {n:'Down Dog',rx:'30s',d:'Transition. Reset posterior chain.'},
+               {n:'Lizard left',rx:'60s',d:'Match the right side. Notice asymmetries.'},
+               {n:'Down Dog',rx:'30s',d:'Transition.'},
+               {n:'Pigeon right',rx:'60s',d:'Deep piriformis and external rotator stretch under bodyweight.'},
+               {n:'Pigeon left',rx:'60s',d:'Match the right side.'},
+               {n:'Supine Twist right',rx:'30s',d:'Knees together, drop to one side. Opposite shoulder stays on floor.'},
+               {n:'Supine Twist left',rx:'30s',d:'Match the right side.'},
+               {n:'Child\'s Pose',rx:'60s',d:'Knees wide, arms extended. Final decompression. Mitchell principle: sustained positions, not flowing through quickly.'}]},
       {id:'sR_hips', time:'Pick', title:'Hips Tight',                  sub:'After long sitting, ski days · ~8 min',
-       detail:[{n:'Pigeon Pose',rx:'60s each side',d:'Same 60s hold as Day A/B — sink deeper now that tissue is warm. Piriformis and obturator stretch under sustained bodyweight. <strong>Regression:</strong> Supine Hip ER with Block.',timer:60},
-               {n:'Lizard Pose — Extended',rx:'60s each side',d:'Double the Day A/B hold. Sink deeper into hip flexor and adductor stretch. Drop to forearms if flexibility allows.',timer:60},
+       detail:[{n:'Pigeon Pose',rx:'60s each side',d:'Same 60s hold as Day A/B — sink deeper now that tissue is warm. Piriformis and obturator stretch under sustained bodyweight. <strong>Regression:</strong> Supine Hip ER with Block.'},
+               {n:'Lizard Pose — Extended',rx:'60s each side',d:'Double the Day A/B hold. Sink deeper into hip flexor and adductor stretch. Drop to forearms if flexibility allows.'},
                {n:'90/90 Hip Rotations — Slow',rx:'10 each side · 5s hold',d:'Extended hold at end range each side. Focus on the direction that feels restricted.'},
                {n:'Frog Rock',rx:'8 slow reps · 3s pause at end range',d:'<strong>v13.41 NEW.</strong> Hands and knees, knees wide, shins in line with the thighs, feet flexed. Rock the hips back toward the heels, pause 3s at end range, return under control. <strong>Loaded adductor length with zero knee compression</strong> — which is why it lives on Day R rather than in a loaded block, and why it is the correct entry point regardless of whether the limiter turns out to be groin or knee. It is the first rung of the Cossack ladder; the Cossack itself is excluded indefinitely (see the Strength v13.41 note). <strong>Primary:</strong> adductor magnus + brevis, hip capsule, hip internal rotators at length. <strong>Compensations to avoid:</strong> lumbar flexion at the back end — stop rocking back the instant the low back rounds, the motion comes from the hip and not the spine; knees splayed wider than the hips tolerate (the groin should feel a stretch, the knee should feel nothing at all). <strong>Regression:</strong> narrower knees, shorter rock, no pause. <strong>Progression:</strong> wider knees → 5s pause → light band around the thighs for loaded end-range.'}]},
-      {id:'sR_couch',time:'~2 min', title:'Couch Stretch (extended)', sub:'90s each side · v13.0', timer:90,
+      {id:'sR_couch',time:'~2 min', title:'Couch Stretch (extended)', sub:'90s each side · v13.0',
        detail:[{n:'Couch Stretch — extended hold',rx:'90s each side',d:'<strong>v13.0 — moved here from Day B (was 60s).</strong> Rectus femoris stretch via kneeling against wall, back foot elevated. Sustained viscoelastic creep. Groups with Pigeon and Lizard as the long-hold mobility on Rest day. Dose increased to 90s/side to compensate for reduced frequency (was 2x/week, now 1x/week).'}]},
       {id:'sR_hams', time:'Pick', title:'Hamstrings Tight',            sub:'After Day A, hiking · ~4 min',
-       detail:[{n:'Down Dog Hold',rx:'3 × 30s',d:'Sustained posterior chain loading. Press heels toward floor, straighten knees as range allows. Not a flow — hold the position.',timer:30},
-               {n:'Standing Forward Fold',rx:'60s',d:'Feet hip-width, fold from hips, let gravity pull. Knees slightly bent to protect posterior knee. Sustained tensile load across entire posterior chain under gravity. <strong>Neural tension check:</strong> if stretch is felt behind the knee or into the calf (sharp, electric, or burning), that is sciatic nerve tension, not muscle tightness — back off and bend knees more. Muscular stretch felt in the mid-belly of the hamstring is safe to hold.',timer:60}]},
+       detail:[{n:'Down Dog Hold',rx:'3 × 30s',d:'Sustained posterior chain loading. Press heels toward floor, straighten knees as range allows. Not a flow — hold the position.'},
+               {n:'Standing Forward Fold',rx:'60s',d:'Feet hip-width, fold from hips, let gravity pull. Knees slightly bent to protect posterior knee. Sustained tensile load across entire posterior chain under gravity. <strong>Neural tension check:</strong> if stretch is felt behind the knee or into the calf (sharp, electric, or burning), that is sciatic nerve tension, not muscle tightness — back off and bend knees more. Muscular stretch felt in the mid-belly of the hamstring is safe to hold.'}]},
       {id:'sR_thor', time:'Pick', title:'Thoracic Stiff',              sub:'After desk days · ~6 min',
-       detail:[{n:'Thoracic Foam Roller Extension',rx:'60s · arms overhead',d:'Lie lengthwise on foam roller (spine along roller), arms overhead or out to sides. Gravity opens thoracic kyphosis. More effective than mobilisation drills alone for desk-related thoracic stiffness. Breathe into the stretch.',timer:60},
-               {n:'Supine Spinal Twist',rx:'30s each side',d:'On back, knees together, drop both knees to one side. Opposite shoulder stays on floor. Sustained end-range thoracic rotation — fills the rotation gap from WGS removal.',timer:30},
-               {n:'Thread-the-Needle',rx:'30s each side',d:'All-fours. Slide one arm under the body, rotating thoracic spine. Cheek rests on floor. Isolates thoracic rotation without lumbar compensation.',timer:30},
+       detail:[{n:'Thoracic Foam Roller Extension',rx:'60s · arms overhead',d:'Lie lengthwise on foam roller (spine along roller), arms overhead or out to sides. Gravity opens thoracic kyphosis. More effective than mobilisation drills alone for desk-related thoracic stiffness. Breathe into the stretch.'},
+               {n:'Supine Spinal Twist',rx:'30s each side',d:'On back, knees together, drop both knees to one side. Opposite shoulder stays on floor. Sustained end-range thoracic rotation — fills the rotation gap from WGS removal.'},
+               {n:'Thread-the-Needle',rx:'30s each side',d:'All-fours. Slide one arm under the body, rotating thoracic spine. Cheek rests on floor. Isolates thoracic rotation without lumbar compensation.'},
                {n:'Cat-Cow Extended',rx:'10 cycles · 3s hold each end',d:'Slower than the Day A/B version. 3s hold in full flexion and full extension. Spinal segmental control through full range.'}]},
       {id:'sR_quads', time:'Pick', title:'Quads / IT Band',            sub:'After step-downs, skiing · ~6 min',
-       detail:[{n:'Lateral Quad Roll',rx:'2 min each side',d:'VL tightness reduction. Foam roller on outer quad, hip to just above lateral knee. Roll slowly; 2s pause on tender spots. Longer duration than daily habit version for deeper tissue release.',timer:120},
-               {n:'Couch Stretch',rx:'90s each side',d:'Same 90s hold as the top-level sR_couch step (v13.0) — sink deeper now that tissue is warm. Rectus femoris stretch. Squeeze rear glute to increase hip extension.',timer:90}]},
+       detail:[{n:'Lateral Quad Roll',rx:'2 min each side',d:'VL tightness reduction. Foam roller on outer quad, hip to just above lateral knee. Roll slowly; 2s pause on tender spots. Longer duration than daily habit version for deeper tissue release.'},
+               {n:'Couch Stretch',rx:'90s each side',d:'Same 90s hold as the top-level sR_couch step (v13.0) — sink deeper now that tissue is warm. Rectus femoris stretch. Squeeze rear glute to increase hip extension.'}]},
       {id:'sR_shldr', time:'Pick', title:'Shoulders Tight',            sub:'After Day B, climbing · ~4 min',
-       detail:[{n:'Dead Hang — Extended',rx:'90s total',d:'Longer hang than Primer. Full spinal decompression and shoulder capsule stretch under gravity.',timer:90},
+       detail:[{n:'Dead Hang — Extended',rx:'90s total',d:'Longer hang than Primer. Full spinal decompression and shoulder capsule stretch under gravity.'},
                {n:'Shoulder CARs — Slow',rx:'1 × 5 each arm · 5s per position',d:'Slower than Day A/B version. Pause at each range limit for 5s — identifies and loads restricted angles.'},
-               {n:'Child\'s Pose with Reach',rx:'60s',d:'Knees wide, arms extended overhead on floor. Walk fingers forward for maximal lat and shoulder stretch. Sustained traction through the entire anterior shoulder chain.',timer:60}]},
+               {n:'Child\'s Pose with Reach',rx:'60s',d:'Knees wide, arms extended overhead on floor. Walk fingers forward for maximal lat and shoulder stretch. Sustained traction through the entire anterior shoulder chain.'}]},
       {id:'sR_walk', time:'Always', title:'Walk (do this every Day R)',  sub:'20–30 min · easy pace · the most important recovery activity',
        detail:[{n:'Walk',rx:'20–30 min · easy pace',d:'The single most effective recovery tool. Low-intensity movement promotes circulation, clears metabolic waste, and drives tissue recovery without loading demand. Zone 1 — conversational pace. Flat or gentle terrain. This is not a category to pick — do it on every Day R, then add stretch categories if needed. Can include backward walk segments (2–3 rounds 30–60s) for anterior tibial chain.'}]},
     ],
@@ -2748,14 +2397,14 @@ const BLOCKS = {
        detail:[{n:'Easy movement (walk or bike)',rx:'~15–20 min · casual pace',d:'<strong>v13.07 — replaces the rigid Bellemans Bike protocol (too onerous, never followed). v13.13 — demoted from default to a rotation option (jump rope is now the default).</strong> After collagen, a walk or an easy bike ride within the synthesis window. Cartilage is avascular — gentle cyclic compressive loading drives fluid exchange (nutrients in, waste out), and casual walking or cycling delivers exactly that. No fixed seat height, no hard stop, no timer. <strong>Note:</strong> your everyday walking and cycling already feed cartilage regardless of this slot — that stream doesn\'t depend on the collagen window — so picking this option is the low-demand / flared-knee choice rather than the high-value one. A commute, a dog walk, or an easy spin all count.'}]},
       {id:'sN_iso',  time:'T+45',     title:'Option 3: Isometric Circuit',      sub:'~8 min · no equipment · tendons',
        detail:[{n:'Tibialis Raise',rx:'1 × 20 · 1s hold top',d:'Anterior tibialis tendon loading. Dorsiflexion under load.'},
-               {n:'Mǎbù — Horse Stance',rx:'2 × 30–45s · knees-permitting · at or above the current squat box height',d:'<strong>v14.0 — moved here from the Warm-Up, and it REPLACES the Single-Leg Wall Sit.</strong> Both were bilateral-ish quad isometrics, so keeping both was paying twice for one tissue at one joint; the wall sit was the weaker of the two. Mǎbù adds what the wall sit never had — <strong>adductors loaded at length</strong> and an isometric foot and ankle demand — and it lands in the amplified collagen window where a sustained isometric belongs (Baar). It also resolves the v14.0 audit finding that three quad isometrics were scattered across three blocks by clock time: the <em>unilateral</em> one (ISO Step-Up, which reads left/right asymmetry) now lives in the morning Opener, and the <em>bilateral</em> one lives here.<br><br><strong>Setup:</strong> wide stance ~1.5× shoulder width, toes slightly out, sink toward parallel as tolerated, torso upright, weight mid-foot, hold. <strong>Primary:</strong> quadriceps (isometric — the Baar/Rio collagen-loading stimulus), adductors (wide stance = lengthened and stabilising), glutes, spinal erectors, isometric foot and ankle. <strong>Compensations to watch:</strong> knees caving inward (drive them out over the toes — the same valgus watch as the Step Down), heels lifting, lumbar rounding, torso pitching forward. <strong>Regression:</strong> higher stance, 15–20s. <strong>Progression:</strong> deeper, longer, or hold a KB at the chest (goblet). <strong>Depth rule (v13.41, retained):</strong> hold at or above your current squat box height — this is a sustained isometric, so it sits <em>above</em> the capped depth, never at it.',timer:45},
+               {n:'Mǎbù — Horse Stance',rx:'2 × 30–45s · knees-permitting · at or above the current squat box height',d:'<strong>v14.0 — moved here from the Warm-Up, and it REPLACES the Single-Leg Wall Sit.</strong> Both were bilateral-ish quad isometrics, so keeping both was paying twice for one tissue at one joint; the wall sit was the weaker of the two. Mǎbù adds what the wall sit never had — <strong>adductors loaded at length</strong> and an isometric foot and ankle demand — and it lands in the amplified collagen window where a sustained isometric belongs (Baar). It also resolves the v14.0 audit finding that three quad isometrics were scattered across three blocks by clock time: the <em>unilateral</em> one (ISO Step-Up, which reads left/right asymmetry) now lives in the morning Opener, and the <em>bilateral</em> one lives here.<br><br><strong>Setup:</strong> wide stance ~1.5× shoulder width, toes slightly out, sink toward parallel as tolerated, torso upright, weight mid-foot, hold. <strong>Primary:</strong> quadriceps (isometric — the Baar/Rio collagen-loading stimulus), adductors (wide stance = lengthened and stabilising), glutes, spinal erectors, isometric foot and ankle. <strong>Compensations to watch:</strong> knees caving inward (drive them out over the toes — the same valgus watch as the Step Down), heels lifting, lumbar rounding, torso pitching forward. <strong>Regression:</strong> higher stance, 15–20s. <strong>Progression:</strong> deeper, longer, or hold a KB at the chest (goblet). <strong>Depth rule (v13.41, retained):</strong> hold at or above your current squat box height — this is a sustained isometric, so it sits <em>above</em> the capped depth, never at it.'},
                {n:'Soleus Calf Raise',rx:'2 × 12 each · 3s down',d:'Achilles tendon and soleus under eccentric load. Knee bent ~30° isolates soleus over gastrocnemius.'},
-               {n:'Copenhagen Plank',rx:'2 × 20s each side',d:'Adductor tendon loading. Short lever (knee on bench).',timer:20}]},
+               {n:'Copenhagen Plank',rx:'2 × 20s each side',d:'Adductor tendon loading. Short lever (knee on bench).'}]},
       {id:'sN_yoga', time:'T+45',     title:'Option 4: Yoga Holds',             sub:'~10 min · mat · fascia & joint capsules',
-       detail:[{n:'Lizard Pose',rx:'60s each side',d:'Hip flexor and adductor fascia under sustained bodyweight load. Drop to forearms if flexibility allows. Mitchell principle: 60s holds drive viscoelastic creep — connective tissue adaptation, not just stretching.',timer:60},
-               {n:'Pigeon Pose',rx:'60s each side',d:'Deep external rotator and hip capsule loading. Piriformis, obturator group. Sustained load at collagen peak = tissue-loading opportunity (Mitchell + Baar synergy).',timer:60},
-               {n:'Down Dog',rx:'60s',d:'Full posterior chain connective tissue — hamstring fascia, Achilles, plantar fascia, thoracolumbar fascia. Press heels toward floor.',timer:60},
-               {n:'Child\'s Pose with Reach',rx:'60s',d:'Shoulder capsule, lat fascia, thoracolumbar fascia. Arms extended overhead, walk fingers forward.',timer:60}]},
+       detail:[{n:'Lizard Pose',rx:'60s each side',d:'Hip flexor and adductor fascia under sustained bodyweight load. Drop to forearms if flexibility allows. Mitchell principle: 60s holds drive viscoelastic creep — connective tissue adaptation, not just stretching.'},
+               {n:'Pigeon Pose',rx:'60s each side',d:'Deep external rotator and hip capsule loading. Piriformis, obturator group. Sustained load at collagen peak = tissue-loading opportunity (Mitchell + Baar synergy).'},
+               {n:'Down Dog',rx:'60s',d:'Full posterior chain connective tissue — hamstring fascia, Achilles, plantar fascia, thoracolumbar fascia. Press heels toward floor.'},
+               {n:'Child\'s Pose with Reach',rx:'60s',d:'Shoulder capsule, lat fascia, thoracolumbar fascia. Arms extended overhead, walk fingers forward.'}]},
       {id:'sN_walk', time:'T+45',     title:'Option 5: Ruck (loaded walk)',     sub:'15–20+ min · 15–20% bodyweight · cartilage + bone',
        detail:[{n:'Ruck',rx:'15–20+ min · pack at 15–20% bodyweight · easy conversational pace',d:'<strong>v14.0 — load corrected to what is actually being carried (15–20% bodyweight, not the “10–15 lbs optional” this card used to say), and rucking is promoted from a minor option to a named routine modality.</strong> See the Cardio block for the full rationale and the regression ladder. In this slot specifically: it is cyclic loading across every lower-limb connective tissue under functional gait — Achilles, plantar fascia, knee joint capsule, hip capsule — landing inside the amplified collagen window. <strong>It is also the program’s best cartilage stimulus</strong> (cyclic compression at higher amplitude than unloaded walking, sustained over thousands of cycles — the Bellemans mechanism) and a real bone stimulus by strain <em>magnitude</em>, complementary to the jump rope’s strain <em>rate</em>. Conversational pace. Include 2–3 rounds of backward walking (30–60s each) for the anterior tibial chain. <strong>Regression on a joint signal: drop the pack, keep the walk</strong> — never skip outright.'},
                {n:'Barefoot Walk Option',rx:'10–15 min · soft surface',d:'If available — grass, sand, carpet. Intrinsic foot connective tissue stimulus. Short foot musculature and plantar fascia under natural loading.'}]},
@@ -2790,7 +2439,7 @@ const BLOCKS = {
       {id:'sD_sf',   time:'Any', title:'Short Foot Isometric',          sub:'30s each side · barefoot',
        detail:[{n:'Short Foot Isometric',rx:'30s each side · barefoot',d:'Intrinsic foot muscle activation for arch stability during ground contact. Motor pattern drill — desk friendly, barefoot.'}]},
       {id:'sD_hang', time:'Any', title:'Dead Hang',                    sub:'60–90s total · bar required',
-       detail:[{n:'Dead Hang',rx:'60–90s total',d:'Spinal decompression, grip strength, scapular stability. No recovery demand. Bar required. Skip or reduce if any shoulder discomfort.',timer:60}]},
+       detail:[{n:'Dead Hang',rx:'60–90s total',d:'Spinal decompression, grip strength, scapular stability. No recovery demand. Bar required. Skip or reduce if any shoulder discomfort.'}]},
       {id:'sD_cardio',time:'Weekly tracker', title:'Weekly Cardio Total — tracker',          sub:'180 min/week target · 150 min floor · v12.04',
        detail:[{n:'Weekly Cardio Total',rx:'180 min/week target · 150 min floor',d:'<strong>Weekly aerobic budget — tracking only, not a daily habit.</strong> <strong>Target:</strong> 180 min/week. <strong>Floor:</strong> 150 min/week. <strong>What counts:</strong> Bellemans Bike, PM rucks, Activity Day (ski/hike/ride), dedicated ride/row/hike/swim, loaded carry walks — anything above ambient walking that sustains an aerobic effort. <strong>What does not count:</strong> errand walking, pacing on calls — that is the unlimited movement floor, separate goal. <strong>No zone gating.</strong> Log time, not HR. Intuitive intensity. If it felt aerobic, it counts. <strong>Cross-source consensus:</strong> WHO 150 floor · AHA 150–300 · Attia 180 Zone 2 · San Millán 180+ mito · BBM 150 floor / 300 ideal. <strong>Sequencing:</strong> after strength on same day, or 6+ hours separated. Never immediately before a Strength session.'}]},
       {id:'sD_prot', time:'Reference', title:'Protein Target',               sub:'140–180g per day',
@@ -3059,9 +2708,6 @@ function renderBlock(key) {
       let detailHtml = '';
       if (hasDetail) {
         step.detail.forEach(ex => {
-          const timerBtn = ex.timer
-            ? `<button class="sde-timer-btn" onclick="event.stopPropagation();launchTimer(${ex.timer},'${ex.n}')">⧖ Timer — ${ex.timer}s</button>`
-            : '';
           const fullDesc = exDescLookup[ex.n];
           const fullBtn = fullDesc
             ? `<button class="sde-full-toggle" onclick="event.stopPropagation();toggleExFull(this)">▼ Full description</button><div class="sde-full-body">${fullDesc}</div>`
@@ -3070,7 +2716,6 @@ function renderBlock(key) {
             <div class="sde-name">${ex.n}</div>
             <div class="sde-rx">${ex.rx}</div>
             ${ex.d ? `<div class="sde-desc">${ex.d}</div>` : ''}
-            ${timerBtn}
             ${fullBtn}
           </div>`;
         });
@@ -3140,73 +2785,6 @@ function renderBlock(key) {
 }
 
 // ── Timer Modal ─────────────────────────────────────
-let tmSecs=30, tmTarget=30, tmRunning=false, tmInterval=null;
-
-function tModalUpdateFace() {
-  const m=Math.floor(tmSecs/60), s=tmSecs%60;
-  const el=document.getElementById('tModalFace');
-  el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-  el.className='tmodal-face';
-  if (tmRunning) {
-    if (tmTarget>=600&&tmSecs<=120) el.classList.add('danger');
-    else if (tmTarget>=600&&tmSecs<=180) el.classList.add('warn');
-    else el.classList.add('run');
-  }
-}
-
-function tModalStartPause() {
-  const btn=document.getElementById('tModalBtn');
-  if (tmRunning) {
-    clearInterval(tmInterval); tmRunning=false;
-    btn.textContent='RESUME'; btn.className='tbtn tbtn-go';
-  } else {
-    tmRunning=true;
-    btn.textContent='PAUSE'; btn.className='tbtn tbtn-pause';
-    tmInterval=setInterval(()=>{
-      tmSecs--;
-      if (tmSecs<=0) {
-        tmSecs=0; clearInterval(tmInterval); tmRunning=false;
-        btn.textContent='START'; btn.className='tbtn tbtn-go';
-        document.getElementById('tModalLabel').textContent='✓ Done';
-        document.getElementById('tModalFace').className='tmodal-face done';
-        if (navigator.vibrate) navigator.vibrate([200,100,200]);
-        return;
-      }
-      tModalUpdateFace();
-    },1000);
-  }
-}
-
-function tModalReset() {
-  clearInterval(tmInterval); tmRunning=false; tmSecs=tmTarget;
-  document.getElementById('tModalBtn').textContent='START';
-  document.getElementById('tModalBtn').className='tbtn tbtn-go';
-  tModalUpdateFace();
-  tModalStartPause();
-}
-
-function tModalClose() {
-  clearInterval(tmInterval); tmRunning=false;
-  document.getElementById('tModalOverlay').classList.remove('open');
-}
-
-function tModalBgClick(e) {
-  if (e.target===document.getElementById('tModalOverlay')) tModalClose();
-}
-
-function launchTimer(secs, label) {
-  clearInterval(tmInterval); tmRunning=false;
-  tmSecs=secs; tmTarget=secs;
-  const lbl=document.getElementById('tModalLabel');
-  const btn=document.getElementById('tModalBtn');
-  lbl.textContent=label||'Timer';
-  btn.textContent='START'; btn.className='tbtn tbtn-go';
-  tModalUpdateFace();
-  document.getElementById('tModalOverlay').classList.add('open');
-  // auto-start after brief delay so user sees the face first
-  setTimeout(()=>{ if (document.getElementById('tModalOverlay').classList.contains('open')) tModalStartPause(); },400);
-}
-
 // ── Metronome ────────────────────────────────────────
 let metroAC = null, metroTimer = null;
 let metroBpm = 30, metroBeats = 4, metroBeat = 0, metroRunning = false, metroExpanded = false;

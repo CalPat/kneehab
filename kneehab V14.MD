@@ -140,3 +140,21 @@ Regulate intensity with **knee angle** (primary dial, and the safety dial — wi
 - **Block key `W` retained** in the JS for the Opener — the nav uses emoji rather than letters, so the key is not user-visible and changing it would touch nav, hub and render wiring for no benefit.
 - **Mǎbù lost its Reference-hub card** when `src-warmup` was rewritten. Its inline description in `N` is complete, and `N` items uniformly lack hub cards (there is no `src-collagen` pane), so this is consistent rather than a regression.
 - Unchanged: `R`, `D` (including the capped Deep Squat Sitting from v13.43), 2 working sets / 2 RIR terminators (v13.4), right-side gating on Step Down and Split Squat, the box-capped depth gate and 24-hour response rule (v13.41–44).
+
+---
+
+## v14.0 follow-up — the timer feature is removed
+
+Timers are not used. The whole feature is gone rather than partly gone:
+
+- **30 `timer:` fields** across `R` (22), `N` (6) and `D` (1), plus the button `renderBlock` emitted for them
+- **The Timer tab** — one of three top-level tabs. Its presets advertised three things the program no longer has: the Bellemans bike protocol (dropped v13.07), Single-Leg Wall Sit (removed v14.0), and a Wall Sit Tracker for an exercise that exists nowhere in the program. It was not merely unused; it was actively wrong.
+- **The countdown modal** that `launchTimer` opened, which became orphaned once the buttons went
+- **The supporting JS** — `tSet` / `tStartPause` / `tReset` / `tUpdateFace`, the whole Wall Sit Tracker (`wsNext` / `wsStartHold` / `wsStartRest` / `wsReset` / `wsRenderDots`), `launchTimer`, and the `tModal*` set
+- **The CSS** — `.timer-box`, `.timer-face`, `.timer-btns`, `.timer-note`, `.preset-grid`, `.tpre`, `.ws-dot`, `#wsFace`, `.sde-timer-btn`, and all `.tmodal-*` rules
+
+**Kept:** the `.tbtn` button rules, which live inside the old TIMER CSS section but are also used by the metronome — that section is retitled `SHARED BUTTONS`. The metronome is a separate feature and is untouched.
+
+`index.html` drops from 3386 to 2963 lines. Nav goes from three tabs to two (Home, Exercises) plus More.
+
+**Verification:** the removal script asserts eleven invariants — three tab buttons survive, all pages present, `BLOCKS` intact with six keys, metronome wired, no timer residue — and refuses to write unless all pass. It caught one over-deletion (a boundary walk that would have taken the tab bar) before anything was saved. After writing: `node --check` passes, all six blocks render clean with zero timers and zero `undefined`, and no dangling handler references remain.
