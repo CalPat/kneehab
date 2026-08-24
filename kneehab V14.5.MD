@@ -510,3 +510,131 @@ Explicitly *not* the same exercise as the Soleus Calf Raise in `S` — that one 
 **Dose matters here.** 4 × 45s each puts the circuit alongside the rope's 6–10 min rather than well under it. And Baar and Rio both run isometrics near **70% MVC** — bodyweight versions may sit below that, which makes the load progressions (goblet Mǎbù, single-leg calf hold) the point rather than an optional extra.
 
 Nothing was lost: Tib Raise, Soleus Calf Raise and Copenhagen all remain in `S`, where the tissue sort says they belong.
+
+---
+
+# v14.5 — the step-up was a step-down; the swing is gone
+
+**Date:** 2026-08-24
+**Type:** Medium (v14.4 → v14.5)
+**One line:** Two corrections. The Opener's `ISO Step-Up` has been a *step-down* held still since v14.0 and is renamed to match; the Plyo Primer (KB Swing) is removed because the hinge technique never converged.
+
+---
+
+## 1. The name was a fossil
+
+The v12.0 exercise was a genuine step-up: **free foot on the floor, press UP into an immovable surface at ~80% effort.** Force directed upward — an *overcoming* isometric.
+
+v14.0 took the free foot off the floor. That left you standing on the box under full bodyweight with **nothing to press into**, free leg hanging toward the floor. That position is the bottom of a step-down, held still — a *yielding* isometric. The mechanics changed; the name did not.
+
+### Why this is not semantics
+
+| | v12.0 "ISO Step-Up" | v14.0 as actually performed |
+|---|---|---|
+| Type | Overcoming (push into immovable) | **Yielding** (resist bodyweight) |
+| Intensity dial | Voluntary effort (~80%) | Angle only — effort is not available |
+| Force direction | Concentric intent, upward | Eccentric intent, resisting descent |
+| Angle | Specified ~60–70° | Set by geometry, never specified |
+
+Two consequences follow:
+
+- **The v14.0 free-foot ruling is retroactively confirmed.** "Intensity is angle and load, never the free foot" is correct *because* it is a yielding hold — in a yielding contraction, effort genuinely is not an available dial. The rule was right for a reason the program had not yet named.
+- **3 × 30s is a bigger ask than the same numbers were in v12.0.** Yielding holds fatigue faster than overcoming holds at matched relative load, so the current left/right reading is being taken on a more demanding test than the program's history implies.
+
+**Renamed:** `ISO Step-Up` → **`ISO Step-Down Hold`**, detail name `ISO Step-Down Hold — yielding isometric`. 18 references updated across the app.
+
+## 2. Citation correction
+
+**Rio et al. 2015** has been cited on this item since v14.0 for the analgesic effect. That study used **overcoming** isometric knee extension at 70% MVIC in a leg-extension machine, 5 × 45s. The current exercise is a yielding hold at an angle set by geometry.
+
+The analgesic effect plausibly transfers — yielding holds have their own tendinopathy evidence — but the study no longer describes the protocol being run, and the step detail now says so. **Baar's synthesis rationale is unaffected** (high tendon strain sustained ~30s, repeated) and still applies unchanged.
+
+## 3. The box is a ceiling on the ratchet
+
+**6in** is now on record as the box height. It answers the box question but **not** the v14.4 BUILD ITEM, which asked for the *hold angle* — with the free foot off the floor, box height does not set knee angle.
+
+What it does set is a **hard ceiling**. The free leg hangs, so the stance knee can only bend until the free foot lands:
+
+- **6in of hip descent ≈ ~40° of knee flexion, maximum.**
+- Past it the free foot touches down, takes weight, and the reading is contaminated — the exact two-moving-parts failure the free-foot-off rule was written to prevent.
+- So the angle dial has ~40° of travel and then **stops**. The next rung is a **taller box** or a KB at the chest — never a hovering foot faking depth.
+
+**~40° also sits below the steep part of the weightbearing patellofemoral stress curve** (which climbs hard past ~60°). So a left/right difference appearing at this angle is a **capacity or control signal, not joint compression** — useful, and relatively reassuring.
+
+**BUILD ITEM, still open:** photograph the hold from the side, measure the angle, record the number. That is the ratchet's zero.
+
+## 4. The overlap with Step Down is now stated
+
+The Opener's `ISO Step-Down Hold` and Strength's `Step Down (slant board)` are **the same movement pattern in two contraction modes**:
+
+| | Contraction | Frequency | Purpose |
+|---|---|---|---|
+| **ISO Step-Down Hold** (Opener) | Yielding isometric | Daily, 7 of 7 | Tendon frequency + analgesia + the asymmetry reading |
+| **Step Down** (Strength) | Eccentric, 3s | 3× per cycle | Capacity |
+
+That is a coherent tendon-loading split and it survives — but it was coherent *by accident*, hidden behind a name that claimed the two were opposites. It is now written into both step details as deliberate.
+
+## 5. Legacy cleanup — the conflicting angle spec
+
+The `src-knee` reference list still carried an **`Overcoming ISO Step-Up`** card specifying `~60–70° knee flexion · ~80% effort`. That described the retired v12.0 exercise. Leaving it beside a v14 item whose angle was explicitly unspecified meant the app shipped **two conflicting angle prescriptions for what looked like the same exercise** — the concrete hazard, not just untidiness.
+
+The card is removed. The section note now points to the Opener's hold, and the two dangling `rotate with … ISO Step-Up` labels on Step Down and Split Squat are dropped (that rotation ended when the hold moved to the Opener in v14.0).
+
+---
+
+## 6. KB Swing removed — the Plyo Primer is gone
+
+**Reason: technique never converged.** A hip hinge you cannot execute cleanly is a lumbar risk, not a hip-power stimulus. The swing's own program note named lumbar position as its only injury risk; that risk is not worth carrying for an item whose contribution is sport-transfer rather than rehab.
+
+The Plyo Primer was **KB Swing alone** — jump rope left for the afternoon Collagen Block in v13.13 — so removing the swing empties the slot. **The slot is removed rather than refilled.** `S` goes from 17 items to 16, and the KB Front Rack Squat now opens the session.
+
+### What is lost, stated plainly
+
+**Ballistic hip extension.** The program no longer trains explosive posterior-chain rate of force development anywhere. The gap is real. It is also narrow:
+
+| Job the swing did | Still covered by |
+|---|---|
+| Hip hinge pattern | Kickstand RDL, SL Glute Bridge (slow, not ballistic) |
+| Posterior chain load | Kickstand RDL, Suitcase Carry, rucking |
+| Vertical impact / strain rate / bone | Collagen-Block jump rope (near-daily), rucking, heavy strength |
+| CNS priming before load | RKC Plank (bracing primer, Opener on S days) |
+| **Explosive RFD** | **nothing — this is the actual loss** |
+
+And the whole jump ladder has been parked since **v13.14** as the wrong risk profile for a PFPS history when the goal is healthy and pain-free. So the loss sits in the sport-transfer column, alongside work the program had already decided not to carry.
+
+**If ballistic hip extension is ever wanted back,** the technique-light entry is an explosive glute bridge or hip thrust — floor-based, near-zero knee cost, no hinge to learn. Not added here; noted as the route.
+
+### Files touched by the removal
+
+- `sS_plyo` step object deleted; `sS_kbsq` … `sS_carry` renumbered 1–16
+- `stepLabel` 17 items → 16 items; `briefing.ok` "all 17 items" → "all 16 items"
+- `briefing.ok` plyo rotation line and "Plyo Primer now opens" line replaced with the v14.5 removal note
+- `briefing.caution` plyo stop-rule removed
+- `src-strength` Plyo Primer card and `src-knee` `KB Swing — Hardstyle` card removed
+- Rules-page rotation row and single-template row updated
+- Legacy cover and schedule rows de-referenced
+
+---
+
+## Verification
+
+```
+PASS  node --check on the extracted script — JS syntax OK
+PASS  getElementById targets all present in the HTML (referential integrity)
+PASS  div balance 1026/1026 · strong 566/566 · em 108/108 · span 267/267 · p 28/28
+PASS  css brace balance 538/538
+PASS  all six blocks render (W 12 · S 32 · R 16 · N 8 · D 20 · C 8 rows)
+PASS  Opener step titles: Sun Salutation A · 90/90 Lift-Offs · Squat to Box · ISO Step-Down Hold · Dead Hang · RKC Plank
+PASS  Strength renders 16 items, KB Front Rack Squat first
+PASS  toggleStep('sW_iso') opens; detail carries "yielding", "6in", "40°"
+PASS  exDescLookup match preserved — "Full description" toggle present on the renamed item
+PASS  "KB Swing" appears nowhere as an exercise name (only in v14.5 removal notes)
+PASS  page title reads kneehab v14.5
+```
+
+## Not built in this version
+
+Two items from the same conversation were deliberately left out, and remain open:
+
+1. **The pelvic mobility screen** — a one-off 4-test screen (seated hip IR/ER, Thomas test, active straight-leg raise, single-leg stance under fatigue) with a decision rule separating a *restricted* hip from an *uncontrolled* one. The distinction matters because the two look identical in movement and need opposite treatments. Not added as a program item; run it off-cycle first and let the result decide whether anything belongs in the app.
+2. **The formal asymmetry protocol for the hold** — weaker side first, angle set by the weaker side, extra set on the weaker side, limb-symmetry-index check by hold-to-failure every 2–3 weeks (≥0.90 before symmetric loading), gap re-read weekly rather than daily. The program's existing asymmetry rule covers most of this informally; formalising it should wait until the ratchet's zero angle is actually recorded.
