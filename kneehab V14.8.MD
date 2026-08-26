@@ -65,11 +65,13 @@ collagen dose is defined as sitting *outside* the protein window.
 
 ## Open
 
-- **Isometric anchor vs "cyclic loading."** The ruling was *"collagen only before
-  cyclic-style loading."* The Isometric Circuit (Mǎbù + Bent-Knee Calf Hold) is a
-  named `N` anchor and is **not** cyclic. Baar's own isometric work supports it as
-  a valid collagen stimulus, so it was left in place — but if the intent was to
-  exclude it, `N` drops to a single anchor and the v14.22 alternation dies with it.
+- **Isometric anchor vs "cyclic loading" — RESOLVED, keep as is.** The ruling
+  *"collagen only before cyclic-style loading"* was aimed at the before-bed dose,
+  not at the Isometric Circuit. **Isometrics qualify.** Tendon's variable is
+  strain × duration, and Baar runs sustained isometrics near 70% MVC — a 45s hold
+  clears that more cleanly than the rope does. `N` keeps **both** anchors and the
+  v14.22 rope ⇄ circuit alternation, including the circuit as the zero-impact
+  override on a grumbly knee. No app change; nothing contradicted it.
 - **Key Rules 01** still reads *"daily on both days · Couch Stretch on Day B only"*
   — pre-v14, untouched here.
 - Nutrition beyond the four foundations is being brainstormed in session, not
