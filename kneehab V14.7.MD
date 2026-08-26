@@ -752,3 +752,147 @@ PASS  no page JS errors · page title reads kneehab v14.6
 
 - **The ISO Step-Down Hold ratchet zero.** Still the blocking BUILD ITEM, and now also gate #1 on the ladder. Side-on photo, measure, record.
 - **The asymmetry protocol** for the hold — weaker side first, angle set by the weaker side, extra set weaker side, limb-symmetry-index check by hold-to-failure every 2–3 weeks (≥0.90). Deferred again for the same reason: formalise it after the zero angle exists, not before.
+
+---
+
+# v14.7 — anti-rotation was a missing plane
+
+**Date:** 2026-08-26
+**Type:** Medium (v14.6 → v14.7)
+**One line:** A groin-to-inside-knee sensation that appears only near end range of a Bird Dog leg lift is a demand threshold, not a tight muscle — and chasing it exposed that the program has had no dedicated anti-rotation work since v14.0.
+
+---
+
+## The finding
+
+Reported: frog stretch, knee-to-chest and bird dog all produce the same sensation — "super tight from groin area to knee." **Bilateral, worse on the right.** No difference between bent and straight knee on abduction. And the decisive detail: **in Bird Dog the sensation appears only as the leg lift approaches end range.**
+
+The program had already written this phrase, on the Bird Dog card, before it was felt:
+
+> *"if you feel the support-leg adductors firing as the primary stabilizer **(groin to inside-knee tightness)**, the pelvis is rotating and obliques are not engaged."*
+
+### Why the threshold behaviour settles it
+
+**A length restriction cannot switch on at end range of the opposite leg.** The support-side hip angle never changes during the lift — nothing on that side lengthens. What rises is the rotational moment the trunk must resist. **Tightness that turns on and off with load on a different limb is a muscle being recruited, not a tissue being short.**
+
+Three readings, one conclusion:
+
+| Reading | What it rules out |
+|---|---|
+| Bilateral, right-worse | A discrete right-hip tissue lesion. Symmetry points at *strategy* |
+| Bent vs straight knee: no difference | Gracilis as the restrictor. Leaves adductor magnus, or guarding |
+| **Sensation only near end range** | **Length, full stop. This is demand-driven** |
+
+**Working diagnosis: the adductors are the reserve pelvic stabiliser, recruited when anti-rotation demand exceeds what the brace supplies. The right hits threshold sooner.**
+
+### Why the adductors specifically
+
+The **anterior oblique sling** runs external oblique → anterior abdominal fascia → contralateral internal oblique → and terminates in the **adductors of the opposite side**. The adductors are in the same sling as the obliques. When the oblique end runs out of capacity, load transfers to the adductor end of the same chain. Not a random substitution — the chain doing what chains do.
+
+Which means: **training the obliques under rotational load treats the actual thing. Stretching the adductors treats the far end of it.**
+
+## v13.43 reconciled, not contradicted
+
+This looks like it reopens a closed thread. It does not.
+
+| | Variable tested | Result |
+|---|---|---|
+| **v13.43** | Glute med **capacity** — isolated abduction, side-lying endurance, 30s single-leg stance | Symmetric. Daily right-biased work retired |
+| **v14.7** | Which muscle the system reaches for **first** | Adductor-dominant, bilateral, right-worse |
+
+A recruitment preference sits on top of symmetric capacity, and **capacity tests cannot see it.** Both findings stand. This is also a better explanation than "glute med weakness" for why the fault kept reappearing after the capacity tests came back clean.
+
+---
+
+## The plane audit
+
+Chasing the finding exposed a structural gap. Audit of the live blocks:
+
+| Core demand | Covered by | Status |
+|---|---|---|
+| Anti-lateral-flexion | Suitcase Carry, Copenhagen | ✅ |
+| Anti-extension | Ab Wheel Rollout, RKC Plank | ✅ |
+| **Anti-rotation** | Contralateral-KB Kickstand RDL at level 2+, incidentally | ❌ **No dedicated item** |
+
+**v14.0 cut Bird Dog and Half-Kneeling Rotation.** Its stated reason for cutting Bird Dog was that once-weekly was *"sufficient for an owned anti-rotation pattern."*
+
+The premise was tested and came back false. That is grounds to revisit the cut — not on general principle, but because the specific assumption failed.
+
+## The draft error, corrected in the same version
+
+The first prescription was **"cap the bird dog at the range where the groin stays quiet."** That is wrong, and it was caught immediately: a bird dog capped below threshold is the *deliberately sub-maximal activation slot* v14.0 dissolved the entire Warm-Up for.
+
+**You raise a threshold by working near it under load. You do not raise it by staying below it.**
+
+The fix is splitting two jobs that were conflated:
+
+| Job | Item | Precedent |
+|---|---|---|
+| **Read** where the threshold sits | Bird Dog, ~30s, capped at quiet range | Squat to Box — *"a sensor, not training. It has no training value and it does not need any."* |
+| **Move** the threshold | Renegade Row, loaded | The muscle block, where things progress |
+
+**Why bird dog cannot do the second job:** rotational demand is force × moment arm. Bird dog has no external load and a short, light lever. It fails on both dials that scale. Good base of support, which is why it *reads* the fault well — and structurally incapable of training it.
+
+---
+
+## What changed
+
+### `S` gains an anti-rotation slot — 16 items → 17
+
+**`Anti-Rotation — Renegade Row`**, placed after Ab Wheel so the core cluster runs Hip Flexor → Ab Wheel → Anti-Rotation → Carry.
+
+**Renegade Row** *(default)* — 2 × 6–8 each side. Plank on two KBs, feet wide, row one bell to the hip without letting the pelvis rotate. The loaded Bird Dog: same demand, real load, real lever, **zero knee cost**.
+- **Primary:** obliques and TVA under high anti-rotation demand, QL, lats and mid-traps on the rowing side, glutes and quads holding the plank.
+- **Compensations:** hips rotating with the row — *that is the entire exercise and its failure point*; piking; sagging into lumbar extension; rushing.
+- **Regression:** wider feet → knees down → unloaded shoulder-taps. **Progression:** narrow the feet first (shrinking the base is the biggest single jump) → heavier bell → pause at the top.
+- **Terminator:** first rep the pelvis rotates ends the set — same quality-terminator class as Step Down and Split Squat.
+
+**Half-Kneeling Pallof Press** *(scalable swap)* — 2 × 5 each side, 3–5s hold. Two independent dials: distance from the anchor (tension) and hand extension (moment arm). Half-kneeling removes the leg base so the pelvis does the work.
+- ⚠️ **Stay half-kneeling.** Tall-kneeling puts both knees in full flexion under bodyweight — wrong position to add to a knee with an anterolateral history. Progress tension, not knee flexion.
+
+### `KB Press` → **half-kneeling** — the free upgrade
+
+Same weight, same reps, same slot. Changing the base converts a press already in the program into a loaded anti-rotation and anti-lateral-flexion drill at zero cost in time or load. The position *is* the progression until it is clean.
+
+### `W` gains Bird Dog as a sensor — 5 items → 6
+
+Brace ribcage-to-pelvis first, extend opposite arm and leg, **note the height at which the support-side groin stays quiet.** That number is the reading. No dose progression — **the number rising is the progression**, and it rising means the Renegade Row is working.
+
+### Pelvic Screen — test 5 added, and the instruction fixed
+
+**`5 · Adductor length — bent vs straight knee`**. The v14.6 screen had no adductor length test at all, which was a hole in a diagnostic built to answer exactly this complaint.
+
+The instruction now names the knee explicitly — **the abducting leg's own knee**, because gracilis crosses that knee; bending the stationary leg returns a blank. And it gives both readings of a null:
+
+- **Better with the knee bent** → gracilis (pubis → pes anserinus, the only adductor crossing the knee).
+- **No difference** → either the one-joint group, most likely **adductor magnus** (ischiocondylar portion attaches at the adductor tubercle — reaches the knee without crossing it, still produces a groin-to-medial-knee band), **or** protective tone across the whole compartment, which limits both positions equally. **A null does not discriminate** — the Bird Dog threshold read is the tiebreak.
+- **Safety gate:** ball squeeze between the knees. Pain at the pubic ramus origin is adductor-related groin pain, not tightness.
+
+### ISO Step-Down Hold — brace-first reading variant
+
+One hold per side having braced first, compared against the usual reading. **Gap shrinks → the asymmetry is strategy** (re-patterns fast). **Gap unchanged → capacity or tolerance** (ratchet plus extra set). Logged as a braced reading, not folded into the normal series. Feeds Reactive Ladder entry gate #2 directly.
+
+---
+
+## Verification
+
+```
+PASS  node --check on the extracted script — JS syntax OK
+PASS  getElementById referential integrity
+PASS  div 1041/1041 · strong 702/702 · em 133/133 · span 277/277 · p 28/28 · css 552/552
+PASS  all six blocks render — W 14 · S 34 · R 18 · N 8 · D 20 · C 8
+PASS  Opener = 6 items + RKC: Sun Salute · 90/90 · Bird Dog · Squat to Box · ISO Hold · Dead Hang
+PASS  Strength = 17 items, Anti-Rotation between Ab Wheel and Suitcase Carry
+PASS  KB Press renders as "KB Press — half-kneeling"
+PASS  sS_antirot opens 3 entries · 2 Full-description toggles resolve
+PASS  sW_bird opens · Full-description toggle resolves
+PASS  sW_iso carries both the brace-first variant and the BUILD ITEM
+PASS  sR_pelvic opens 7 entries — overview · 5 tests · decision rule
+PASS  no page JS errors · page title reads kneehab v14.7
+```
+
+## Still open
+
+- **The ISO Step-Down Hold ratchet zero.** Blocking BUILD ITEM since v14.4, and gate #1 on the Reactive Ladder. One side-on photo.
+- **Which leg carries the Bird Dog sensation** — support or lifting. The whole analysis assumes the **support** leg, matching the program's own compensation note. If it is the lifting leg's groin at end-range hip extension, that is adductor magnus working as a hip extensor into its shortened range, and the reading needs revisiting.
+- **The Reactive Ladder stays shut.** Bilateral adductor-dominant stabilisation is the mechanism that produces valgus under load. Gate #2 is not close.
