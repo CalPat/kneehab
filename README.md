@@ -3,7 +3,7 @@
 
 Single-file app: `index.html` is the interactive program. This README is the high-level reference.
 
-> **Snapshot notice.** This README documents **v11.93** and is superseded by the app. Two items below no longer exist as written: the *Overcoming ISO Step-Up* was renamed to **ISO Step-Down Hold** in v14.5 (it is a yielding hold, not an overcoming step-up, and its old `~60–70° / ~80% effort` spec is retired), and the **KB Swing / Plyo Primer was removed entirely in v14.5**. The Day A / Day B structure was dissolved in v14.0. For the current program read `index.html` and `kneehab V14.5.MD`.
+> **Snapshot notice.** This README documents **v11.93** and is superseded by the app. Two items below no longer exist as written: the *Overcoming ISO Step-Up* was renamed to **ISO Step-Down Hold** in v14.5 (it is a yielding hold, not an overcoming step-up, and its old `~60–70° / ~80% effort` spec is retired), and the **KB Swing / Plyo Primer was removed entirely in v14.5** (the gated *Reactive Ladder* restored in v14.6 replaces the old box/drop jump phasing this file still lists). The Day A / Day B structure was dissolved in v14.0. For the current program read `index.html` and `kneehab V14.6.MD`.
 
 ---
 

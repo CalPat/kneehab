@@ -638,3 +638,117 @@ Two items from the same conversation were deliberately left out, and remain open
 
 1. **The pelvic mobility screen** — a one-off 4-test screen (seated hip IR/ER, Thomas test, active straight-leg raise, single-leg stance under fatigue) with a decision rule separating a *restricted* hip from an *uncontrolled* one. The distinction matters because the two look identical in movement and need opposite treatments. Not added as a program item; run it off-cycle first and let the result decide whether anything belongs in the app.
 2. **The formal asymmetry protocol for the hold** — weaker side first, angle set by the weaker side, extra set on the weaker side, limb-symmetry-index check by hold-to-failure every 2–3 weeks (≥0.90 before symmetric loading), gap re-read weekly rather than daily. The program's existing asymmetry rule covers most of this informally; formalising it should wait until the ratchet's zero angle is actually recorded.
+
+---
+
+# v14.6 — the reactive ladder comes back gated, and the pelvic screen gets built
+
+**Date:** 2026-08-24
+**Type:** Medium (v14.5 → v14.6)
+**One line:** v14.5 deleted the only sane jump ladder in the app and left the retired aggressive one standing; this restores the correct ladder behind a five-point gate, repairs two dangling pointers, and builds the pelvic screen as a one-off Day R diagnostic.
+
+---
+
+## 1. The defect v14.5 introduced
+
+Removing `sS_plyo` also removed the **v13.14 reactive-entry ladder**, which lived nowhere else. What it left behind was worse than an empty slot:
+
+| Where | What it said | Status |
+|---|---|---|
+| `src-knee` Jump Rope card | "weeks 4–7 box jump-up 18–24″; weeks 8–11 broad + drop jump 12″; weeks 12+ SL hops + drop jump 18–24″" | **The v12.0 ladder that v13.14 explicitly retired — and after v14.5, the only jump progression visible in the app** |
+| Collagen Block rope card | "higher-amplitude jump progression lives in the morning Strength primer when knees are ready" | **Dangling pointer** — that slot was deleted in v14.5 |
+
+Same class of defect as the ISO angle conflict v14.5 fixed: **a superseded prescription left standing as the only one visible.** The app was quietly recommending box and drop jumps, which is precisely the risk profile v13.14 withdrew for a PFPS history.
+
+Both are repaired here.
+
+## 2. Reactive Ladder — restored, gated, off-menu
+
+Added as a **reference card under Strength, not as a step in the session.** `S` stays at 16 items. The card is findable, the progression is correct, and nothing about the daily flow implies doing it.
+
+**The framing it now carries:** the only thing this ladder uniquely adds is maximal reactive deceleration — landing capacity, which serves ski and MTB. Bone strain rate is already covered near-daily by the Collagen-Block rope plus rucking and heavy strength. So the question is not *am I strong enough* but *is there a season I am building for.*
+
+### The entry gate — all five
+
+1. ISO Step-Down Hold **ratchet zero recorded** (the open BUILD ITEM). No evidence trail, no entry.
+2. **Left/right on that hold within ~1 RPE point**, level pelvis, no valgus, on a filmed 30s each side.
+3. **Right-side bodyweight gating released** on Step Down and Split Squat (v11.95 / v12.01).
+4. **Depth ceiling rising** — the squat box has dropped at least one notch on a clean cycle (v13.42/43 ceiling test).
+5. **No post-session effusion** across a full cycle.
+
+Four of five is not a pass. Landing is single-leg eccentric deceleration compressed into ~150 ms; an asymmetry visible at 30s under bodyweight does not disappear at speed, it stops being visible. **Jumping does not reveal that fault, it rehearses it.**
+
+### The ladder
+
+| Rung | Item | Notes |
+|---|---|---|
+| 0 | **Jump rope** | Already passed, near-daily in the Collagen Block. Entry here is not starting from zero. |
+| 1 | **Pogo hops** | In place, stiff ankles, low amplitude, 3 × 20 contacts. Two clean weeks against the 24-hour rule. |
+| 2 | **Stuck-landing low broad jumps** | Flat ground, 3 × 5, **hold the landing 2s**. The held landing is the whole point — it proves knee tracking under deceleration before height is added. |
+| 3 | **Single-leg hops** | Flat, stuck landings. |
+| — | ~~Box jumps, drop/depth jumps~~ | **Not on this ladder.** v13.14 stands: concentric-only and low value; highest knee load with fatigue-valgus risk. |
+
+**Primary:** quadriceps and patellar tendon (eccentric, high rate), glute max and med (frontal-plane control at landing), soleus and Achilles (first-line shock absorption). **Compensations:** knee diving medially on landing — the one that matters and the one you cannot feel; trunk pitching forward; loud or flat-footed landings; asymmetric landing width. **Film it.** **Stop-rule:** effusion the next morning ends the ladder for two weeks.
+
+## 3. Pelvic Screen — built as a one-off
+
+Added to **Day R** as `sR_pelvic`, `time: 'One-off'` — a diagnostic, not a category. Run once, warm, after the walk; write the numbers down; act on the decision rule; do not run it again unless something changes. It is placed on Day R specifically because the one real risk in it is doing end-range hip work cold.
+
+### Why it exists
+
+"Pelvic mobility" bundles three different things that need opposite treatments:
+
+| Called "pelvic mobility" | Actually | Relevance |
+|---|---|---|
+| Hip rotation range (femur-on-pelvis, IR/ER) | True mobility | **High** — restricted hip IR is associated with PFPS |
+| Anterior tilt / contralateral drop under load | Control and endurance | **High** — the v12.01 thread |
+| SI / innominate positional asymmetry | Positional, poorly reliable | Low — not chased |
+
+**The mechanism:** rotation the hip will not supply gets taken up distally, at the tibia and the patellofemoral joint — femoral adduction plus tibial IR under single-leg load, which is dynamic valgus. Two further routes: a short **rectus femoris** (the only hip flexor crossing the knee) tilts the pelvis anteriorly, disadvantaging glute max and handing the work to glute med and TFL — the exact v12.01 substitution; and one-sided **hip extension** restriction keeps the knee flexed later into stance, which over a standing day is thousands of extra PF-loaded reps.
+
+**The distinction the screen makes:** loading a genuinely restricted hip harder deepens the compensation; mobilising a hip that is actually uncontrolled makes it worse. They present identically.
+
+### The four tests
+
+| # | Test | Reads | Threshold |
+|---|---|---|---|
+| 1 | **Seated hip IR / ER** — bench, knee 90°, swing the shin | Available hip rotation | **>10–15° side difference in IR** is a real finding |
+| 2 | **Thomas test** — end of bed, opposite knee hugged in | Hip extension *and* rec fem length | Thigh not flat → iliopsoas · knee not past ~80° → **rec fem** |
+| 3 | **Active straight-leg raise** — filmed | **Control**, not length | Pelvis tilts or rotates with the leg → lumbopelvic dissociation |
+| 4 | **Single-leg stance 30s** — filmed from behind | Abductor endurance | Drop, or trunk drift over the stance leg. **Watch the last 10s** |
+
+### The decision rule
+
+- **Range differs, control fine → MOBILITY.** Bias volume to the restricted side with what the program already carries: 90/90 Lift-Offs (active end range — range you cannot control is range you cannot use), Couch Stretch 60s, Lizard, Pigeon 60s. Nothing new.
+- **Range symmetric, pelvis drops → CONTROL.** Also nothing new: Suitcase Carry, SL Glute Bridge, Standing Posture Check.
+- **Both → mobility first, then control.** You cannot control range you do not have.
+- **All four clean → pelvic mobility is not the problem.** Close the thread; read the hold asymmetry as capacity or tolerance.
+
+**Cross-reference, the reason it exists now:** if the 90/90 Lift-Off is asymmetric on the **same side** as the ISO Step-Down Hold gap, the rotation restriction is upstream and the hold asymmetry is a symptom — fix rotation first. If the Lift-Off is symmetric and the hold is not, the finding is downstream and the ratchet plus an extra set on the weaker side is the answer.
+
+**Note on v13.43:** glute med tested *symmetric* on isolated abduction, side-lying endurance and 30s single-leg stance, which is what retired the daily right-biased work. If test 4 now reads asymmetric again, that is new information and the thread reopens.
+
+**Safety:** a sharp pinch at the front of the hip or in the groin at end range is impingement or an adductor origin — back off the angle, do not push through.
+
+---
+
+## Verification
+
+```
+PASS  node --check on the extracted script — JS syntax OK
+PASS  getElementById referential integrity
+PASS  div 1032/1032 · strong 626/626 · em 122/122 · span 271/271 · p 28/28 · css 545/545
+PASS  all six blocks render — W 12 · S 32 · R 18 · N 8 · D 20 · C 8
+PASS  S still 16 steps — the Reactive Ladder is a reference card, not a session item
+PASS  Day R now lists Pelvic Screen (run once) before the Walk
+PASS  toggleStep('sR_pelvic') opens all 6 entries: overview · 4 tests · decision rule
+PASS  exDescLookup match on "Pelvic Screen — 4 tests, one-off" — Full description toggle resolves
+PASS  Reactive Ladder card present in the Strength exercise list
+PASS  the retired v12.0 box/drop phasing appears nowhere in the app
+PASS  no page JS errors · page title reads kneehab v14.6
+```
+
+## Still open
+
+- **The ISO Step-Down Hold ratchet zero.** Still the blocking BUILD ITEM, and now also gate #1 on the ladder. Side-on photo, measure, record.
+- **The asymmetry protocol** for the hold — weaker side first, angle set by the weaker side, extra set weaker side, limb-symmetry-index check by hold-to-failure every 2–3 weeks (≥0.90). Deferred again for the same reason: formalise it after the zero angle exists, not before.
