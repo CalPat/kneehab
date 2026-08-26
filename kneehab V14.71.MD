@@ -896,3 +896,45 @@ PASS  no page JS errors · page title reads kneehab v14.7
 - **The ISO Step-Down Hold ratchet zero.** Blocking BUILD ITEM since v14.4, and gate #1 on the Reactive Ladder. One side-on photo.
 - **Which leg carries the Bird Dog sensation** — support or lifting. The whole analysis assumes the **support** leg, matching the program's own compensation note. If it is the lifting leg's groin at end-range hip extension, that is adductor magnus working as a hip extensor into its shortened range, and the reading needs revisiting.
 - **The Reactive Ladder stays shut.** Bilateral adductor-dominant stabilisation is the mechanism that produces valgus under load. Gate #2 is not close.
+
+---
+
+# v14.71 — the item count was stale
+
+**Date:** 2026-08-26
+**Type:** Minor (v14.7 → v14.71)
+
+Prompted by a question — *"I thought swing was removed?"* — which it is, but checking turned up a real inconsistency.
+
+## The swing check, for the record
+
+Eight occurrences of "swing" remain in the app. **None is an exercise:**
+
+| Hits | What |
+|---|---|
+| 3 | v14.5 removal notes — the changelog recording that it's gone |
+| 2 | *"swinging or kipping"* — a compensation to **avoid** on the hanging knee raise |
+| 3 | *"let the shin swing out / in"* — the movement cue in pelvic screen test 1 |
+
+No KB Swing, no Plyo Primer slot. The likely source of confusion is the **Renegade Row** added in v14.7 — it uses two kettlebells, but it is a plank row: no hinge, no ballistic element, opposite risk profile.
+
+## The actual bug
+
+**The Rules page still read "Single Strength template — all 16 items mandatory" after v14.7 took Strength to 17.**
+
+v14.7 updated the count in two of the three places it appears — `stepLabel` and `briefing.ok` — and missed the rules row. Three hand-maintained copies of one number, and a change touched two.
+
+## Fixed, and the class of bug closed
+
+The row is corrected, and the version history clause now reads honestly: v14.5 took 17 → 16, v14.7 brought it back to 17 as **a different 17**.
+
+**More useful than the fix:** a count-consistency check now runs with the other build assertions. It derives the real step count per block from the `BLOCKS` data and asserts every stated count in the HTML matches it, rather than trusting three copies to be maintained by hand — the same reasoning as the v14.31 `getElementById` referential-integrity check. A number stated in three places is not three facts; it is one fact and two opportunities to be wrong.
+
+```
+real step counts: {R: 9, N: 4, D: 10, W: 7, S: 17, C: 4}
+stated Strength counts: ['17', '17', '17']
+PASS  every stated count matches the real step count
+PASS  W pills say 6 · real W steps minus RKC (S-days-only) = 6
+PASS  node --check · getElementById integrity · div 1041/1041 · strong 704/704 · css 552/552
+PASS  six blocks render · no page JS errors · title reads kneehab v14.71
+```
