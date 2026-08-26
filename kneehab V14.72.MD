@@ -938,3 +938,79 @@ PASS  W pills say 6 · real W steps minus RKC (S-days-only) = 6
 PASS  node --check · getElementById integrity · div 1041/1041 · strong 704/704 · css 552/552
 PASS  six blocks render · no page JS errors · title reads kneehab v14.71
 ```
+
+---
+
+# v14.72 — the lateral compartment
+
+**Date:** 2026-08-26
+**Type:** Minor (v14.71 → v14.72)
+**One line:** Tib Raise covered the anterior lower leg and Soleus covered the posterior; nothing covered the lateral. Banded Ankle Eversion + Outer-Shin Release fills it — salvaged from an abandoned v13.4 branch, and deliberately stripped of that branch's premise.
+
+---
+
+## Where it came from
+
+Three `claude/*` branches were sitting unmerged on the remote. Reviewed and resolved:
+
+| Branch | Verdict |
+|---|---|
+| `pelvic-mobility-leg-differences` | Already merged — tip identical to `main`; its work shipped as v14.6. Deleted. |
+| `hinge-range-discussion` (v13.4, Deep Squat Hold in the Collagen Block) | **Rejected.** Main already argues against it by name: the hold was dropped in v13.03, "returned uncontrolled at roughly six times the dose," and v13.43 capped deep-squat *sitting* as the exposure re-attributed as the cause of the v13.41/42 lateral-knee episode. Its own gate — "do not start on a tight knee" — was never cleared. Archived as tag `archive/v13.4-hinge-deep-squat`. |
+| `knee-tightness-kneecap` (v13.4, ankle-driven lateral-knee block) | **Rejected as a whole, one part salvaged.** Archived as tag `archive/v13.4-ankle-peroneal`. |
+
+Both v13.4 branches were 21 commits behind and conflicted on `index.html` plus a rename/rename on the snapshot pair. Neither had a clean merge path into a v14 structure that reorganised `W`, `S` and `N` underneath them.
+
+## Why the ankle branch was rejected but its peroneal work kept
+
+The branch bundled three things and argued for all of them from one premise: an **asymmetric ankle-dorsiflexion restriction**. That premise did not survive. DF measured **5 in knee-to-wall**, was **ruled out as a limiter in v13.43**, and Kneeling Ankle Dorsiflexion — the slot the branch was retargeting — **was cut outright in v14.0**. The host slot no longer exists and the restriction it was dosing against was ruled out. So the knee-to-wall gate and the asymmetry-biased ankle dives are dead.
+
+The **peroneal / lateral-line element does not depend on that premise.** `peroneal`, `fibularis`, `eversion` and `lateral line` returned **zero hits across all of `index.html`** — the lateral compartment of the lower leg had no representation anywhere in the program. That gap is real on anatomy alone:
+
+- **Fibularis (peroneus) longus originates at the head of the fibula** — the outer knee — and runs down the outer shin and behind the lateral malleolus.
+- It therefore sits on one continuous **lateral line** with the IT band and vastus lateralis, the same chain that pulls the patella laterally.
+- The v13.41/42 episode was a **lateral**-knee episode.
+
+An argument that stands without the discredited premise is worth keeping. One that only stands on it is not.
+
+## What was added
+
+**`S` item 14 — Banded Ankle Eversion + Outer-Shin Release.** Placed between Soleus (12) and Tib Raise (13) and the rest of the block, completing the lower-leg cluster: **anterior** (Tib Raise), **posterior** (Soleus), **lateral** (this).
+
+**Release** — 30–45s each side, foam roller or ball on the muscle belly of the outer shin, working from a couple of inches *below* the fibular head down toward the ankle.
+> **Safety First — stay off the fibular head itself.** The common peroneal nerve wraps that bony point and is superficial there. Electric or shooting sensation into the foot means you are on the nerve: move, do not work through it. Dull muscular ache in the belly below is the target.
+
+**Eversion** — band anchored to the inside, looped around the forefoot; shin still, turn the sole outward, **3s** return, 2 × 12–15 each side.
+
+- **Primary muscles:** fibularis longus and brevis — lateral ankle stability against inversion; via the longus, plantarflexion of the first ray, which controls pronation.
+- **Compensations to avoid:** everting from the whole leg (if the knee swings out you are externally rotating the hip and the ankle is doing nothing — pin the knee forward); letting the band snap the foot back instead of resisting it; clawing with the toes.
+- **Regression:** lighter band or partial range; release only on a sore day.
+- **Progression:** slower eccentric → single-leg-balance eversion holds → standing against the band.
+
+## Why `S` and not the Opener
+
+It is **rep-based and it fatigues**, which is the muscle bucket by this program's own sorting test — the same test that pulled Tib Raise, Soleus and Copenhagen out of the Isometric Circuit in v14.4. Putting a fatiguing rep scheme in a 7-of-7 daily block is the category error v14.0 existed to remove.
+
+## The v14.71 count bug, actually closed
+
+v14.71 said the Strength item count "is now asserted in the build check rather than maintained by hand." **There was no build check in the repo** — it lived in a session scratchpad and did not survive. So the count went stale again immediately: adding item 18 left `briefing.ok` reading 17, a third hand-maintained copy that v14.71's own fix had missed.
+
+`check.js` is now **committed to the repo**. It runs against `index.html` with no dependencies (`node check.js`) and asserts, among other things, that every live statement of the Strength count equals `BLOCKS.S.steps.length`.
+
+```
+ok    static getElementById targets exist  :: 6 checked
+ok    id present: today / dayCard / exercises / menuSheet
+ok    #today is a page                    (the v14.21 regression, caught structurally)
+ok    div balance  :: 1044 / 1044
+ok    3 version strings agree  :: v14.72 / v14.72 / v14.72
+ok    every live Strength count matches BLOCKS.S  :: [18, 18, 18] vs real 18
+ok    W pill count matches (RKC is S-days-only)  :: 6 vs 6
+ok    S step numbering sequential  :: 1..18
+ok    renderBlock(R/N/D/W/S/C) · dayCard 13756 chars · no "undefined" leaked
+ok    every S step emits its step-<id> anchor  :: 18 checked
+ok    HTML tag balance inside BLOCKS strings
+
+PASSED 40/40
+```
+
+Also verified purely additive: the **id set and class set are byte-identical to v14.71** — nothing structural was touched.
