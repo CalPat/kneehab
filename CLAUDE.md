@@ -15,12 +15,18 @@
 
 
 ## Foundations
-**Keith Baar (UC Davis)** — connective tissue synthesis maximised by hydrolyzed collagen + 200mg vitamin C ~45–60 min before mechanical loading, outside any protein window. Nocturnal GH pulse is the second synthesis window.
+**Keith Baar (UC Davis)** — connective tissue synthesis maximised by hydrolyzed collagen + 200mg vitamin C ~45–60 min before mechanical loading, outside any protein window. Nocturnal GH pulse is the second synthesis window. **The seam:** "outside any protein window" is not an aside — tendon and muscle run on two different clocks. Baar owns the tendon window (low-leucine, mTOR quiet, timed to loading); van Loon owns the muscle window (leucine-rich, post-`S` and pre-sleep). They do not compete; they are the tissue-sorting principle applied to food.
 **Johan Bellemans (KU Leuven)** — cartilage nutrition driven by cyclic compressive loading. Cartilage is avascular; gentle cyclic movement (easy walking or biking) during the collagen synthesis window feeds it via fluid exchange. The rigid stationary-bike protocol (fixed seat height, hard 15-min stop) was dropped in v13.07 — too onerous, never followed; casual movement after collagen delivers the stimulus.
 **Ben Patrick / ATG** — anterior chain loading, deep range of motion, tibialis work. Addresses upstream PFPS drivers.
 **Jules Mitchell** — yoga biomechanics. Poses are mechanical loading, not passive stretching. Sustained holds (30s+) drive viscoelastic creep and connective tissue adaptation. Directly complements Baar's collagen window — yoga positions during the synthesis peak are tissue-loading opportunities, not cooldown.
 **Iñigo San Millán (University of Colorado)** — mitochondrial function, fat oxidation, and Zone 2 training as the foundation for metabolic health and longevity. His lactate-threshold framework connects aerobic base building directly to disease prevention (insulin resistance, cardiovascular disease, cancer). Zone 2 work in the program aligns with his metabolic prescription.
 **Peter Attia** — reference for long-term health goals
+
+## Foundations — Nutrition
+**Luc van Loon (Maastricht)** — muscle protein synthesis: dose, distribution, and timing. ~0.4 g/kg per feeding spread across the day, and **30–40 g casein before bed** — the muscle-side counterpart to the nocturnal GH pulse Baar names as the second synthesis window. Owns the protein window that Baar's collagen protocol is defined *against*.
+**Stuart Phillips (McMaster)** — protein requirement and quality. ~1.6 g/kg/day as the ceiling of useful intake for a trained lifter; ~2.5–3 g leucine per feeding as the trigger threshold. Also the evidence filter on supplements — the source for when to STOP adding. van Loon = timing, Phillips = dose.
+**Louise Burke (AIS / ACU)** — periodised carbohydrate availability: *"fuel for the work required."* Carbs scale to the session, not to the day. Also the authority on **low energy availability / RED-S**, the one nutrition failure mode that directly attacks this program's goals — chronic underfuelling degrades bone density and blunts tendon adaptation, silently cancelling both the strain stimulus (rope, ruck, impact) and the collagen window. The guardrail source.
+**Asker Jeukendrup** — in-session fuelling mechanics. Multiple transportable carbohydrates (glucose:fructose ~1:0.8) allowing 90–120 g/hr, and gut training as a trainable adaptation. Applies to the sessions actually done: long MTB rides, backcountry ski days, loaded rucks. San Millán sets the intensity; Jeukendrup fuels its duration.
 
 ## Output Protocols
 - Every rehab plan must be saved as `kneehab V##.html`.
