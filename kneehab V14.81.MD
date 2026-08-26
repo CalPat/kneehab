@@ -1,4 +1,4 @@
-# kneehab v14.8 — no load, no dose
+# kneehab v14.81 — no load, no dose (+ protein target corrected)
 
 **Date:** 2026-08-26
 **Type:** medium (live prescription removed across 7 sites)
@@ -76,3 +76,66 @@ collagen dose is defined as sitting *outside* the protein window.
   — pre-v14, untouched here.
 - Nutrition beyond the four foundations is being brainstormed in session, not
   shipped to the app.
+
+---
+
+# v14.81 — two corrections, no new content
+
+**Type:** minor. Corrections to existing content only. Nutrition is being
+brainstormed in session and is deliberately NOT being built out in the app.
+
+## 1. Non-Negotiable 04 was factually wrong
+
+It read: *"Vegetarian diet removes all dietary collagen sources — supplementation
+is mandatory."*
+
+**That is not the diet being eaten.** The daily menu includes canned fish, and
+dinner rotates chicken thigh, lean beef and fish. The Protein Target card on the
+same app already listed *"meat, fish, eggs, dairy."*
+
+It was also never the real reason. **Muscle meat, fish fillet and dairy contain
+essentially no usable collagen either** — omnivores are in the same position.
+The actual argument is that supplementation is the only way to put glycine,
+proline and hydroxyproline into the blood *on a schedule*, and the schedule is
+the entire mechanism. Right conclusion, wrong reason; the reason is now correct.
+
+## 2. Protein target narrowed: 140–180 g → **150–175 g/day**
+
+Per ruling. Per-feeding guidance sharpened to **~37–44 g across four feedings**,
+which lands the range exactly, plus the leucine framing from the new Phillips
+foundation: **~2.5–3 g leucine per feeding**, which is ~35 g of animal protein
+but materially more from a mixed plant-and-dairy feeding. That gap is where the
+target actually fails — not at the daily total.
+
+Also recorded: **whole milk and whey can be dosed up freely; calories are not a
+constraint**, they are made up by snacks and dinner.
+
+## Session finding that drove it
+
+Costed the stated daily menu against the target. Lunch as described runs
+**~108 g protein**, and the failure is **distribution, not total**:
+
+| Feeding | Protein | Leucine | Clears trigger? |
+|---|---|---|---|
+| Yogurt bowl | ~29 g | ~2.1 g | **No** |
+| Salad + fish + sourdough | ~47 g | ~3.5 g | Yes |
+| Whey + 250 ml whole milk | ~32 g | ~3.3 g | Yes |
+| Typical dinner (thigh / ¼ lb) | ~25–35 g | ~3.5 g | Yes, but undersized |
+
+**The bowl is the only feeding under the leucine trigger**, and a ¼ lb patty is
+~23 g cooked — half a feeding, not a feeding.
+
+Two changes reach the target with **no extra whey at all**: plain yogurt →
+**200 g Greek** in the bowl (29 → ~43 g, leucine 2.1 → ~3.3 g) and milk
+**250 → 500 ml** in the shake (32 → ~40 g). With dinner sized to ~40–45 g that
+totals ~175 g across four feedings that each clear the trigger.
+
+The same two changes take **calcium from ~430 mg to ~930 mg** — which was the one
+genuinely short micronutrient, and the one with a direct line to the program's
+bone-strain thesis.
+
+**Micronutrients, after the omnivore correction:** zinc, iron and B12 resolve on
+the meat rotation; magnesium was already ~520 mg (pumpkin seeds and oats).
+**Only two items survive: vitamin D (~zero in the menu; test it) and which fish**
+— oily species carry EPA/DHA, white fish does not, and the ~4 g ALA from chia and
+hemp converts at under 10% to EPA and near zero to DHA.
