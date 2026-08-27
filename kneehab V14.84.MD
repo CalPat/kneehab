@@ -1,4 +1,4 @@
-# kneehab v14.83 — Split Squat: the rear leg corrected to ATG
+# kneehab v14.84 — Split Squat: the rear leg corrected to ATG
 
 **Date:** 2026-08-27
 **Scope:** one exercise (`sS_split`), both live surfaces. Supersedes v14.82, same session. No item count change (`S` stays 18), no structural change.
@@ -154,3 +154,38 @@ The pelvis is the shared attachment. Iliacus and rectus femoris run **pelvis-to-
 The tuck **anchors the pelvis** so rear-leg extension has to be absorbed by tissue length instead of pelvic rotation.
 
 > **Stance length without the tuck is wasted range.**
+
+---
+
+# v14.84 — front-foot elevation vs slant board: two different axes
+
+v14.83 blurred these into one "front-foot elevation is parked" note. They are different tools doing different jobs.
+
+| Tool | What it is | What it changes |
+|---|---|---|
+| **Slant board** | A **wedge** — heel raised relative to forefoot | Cuts required ankle DF → knee travels further forward → **more anterior knee load AT THE SAME DEPTH**. Changes *where* load goes |
+| **Flat front-foot elevation** | The ATG **deficit** — foot level, whole foot on a plate | Moves the floor down → **more DEPTH**, more front-knee flexion, more rectus femoris stretch via the knee end. Changes *how far you go* |
+
+## The deficit is not a separate tool — it is the depth ratchet continued past zero
+
+**Proof:** elevate the front foot by height H, raise the rear block by the same H → **nothing changes**; the whole movement is translated upward. The block and the deficit are **the same axis pointing opposite directions.**
+
+So it is one dial, not two:
+
+> **Lower the block one notch per clean cycle. When the block reaches the floor and more depth is wanted, the front foot comes up.**
+
+Per side, same ratchet, same gate. Reaching for a deficit before that is a second, uncalibrated way to move the one variable this knee is gated on.
+
+## The slant board is DECLINED here — not parked
+
+Three reasons, none of them "it is unsafe":
+
+1. **Its rationale is dead.** The old orphaned card justified it as compensation for a dorsiflexion limitation — a premise **v13.43 killed by measurement** (5in knee-to-wall; DF ruled out as a limiter, which is why Kneeling Ankle DF was cut in v14.0).
+2. **Its effect is already calibrated twice.** More anterior knee load is delivered by the depth block and the load ladder. The wedge is a third, *uncalibrated* route to the same variable.
+3. **Step Down is already on a slant board** — one slot up the list. The tool is deployed, on the exercise built for it. A second one under the exercise whose unique job is the **rear** leg doubles a correctly-placed tool and dilutes this slot.
+
+**If more rectus femoris stretch is wanted, the free dial is STANCE LENGTH** — already step 1 of the v14.83 progression order, and it costs nothing.
+
+## Verification
+
+`node check.js` → **PASSED 40/40** on `index.html` and on the snapshot.
