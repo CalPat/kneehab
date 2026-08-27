@@ -93,6 +93,19 @@ if (api && api.BLOCKS) {
   const wReal = B.W.steps.filter(st => !/ only\b/i.test(st.title)).length;
   ok('W pill count matches (RKC is S-days-only)', wStated === wReal, wStated + ' vs ' + wReal);
 
+  // v14.91 — the Opener count is stated in PROSE on the Key Rules page too; it drifted
+  // to "Five" and lost the Bird Dog when v14.7 made it six. Same bug class as v14.71.
+  const words = {One:1,Two:2,Three:3,Four:4,Five:5,Six:6,Seven:7,Eight:8,Nine:9,Ten:10};
+  const proseM = html.match(/(One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten) items, equipment-light, 7 of 7 days/);
+  ok('Key Rules Opener prose count matches BLOCKS.W',
+     !!proseM && words[proseM[1]] === wReal,
+     (proseM ? proseM[1] + ' (' + words[proseM[1]] + ')' : 'PROSE NOT FOUND') + ' vs ' + wReal);
+
+  // v14.91 — the dead A/B program vocabulary must not reappear in a LIVE rule TITLE.
+  // Rows may narrate it historically in rule-d; they may not prescribe it in rule-t.
+  const abRules = [...html.matchAll(/<div class="rule-t">([^<]*Day [AB][^A-Za-z][^<]*)</g)].map(m => m[1]);
+  ok('no live rule TITLE prescribes Day A/B', abRules.length === 0, abRules.join(' | ') || 'clean');
+
   const nums = S.steps.map(s => s.time).filter(t => /^\d+$/.test(t)).map(Number);
   ok('S step numbering sequential',
      nums.length === S.steps.length && nums.every((v, i) => v === i + 1), nums.join(','));
